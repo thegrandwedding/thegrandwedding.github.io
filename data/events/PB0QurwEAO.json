@@ -1,0 +1,12 @@
+{
+  "id": "sangeet",
+  "order": 2,
+  "title": "Sangeet",
+  "kicker": "An Evening of Music & Dance",
+  "lede": "Both families come together for an evening of song, dance and revelry on the eve of the wedding festivities.",
+  "date": "Monday, 25 January 2027",
+  "time": "To be announced",
+  "venue": "To be announced",
+  "countdownAt": "2027-01-25T00:00:00+05:30",
+  "countdownLabel": "Until the Sangeet"
+}

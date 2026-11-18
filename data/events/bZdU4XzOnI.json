@@ -1,0 +1,47 @@
+{
+  "id": "reception",
+  "order": 6,
+  "title": "Reception",
+  "kicker": "Wedding Reception",
+  "layout": "card",
+  "date": "Friday, 29 January 2027",
+  "time": "6:30 PM",
+  "venue": "The Meadows, P. C. Chandra Garden",
+  "countdownAt": "2027-01-29T18:30:00+05:30",
+  "countdownLabel": "Until the Reception",
+  "card": {
+    "invocation": "|| Om Sri Sri Prajapataye Namah ||",
+    "hosts": "Smt. Smita Haldar & Late Santanu Haldar",
+    "request": "request your gracious presence and blessings at the",
+    "heading": "Wedding Reception",
+    "names": [
+      "Siddhant",
+      "Seersha"
+    ],
+    "weekday": "Friday",
+    "day": "29",
+    "monthYear": "January 2027",
+    "time": "6:30 PM",
+    "venue": "The Meadows",
+    "venueSub": "P. C. Chandra Garden",
+    "address": [
+      "144, Arupota, E. M. Bypass (Opposite Science City)",
+      "Kolkata – 700105"
+    ],
+    "mapUrl": "https://www.google.com/maps/search/?api=1&query=The+Meadows+P.C.+Chandra+Garden+Kolkata",
+    "pdf": "assets/cards/reception-KAJ1AOIr3Y.pdf",
+    "rsvp": [
+      {
+        "name": "Siddhant Haldar",
+        "phone": "+1 332 209 7180",
+        "href": "https://wa.me/13322097180",
+        "note": "WhatsApp"
+      },
+      {
+        "name": "Smita Haldar",
+        "phone": "+91 84200 61166",
+        "href": "tel:+918420061166"
+      }
+    ]
+  }
+}

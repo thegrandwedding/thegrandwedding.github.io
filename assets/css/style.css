@@ -404,3 +404,21 @@ main { max-width: var(--maxw); margin: 0 auto; padding: 64px 16px 40px; }
   .panel { animation: none; }
   html { scroll-behavior: auto; }
 }
+
+/* ---------- Invitation states ---------- */
+.loading {
+  text-align: center;
+  font-style: italic;
+  color: var(--ink-soft);
+  padding: 40px 0;
+}
+.landing-note { font-style: italic; color: var(--ink-soft); margin: 0; }
+.greeting {
+  font-family: var(--caps);
+  font-size: 14px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--gold-dim);
+  margin: 12px 0 0;
+}
+[hidden] { display: none !important; }
