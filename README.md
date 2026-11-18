@@ -4,9 +4,9 @@ Wedding website for **Seersha Saha** and **Siddhant Haldar** — Kolkata, Januar
 
 | Celebration | Date |
 |---|---|
-| Mehendi | Sun, 24 Jan 2027 |
+| Mehendi | Sun, 24 Jan 2027 · 6:30 PM onwards |
 | Varmala | Mon, 25 Jan 2027 · Morning |
-| Sangeet | Mon, 25 Jan 2027 |
+| Sangeet | Mon, 25 Jan 2027 · 6:30 PM onwards |
 | Haldi | Wed, 27 Jan 2027 · Morning |
 | Wedding | Wed, 27 Jan 2027 · 6:30 PM onwards |
 | Reception | Fri, 29 Jan 2027 · 6:30 PM · The Meadows, P. C. Chandra Garden |
@@ -107,7 +107,7 @@ Cloudflare Worker in front of the site can check a code before serving each file
 
 - [ ] Move hosting to Cloudflare Pages with a private repo (see above), and rotate the test invite codes.
 - [ ] Add venues for **Mehendi**, **Varmala**, **Sangeet**, **Haldi** and the **Wedding**.
-- [ ] Add times for **Mehendi** and the **Sangeet**, and exact times for the morning events (**Varmala**, **Haldi**) — their countdowns currently start at midnight.
+- [ ] Add exact times for the morning events (**Varmala**, **Haldi**) — their countdowns currently start at midnight.
 - [ ] Per-household invites with a personal greeting ("Dear Sharma family") — the script already supports `--greeting`.
 - [ ] RSVP form (per invite, so we know who is coming to which event).
 - [ ] Custom domain.
