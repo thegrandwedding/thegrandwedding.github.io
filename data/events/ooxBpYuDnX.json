@@ -1,12 +1,12 @@
 {
   "id": "varmala",
-  "order": 4,
+  "order": 2,
   "title": "Varmala",
   "kicker": "The Exchange of Garlands",
   "lede": "The bride and groom exchange garlands of flowers, each accepting the other before family, friends and the gods.",
-  "date": "To be announced",
-  "time": "To be announced",
+  "date": "Monday, 25 January 2027",
+  "time": "Morning",
   "venue": "To be announced",
-  "countdownAt": null,
+  "countdownAt": "2027-01-25T00:00:00+05:30",
   "countdownLabel": "Until the Varmala"
 }

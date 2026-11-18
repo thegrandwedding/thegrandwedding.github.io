@@ -4,11 +4,11 @@ Wedding website for **Seersha Saha** and **Siddhant Haldar** — Kolkata, Januar
 
 | Celebration | Date |
 |---|---|
-| Mehendi | TBA |
+| Mehendi | Sun, 24 Jan 2027 |
+| Varmala | Mon, 25 Jan 2027 · Morning |
 | Sangeet | Mon, 25 Jan 2027 |
-| Haldi | TBA |
-| Varmala | TBA |
-| Wedding | Wed, 27 Jan 2027 |
+| Haldi | Wed, 27 Jan 2027 · Morning |
+| Wedding | Wed, 27 Jan 2027 · 6:30 PM onwards |
 | Reception | Fri, 29 Jan 2027 · 6:30 PM · The Meadows, P. C. Chandra Garden |
 
 ## How invitations work
@@ -32,7 +32,7 @@ uninvited events, family addresses and phone numbers never reach anyone without 
 
 | Group | Events | Link |
 |---|---|---|
-| All events | Mehendi, Sangeet, Haldi, Varmala, Wedding, Reception | https://thegrandwedding.github.io/?invite=nyjfC74C |
+| All events | Mehendi, Varmala, Sangeet, Haldi, Wedding, Reception | https://thegrandwedding.github.io/?invite=nyjfC74C |
 | Sangeet onwards | Sangeet, Wedding, Reception | https://thegrandwedding.github.io/?invite=QjW4MvHW |
 | Wedding & Reception | Wedding, Reception | https://thegrandwedding.github.io/?invite=TiPpV4tp |
 | Reception only | Reception | https://thegrandwedding.github.io/?invite=IzKg8MW7 |
@@ -106,9 +106,8 @@ Cloudflare Worker in front of the site can check a code before serving each file
 ## To-do
 
 - [ ] Move hosting to Cloudflare Pages with a private repo (see above), and rotate the test invite codes.
-- [ ] Fill in date, time and venue for **Mehendi**, **Haldi** and **Varmala**.
-- [ ] Add time and venue for the **Sangeet** and the **Wedding**.
-- [ ] Set the wedding countdown to the real ceremony time (currently midnight, 27 Jan).
+- [ ] Add venues for **Mehendi**, **Varmala**, **Sangeet**, **Haldi** and the **Wedding**.
+- [ ] Add times for **Mehendi** and the **Sangeet**, and exact times for the morning events (**Varmala**, **Haldi**) — their countdowns currently start at midnight.
 - [ ] Per-household invites with a personal greeting ("Dear Sharma family") — the script already supports `--greeting`.
 - [ ] RSVP form (per invite, so we know who is coming to which event).
 - [ ] Custom domain.
