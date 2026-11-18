@@ -12,7 +12,6 @@
      No code, or an unknown code -> the landing page.
      ========================================================= */
 
-  var STORAGE_KEY = "grandwedding.invite";
   var CODE_RE = /^[A-Za-z0-9]{4,32}$/;
 
   var bar = document.querySelector(".countdown-bar");
@@ -28,10 +27,6 @@
       return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c];
     });
   }
-  function storeGet() { try { return localStorage.getItem(STORAGE_KEY); } catch (e) { return null; } }
-  function storeSet(v) { try { localStorage.setItem(STORAGE_KEY, v); } catch (e) {} }
-  function storeDel() { try { localStorage.removeItem(STORAGE_KEY); } catch (e) {} }
-
   function getJSON(path) {
     return fetch(path, { cache: "no-cache" }).then(function (r) {
       if (!r.ok) throw new Error(path + " -> " + r.status);
@@ -42,19 +37,12 @@
   var ORNAMENT_SMALL =
     '<div class="ornament small" aria-hidden="true"><span class="line"></span><span class="diamond"></span><span class="line"></span></div>';
 
-  /* ---------- work out which invitation code to use ---------- */
+  /* ---------- work out which invitation code to use ----------
+     Only the code in the address counts. Nothing is remembered on the device,
+     so the plain address always shows the landing page. */
   function resolveCode() {
-    var params = new URLSearchParams(location.search);
-    var fromUrl = params.get("invite");
-    if (fromUrl && CODE_RE.test(fromUrl)) return fromUrl;
-    var stored = storeGet();
-    if (stored && CODE_RE.test(stored)) {
-      // Put the code back in the address bar so links copied from here still work.
-      params.set("invite", stored);
-      history.replaceState(null, "", location.pathname + "?" + params.toString() + location.hash);
-      return stored;
-    }
-    return null;
+    var code = new URLSearchParams(location.search).get("invite");
+    return code && CODE_RE.test(code) ? code : null;
   }
 
   /* ---------- rendering ---------- */
@@ -224,12 +212,14 @@
   }
 
   /* ---------- boot ---------- */
+  // Clear the code older versions of the site saved on guests' devices.
+  try { localStorage.removeItem("grandwedding.invite"); } catch (e) {}
+
   var code = resolveCode();
   if (!code) { showLanding(); return; }
 
   getJSON("data/invites/" + code + ".json")
     .then(function (invite) {
-      storeSet(code);
       return Promise.all([
         invite.families ? getJSON(invite.families).catch(function () { return null; }) : null,
         Promise.all(invite.events.map(getJSON))
@@ -237,7 +227,6 @@
     })
     .catch(function (err) {
       if (window.console) console.warn("Invitation not found:", err);
-      storeDel();
       showLanding();
     });
 })();

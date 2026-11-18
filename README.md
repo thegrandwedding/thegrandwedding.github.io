@@ -18,7 +18,7 @@ for example `https://thegrandwedding.github.io/?invite=TiPpV4tp`. The code decid
 which celebrations that guest sees.
 
 - **With a valid code:** the guest sees a Welcome tab plus only their events (tabs,
-  the event list and the countdown all adapt). The code is remembered on their device.
+  the event list and the countdown all adapt).
 - **With no code or an unknown code:** a landing page with just the couple's names,
   "January 2027 · Kolkata" and a note to use the link from the invitation.
 
