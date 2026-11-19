@@ -409,7 +409,8 @@
     }).join("<br>");
     var actions = "";
     if (c.mapUrl) actions += '<a class="btn" href="' + esc(c.mapUrl) + '" target="_blank" rel="noopener">View on Map</a>';
-    if (c.pdf) actions += '<a class="btn ghost" href="' + esc(c.pdf) + '" target="_blank" rel="noopener">Download Card</a>';
+    if (c.pdf) actions += '<a class="btn ghost" href="' + esc(c.pdf) + '" download="' + esc(c.downloadName || "") +
+      '" target="_blank" rel="noopener">Download Card</a>';
 
     return '<section class="panel" data-panel="' + esc(e.id) + '" role="tabpanel" hidden>' +
       '<article class="card' + (theme ? " theme-" + theme : "") + '">' +
