@@ -637,3 +637,88 @@ main { max-width: var(--maxw); margin: 0 auto; padding: 64px 16px 40px; }
   .theme-haldi .petal { display: none; }
   .theme-sangeet .sparkle { opacity: 0.7; }
 }
+
+/* ---------- Varmala: emerald jharokha, blush peonies, lotus pond ---------- */
+.card.theme-varmala {
+  --v-gold: linear-gradient(100deg, #b8862b 0%, #f7e3a1 22%, #c9973a 40%, #fff3c4 55%, #d4a84a 72%, #f9e7ae 88%, #b8862b 100%);
+  --v-blush: #f6c6d3;
+  background:
+    radial-gradient(ellipse 60% 45% at 50% 48%, rgba(31,110,84,.55), transparent 75%),
+    linear-gradient(180deg, #0d3d2f 0%, #0f4a39 45%, #0b3528 100%);
+  color: #fbf3e4;
+  border: 2px solid #c9a24f;
+  outline: 1px solid rgba(247,227,161,.5);
+  outline-offset: -8px;
+  padding: calc(24% + 14px) 15% calc(14% + 20px);
+  container-type: inline-size;
+  box-shadow: 0 0 0 1px #082a20, 0 30px 70px -24px rgba(8,42,32,.9);
+}
+.theme-varmala .vm-side {
+  position: absolute; top: 0; bottom: 0; width: 6.67%;
+  background:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18'%3E%3Cpath d='M9 0L18 9L9 18L0 9z' fill='none' stroke='rgba(214,182,110,.22)' stroke-width='.7'/%3E%3Ccircle cx='9' cy='9' r='1.1' fill='rgba(232,205,140,.45)'/%3E%3C/svg%3E") 0 0 / 3cqw 3cqw,
+    #082a20;
+}
+.theme-varmala .vm-side.left  { left: 0;  border-right: 2px solid #d4a84a; }
+.theme-varmala .vm-side.right { right: 0; border-left: 2px solid #d4a84a; background-position: 100% 0; }
+.theme-varmala .vm-glow {
+  position: absolute; left: 15%; right: 15%; top: 30%; height: 40%;
+  background: radial-gradient(ellipse, rgba(247,227,161,.12), transparent 70%);
+}
+.theme-varmala .card-body { text-shadow: 0 1px 8px rgba(5,30,22,.85); }
+.theme-varmala .card-request { color: var(--v-blush); font-size: 20px; }
+.theme-varmala .card-title { color: #fbf3e4; font-size: clamp(24px, 5.4vw, 36px); letter-spacing: 0.3em; }
+.theme-varmala .card-title .flourish { color: #e98aa8; }
+.theme-varmala .card-name,
+.theme-varmala .card-date .day,
+.theme-varmala .card-venue {
+  background: var(--v-gold); background-size: 220% 100%;
+  -webkit-background-clip: text; background-clip: text;
+  color: transparent; text-shadow: none;
+  filter: drop-shadow(0 2px 1px rgba(0,0,0,.45));
+  animation: foil 7s ease-in-out infinite;
+}
+.theme-varmala .card-name {
+  display: block; width: max-content; max-width: 100%; margin: 0 auto;
+  padding: .12em .45em .2em; line-height: 1.25;
+  font-size: clamp(44px, 13cqw, 84px);
+}
+.theme-varmala .card-amp { color: #e98aa8; }
+.theme-varmala .card-tagline { color: #fbe7ec; font-size: 20px; }
+.theme-varmala .card-label { color: #e8c766; }
+.theme-varmala .card-label::before, .theme-varmala .card-label::after { background: #c9a24f; }
+.theme-varmala .card-date .side { color: #fbf3e4; border-color: #c9a24f; }
+.theme-varmala .card-date .day small { color: #fbf3e4; -webkit-text-fill-color: #fbf3e4; white-space: nowrap; }
+.theme-varmala .card-rsvp { color: #fbf3e4; }
+.theme-varmala .card-rsvp a { color: #f7e3a1; border-bottom-color: #e98aa8; }
+.theme-varmala .btn { background: linear-gradient(100deg, #c9973a, #f3d98f, #c9973a); border-color: #e8c766; color: #082a20; text-shadow: none; }
+.theme-varmala .btn:hover { filter: brightness(1.08); }
+.theme-varmala .btn.ghost { background: transparent; color: #f7e3a1; }
+.theme-varmala .card-scene { width: 58%; max-width: 270px; margin: 8px auto -4px; }
+.theme-varmala .card-scene svg { filter: drop-shadow(0 6px 12px rgba(0,0,0,.35)); }
+.theme-varmala .petal {
+  position: absolute; top: -20px;
+  width: 13px; height: 11px;
+  background: var(--c, #f9c5d4);
+  border-radius: 60% 60% 60% 10%;
+  box-shadow: inset -2px -2px 0 rgba(200,88,127,.25);
+  transform: scale(var(--s, 1));
+  animation: petal-fall 13s linear infinite;
+}
+@container (max-width: 520px) {
+  .card.theme-varmala { padding: calc(31% + 10px) 11% calc(15% + 16px); }
+  .theme-varmala .card-title { font-size: 8cqw; letter-spacing: 0.22em; }
+  .theme-varmala .card-title .flourish { display: none; }
+  .theme-varmala .card-request, .theme-varmala .card-tagline { font-size: 16px; }
+  .theme-varmala .card-date { gap: 6px; }
+  .theme-varmala .card-date .side { font-size: 10.5px; letter-spacing: 0.1em; padding: 8px 0; }
+  .theme-varmala .card-date .day { font-size: 40px; }
+  .theme-varmala .card-date .day small { font-size: 10px; letter-spacing: 0.15em; }
+  .theme-varmala .card-venue { font-size: 21px; }
+  .theme-varmala .card-rsvp { font-size: 15px; }
+  .theme-varmala .card-scene { width: 74%; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .theme-varmala .petal { display: none; }
+  .theme-varmala .card-name, .theme-varmala .card-date .day, .theme-varmala .card-venue { animation: none; }
+}

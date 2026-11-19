@@ -113,5 +113,5 @@ Cloudflare Worker in front of the site can check a code before serving each file
 - [ ] Custom domain.
 - [ ] Link preview image (Open Graph) so the link shows a picture on WhatsApp.
 - [ ] Bengali version of the site.
-- [ ] Re-make the Sangeet card image (`assets/cards/sangeet-*.jpg`) once its venue is known — the downloadable Haldi/Sangeet images are snapshots of the on-page cards, so they need re-rendering whenever card details change.
-- [ ] Themed cards for the remaining events (Mehendi, Varmala, Wedding). Haldi and Sangeet use `"layout": "card"` with `"theme"` — see `DECOR` in `assets/js/main.js`.
+- [ ] Re-make the Sangeet and Varmala card images (`assets/cards/sangeet-*.jpg`, `varmala-*.jpg`) once their venue and time are known — the downloadable Haldi/Sangeet images are snapshots of the on-page cards, so they need re-rendering whenever card details change.
+- [ ] Themed cards for the remaining events (Mehendi, Wedding). Haldi, Sangeet and Varmala use `"layout": "card"` with `"theme"` — see `DECOR` in `assets/js/main.js`.
