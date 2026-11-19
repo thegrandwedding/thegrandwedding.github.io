@@ -660,9 +660,198 @@
       "</svg>";
   }
 
-  var SCENES = { haldi: sceneHaldi, sangeet: sceneSangeet, varmala: sceneVarmala };
+  // A hanging mirror-work parasol (chhatri), canopy facing down.
+  function parasol(x, y, R, col, trim) {
+    var s = '<line x1="' + f1(x) + '" y1="0" x2="' + f1(x) + '" y2="' + f1(y - R * .9) + '" stroke="#7a4a1e" stroke-width=".7"/>' +
+      '<circle cx="' + f1(x) + '" cy="' + f1(y - R * .92) + '" r="' + f1(R * .1) + '" fill="#e0a92e"/>', k, n = 7, px, w = 2 * R / n;
+    var dome = "M" + f1(x - R) + " " + f1(y) + " Q" + f1(x) + " " + f1(y - R * 1.7) + " " + f1(x + R) + " " + f1(y);
+    for (k = 0; k < n; k++) {
+      px = x + R - k * w;
+      dome += " A" + f1(w / 2) + " " + f1(w / 2) + " 0 0 1 " + f1(px - w) + " " + f1(y);
+    }
+    s += '<path d="' + dome + 'z" fill="' + col + '" stroke="' + trim + '" stroke-width="1.2"/>';
+    for (k = 1; k < n; k++) {
+      px = x - R + k * w;
+      s += '<path d="M' + f1(x) + " " + f1(y - R * .85) + " L" + f1(px) + " " + f1(y) + '" stroke="' + trim + '" stroke-width=".6" opacity=".8"/>';
+    }
+    for (k = 0; k < n; k++) {
+      px = x - R + (k + .5) * w;
+      s += '<circle cx="' + f1(px) + '" cy="' + f1(y - R * .28) + '" r="' + f1(R * .07) + '" fill="#fffdf4" stroke="' + trim + '" stroke-width=".5"/>' +
+        '<path d="M' + f1(px) + " " + f1(y + w / 2) + " v" + f1(R * .22) + '" stroke="' + trim + '" stroke-width="1.1"/>' +
+        '<circle cx="' + f1(px) + '" cy="' + f1(y + w / 2 + R * .26) + '" r="' + f1(R * .06) + '" fill="#e0a92e"/>';
+    }
+    return s;
+  }
 
-  var DECOR = { haldi: decoHaldi, sangeet: decoSangeet, varmala: decoVarmala };
+  // Mehendi: a garden mela — triangle bunting, hanging mirror-work parasols,
+  // marigold strands, henna linework in the corners and a row of diyas.
+  function decoMehendi() {
+    var r = rng(41), i, j, x, y, len, svg;
+    var cloths = [["#d6246e", "#f7c948"], ["#f08a24", "#d6246e"], ["#1f8a8a", "#f7c948"], ["#f2b300", "#c2185b"], ["#7b2d8e", "#f7c948"]];
+    function pk() { return cloths[Math.floor(r() * cloths.length)]; }
+
+    svg = '<svg class="deco-top" viewBox="0 0 600 470" aria-hidden="true">';
+    // marigold and rose strands down the sides
+    for (i = 0; i < 12; i++) {
+      x = i < 6 ? 8 + i * 17 : 600 - 8 - (i - 6) * 17;
+      len = 220 + r() * 230 - (i % 6) * 22;
+      svg += '<line x1="' + f1(x) + '" y1="20" x2="' + f1(x) + '" y2="' + f1(len) + '" stroke="#a16207" stroke-width=".6" opacity=".6"/>';
+      for (y = 40, j = 0; y < len; y += 12, j++) {
+        if (j % 4 === 3) svg += '<circle cx="' + f1(x) + '" cy="' + f1(y) + '" r="4.2" fill="#e0457b" stroke="#f7a1c0" stroke-width="2" stroke-dasharray="1.4 1"/>';
+        else svg += marigold(x, y, 5.6 + r() * 1.6, j % 2 ? "#f59e0b" : "#f97316", j % 2 ? "#fde047" : "#fb923c");
+      }
+      svg += '<path d="M' + f1(x) + " " + f1(len + 4) + ' q -5 9 0 15 q 5 -7 0 -15z" fill="#4d7c0f"/>';
+    }
+    // parasols: big at the sides, small and high over the text
+    [[92, 112, 30], [56, 250, 24], [166, 84, 22], [234, 60, 16], [300, 54, 15], [366, 60, 16], [434, 84, 22], [544, 250, 24], [508, 112, 30]].forEach(function (p, n) {
+      var c = cloths[n % cloths.length];
+      svg += parasol(p[0], p[1], p[2], c[0], c[1]);
+    });
+    // two swags of triangle bunting
+    [[0, 30, 600, 30, 70], [0, 6, 600, 6, 40]].forEach(function (b, row) {
+      var steps = row ? 34 : 26, u, v, bx, by, nx, ny;
+      svg += '<path d="M' + b[0] + " " + b[1] + " Q300 " + (b[1] + b[4] * 2) + " " + b[2] + " " + b[3] + '" fill="none" stroke="#7a4a1e" stroke-width=".8"/>';
+      for (j = 0; j < steps; j++) {
+        u = j / steps; v = 1 - u;
+        bx = v * v * b[0] + 2 * v * u * 300 + u * u * b[2]; by = v * v * b[1] + 2 * v * u * (b[1] + b[4] * 2) + u * u * b[3];
+        u = (j + 1) / steps; v = 1 - u;
+        nx = v * v * b[0] + 2 * v * u * 300 + u * u * b[2]; ny = v * v * b[1] + 2 * v * u * (b[1] + b[4] * 2) + u * u * b[3];
+        var c2 = cloths[(j + row * 2) % cloths.length], mx = (bx + nx) / 2, my = (by + ny) / 2 + (row ? 15 : 22);
+        svg += '<path d="M' + f1(bx) + " " + f1(by) + " L" + f1(nx) + " " + f1(ny) + " L" + f1(mx) + " " + f1(my) + 'z" fill="' + c2[0] + '" stroke="' + c2[1] + '" stroke-width=".8"/>' +
+          '<circle cx="' + f1(mx) + '" cy="' + f1((by + ny) / 2 + (row ? 5 : 7)) + '" r="' + (row ? 1.6 : 2.2) + '" fill="#fffdf4"/>';
+      }
+    });
+    svg += "</svg>";
+
+    // henna linework in the corners + diyas along the bottom
+    function hennaCorner(tx, ty, sx, sy) {
+      var g = '<g transform="translate(' + tx + " " + ty + ") scale(" + sx + " " + sy + ')" fill="none" stroke="#8a3b12" stroke-width="1.1" opacity=".75">', k;
+      for (k = 1; k <= 4; k++) g += '<path d="M0 ' + (k * 16) + " A" + (k * 16) + " " + (k * 16) + " 0 0 0 " + (k * 16) + ' 0"/>';
+      for (k = 0; k < 7; k++) {
+        var a = k * Math.PI / 12 + Math.PI / 24, cx = Math.cos(a) * 72, cy = Math.sin(a) * 72;
+        g += '<path d="M' + f1(Math.cos(a) * 64) + " " + f1(Math.sin(a) * 64) + " Q" + f1(Math.cos(a - .12) * 84) + " " + f1(Math.sin(a - .12) * 84) + " " +
+          f1(Math.cos(a) * 92) + " " + f1(Math.sin(a) * 92) + " Q" + f1(Math.cos(a + .12) * 84) + " " + f1(Math.sin(a + .12) * 84) + " " +
+          f1(Math.cos(a) * 64) + " " + f1(Math.sin(a) * 64) + '"/><circle cx="' + f1(cx * 1.38) + '" cy="' + f1(cy * 1.38) + '" r="1.6" fill="#8a3b12"/>';
+      }
+      for (k = 0; k < 12; k++) g += '<circle cx="' + f1(Math.cos(k * .13) * 40) + '" cy="' + f1(Math.sin(k * .13) * 40) + '" r=".9" fill="#8a3b12"/>';
+      return g + "</g>";
+    }
+    var bot = '<svg class="deco-bottom" viewBox="0 0 600 110" aria-hidden="true">' +
+      '<defs><radialGradient id="mh-flame"><stop offset="0" stop-color="#fff7c2"/><stop offset=".5" stop-color="#ffb627" stop-opacity=".8"/><stop offset="1" stop-color="#ff7a00" stop-opacity="0"/></radialGradient></defs>' +
+      hennaCorner(0, 110, 1, -1) + hennaCorner(600, 110, -1, -1);
+    // a henna vine along the bottom edge
+    bot += '<path d="M90 98 Q120 88 150 98 T210 98 T270 98 T330 98 T390 98 T450 98 T510 98" fill="none" stroke="#8a3b12" stroke-width="1" opacity=".7"/>';
+    for (x = 120; x <= 480; x += 60) {
+      bot += '<path d="M' + x + ' 93 q -6 -10 0 -16 q 6 6 0 16z" fill="none" stroke="#8a3b12" stroke-width=".9" opacity=".7"/>' +
+        '<circle cx="' + (x + 30) + '" cy="101" r="1.4" fill="#8a3b12" opacity=".7"/>';
+    }
+    [60, 104, 496, 540].forEach(function (dx, n) {
+      var c3 = cloths[n % cloths.length];
+      bot += '<ellipse class="flicker" cx="' + dx + '" cy="62" rx="14" ry="20" fill="url(#mh-flame)"/>' +
+        '<path d="M' + dx + ' 56 q -5 8 0 14 q 5 -6 0 -14z" fill="#ffcf3f"/>' +
+        '<path d="M' + (dx - 14) + " 72 q 14 14 28 0 z" + '" fill="#b45309" stroke="' + c3[0] + '" stroke-width="1.6"/>' +
+        '<circle cx="' + (dx - 5) + '" cy="76" r="1.2" fill="' + c3[1] + '"/><circle cx="' + (dx + 5) + '" cy="76" r="1.2" fill="' + c3[1] + '"/>';
+    });
+    bot += "</svg>";
+
+    var bits = '<span class="mh-mandala"></span>';
+    for (i = 0; i < 12; i++) {
+      bits += '<span class="bokeh" style="left:' + f1(r() * 100) + "%;top:" + f1(20 + r() * 75) + "%;--s:" +
+        (0.4 + r() * 0.8).toFixed(2) + ";--c:rgba(255,214,120,.45);animation-delay:-" + f1(r() * 7) + 's"></span>';
+    }
+    var pcols = ["#f97316", "#f59e0b", "#e0457b", "#f7c948", "#d6246e"];
+    for (i = 0; i < 34; i++) {
+      bits += '<span class="petal" style="left:' + f1(r() * 100) + "%;animation-delay:-" + f1(r() * 16) +
+        "s;animation-duration:" + f1(9 + r() * 9) + "s;--s:" + (0.5 + r() * 0.8).toFixed(2) + ";--c:" + pcols[i % 5] + '"></span>';
+    }
+    return '<div class="deco" aria-hidden="true">' + bits + svg + bot + "</div>";
+  }
+
+  // A raised palm with henna: fingers up, a mandala in the middle.
+  function hennaPalm(cx, cy, flip) {
+    var H = "#8a3b12", s = '<g transform="translate(' + cx + " " + cy + ")" + (flip ? " scale(-1 1)" : "") + '">';
+    s += '<rect x="-9" y="-28" width="4.6" height="17" rx="2.3" fill="' + SKIN + '"/>' +
+      '<rect x="-4" y="-31" width="4.6" height="20" rx="2.3" fill="' + SKIN + '"/>' +
+      '<rect x="1" y="-30" width="4.6" height="19" rx="2.3" fill="' + SKIN + '"/>' +
+      '<rect x="6" y="-25" width="4.4" height="15" rx="2.2" fill="' + SKIN + '"/>' +
+      '<path d="M-9 -4 q -9 -6 -10 -14 q 4 -2 7 3 l 4 6z" fill="' + SKIN + '"/>' +
+      '<path d="M-10 -14 Q-11 6 0 9 Q11 6 10 -14 Z" fill="' + SKIN + '"/>';
+    // henna: fingertip caps, finger lines, palm mandala, wrist band
+    [[-6.7, -26], [-1.7, -29], [3.3, -28], [8.2, -23]].forEach(function (f) {
+      s += '<rect x="' + (f[0] - 2.3) + '" y="' + f[1] + '" width="4.6" height="4" rx="2" fill="' + H + '"/>' +
+        '<path d="M' + (f[0] - 1.6) + " " + (f[1] + 7) + " h3.2 M" + (f[0] - 1.6) + " " + (f[1] + 10) + ' h3.2" stroke="' + H + '" stroke-width=".7"/>';
+    });
+    s += '<circle cx="0" cy="-4" r="5.4" fill="none" stroke="' + H + '" stroke-width=".9"/>' +
+      '<circle cx="0" cy="-4" r="2.2" fill="' + H + '"/>';
+    for (var k = 0; k < 8; k++) {
+      s += '<circle cx="' + f1(Math.cos(k * .785) * 7.6) + '" cy="' + f1(-4 + Math.sin(k * .785) * 7.6) + '" r=".8" fill="' + H + '"/>';
+    }
+    s += '<path d="M-8 6 q 8 4 16 0" fill="none" stroke="' + H + '" stroke-width="1"/></g>';
+    return s;
+  }
+
+  // Mehendi: the bride alone, seated on a gaddi, showing her hennaed palms.
+  function sceneMehendi() {
+    var r = rng(43), i, mirrors = "";
+    for (i = 0; i < 46; i++) {
+      mirrors += '<circle cx="' + f1(52 + r() * 156) + '" cy="' + f1(134 + r() * 60) + '" r="' + f1(.7 + r() * 1.1) + '" fill="' + (i % 3 ? "#f7d774" : "#fffdf4") + '"/>';
+    }
+    var SKIRT = "M112 126 Q130 130 148 126 Q196 150 214 192 Q130 206 46 192 Q64 150 112 126 Z";
+    return '<svg viewBox="22 18 216 200" aria-hidden="true">' +
+      '<defs><clipPath id="mh-skirt"><path d="' + SKIRT + '"/></clipPath>' +
+      '<radialGradient id="mh-halo"><stop offset="0" stop-color="#fff7d6" stop-opacity=".95"/><stop offset="1" stop-color="#fff7d6" stop-opacity="0"/></radialGradient></defs>' +
+      '<ellipse cx="130" cy="110" rx="108" ry="96" fill="url(#mh-halo)"/>' +
+      // henna mandala behind her
+      '<circle cx="130" cy="92" r="62" fill="none" stroke="#8a3b12" stroke-width=".8" opacity=".35"/>' +
+      '<circle cx="130" cy="92" r="56" fill="none" stroke="#8a3b12" stroke-width=".6" stroke-dasharray="1.5 3" opacity=".45"/>' +
+      Array.apply(null, Array(16)).map(function (_, k) {
+        var a = k * Math.PI / 8;
+        return '<path d="M' + f1(130 + Math.cos(a) * 62) + " " + f1(92 + Math.sin(a) * 62) + " Q" + f1(130 + Math.cos(a + .1) * 72) + " " + f1(92 + Math.sin(a + .1) * 72) + " " +
+          f1(130 + Math.cos(a) * 76) + " " + f1(92 + Math.sin(a) * 76) + " Q" + f1(130 + Math.cos(a - .1) * 72) + " " + f1(92 + Math.sin(a - .1) * 72) + " " +
+          f1(130 + Math.cos(a) * 62) + " " + f1(92 + Math.sin(a) * 62) + '" fill="none" stroke="#8a3b12" stroke-width=".7" opacity=".35"/>';
+      }).join("") +
+      // gaddi and bolsters
+      '<rect x="34" y="186" width="192" height="22" rx="8" fill="#d6246e"/><rect x="34" y="186" width="192" height="4" rx="2" fill="#f7c948"/>' +
+      '<path d="M40 204 h180" stroke="#f7c948" stroke-width="1.4" stroke-dasharray="3 3"/>' +
+      '<rect x="24" y="160" width="24" height="44" rx="10" fill="#f08a24" stroke="#f7c948" stroke-width="1.4"/>' +
+      '<rect x="212" y="160" width="24" height="44" rx="10" fill="#1f8a8a" stroke="#f7c948" stroke-width="1.4"/>' +
+      // dupatta behind her shoulders
+      '<path d="M114 64 Q96 96 84 170 L176 170 Q164 96 146 64 Z" fill="#e0457b" opacity=".9"/>' +
+      // skirt with mirror-work
+      '<path d="' + SKIRT + '" fill="#2f7d4f"/>' +
+      '<g clip-path="url(#mh-skirt)">' + mirrors + '<path d="M46 190 Q130 204 214 190" stroke="#f7c948" stroke-width="7" fill="none"/>' +
+      '<path d="M46 190 Q130 204 214 190" stroke="#d6246e" stroke-width="1.4" stroke-dasharray="3 3" fill="none"/></g>' +
+      // blouse
+      '<path d="M114 122 Q130 126 146 122 L147 128 L113 128 Z" fill="' + SKIN + '"/>' +
+      '<path d="M110 92 Q130 86 150 92 L146 122 Q130 126 114 122 Z" fill="#f08a24" stroke="#f7c948" stroke-width="1"/>' +
+      // arms: elbows out, forearms up, palms raised
+      '<path d="M112 96 Q96 112 98 130" fill="none" stroke="' + SKIN + '" stroke-width="7" stroke-linecap="round"/>' +
+      '<path d="M98 130 Q92 112 90 92" fill="none" stroke="' + SKIN + '" stroke-width="6.4" stroke-linecap="round"/>' +
+      '<path d="M148 96 Q164 112 162 130" fill="none" stroke="' + SKIN + '" stroke-width="7" stroke-linecap="round"/>' +
+      '<path d="M162 130 Q168 112 170 92" fill="none" stroke="' + SKIN + '" stroke-width="6.4" stroke-linecap="round"/>' +
+      '<path d="M86 108 l8 1 M86 112 l8 1 M87 116 l8 1" stroke="#d6246e" stroke-width="1.8"/>' +
+      '<path d="M174 108 l-8 1 M174 112 l-8 1 M173 116 l-8 1" stroke="#2f7d4f" stroke-width="1.8"/>' +
+      hennaPalm(90, 88, false) + hennaPalm(170, 88, true) +
+      // neck, head, jewellery
+      '<rect x="126" y="76" width="8" height="16" fill="' + SKIN + '"/>' +
+      '<circle cx="130" cy="66" r="13.5" fill="' + SKIN + '"/>' +
+      '<path d="M118 88 Q130 98 142 88" fill="none" stroke="#e0a92e" stroke-width="2.6"/>' +
+      '<circle cx="130" cy="96" r="2.2" fill="#d6246e" stroke="#e0a92e"/>' +
+      '<path d="M116 68 Q115 50 130 50 Q145 50 144 66 Q137 58 126 59 Q119 61 118 74 Z" fill="' + HAIR + '"/>' +
+      '<circle cx="117" cy="76" r="2" fill="#e0a92e"/><circle cx="143" cy="76" r="2" fill="#e0a92e"/>' +
+      // dupatta over her head
+      '<path d="M113 76 Q108 46 130 42 Q152 46 147 76 Q146 56 130 54 Q114 56 113 76 Z" fill="#e0457b" stroke="#f7c948" stroke-width="1.4"/>' +
+      '<circle cx="130" cy="58" r="2.2" fill="#f7c948"/><circle cx="130" cy="61.5" r="1.4" fill="#d6246e"/>' +
+      // a henna cone and a bowl of petals at her side
+      '<g transform="translate(200 176) rotate(-24)"><path d="M0 0 L6 -24 L-6 -24 Z" fill="#6b3410"/><rect x="-6.5" y="-27" width="13" height="4" rx="1.5" fill="#d6b48a"/></g>' +
+      '<ellipse cx="58" cy="184" rx="16" ry="5" fill="#c9973a"/><path d="M42 184 Q58 196 74 184" fill="#a8761f"/>' +
+      marigold(52, 181, 3.4, "#f97316", "#fb923c") + marigold(61, 180, 3.2, "#f59e0b", "#fde047") + marigold(66, 183, 2.6, "#e0457b", "#f7a1c0") +
+      "</svg>";
+  }
+
+  var SCENES = { haldi: sceneHaldi, sangeet: sceneSangeet, varmala: sceneVarmala, mehendi: sceneMehendi };
+
+  var DECOR = { haldi: decoHaldi, sangeet: decoSangeet, varmala: decoVarmala, mehendi: decoMehendi };
 
   function renderCard(e) {
     var c = e.card;
@@ -685,8 +874,7 @@
       '<p class="card-request">' + esc(c.request) + "</p>" +
       '<h2 class="card-title"><span class="flourish">◇</span> ' + esc(c.heading) + ' <span class="flourish">◇</span></h2>' +
       '<p class="card-name">' + esc(c.names[0]) + "</p>" +
-      '<p class="card-amp">&amp;</p>' +
-      '<p class="card-name">' + esc(c.names[1]) + "</p>" +
+      (c.names[1] ? '<p class="card-amp">&amp;</p><p class="card-name">' + esc(c.names[1]) + "</p>" : "") +
       (c.tagline ? '<p class="card-tagline">' + esc(c.tagline) + "</p>" : "") +
       (theme && SCENES[theme] ? '<div class="card-scene">' + SCENES[theme]() + "</div>" : "") +
       '<div class="card-date"><span class="side">' + esc(c.weekday) + '</span>' +

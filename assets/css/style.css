@@ -722,3 +722,73 @@ main { max-width: var(--maxw); margin: 0 auto; padding: 64px 16px 40px; }
   .theme-varmala .petal { display: none; }
   .theme-varmala .card-name, .theme-varmala .card-date .day, .theme-varmala .card-venue { animation: none; }
 }
+
+/* ---------- Mehendi: a garden mela — pistachio, henna, bunting and parasols ---------- */
+.card.theme-mehendi {
+  --henna: #6b2a10;
+  --fuchsia: #b0175e;
+  background:
+    radial-gradient(ellipse 58% 44% at 50% 50%, rgba(255,252,238,.96) 0%, rgba(250,246,222,.7) 50%, transparent 100%),
+    radial-gradient(ellipse at 50% 40%, #f4f1d4 0%, #dfe7bd 45%, #c3d394 80%, #a9bf74 100%);
+  color: var(--henna);
+  border: 2px solid #8a3b12;
+  outline: 1px solid rgba(176,23,94,.45);
+  outline-offset: -10px;
+  padding: calc(22% + 16px) 19% calc(12% + 20px);
+  container-type: inline-size;
+  box-shadow: 0 30px 60px -25px rgba(90,60,10,.55);
+}
+.theme-mehendi .mh-mandala {
+  position: absolute; left: 50%; top: 46%; width: 90cqw; height: 90cqw; transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background:
+    repeating-conic-gradient(from 0deg, rgba(138,59,18,.06) 0 6deg, transparent 6deg 15deg),
+    radial-gradient(circle, transparent 30%, rgba(138,59,18,.08) 30.4%, transparent 31% 46%, rgba(138,59,18,.08) 46.4%, transparent 47% 66%, rgba(138,59,18,.07) 66.4%, transparent 67%);
+  -webkit-mask-image: radial-gradient(circle, #000 55%, transparent 71%);
+          mask-image: radial-gradient(circle, #000 55%, transparent 71%);
+}
+.theme-mehendi .card-body { text-shadow: 0 0 10px rgba(255,252,238,.95), 0 0 3px rgba(255,252,238,.9); }
+.theme-mehendi .card-request { color: var(--henna); font-size: 20px; font-weight: 500; }
+.theme-mehendi .card-title { color: var(--fuchsia); font-weight: 600; font-size: clamp(24px, 5.4vw, 34px); letter-spacing: 0.26em; }
+.theme-mehendi .card-title .flourish { color: #f08a24; }
+.theme-mehendi .card-name { color: var(--henna); font-size: clamp(54px, 15cqw, 96px); line-height: 1.25; }
+.theme-mehendi .card-tagline { color: #7a3416; font-weight: 500; font-size: 20px; }
+.theme-mehendi .card-label { color: var(--fuchsia); font-weight: 600; }
+.theme-mehendi .card-label::before, .theme-mehendi .card-label::after { background: var(--fuchsia); }
+.theme-mehendi .card-date .side { color: var(--henna); border-color: var(--fuchsia); font-weight: 600; }
+.theme-mehendi .card-date .day { color: var(--fuchsia); }
+.theme-mehendi .card-date .day small { color: var(--henna); font-weight: 600; white-space: nowrap; }
+.theme-mehendi .card-venue { color: var(--fuchsia); font-weight: 600; }
+.theme-mehendi .card-rsvp { color: #4a1d0a; font-weight: 500; }
+.theme-mehendi .card-rsvp a { color: var(--fuchsia); border-bottom-color: var(--fuchsia); }
+.theme-mehendi .btn { background: var(--fuchsia); border-color: var(--fuchsia); color: #fff7e6; text-shadow: none; }
+.theme-mehendi .btn:hover { background: #8e0f4a; }
+.theme-mehendi .btn.ghost { background: rgba(255,255,255,.55); color: var(--fuchsia); }
+.theme-mehendi .card-scene { width: 56%; max-width: 270px; margin: 10px auto -4px; }
+.theme-mehendi .card-scene svg { filter: drop-shadow(0 6px 10px rgba(90,60,10,.25)); }
+.theme-mehendi .flicker { animation: twinkle 1.8s ease-in-out infinite; }
+.theme-mehendi .petal {
+  position: absolute; top: -20px;
+  width: 13px; height: 11px;
+  background: var(--c, #f97316);
+  border-radius: 0 70% 0 70%;
+  transform: scale(var(--s, 1));
+  animation: petal-fall 13s linear infinite;
+}
+@container (max-width: 520px) {
+  .card.theme-mehendi { padding: calc(27% + 10px) 14% calc(14% + 16px); }
+  .theme-mehendi .card-title { font-size: 8cqw; letter-spacing: 0.2em; }
+  .theme-mehendi .card-title .flourish { display: none; }
+  .theme-mehendi .card-request, .theme-mehendi .card-tagline { font-size: 16px; }
+  .theme-mehendi .card-date { gap: 6px; }
+  .theme-mehendi .card-date .side { font-size: 10.5px; letter-spacing: 0.1em; padding: 8px 0; }
+  .theme-mehendi .card-date .day { font-size: 40px; }
+  .theme-mehendi .card-date .day small { font-size: 10px; letter-spacing: 0.15em; }
+  .theme-mehendi .card-venue { font-size: 21px; }
+  .theme-mehendi .card-rsvp { font-size: 15px; }
+  .theme-mehendi .card-scene { width: 72%; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .theme-mehendi .petal { display: none; }
+  .theme-mehendi .flicker { animation: none; }
+}

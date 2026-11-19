@@ -4,11 +4,11 @@ Wedding website for **Seersha Saha** and **Siddhant Haldar** — Kolkata, Januar
 
 | Celebration | Date |
 |---|---|
-| Mehendi | Sun, 24 Jan 2027 · 6:30 PM onwards |
+| Mehendi | Sun, 24 Jan 2027 · 6:30 PM |
 | Varmala | Mon, 25 Jan 2027 · 1:00 PM |
-| Sangeet | Mon, 25 Jan 2027 · 6:30 PM onwards |
+| Sangeet | Mon, 25 Jan 2027 · 6:30 PM |
 | Haldi | Wed, 27 Jan 2027 · 10:30 AM · Orchid Banquet, East Topsia |
-| Wedding | Wed, 27 Jan 2027 · 6:30 PM onwards |
+| Wedding | Wed, 27 Jan 2027 · 6:30 PM |
 | Reception | Fri, 29 Jan 2027 · 6:30 PM · The Meadows, P. C. Chandra Garden |
 
 ## How invitations work
@@ -112,5 +112,5 @@ Cloudflare Worker in front of the site can check a code before serving each file
 - [ ] Custom domain.
 - [ ] Link preview image (Open Graph) so the link shows a picture on WhatsApp.
 - [ ] Bengali version of the site.
-- [ ] Re-make the Sangeet and Varmala card images (`assets/cards/sangeet-*.jpg`, `varmala-*.jpg`) once their venues are known — the downloadable Haldi/Sangeet images are snapshots of the on-page cards, so they need re-rendering whenever card details change.
-- [ ] Themed cards for the remaining events (Mehendi, Wedding). Haldi, Sangeet and Varmala use `"layout": "card"` with `"theme"` — see `DECOR` in `assets/js/main.js`.
+- [ ] Re-make the Mehendi, Varmala and Sangeet card images (`assets/cards/*.jpg`) once their venues are known — the downloadable Haldi/Sangeet images are snapshots of the on-page cards, so they need re-rendering whenever card details change.
+- [ ] Themed card for the **Wedding**. Mehendi, Varmala, Sangeet and Haldi use `"layout": "card"` with `"theme"` — see `DECOR` in `assets/js/main.js`.
