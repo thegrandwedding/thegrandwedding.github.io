@@ -39,7 +39,7 @@ def main():
     p.add_argument("group", help="Who this invitation is for (for your own reference)")
     p.add_argument("events", nargs="+", help="Event ids, or 'all'")
     p.add_argument("--greeting", help="Optional line shown on the Welcome tab, e.g. 'Dear Sharma family'")
-    p.add_argument("--no-families", action="store_true", help="Do not show parents' names and addresses")
+    p.add_argument("--no-families", action="store_true", help="Do not show parents' names")
     args = p.parse_args()
 
     known = load_events()

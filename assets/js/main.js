@@ -75,7 +75,7 @@
     return '<div class="family"><p class="role">' + esc(role) + "</p>" +
       '<p class="person">' + esc(f.name) + "</p>" +
       '<p class="parents">' + esc(f.relation) + "<br>" + esc(f.parents) + "</p>" +
-      '<p class="address">' + f.address.map(esc).join("<br>") + "</p></div>";
+      (f.address && f.address.length ? '<p class="address">' + f.address.map(esc).join("<br>") + "</p>" : "") + "</div>";
   }
 
   function renderStandard(e) {

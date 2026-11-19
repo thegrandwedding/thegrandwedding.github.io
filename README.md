@@ -23,7 +23,7 @@ which celebrations that guest sees.
   "January 2027 · Kolkata" and a note to use the link from the invitation.
 
 Only the files listed in a guest's invite are ever downloaded by their browser, so
-uninvited events, family addresses and phone numbers never reach anyone without a code.
+uninvited events, family details and phone numbers never reach anyone without a code.
 
 > ⚠️ While this repo is **public**, anyone browsing GitHub can read every file,
 > including all codes. That's fine for testing; see *Hosting on Cloudflare Pages* below.
@@ -48,7 +48,7 @@ python3 tools/new-invite.py "Sharma family" sangeet wedding reception --greeting
 git add data/invites && git commit -m "Add invite" && git push
 ```
 
-Use `all` for every event, and `--no-families` to hide the parents' names and addresses.
+Use `all` for every event, and `--no-families` to hide the parents' names.
 To revoke a link, delete its file in `data/invites/` and push.
 
 ## Structure
@@ -62,7 +62,7 @@ assets/js/main.js             # reads ?invite=, loads that invite's files, build
 assets/cards/                 # printable cards (random file names so they can't be guessed)
 data/invites/<code>.json      # one per invitation group: which events + families file
 data/events/<random>.json     # one per celebration: title, date, time, venue, countdown time
-data/families-<random>.json   # parents' names and addresses
+data/families-<random>.json   # parents' names
 tools/new-invite.py           # creates a new invite code + link
 ```
 
