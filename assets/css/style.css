@@ -543,7 +543,11 @@ main { max-width: var(--maxw); margin: 0 auto; padding: 64px 16px 40px; }
   filter: drop-shadow(0 0 10px rgba(247,227,161,.45)) drop-shadow(0 2px 1px rgba(0,0,0,.6));
   animation: foil 6s ease-in-out infinite;
 }
-.theme-sangeet .card-name { padding: 0 .15em; }
+.theme-sangeet .card-name {
+  /* the foil only paints inside the box, so give the script swashes room */
+  display: block; width: max-content; max-width: 100%; margin: 0 auto;
+  padding: .12em .45em .2em; line-height: 1.25;
+}
 @keyframes foil { 0%, 100% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } }
 .theme-sangeet .card-amp { color: #f9a8d4; text-shadow: 0 0 12px rgba(244,114,182,.9); }
 .theme-sangeet .card-tagline { color: #f5e8ff; font-size: 20px; }
@@ -598,6 +602,13 @@ main { max-width: var(--maxw); margin: 0 auto; padding: 64px 16px 40px; }
   -webkit-mask-image: linear-gradient(to top, #000 30%, transparent);
           mask-image: linear-gradient(to top, #000 30%, transparent);
 }
+
+/* couple illustration */
+.card-scene { width: 82%; max-width: 360px; margin: 18px auto 0; }
+.card-scene svg { width: 100%; height: auto; display: block; overflow: visible; }
+.theme-haldi .card-scene { width: 88%; }
+.theme-haldi .card-scene svg { filter: drop-shadow(0 6px 10px rgba(180,90,0,.25)); }
+.theme-sangeet .card-scene svg { filter: drop-shadow(0 0 14px rgba(244,114,182,.35)); }
 
 /* Size the themed cards by the card's own width, so they fit any phone. */
 .panel { container-type: inline-size; }

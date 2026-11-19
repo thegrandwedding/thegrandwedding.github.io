@@ -278,6 +278,126 @@
     return '<div class="deco" aria-hidden="true">' + bits + svg + stage + "</div>";
   }
 
+  /* ---------- couple illustrations (faceless, stylized) ---------- */
+  var SKIN = "#d9a07a", HAIR = "#2a1a14";
+
+  // Sangeet: the couple mid-dance, her hand raised in his.
+  function sceneSangeet() {
+    var r = rng(5), i, dots = "";
+    for (i = 0; i < 90; i++) {
+      dots += '<circle cx="' + f1(40 + r() * 150) + '" cy="' + f1(110 + r() * 170) + '" r="' + f1(0.6 + r() * 1.3) +
+        '" fill="' + (i % 4 ? "#dbe4ff" : "#f9d77e") + '" class="twinkle" style="animation-delay:-' + f1(r() * 3) + 's"/>';
+    }
+    var coatDots = "";
+    for (i = 0; i < 40; i++) {
+      coatDots += '<circle cx="' + f1(170 + r() * 42) + '" cy="' + f1(76 + r() * 112) + '" r="' + f1(0.5 + r() * 0.9) + '" fill="#c7d2fe" opacity=".7"/>';
+    }
+    var LEH = "M103 117 Q112 120 122 117 C136 160 158 215 182 262 Q116 282 44 262 C68 215 88 160 103 117 Z";
+    var COAT = "M172 78 Q190 72 208 78 L210 186 Q190 192 172 186 Z";
+    return '<svg viewBox="0 0 300 290" aria-hidden="true">' +
+      '<defs><linearGradient id="sc-leh" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2b3c82"/><stop offset="1" stop-color="#121a45"/></linearGradient>' +
+      '<clipPath id="sc-lehc"><path d="' + LEH + '"/></clipPath><clipPath id="sc-coatc"><path d="' + COAT + '"/></clipPath>' +
+      '<radialGradient id="sc-floor"><stop offset="0" stop-color="#ff9fd0" stop-opacity=".75"/><stop offset="1" stop-color="#ff9fd0" stop-opacity="0"/></radialGradient></defs>' +
+      '<ellipse cx="150" cy="270" rx="135" ry="16" fill="url(#sc-floor)"/>' +
+      // her dupatta, flowing behind
+      '<path d="M102 84 C78 100 58 140 40 196 C36 214 44 226 54 228 C58 190 76 140 104 100 Z" fill="rgba(226,232,255,.78)" stroke="rgba(255,255,255,.6)" stroke-width=".8"/>' +
+      // his legs (churidar), one kicked out
+      '<path d="M181 184 L176 226 L171 264" fill="none" stroke="#f3eee6" stroke-width="11" stroke-linecap="round" stroke-linejoin="round"/>' +
+      '<path d="M201 184 Q220 212 236 230" fill="none" stroke="#f3eee6" stroke-width="11" stroke-linecap="round"/>' +
+      '<ellipse cx="167" cy="268" rx="9" ry="4" fill="#1a1530"/><ellipse cx="240" cy="234" rx="8" ry="4" fill="#1a1530" transform="rotate(35 240 234)"/>' +
+      // his sherwani
+      '<path d="' + COAT + '" fill="#1b2550" stroke="#3b4a8a" stroke-width="1"/>' +
+      '<g clip-path="url(#sc-coatc)">' + coatDots + "</g>" +
+      '<path d="M190 76 V186" stroke="#3b4a8a" stroke-width="1"/>' +
+      [86, 98, 110, 122, 134, 146, 158, 170].map(function (y) { return '<circle cx="190" cy="' + y + '" r="1.6" fill="#f3d9a4"/>'; }).join("") +
+      // his head
+      '<rect x="187" y="66" width="7" height="12" fill="' + SKIN + '"/>' +
+      '<circle cx="190" cy="58" r="12.5" fill="' + SKIN + '"/>' +
+      '<path d="M177 60 Q176 44 191 43 Q205 44 203 58 Q197 50 187 52 Q180 54 177 62 Z" fill="' + HAIR + '"/>' +
+      // his arms: one raised to hold her hand, one out
+      '<path d="M175 84 Q150 58 109 30" fill="none" stroke="#1b2550" stroke-width="8" stroke-linecap="round"/>' +
+      '<path d="M206 84 Q228 106 238 93" fill="none" stroke="#1b2550" stroke-width="8" stroke-linecap="round"/>' +
+      '<circle cx="240" cy="91" r="3.8" fill="' + SKIN + '"/>' +
+      // her lehenga with sparkle
+      '<path d="' + LEH + '" fill="url(#sc-leh)"/>' +
+      '<g clip-path="url(#sc-lehc)">' + dots +
+      '<path d="M70 210 Q112 226 160 210 M58 236 Q112 254 172 236" fill="none" stroke="rgba(199,210,254,.45)" stroke-width="1.2"/></g>' +
+      '<path d="M44 262 Q116 282 182 262" fill="none" stroke="#e0e7ff" stroke-width="5" stroke-linecap="round"/>' +
+      // her blouse and midriff
+      '<path d="M104 112 Q112 115 121 112 L121 119 L104 119 Z" fill="' + SKIN + '"/>' +
+      '<path d="M100 82 Q112 78 124 82 L121 112 Q112 115 104 112 Z" fill="#22306b" stroke="#c7d2fe" stroke-width=".8"/>' +
+      // her arms: one raised into his hand, one at her waist
+      '<path d="M102 86 Q92 60 105 31" fill="none" stroke="' + SKIN + '" stroke-width="5.5" stroke-linecap="round"/>' +
+      '<path d="M97 52 l6 2 M96 57 l6 2" stroke="#f3d9a4" stroke-width="1.6"/>' +
+      '<circle cx="107" cy="29" r="4" fill="' + SKIN + '"/>' +
+      '<path d="M123 86 Q135 100 126 114" fill="none" stroke="' + SKIN + '" stroke-width="5" stroke-linecap="round"/>' +
+      // her head
+      '<rect x="109" y="72" width="6" height="11" fill="' + SKIN + '"/>' +
+      '<circle cx="112" cy="64" r="12" fill="' + SKIN + '"/>' +
+      '<path d="M100 66 Q98 50 112 50 Q126 50 124 62 Q118 56 108 58 Q103 61 102 72 Z" fill="' + HAIR + '"/>' +
+      '<circle cx="100" cy="56" r="6.5" fill="' + HAIR + '"/>' +
+      '<circle cx="101.5" cy="73" r="1.8" fill="#f3d9a4"/>' +
+      "</svg>";
+  }
+
+  // Haldi: the couple seated together on a low piri, haldi bowls in front.
+  function sceneHaldi() {
+    var r = rng(9), i, smudge = "", petals = "";
+    [[107, 92, 2.6], [119, 96, 2], [112, 100, 1.6], [182, 84, 2.6], [195, 88, 2.2], [176, 122, 3], [196, 140, 2.6], [110, 124, 2.4]]
+      .forEach(function (s) { smudge += '<circle cx="' + s[0] + '" cy="' + s[1] + '" r="' + s[2] + '" fill="#f59e0b" opacity=".85"/>'; });
+    for (i = 0; i < 16; i++) {
+      petals += marigold(30 + r() * 240, 222 + r() * 16, 3.5 + r() * 2, i % 2 ? "#f59e0b" : "#fbbf24", i % 2 ? "#fbbf24" : "#fde68a");
+    }
+    function bowl(cx) {
+      return '<ellipse cx="' + cx + '" cy="214" rx="27" ry="9" fill="#c8901a" stroke="#8a5a0a" stroke-width="1.2"/>' +
+        '<ellipse cx="' + cx + '" cy="211" rx="21" ry="5.5" fill="#f5a30b"/>' +
+        '<path d="M' + (cx - 27) + ' 214 Q' + cx + ' 236 ' + (cx + 27) + ' 214" fill="#b07a12"/>' +
+        marigold(cx - 8, 209, 3.5, "#ea580c", "#fb923c") + marigold(cx + 7, 210, 3.2, "#f59e0b", "#fde047");
+    }
+    return '<svg viewBox="38 58 224 184" aria-hidden="true">' +
+      // low decorated seat
+      '<rect x="44" y="192" width="212" height="22" rx="5" fill="#b45309"/>' +
+      '<rect x="44" y="192" width="212" height="5" rx="2" fill="#d97706"/>' +
+      // her long hair behind
+      '<path d="M98 86 Q92 124 100 160 L128 160 Q133 122 128 86 Z" fill="' + HAIR + '"/>' +
+      // her lehenga, seated
+      '<path d="M100 136 Q113 140 126 136 Q168 166 166 200 Q113 212 60 200 Q60 166 100 136 Z" fill="#fde047" stroke="#f97316" stroke-width="2"/>' +
+      '<path d="M66 196 Q113 206 162 196" fill="none" stroke="#ea580c" stroke-width="3"/>' +
+      // her blouse and dupatta
+      '<path d="M98 108 Q113 102 128 108 L126 138 Q113 141 100 138 Z" fill="#facc15" stroke="#ea580c" stroke-width="1"/>' +
+      '<path d="M126 106 Q144 132 134 178 L122 178 Q130 140 119 110 Z" fill="#fb923c"/>' +
+      // her arm to her lap
+      '<path d="M100 112 Q86 142 104 168" fill="none" stroke="' + SKIN + '" stroke-width="7" stroke-linecap="round"/>' +
+      '<path d="M90 146 l7 -2 M90 151 l7 -2" stroke="#ea580c" stroke-width="1.8"/>' +
+      // her head
+      '<rect x="109" y="96" width="8" height="12" fill="' + SKIN + '"/>' +
+      '<circle cx="113" cy="88" r="14" fill="' + SKIN + '"/>' +
+      '<path d="M99 90 Q98 72 113 72 Q128 72 127 88 Q120 80 110 81 Q102 84 100 96 Z" fill="' + HAIR + '"/>' +
+      marigold(126, 77, 4.5, "#f59e0b", "#fde047") + marigold(119, 73, 3.6, "#ea580c", "#fb923c") +
+      '<circle cx="100" cy="99" r="2" fill="#f3d9a4"/>' +
+      // his kurta
+      '<path d="M166 100 Q188 92 210 100 L214 170 Q188 178 162 170 Z" fill="#fcd34d" stroke="#ea580c" stroke-width="1"/>' +
+      '<path d="M188 96 V136" stroke="#ea580c" stroke-width="1.2"/>' +
+      [104, 114, 124].map(function (y) { return '<circle cx="188" cy="' + y + '" r="1.5" fill="#b45309"/>'; }).join("") +
+      // his legs, cross-legged
+      '<path d="M150 196 Q152 168 176 166 L206 166 Q236 170 238 196 Q194 206 150 196 Z" fill="#fff7e0" stroke="#e7d7a8" stroke-width="1"/>' +
+      '<path d="M172 184 Q194 176 220 186" fill="none" stroke="#e7d7a8" stroke-width="1.4"/>' +
+      // his head
+      '<rect x="184" y="90" width="9" height="12" fill="' + SKIN + '"/>' +
+      '<circle cx="188" cy="80" r="15" fill="' + SKIN + '"/>' +
+      '<path d="M173 80 Q172 63 188 63 Q204 63 203 78 Q196 70 186 71 Q178 73 174 85 Z" fill="' + HAIR + '"/>' +
+      '<path d="M176 86 Q188 101 200 86 Q199 98 188 99 Q177 98 176 86 Z" fill="#3b2a22"/>' +
+      // his arm around her shoulder, other hand on his knee
+      '<path d="M169 106 Q148 102 129 109" fill="none" stroke="#fcd34d" stroke-width="10" stroke-linecap="round"/>' +
+      '<circle cx="127" cy="110" r="4.5" fill="' + SKIN + '"/>' +
+      '<path d="M210 106 Q228 138 216 166" fill="none" stroke="#fcd34d" stroke-width="10" stroke-linecap="round"/>' +
+      '<circle cx="215" cy="169" r="4.5" fill="' + SKIN + '"/>' +
+      smudge + bowl(86) + bowl(214) + petals +
+      "</svg>";
+  }
+
+  var SCENES = { haldi: sceneHaldi, sangeet: sceneSangeet };
+
   var DECOR = { haldi: decoHaldi, sangeet: decoSangeet };
 
   function renderCard(e) {
@@ -303,6 +423,7 @@
       '<p class="card-amp">&amp;</p>' +
       '<p class="card-name">' + esc(c.names[1]) + "</p>" +
       (c.tagline ? '<p class="card-tagline">' + esc(c.tagline) + "</p>" : "") +
+      (theme && SCENES[theme] ? '<div class="card-scene">' + SCENES[theme]() + "</div>" : "") +
       '<div class="card-date"><span class="side">' + esc(c.weekday) + '</span>' +
       '<span class="day">' + esc(c.day) + "<small>" + esc(c.monthYear) + "</small></span>" +
       '<span class="side">' + esc(c.time) + "</span></div>" +
