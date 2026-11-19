@@ -5,9 +5,9 @@
   "kicker": "The Exchange of Garlands",
   "lede": "The bride and groom exchange garlands of flowers, each accepting the other before family, friends and the gods.",
   "date": "Monday, 25 January 2027",
-  "time": "Morning",
+  "time": "3:00 PM",
   "venue": "To be announced",
-  "countdownAt": "2027-01-25T00:00:00+05:30",
+  "countdownAt": "2027-01-25T15:00:00+05:30",
   "countdownLabel": "Until the Varmala",
   "layout": "card",
   "card": {
@@ -22,7 +22,7 @@
     "weekday": "Monday",
     "day": "25",
     "monthYear": "January 2027",
-    "time": "Morning",
+    "time": "3:00 PM",
     "venue": "To be announced",
     "address": [],
     "rsvp": [
