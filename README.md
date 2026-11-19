@@ -5,7 +5,7 @@ Wedding website for **Seersha Saha** and **Siddhant Haldar** — Kolkata, Januar
 | Celebration | Date |
 |---|---|
 | Mehendi | Sun, 24 Jan 2027 · 6:30 PM onwards |
-| Varmala | Mon, 25 Jan 2027 · 3:00 PM |
+| Varmala | Mon, 25 Jan 2027 · 1:00 PM |
 | Sangeet | Mon, 25 Jan 2027 · 6:30 PM onwards |
 | Haldi | Wed, 27 Jan 2027 · 10:30 AM · Orchid Banquet, East Topsia |
 | Wedding | Wed, 27 Jan 2027 · 6:30 PM onwards |
