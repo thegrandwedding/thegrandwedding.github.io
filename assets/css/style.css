@@ -457,7 +457,7 @@ main { max-width: var(--maxw); margin: 0 auto; padding: 64px 16px 40px; }
   border: 2px solid #e09a00;
   outline: 1px solid rgba(179,18,27,0.4);
   outline-offset: -12px;
-  padding: calc(30% + 20px) 22% calc(16% + 30px);
+  padding: calc(16% + 16px) 20% calc(8% + 22px);
   box-shadow: 0 30px 60px -20px rgba(214,140,0,0.65);
 }
 .theme-haldi .drape {
@@ -520,7 +520,7 @@ main { max-width: var(--maxw); margin: 0 auto; padding: 64px 16px 40px; }
   border: 2px solid #c9a24f;
   outline: 1px solid rgba(249,231,174,.55);
   outline-offset: -12px;
-  padding: calc(34% + 20px) 18% calc(16% + 34px);
+  padding: calc(17% + 16px) 15% calc(7% + 22px);
   box-shadow: 0 0 0 1px #6e1d66, 0 30px 80px -20px rgba(110,29,102,.85), 0 0 60px -10px rgba(244,114,182,.35);
 }
 .theme-sangeet .card-body { text-shadow: 0 0 12px rgba(6,10,28,.95), 0 0 4px rgba(6,10,28,.9); }
@@ -604,9 +604,9 @@ main { max-width: var(--maxw); margin: 0 auto; padding: 64px 16px 40px; }
 }
 
 /* couple illustration */
-.card-scene { width: 82%; max-width: 360px; margin: 18px auto 0; }
+.card-scene { width: 54%; max-width: 250px; margin: 10px auto -6px; }
 .card-scene svg { width: 100%; height: auto; display: block; overflow: visible; }
-.theme-haldi .card-scene { width: 88%; }
+.theme-haldi .card-scene { width: 60%; max-width: 270px; }
 .theme-haldi .card-scene svg { filter: drop-shadow(0 6px 10px rgba(180,90,0,.25)); }
 .theme-sangeet .card-scene svg { filter: drop-shadow(0 0 14px rgba(244,114,182,.35)); }
 
@@ -615,9 +615,9 @@ main { max-width: var(--maxw); margin: 0 auto; padding: 64px 16px 40px; }
 .theme-haldi .card-title { letter-spacing: 0.14em; }
 .theme-haldi .card-name, .theme-sangeet .card-name { font-size: clamp(44px, 13cqw, 84px); }
 @container (max-width: 520px) {
-  .card.theme-haldi { padding: calc(30% + 16px) 13% calc(16% + 24px); }
+  .card.theme-haldi { padding: calc(19% + 10px) 13% calc(9% + 16px); }
   .theme-haldi .drape { width: 11%; }
-  .card.theme-sangeet { padding: calc(34% + 16px) 7% calc(16% + 28px); }
+  .card.theme-sangeet { padding: calc(20% + 10px) 7% calc(8% + 16px); }
   .theme-haldi .card-title, .theme-sangeet .card-title { font-size: 6.4cqw; letter-spacing: 0.12em; }
   .theme-sangeet .card-title { font-size: 8cqw; letter-spacing: 0.25em; }
   .theme-haldi .card-title .flourish, .theme-sangeet .card-title .flourish { display: none; }

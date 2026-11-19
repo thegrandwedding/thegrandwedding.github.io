@@ -116,7 +116,7 @@
     for (i = 0; i < 32; i++) {
       x = 6 + i * 18.6 + (r() * 6 - 3);
       var edgeDist = Math.min(x, 600 - x);
-      len = edgeDist < 130 ? 160 + r() * 290 : 60 + r() * 80;
+      len = edgeDist < 130 ? 160 + r() * 290 : 48 + r() * 40;
       svg += '<line x1="' + f1(x) + '" y1="20" x2="' + f1(x) + '" y2="' + f1(len) + '" stroke="#a16207" stroke-width=".7" opacity=".6"/>';
       for (y = 34, j = 0; y < len; y += 12.5, j++) {
         if (j % 5 === 4) { // jasmine buds
@@ -197,7 +197,7 @@
     for (i = 0; i < 46; i++) {
       x = 5 + i * 13 + (r() * 5 - 2.5);
       var edgeDist = Math.min(x, 600 - x);
-      len = edgeDist < 140 ? 170 + r() * 280 : 70 + r() * 85;
+      len = edgeDist < 140 ? 170 + r() * 280 : 60 + r() * 42;
       svg += '<line x1="' + f1(x) + '" y1="30" x2="' + f1(x) + '" y2="' + f1(len) + '" stroke="rgba(255,236,210,.28)" stroke-width=".6"/>';
       for (y = 42; y < len; y += 11 + r() * 9) {
         var pink = r() < 0.14;
