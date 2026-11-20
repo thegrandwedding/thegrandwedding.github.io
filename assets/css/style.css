@@ -937,3 +937,24 @@ body.viewer-open { overflow: hidden; }
 @container (max-width: 520px) {
   .card.theme-varmala:not(.full) { padding-top: calc(28% + 10px); padding-bottom: calc(12% + 16px); }
 }
+
+/* Photo scene (Haldi): the couple from the original card, blended into the yellow */
+.card-scene.photo img { display: block; width: 100%; height: auto; }
+.card:not(.full) .card-scene.photo { width: 66%; max-width: 320px; margin: 4px auto 0; }
+.card:not(.full) .card-scene.photo img {
+  -webkit-mask-image: radial-gradient(ellipse 50% 50% at 50% 50%, #000 62%, transparent 100%);
+          mask-image: radial-gradient(ellipse 50% 50% at 50% 50%, #000 62%, transparent 100%);
+}
+.card.full .card-scene.photo { width: 166.667%; max-width: none; margin: 6px 0 -10px -33.333%; }
+.card.full .card-scene.photo img {
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 16%, #000 84%, transparent 100%),
+                      linear-gradient(to right, transparent 0, #000 9%, #000 91%, transparent 100%);
+  -webkit-mask-composite: source-in;
+          mask-image: linear-gradient(to bottom, transparent 0, #000 16%, #000 84%, transparent 100%),
+                      linear-gradient(to right, transparent 0, #000 9%, #000 91%, transparent 100%);
+          mask-composite: intersect;
+}
+@container (max-width: 520px) {
+  .card.full .card-scene.photo { width: 135.14%; margin-left: -17.57%; }
+  .card:not(.full) .card-scene.photo { width: 92%; }
+}
