@@ -93,7 +93,7 @@ plain download). The reception viewer also offers the original PDF (`card.pdf`) 
 
 The full images are snapshots of the cards rendered with `?fullcard` in the URL, which shows every
 card in full (tagline and any `card.pageHide` parts included). Re-make an image whenever that card's
-details change, e.g. open `http://localhost:8000/?invite=nyjfC74C&fullcard#sangeet` and capture the card.
+details change, and give the new image a new file name (browsers cache images by name), e.g. open `http://localhost:8000/?invite=nyjfC74C&fullcard#sangeet` and capture the card.
 
 ## Hosting on Cloudflare Pages (later)
 
@@ -124,5 +124,5 @@ Cloudflare Worker in front of the site can check a code before serving each file
 - [ ] Link preview image (Open Graph) so the link shows a picture on WhatsApp.
 - [ ] Bengali version of the site.
 - [ ] Add the second R.S.V.P. number on the **Sangeet** card (currently "Second number to be added").
-- [ ] Re-make the Varmala and Sangeet card images (`assets/cards/*.jpg`) once their venues are known; for the **Mehendi**, swap in a new PDF/image (it uses the supplied card as is, `"imageOnly": true`).
+- [ ] Re-make the Varmala and Sangeet card images (`assets/cards/*.jpg`) once their venues are known; for the **Mehendi**, the download is the supplied PDF (and its image), and the page card is styled to match it (`"theme": "henna"`) — update both if details change.
 - [x] Themed cards for every event. Cards use `"layout": "card"` with `"theme"` — see `DECOR` in `assets/js/main.js`.

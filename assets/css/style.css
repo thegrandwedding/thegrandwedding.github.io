@@ -985,3 +985,57 @@ body.viewer-open { overflow: hidden; }
 .image-card-actions { margin-top: 22px; }
 .image-card-actions .btn { background: var(--oxblood); border-color: var(--oxblood); color: var(--ivory); }
 .image-card-actions .btn.ghost { background: transparent; color: var(--oxblood); }
+
+/* ---------- Henna (Mehendi): matches the printed Mehendi card ---------- */
+.card.theme-henna {
+  --hn-green: #215339; --hn-gold: #b0802a; --hn-brown: #71583d; --hn-line: #c9a466;
+  background: linear-gradient(180deg, #fcf8ee 0%, #fbf5e8 100%);
+  color: var(--hn-brown);
+  border: 0; outline: none;
+  padding: calc(17% + 10px) 5% 0 21%;
+  container-type: inline-size;
+  box-shadow: 0 30px 60px -25px rgba(90,60,20,.4);
+}
+.theme-henna .hn-toran { position: absolute; top: 0; left: 0; width: 98.8%; height: auto; display: block; }
+.theme-henna .hn-strands { position: absolute; top: 0; left: 0; width: 16.8%; height: auto; display: block; }
+.theme-henna .card-request { color: var(--hn-brown); font-size: 19px; margin-bottom: 6px; }
+.theme-henna .card-title { color: var(--hn-green); font-weight: 500; font-size: clamp(30px, 8cqw, 46px); letter-spacing: 0.22em; margin: 0; }
+.theme-henna .card-title .flourish { display: none; }
+.card-heading-sub { margin: 8px 0 0; }
+.theme-henna .card-heading-sub span {
+  display: inline-flex; align-items: center; gap: 12px;
+  font-family: var(--caps); font-size: 12px; letter-spacing: .3em; text-transform: uppercase; color: var(--hn-gold);
+}
+.theme-henna .card-heading-sub span::before, .theme-henna .card-heading-sub span::after { content: ""; width: 60px; height: 1px; background: var(--hn-line); }
+.theme-henna .card-name { color: var(--hn-gold); font-size: clamp(64px, 18cqw, 112px); line-height: 1.15; }
+.theme-henna .card-tagline { color: var(--hn-brown); }
+.theme-henna .card-date { margin: 22px 0 18px; }
+.theme-henna .card-date .side { color: var(--hn-green); border-color: var(--hn-line); }
+.theme-henna .card-date .day { color: var(--hn-gold); }
+.theme-henna .card-date .day small { color: var(--hn-green); }
+.theme-henna .card-label { color: var(--hn-gold); }
+.theme-henna .card-label::before, .theme-henna .card-label::after { background: var(--hn-line); }
+.theme-henna .card-venue { font-family: inherit; font-style: italic; text-transform: none; letter-spacing: 0; color: var(--hn-green); font-size: 22px; }
+.theme-henna .card-rsvp { color: #3d3226; }
+.theme-henna .card-rsvp a { color: #3d3226; border-bottom-color: var(--hn-line); }
+.theme-henna .card-actions { margin: 14px 0 4px; }
+.theme-henna .btn { background: var(--hn-green); border-color: var(--hn-green); color: #fcf8ee; text-shadow: none; }
+.theme-henna .btn.ghost { background: transparent; color: var(--hn-green); }
+.card .card-scene.photo.hn-bride { width: 92%; max-width: none; margin: 10px -6.76% 0 auto; }
+.card .card-scene.photo.hn-bride img {
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 14%), linear-gradient(to right, transparent 0, #000 12%);
+  -webkit-mask-composite: source-in;
+          mask-image: linear-gradient(to bottom, transparent 0, #000 14%), linear-gradient(to right, transparent 0, #000 12%);
+          mask-composite: intersect;
+}
+@container (max-width: 520px) {
+  .theme-henna .card-request { font-size: 16px; }
+  .theme-henna .card-heading-sub span::before, .theme-henna .card-heading-sub span::after { width: 36px; }
+  .theme-henna .card-date { gap: 6px; }
+  .theme-henna .card-date .side { font-size: 10px; letter-spacing: 0.08em; padding: 8px 0; }
+  .theme-henna .card-date .day { font-size: 40px; }
+  .theme-henna .card-date .day small { font-size: 10px; letter-spacing: 0.15em; }
+  .theme-henna .card-rsvp { font-size: 15px; }
+  .card .card-scene.photo.hn-bride { width: 100%; }
+}
+.card.theme-henna:not(.full) .card-name, .card.theme-henna .card-name { font-size: clamp(60px, 17cqw, 104px); }

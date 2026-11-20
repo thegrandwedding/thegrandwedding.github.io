@@ -1032,7 +1032,13 @@
 
   var SCENES = { haldi: sceneHaldi, sangeet: sceneSangeet, varmala: sceneVarmala, mehendi: sceneMehendi, wedding: sceneWedding };
 
-  var DECOR = { haldi: decoHaldi, sangeet: decoSangeet, varmala: decoVarmala, mehendi: decoMehendi, wedding: decoWedding };
+  // Henna (Mehendi): cream card dressed with the marigold toran and strands from the printed card.
+  function decoHenna() {
+    return '<div class="deco" aria-hidden="true"><img class="hn-toran" src="assets/cards/mehendi-toran-Hc5Le2.webp" alt="">' +
+      '<img class="hn-strands" src="assets/cards/mehendi-strands-Hc5Le2.webp" alt=""></div>';
+  }
+
+  var DECOR = { henna: decoHenna, haldi: decoHaldi, sangeet: decoSangeet, varmala: decoVarmala, mehendi: decoMehendi, wedding: decoWedding };
 
   // ?fullcard renders every card in full (used to make the downloadable images).
   var FULL = /[?&]fullcard\b/.test(location.search);
@@ -1052,6 +1058,10 @@
     else if (c.pdf) actions += '<a class="btn ghost" href="' + esc(c.pdf) + '" download="' + esc(c.pdfName || "") +
       '" target="_blank" rel="noopener">Download Card</a>';
     CARDS[e.id] = c;
+    var scene = c.sceneImage ?
+      '<div class="card-scene photo' + (c.sceneCutout ? " cutout" : "") + (c.sceneClass ? " " + esc(c.sceneClass) : "") + '"><img src="' +
+        esc(c.sceneImage) + '" alt="' + esc(c.sceneAlt || "") + '"></div>' :
+      theme && SCENES[theme] ? '<div class="card-scene">' + SCENES[theme]() + "</div>" : "";
     // Parts shown only on the full card (the downloadable image), to keep the page version short.
     var hide = ["tagline"].concat(c.pageHide || []);
     function part(name) { return hide.indexOf(name) > -1 ? " full-only" : ""; }
@@ -1072,12 +1082,12 @@
       (c.hosts ? '<p class="card-hosts">' + esc(c.hosts) + "</p>" : "") +
       (c.request ? '<p class="card-request' + part("request") + '">' + esc(c.request) + "</p>" : "") +
       (c.heading ? '<h2 class="card-title"><span class="flourish">◇</span> ' + esc(c.heading) + ' <span class="flourish">◇</span></h2>' : "") +
+      (c.headingSub ? '<p class="card-heading-sub"><span>' + esc(c.headingSub) + "</span></p>" : "") +
       '<p class="card-name">' + esc(c.names[0]) + "</p>" +
       (c.names[1] ? '<p class="card-amp">' + esc(c.joiner || "&") + '</p><p class="card-name">' + esc(c.names[1]) + "</p>" : "") +
       (c.afterNames ? '<p class="card-after-names">' + esc(c.afterNames) + "</p>" : "") +
       (c.tagline ? '<p class="card-tagline' + part("tagline") + '">' + esc(c.tagline) + "</p>" : "") +
-      (c.sceneImage ? '<div class="card-scene photo' + (c.sceneCutout ? " cutout" : "") + '"><img src="' + esc(c.sceneImage) + '" alt="' + esc(c.sceneAlt || "") + '"></div>' :
-        theme && SCENES[theme] ? '<div class="card-scene">' + SCENES[theme]() + "</div>" : "") +
+      (c.scenePosition !== "bottom" ? scene : "") +
       '<div class="card-date"><span class="side">' + esc(c.weekday) + '</span>' +
       '<span class="day">' + esc(c.day) + "<small>" + esc(c.monthYear) + "</small></span>" +
       '<span class="side">' + esc(c.time) + "</span></div>" +
@@ -1087,6 +1097,7 @@
       (c.address && c.address.length ? '<p class="card-address">' + c.address.map(esc).join("<br>") + "</p>" : "") +
       (actions ? '<p class="card-actions">' + actions + "</p>" : "") +
       (rsvp ? '<p class="card-label">R.S.V.P.</p><p class="card-rsvp">' + rsvp + "</p>" : "") +
+      (c.scenePosition === "bottom" ? scene : "") +
       "</div></article></section>";
   }
 
