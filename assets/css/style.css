@@ -1125,3 +1125,11 @@ body.viewer-open { overflow: hidden; }
   .card-info .card-label::before, .card-info .card-label::after { width: 10px; }
   .card-info .card-label { letter-spacing: .2em; gap: 6px; }
 }
+/* Haldi photo at the bottom: soft fade at the top and sides into the yellow card */
+.card .card-scene.photo.tm-photo img {
+  filter: none;
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 22%), linear-gradient(to right, transparent 0, #000 10%, #000 92%, transparent 100%);
+  -webkit-mask-composite: source-in;
+          mask-image: linear-gradient(to bottom, transparent 0, #000 22%), linear-gradient(to right, transparent 0, #000 10%, #000 92%, transparent 100%);
+          mask-composite: intersect;
+}
