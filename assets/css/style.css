@@ -958,3 +958,12 @@ body.viewer-open { overflow: hidden; }
   .card.full .card-scene.photo { width: 135.14%; margin-left: -17.57%; }
   .card:not(.full) .card-scene.photo { width: 92%; }
 }
+
+/* Keep the date row symmetric: equal side columns, nothing wraps */
+.card-date { grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); }
+.card-date .side { white-space: nowrap; text-align: center; padding-left: .12em; }
+.card-date .day small { white-space: nowrap; }
+@container (max-width: 420px) {
+  .card[class*="theme-"] .card-date { gap: 5px; }
+  .card[class*="theme-"] .card-date .side { font-size: 10px; letter-spacing: 0.06em; }
+}
