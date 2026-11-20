@@ -967,3 +967,14 @@ body.viewer-open { overflow: hidden; }
   .card[class*="theme-"] .card-date { gap: 5px; }
   .card[class*="theme-"] .card-date .side { font-size: 10px; letter-spacing: 0.06em; }
 }
+/* A transparent cut-out sits straight on the card: no fading, just a soft shadow */
+.card .card-scene.photo.cutout img {
+  -webkit-mask-image: none; mask-image: none;
+  filter: drop-shadow(0 10px 14px rgba(150,80,0,.28));
+}
+.card.full .card-scene.photo.cutout { width: 112%; margin: 10px 0 0 -6%; }
+.card:not(.full) .card-scene.photo.cutout { width: 72%; max-width: 340px; }
+@container (max-width: 520px) {
+  .card.full .card-scene.photo.cutout { width: 108%; margin-left: -4%; }
+  .card:not(.full) .card-scene.photo.cutout { width: 96%; }
+}

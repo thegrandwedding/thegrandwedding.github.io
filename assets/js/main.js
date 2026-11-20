@@ -1069,7 +1069,7 @@
       (c.names[1] ? '<p class="card-amp">' + esc(c.joiner || "&") + '</p><p class="card-name">' + esc(c.names[1]) + "</p>" : "") +
       (c.afterNames ? '<p class="card-after-names">' + esc(c.afterNames) + "</p>" : "") +
       (c.tagline ? '<p class="card-tagline' + part("tagline") + '">' + esc(c.tagline) + "</p>" : "") +
-      (c.sceneImage ? '<div class="card-scene photo"><img src="' + esc(c.sceneImage) + '" alt="' + esc(c.sceneAlt || "") + '"></div>' :
+      (c.sceneImage ? '<div class="card-scene photo' + (c.sceneCutout ? " cutout" : "") + '"><img src="' + esc(c.sceneImage) + '" alt="' + esc(c.sceneAlt || "") + '"></div>' :
         theme && SCENES[theme] ? '<div class="card-scene">' + SCENES[theme]() + "</div>" : "") +
       '<div class="card-date"><span class="side">' + esc(c.weekday) + '</span>' +
       '<span class="day">' + esc(c.day) + "<small>" + esc(c.monthYear) + "</small></span>" +
