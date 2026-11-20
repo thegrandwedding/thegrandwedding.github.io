@@ -86,9 +86,10 @@ Edit its file in `data/events/` (date, time, venue, description). Set `countdown
 
 ## Event cards
 
-Each event tab shows a compact card (same height ballpark as the reception card). **View Full Card**
-opens the complete card image (`card.image`) full-screen with **Save / Share** (the phone's share
-sheet where supported, otherwise a download). The reception viewer also offers the original PDF (`card.pdf`).
+Each event tab shows a compact card (same height ballpark as the reception card). Every card has
+**Download Card**, which opens the complete card image (`card.image`) full-screen with a **Download**
+button (on phones this opens the share sheet — Save Image / WhatsApp — where supported, otherwise a
+plain download). The reception viewer also offers the original PDF (`card.pdf`) as **PDF Version**.
 
 The full images are snapshots of the cards rendered with `?fullcard` in the URL, which shows every
 card in full (tagline and any `card.pageHide` parts included). Re-make an image whenever that card's

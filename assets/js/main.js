@@ -1048,7 +1048,7 @@
     }).join("<br>");
     var actions = "";
     if (c.mapUrl) actions += '<a class="btn" href="' + esc(c.mapUrl) + '" target="_blank" rel="noopener">View on Map</a>';
-    if (c.image) actions += '<button type="button" class="btn ghost" data-view-card="' + esc(e.id) + '">View Full Card</button>';
+    if (c.image) actions += '<button type="button" class="btn ghost" data-view-card="' + esc(e.id) + '">Download Card</button>';
     else if (c.pdf) actions += '<a class="btn ghost" href="' + esc(c.pdf) + '" download="' + esc(c.pdfName || "") +
       '" target="_blank" rel="noopener">Download Card</a>';
     CARDS[e.id] = c;
@@ -1094,8 +1094,8 @@
       viewer.setAttribute("role", "dialog");
       viewer.setAttribute("aria-modal", "true");
       viewer.setAttribute("aria-label", "Invitation card");
-      viewer.innerHTML = '<div class="viewer-bar"><button type="button" class="vbtn primary" data-save>Save</button>' +
-        '<a class="vbtn" data-pdf target="_blank" rel="noopener">PDF</a>' +
+      viewer.innerHTML = '<div class="viewer-bar"><button type="button" class="vbtn primary" data-save>Download</button>' +
+        '<a class="vbtn" data-pdf target="_blank" rel="noopener">PDF Version</a>' +
         '<button type="button" class="vbtn" data-close aria-label="Close">Close</button></div>' +
         '<div class="viewer-scroll"><img alt=""></div>';
       document.body.appendChild(viewer);
@@ -1109,8 +1109,6 @@
     img.alt = (c.heading || id) + " invitation card";
     pdf.hidden = !c.pdf;
     if (c.pdf) { pdf.href = c.pdf; pdf.setAttribute("download", c.pdfName || ""); }
-    var canShare = !!(navigator.canShare && window.File);
-    save.textContent = canShare ? "Save / Share" : "Download";
     save.onclick = function () { saveCard(c); };
     viewer.hidden = false;
     viewer.querySelector(".viewer-scroll").scrollTop = 0;
