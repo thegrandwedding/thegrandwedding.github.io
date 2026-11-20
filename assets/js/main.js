@@ -1038,10 +1038,50 @@
       '<img class="hn-strands" src="assets/cards/mehendi-strands-Hc5Le2.webp" alt=""></div>';
   }
 
-  // Turmeric (Haldi): the same clean cream card, garlands mirrored to the right.
+  // Turmeric (Haldi): a clean pale-yellow card — a mango-leaf toran across the top and
+  // strands of yellow marigolds and jasmine down the left side.
   function decoTurmeric() {
-    return '<div class="deco" aria-hidden="true"><img class="tm-toran" src="assets/cards/mehendi-toran-Hc5Le2.webp" alt="">' +
-      '<img class="tm-strands" src="assets/cards/mehendi-strands-Hc5Le2.webp" alt=""><span class="tm-glow"></span></div>';
+    var r = rng(61), i, j, x, y, s;
+    var yel = [["#facc15", "#fde68a"], ["#fbbf24", "#fef08a"], ["#f59e0b", "#fcd34d"], ["#fde047", "#fef9c3"]];
+    function pk() { return yel[Math.floor(r() * yel.length)]; }
+    function mango(x, y, len, rot, col) {
+      return '<path d="M0 0 C' + f1(len * .28) + " " + f1(len * .2) + " " + f1(len * .3) + " " + f1(len * .7) + " 0 " + f1(len) +
+        " C" + f1(-len * .3) + " " + f1(len * .7) + " " + f1(-len * .28) + " " + f1(len * .2) + ' 0 0z" fill="' + col +
+        '" transform="translate(' + f1(x) + " " + f1(y) + ") rotate(" + f1(rot) + ')"/>' +
+        '<path d="M0 2 V' + f1(len * .9) + '" stroke="rgba(255,255,255,.35)" stroke-width=".7" transform="translate(' + f1(x) + " " + f1(y) + ") rotate(" + f1(rot) + ')"/>';
+    }
+    // toran: rope, mango leaves and marigolds
+    var top = '<svg class="tm-toran" viewBox="0 0 600 70" aria-hidden="true"><path d="M0 9 H600" stroke="#b7791f" stroke-width="1.2"/>';
+    for (x = 8; x < 600; x += 22) top += mango(x, 10, 34 + r() * 10, r() * 16 - 8, ["#3f7d3a", "#4f8f45", "#2f6b33"][Math.floor(r() * 3)]);
+    for (x = 0; x < 610; x += 11) { var c = pk(); top += marigold(x, 10 + r() * 3, 6.2 + r() * 1.6, c[0], c[1]); }
+    for (x = 52; x < 600; x += 110) {
+      top += '<path d="M' + x + ' 14 v22" stroke="#b7791f" stroke-width=".8"/>' + marigold(x, 40, 7, "#f59e0b", "#fde68a") +
+        '<circle cx="' + x + '" cy="51" r="2.4" fill="#fffdf2" stroke="#e5c76b" stroke-width=".6"/><path d="M' + (x - 3) + ' 54 l3 9 l3 -9z" fill="#d4a017"/>';
+    }
+    top += "</svg>";
+    // strands down the left
+    s = '<svg class="tm-strands" viewBox="0 0 100 1500" aria-hidden="true">';
+    [[14, 1460], [38, 1200], [62, 960], [86, 720]].forEach(function (st, n) {
+      x = st[0];
+      s += '<line x1="' + x + '" y1="0" x2="' + x + '" y2="' + st[1] + '" stroke="#b7791f" stroke-width=".6" opacity=".6"/>';
+      for (y = 16, j = n * 2; y < st[1]; y += 18, j++) {
+        if (j % 6 === 5) {
+          s += '<circle cx="' + (x - 3.5) + '" cy="' + y + '" r="4.2" fill="#fffdf6" stroke="#eadfbf" stroke-width=".5"/>' +
+            '<circle cx="' + (x + 3.5) + '" cy="' + (y + 4) + '" r="4" fill="#fffdf6" stroke="#eadfbf" stroke-width=".5"/>';
+        } else if (j % 11 === 8) {
+          s += mango(x - 2, y - 4, 20, 40, "#4f8f45") + mango(x + 2, y - 4, 20, -40, "#3f7d3a");
+        } else { var c2 = pk(); s += marigold(x, y, 9.6 + r() * 1.6, c2[0], c2[1]); }
+      }
+      s += '<path d="M' + x + " " + (st[1] + 4) + ' v10" stroke="#b7791f" stroke-width=".8"/><path d="M' + (x - 5) + " " + (st[1] + 14) +
+        " h10 l-2 16 h-6z" + '" fill="#d4a017"/><circle cx="' + x + '" cy="' + (st[1] + 33) + '" r="2.6" fill="#d4a017"/>';
+    });
+    s += "</svg>";
+    var bits = '<span class="tm-glow"></span>';
+    for (i = 0; i < 14; i++) {
+      bits += '<span class="petal" style="left:' + f1(22 + r() * 76) + "%;animation-delay:-" + f1(r() * 18) +
+        "s;animation-duration:" + f1(12 + r() * 9) + "s;--s:" + (0.45 + r() * 0.5).toFixed(2) + ";--c:" + ["#fbbf24", "#facc15", "#f59e0b", "#fde047"][i % 4] + '"></span>';
+    }
+    return '<div class="deco" aria-hidden="true">' + bits + top + s + "</div>";
   }
 
   var DECOR = { turmeric: decoTurmeric, henna: decoHenna, haldi: decoHaldi, sangeet: decoSangeet, varmala: decoVarmala, mehendi: decoMehendi, wedding: decoWedding };
@@ -1064,13 +1104,19 @@
     else if (c.pdf) actions += '<a class="btn ghost" href="' + esc(c.pdf) + '" download="' + esc(c.pdfName || "") +
       '" target="_blank" rel="noopener">Download Card</a>';
     CARDS[e.id] = c;
+    // Parts shown only on the full card (the downloadable image), to keep the page version short.
+    var hide = c.pageHide || ["tagline"];
+    function part(name) { return hide.indexOf(name) > -1 ? " full-only" : ""; }
+    var venueBlock = '<p class="card-label">Venue</p>' +
+      '<p class="card-venue">' + esc(c.venue) + "</p>" +
+      (c.venueSub ? '<p class="card-venue-sub' + part("venueSub") + '">' + esc(c.venueSub) + "</p>" : "") +
+      (c.address && c.address.length ? '<p class="card-address' + part("address") + '">' + c.address.map(esc).join("<br>") + "</p>" : "");
+    var rsvpBlock = rsvp ? '<p class="card-label">R.S.V.P.</p><p class="card-rsvp">' + rsvp + "</p>" : "";
+    var actionsBlock = actions ? '<p class="card-actions">' + actions + "</p>" : "";
     var scene = c.sceneImage ?
       '<div class="card-scene photo' + (c.sceneCutout ? " cutout" : "") + (c.sceneClass ? " " + esc(c.sceneClass) : "") + '"><img src="' +
         esc(c.sceneImage) + '" alt="' + esc(c.sceneAlt || "") + '"></div>' :
       theme && SCENES[theme] ? '<div class="card-scene">' + SCENES[theme]() + "</div>" : "";
-    // Parts shown only on the full card (the downloadable image), to keep the page version short.
-    var hide = ["tagline"].concat(c.pageHide || []);
-    function part(name) { return hide.indexOf(name) > -1 ? " full-only" : ""; }
 
     // A finished card supplied as an image: show it as is, with the buttons underneath.
     if (c.imageOnly) {
@@ -1097,12 +1143,9 @@
       '<div class="card-date"><span class="side">' + esc(c.weekday) + '</span>' +
       '<span class="day">' + esc(c.day) + "<small>" + esc(c.monthYear) + "</small></span>" +
       '<span class="side">' + esc(c.time) + "</span></div>" +
-      '<p class="card-label">Venue</p>' +
-      '<p class="card-venue">' + esc(c.venue) + "</p>" +
-      (c.venueSub ? '<p class="card-venue-sub' + part("venueSub") + '">' + esc(c.venueSub) + "</p>" : "") +
-      (c.address && c.address.length ? '<p class="card-address' + part("address") + '">' + c.address.map(esc).join("<br>") + "</p>" : "") +
-      (actions ? '<p class="card-actions">' + actions + "</p>" : "") +
-      (rsvp ? '<p class="card-label">R.S.V.P.</p><p class="card-rsvp">' + rsvp + "</p>" : "") +
+      (c.infoColumns ?
+        '<div class="card-info"><div>' + venueBlock + '</div><div>' + rsvpBlock + "</div></div>" + actionsBlock :
+        venueBlock + actionsBlock + rsvpBlock) +
       (c.scenePosition === "bottom" ? scene : "") +
       "</div></article></section>";
   }

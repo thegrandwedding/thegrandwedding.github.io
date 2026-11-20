@@ -30,27 +30,22 @@
     "mapUrl": "https://www.google.com/maps/search/?api=1&query=Orchid+Banquet+11A%2F1J+East+Topsia+Road+Kolkata+700046",
     "rsvp": [
       {
-        "name": "Siddhant Haldar",
         "phone": "+1 332 209 7180",
-        "href": "https://wa.me/13322097180",
-        "note": "WhatsApp"
+        "href": "https://wa.me/13322097180"
       },
       {
-        "name": "Smita Haldar",
         "phone": "+91 84200 61166",
         "href": "tel:+918420061166"
       }
     ],
-    "image": "assets/cards/haldi-full-Mk5Qz8Ve.jpg",
+    "image": "assets/cards/haldi-full-Zr3Nb7Ka.jpg",
     "imageName": "Seersha-Siddhant-Haldi.jpg",
     "sceneImage": "assets/cards/haldi-couple-Wy2Fn6Ub.webp",
     "sceneAlt": "Seersha and Siddhant seated together in yellow at their Haldi",
     "headingSub": "of",
     "sceneClass": "tm-couple",
     "scenePosition": "bottom",
-    "pageHide": [
-      "tagline",
-      "address"
-    ]
+    "pageHide": [],
+    "infoColumns": true
   }
 }
