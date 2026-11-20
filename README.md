@@ -124,5 +124,5 @@ Cloudflare Worker in front of the site can check a code before serving each file
 - [ ] Link preview image (Open Graph) so the link shows a picture on WhatsApp.
 - [ ] Bengali version of the site.
 - [ ] Add the second R.S.V.P. number on the **Sangeet** card (currently "Second number to be added").
-- [ ] Re-make the Mehendi, Varmala and Sangeet card images (`assets/cards/*.jpg`) once their venues are known.
+- [ ] Re-make the Varmala and Sangeet card images (`assets/cards/*.jpg`) once their venues are known; for the **Mehendi**, swap in a new PDF/image (it uses the supplied card as is, `"imageOnly": true`).
 - [x] Themed cards for every event. Cards use `"layout": "card"` with `"theme"` — see `DECOR` in `assets/js/main.js`.

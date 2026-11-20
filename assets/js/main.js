@@ -1056,6 +1056,13 @@
     var hide = ["tagline"].concat(c.pageHide || []);
     function part(name) { return hide.indexOf(name) > -1 ? " full-only" : ""; }
 
+    // A finished card supplied as an image: show it as is, with the buttons underneath.
+    if (c.imageOnly) {
+      return '<section class="panel" data-panel="' + esc(e.id) + '" role="tabpanel" hidden>' +
+        '<figure class="image-card"><img src="' + esc(c.image) + '" alt="' + esc(c.imageAlt || e.title) + '"></figure>' +
+        (actions ? '<p class="card-actions image-card-actions">' + actions + "</p>" : "") + "</section>";
+    }
+
     return '<section class="panel" data-panel="' + esc(e.id) + '" role="tabpanel" hidden>' +
       '<article class="card' + (theme ? " theme-" + theme : "") + (FULL ? " full" : "") + '">' +
       (theme ? DECOR[theme]() : "") +

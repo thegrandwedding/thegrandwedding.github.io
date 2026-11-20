@@ -978,3 +978,10 @@ body.viewer-open { overflow: hidden; }
   .card.full .card-scene.photo.cutout { width: 108%; margin-left: -4%; }
   .card:not(.full) .card-scene.photo.cutout { width: 96%; }
 }
+
+/* A finished card supplied as an image (Mehendi) */
+.image-card { max-width: 520px; margin: 0 auto; box-shadow: 0 30px 60px -25px rgba(90,60,20,.45); }
+.image-card img { display: block; width: 100%; height: auto; }
+.image-card-actions { margin-top: 22px; }
+.image-card-actions .btn { background: var(--oxblood); border-color: var(--oxblood); color: var(--ivory); }
+.image-card-actions .btn.ghost { background: transparent; color: var(--oxblood); }

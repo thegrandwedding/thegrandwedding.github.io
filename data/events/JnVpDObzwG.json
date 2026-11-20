@@ -34,6 +34,10 @@
       }
     ],
     "image": "assets/cards/mehendi-Rk7vTq2LpX.jpg",
-    "imageName": "Seersha-Mehendi.jpg"
+    "imageName": "Seersha-Mehendi.jpg",
+    "imageOnly": true,
+    "pdf": "assets/cards/mehendi-Vb6sNa9Tw4.pdf",
+    "pdfName": "Seersha-Mehendi-Invitation.pdf",
+    "imageAlt": "Mehendi invitation for Seersha — Sunday 24 January 2027, 6:30 PM"
   }
 }
