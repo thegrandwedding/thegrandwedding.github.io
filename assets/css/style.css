@@ -1133,3 +1133,9 @@ body.viewer-open { overflow: hidden; }
           mask-image: linear-gradient(to bottom, transparent 0, #000 22%), linear-gradient(to right, transparent 0, #000 10%, #000 92%, transparent 100%);
           mask-composite: intersect;
 }
+/* Haldi couple cut out from the photo (test version): flush to the right and bottom, soft fade on the cut left edge */
+.card .card-scene.photo.tm-cut { width: 107%; margin: 10px -6.7% 0 0; }
+.card .card-scene.photo.tm-cut img {
+  filter: drop-shadow(0 6px 10px rgba(160,100,10,.18));
+  -webkit-mask-image: linear-gradient(to right, transparent 0, #000 9%); mask-image: linear-gradient(to right, transparent 0, #000 9%);
+}
