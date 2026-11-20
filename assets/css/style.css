@@ -801,3 +801,90 @@ main { max-width: var(--maxw); margin: 0 auto; padding: 64px 16px 40px; }
 @media (prefers-reduced-motion: reduce) {
   .theme-mehendi .glint, .theme-mehendi .card-name, .theme-mehendi .card-date .day, .theme-mehendi .card-venue { animation: none; }
 }
+
+/* ---------- Wedding: white, champagne filigree and rose script (after the printed card) ---------- */
+.card.theme-wedding {
+  --taupe: #8a7656;
+  --rose: #d24d8a;
+  background:
+    radial-gradient(ellipse 70% 50% at 50% 45%, #fff 0%, rgba(255,255,255,0) 80%),
+    linear-gradient(180deg, #fffdfa 0%, #fdf9f4 60%, #fbf3ee 100%);
+  color: var(--taupe);
+  border: 1px solid #d9c9a8;
+  outline: none;
+  padding: calc(9% + 18px) 16% calc(13% + 20px);
+  container-type: inline-size;
+  box-shadow: 0 30px 60px -28px rgba(120,95,60,.45);
+}
+.theme-wedding .wd-frame {
+  position: absolute; inset: 12px;
+  border: 1px solid rgba(200,180,143,.75);
+  outline: 1px solid rgba(200,180,143,.4); outline-offset: 4px;
+}
+.theme-wedding .card-body { text-shadow: 0 0 8px #fff, 0 0 2px #fff; }
+.theme-wedding .card-emblem { width: 104px; margin: 0 auto 14px; }
+.theme-wedding .card-emblem svg { width: 100%; height: auto; display: block; filter: drop-shadow(0 4px 8px rgba(176,122,18,.25)); }
+.theme-wedding .card-hosts,
+.theme-wedding .card-request,
+.theme-wedding .card-amp,
+.theme-wedding .card-after-names {
+  font-style: italic; text-transform: uppercase; letter-spacing: 0.06em; color: var(--taupe);
+}
+.theme-wedding .card-hosts { font-size: 18px; font-weight: 600; margin: 0 0 4px; }
+.theme-wedding .card-request { font-size: 16px; line-height: 1.55; margin: 0 auto 10px; max-width: 460px; }
+.theme-wedding .card-name {
+  display: block; width: max-content; max-width: 100%; margin: 0 auto;
+  padding: .1em .45em .18em; line-height: 1.25;
+  font-size: clamp(54px, 14cqw, 92px);
+  background: linear-gradient(100deg, #e46aa0 0%, #c2457c 45%, #ec88b2 70%, #c2457c 100%);
+  -webkit-background-clip: text; background-clip: text; color: transparent; text-shadow: none;
+}
+.theme-wedding .card-amp { font-family: inherit; font-size: 20px; margin: -6px 0; }
+.theme-wedding .card-after-names { font-size: 15px; margin: 6px 0 0; }
+.theme-wedding .card-scene { width: 60%; max-width: 290px; margin: 14px auto 4px; }
+.theme-wedding .card-scene svg { filter: drop-shadow(0 6px 10px rgba(120,60,70,.15)); }
+.theme-wedding .card-label { color: #a8936c; font-weight: 600; }
+.theme-wedding .card-label::before, .theme-wedding .card-label::after { background: #d9c9a8; }
+.theme-wedding .card-date .side { color: var(--taupe); border-color: #d9c9a8; font-weight: 600; }
+.theme-wedding .card-date .day { color: var(--rose); }
+.theme-wedding .card-date .day small { color: var(--taupe); font-weight: 600; white-space: nowrap; }
+.theme-wedding .card-venue { color: var(--taupe); font-weight: 600; }
+.theme-wedding .card-venue-sub { color: var(--taupe); font-size: 17px; font-style: italic; text-transform: uppercase; letter-spacing: .05em; font-weight: 500; }
+.theme-wedding .card-address { color: #6f5f45; opacity: 1; }
+.theme-wedding .card-rsvp { color: #6f5f45; }
+.theme-wedding .card-rsvp a { color: var(--rose); border-bottom-color: #ebb3cb; }
+.theme-wedding .btn { background: var(--rose); border-color: var(--rose); color: #fff; text-shadow: none; }
+.theme-wedding .btn:hover { background: #b23a71; }
+.theme-wedding .btn.ghost { background: #fff; color: var(--rose); }
+.theme-wedding .glint {
+  position: absolute; width: 3px; height: 3px; border-radius: 50%;
+  background: #f3d98f; box-shadow: 0 0 5px 1px rgba(224,169,46,.55);
+  transform: scale(var(--s, 1));
+  animation: twinkle 2.8s ease-in-out infinite;
+}
+.theme-wedding .petal {
+  position: absolute; top: -20px; width: 12px; height: 10px;
+  background: var(--c, #f6c1d4); border-radius: 60% 60% 60% 10%;
+  transform: scale(var(--s, 1));
+  animation: petal-fall 16s linear infinite;
+}
+.theme-wedding .flicker { animation: twinkle 1.6s ease-in-out infinite; }
+@container (max-width: 520px) {
+  .card.theme-wedding { padding: calc(12% + 14px) 11% calc(15% + 16px); }
+  .theme-wedding .card-emblem { width: 84px; }
+  .theme-wedding .card-hosts { font-size: 15px; }
+  .theme-wedding .card-request { font-size: 13.5px; }
+  .theme-wedding .card-after-names { font-size: 12.5px; }
+  .theme-wedding .card-date { gap: 6px; }
+  .theme-wedding .card-date .side { font-size: 10.5px; letter-spacing: 0.1em; padding: 8px 0; }
+  .theme-wedding .card-date .day { font-size: 40px; }
+  .theme-wedding .card-date .day small { font-size: 10px; letter-spacing: 0.15em; }
+  .theme-wedding .card-venue { font-size: 21px; }
+  .theme-wedding .card-venue-sub { font-size: 13.5px; }
+  .theme-wedding .card-address, .theme-wedding .card-rsvp { font-size: 15px; }
+  .theme-wedding .card-scene { width: 80%; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .theme-wedding .glint, .theme-wedding .flicker { animation: none; }
+  .theme-wedding .petal { display: none; }
+}

@@ -824,15 +824,221 @@
       "</svg>";
   }
 
-  var SCENES = { haldi: sceneHaldi, sangeet: sceneSangeet, varmala: sceneVarmala, mehendi: sceneMehendi };
+  // A filigree corner: acanthus scrolls with small blossoms, champagne line.
+  function filigree(tx, ty, sx, sy) {
+    var C = "#c8b48f", P = "#f0b7cc";
+    var g = '<g transform="translate(' + tx + " " + ty + ") scale(" + sx + " " + sy + ')" fill="none" stroke="' + C + '" stroke-linecap="round">';
+    g += '<path d="M6 150 C6 80 30 40 70 22 C100 8 130 8 160 6" stroke-width="1.6"/>' +
+      '<path d="M14 120 C18 80 40 54 70 42 C94 32 112 34 128 28" stroke-width="1"/>' +
+      // scrolls off the main stem
+      '<path d="M30 84 C44 80 52 66 46 58 C40 52 32 58 36 64" stroke-width="1.2"/>' +
+      '<path d="M58 42 C64 56 80 60 86 52 C90 46 84 40 78 44" stroke-width="1.2"/>' +
+      '<path d="M100 18 C104 30 118 34 124 28 C128 22 122 18 118 22" stroke-width="1.1"/>' +
+      '<path d="M16 110 C26 112 34 104 32 96 C30 90 24 92 24 96" stroke-width="1.1"/>' +
+      // acanthus leaves
+      '<path d="M44 34 C34 26 30 14 34 6 C42 12 48 22 44 34z M24 60 C14 56 6 44 8 34 C18 40 24 50 24 60z" stroke-width="1" fill="rgba(200,180,143,.18)"/>' +
+      '<path d="M140 18 C132 26 120 28 112 24 C120 16 130 14 140 18z M10 136 C4 128 4 116 8 108 C14 116 14 128 10 136z" stroke-width="1" fill="rgba(200,180,143,.18)"/>';
+    // blossoms
+    [[38, 22, 6], [18, 48, 5], [70, 30, 4.5], [88, 14, 4], [12, 90, 4], [54, 58, 3.5]].forEach(function (b) {
+      for (var k = 0; k < 5; k++) {
+        var a = k * 1.2566;
+        g += '<circle cx="' + f1(b[0] + Math.cos(a) * b[2] * .55) + '" cy="' + f1(b[1] + Math.sin(a) * b[2] * .55) + '" r="' + f1(b[2] * .5) + '" fill="#fff" stroke="' + C + '" stroke-width=".8"/>';
+      }
+      g += '<circle cx="' + b[0] + '" cy="' + b[1] + '" r="' + f1(b[2] * .32) + '" fill="' + P + '" stroke="none"/>';
+    });
+    [[60, 12], [26, 74], [110, 40], [40, 100], [138, 8], [6, 70]].forEach(function (d) {
+      g += '<circle cx="' + d[0] + '" cy="' + d[1] + '" r="1.6" fill="' + C + '" stroke="none"/>';
+    });
+    return g + "</g>";
+  }
 
-  var DECOR = { haldi: decoHaldi, sangeet: decoSangeet, varmala: decoVarmala, mehendi: decoMehendi };
+  // Wedding: white and champagne, like the printed card — filigree corners,
+  // a fine double frame, rose sprigs and a whisper of gold.
+  function decoWedding() {
+    var r = rng(53), i;
+    var svg = '<svg class="deco-top" viewBox="0 0 600 170" aria-hidden="true">' + filigree(14, 14, 1, 1) + filigree(586, 14, -1, 1) + "</svg>";
+    var bot = '<svg class="deco-bottom" viewBox="0 0 600 170" aria-hidden="true">' + filigree(14, 156, 1, -1) + filigree(586, 156, -1, -1) + "</svg>";
+    var bits = '<span class="wd-frame"></span>';
+    for (i = 0; i < 30; i++) {
+      bits += '<span class="glint" style="left:' + f1(6 + r() * 88) + "%;top:" + f1(3 + r() * 94) + "%;animation-delay:-" + f1(r() * 4) +
+        "s;--s:" + (0.5 + r() * 0.9).toFixed(2) + '"></span>';
+    }
+    var pcols = ["#f6c1d4", "#fbdbe6", "#f3a9c4", "#fff0f5"];
+    for (i = 0; i < 16; i++) {
+      bits += '<span class="petal" style="left:' + f1(r() * 100) + "%;animation-delay:-" + f1(r() * 18) +
+        "s;animation-duration:" + f1(13 + r() * 9) + "s;--s:" + (0.5 + r() * 0.6).toFixed(2) + ";--c:" + pcols[i % 4] + '"></span>';
+    }
+    return '<div class="deco" aria-hidden="true">' + bits + svg + bot + "</div>";
+  }
+
+  // Lord Ganesha, seated on a lotus — the blessing at the top of the card.
+  function emblemGanesha() {
+    var G = "url(#gn-gold)";
+    return '<svg viewBox="0 0 140 150" aria-hidden="true">' +
+      '<defs><linearGradient id="gn-gold" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f7d774"/><stop offset=".55" stop-color="#e0a92e"/><stop offset="1" stop-color="#b07a12"/></linearGradient>' +
+      '<radialGradient id="gn-halo"><stop offset=".55" stop-color="#ffe9a8" stop-opacity=".9"/><stop offset="1" stop-color="#ffe9a8" stop-opacity="0"/></radialGradient></defs>' +
+      // halo with rays
+      '<circle cx="70" cy="56" r="46" fill="url(#gn-halo)"/>' +
+      Array.apply(null, Array(24)).map(function (_, k) {
+        var a = k * Math.PI / 12;
+        return '<path d="M' + f1(70 + Math.cos(a) * 34) + " " + f1(56 + Math.sin(a) * 34) + " L" + f1(70 + Math.cos(a) * 44) + " " + f1(56 + Math.sin(a) * 44) +
+          '" stroke="#e0a92e" stroke-width="1" opacity=".55"/>';
+      }).join("") +
+      // lotus seat
+      '<path d="M22 132 C34 118 52 118 70 128 C88 118 106 118 118 132 Z" fill="#e2487a"/>' +
+      '<path d="M34 134 C42 116 58 112 70 126 C82 112 98 116 106 134 Z" fill="#f27aa0"/>' +
+      '<path d="M52 134 C56 120 64 116 70 124 C76 116 84 120 88 134 Z" fill="#ffb3c9"/>' +
+      '<path d="M18 136 H122" stroke="#b07a12" stroke-width="2.4" stroke-linecap="round"/>' +
+      // crossed legs and body
+      '<ellipse cx="70" cy="118" rx="34" ry="10" fill="#f08a24"/>' +
+      '<path d="M40 118 Q70 108 100 118" fill="none" stroke="#f7d774" stroke-width="2"/>' +
+      '<path d="M46 116 Q44 84 70 76 Q96 84 94 116 Z" fill="#f4a24a"/>' +
+      '<ellipse cx="70" cy="102" rx="17" ry="14" fill="#f6b15c"/>' +
+      '<circle cx="70" cy="104" r="1.8" fill="#b45309"/>' +
+      '<path d="M52 92 Q70 98 88 92" fill="none" stroke="#c2185b" stroke-width="3"/>' + // sash
+      // upper arms: axe and lotus
+      '<path d="M50 88 Q34 82 32 68" fill="none" stroke="#f4a24a" stroke-width="7" stroke-linecap="round"/>' +
+      '<path d="M90 88 Q106 82 108 68" fill="none" stroke="#f4a24a" stroke-width="7" stroke-linecap="round"/>' +
+      '<path d="M30 70 V50 M24 52 Q30 44 36 52 Z" stroke="#b07a12" stroke-width="2" fill="' + G + '"/>' +
+      '<path d="M108 66 C102 60 104 52 108 50 C112 52 114 60 108 66z" fill="#e2487a"/><path d="M108 66 C104 62 100 60 98 62 M108 66 C112 62 116 60 118 62" stroke="#e2487a" stroke-width="2.4" fill="none"/>' +
+      // lower arms: blessing and modak
+      '<path d="M52 96 Q42 104 46 112" fill="none" stroke="#f4a24a" stroke-width="7" stroke-linecap="round"/>' +
+      '<circle cx="46" cy="113" r="4.6" fill="#f7d774" stroke="#b07a12" stroke-width=".8"/>' +
+      '<path d="M88 96 Q100 96 102 86" fill="none" stroke="#f4a24a" stroke-width="7" stroke-linecap="round"/>' +
+      '<path d="M98 86 v-8 q4 -3 8 0 v8 z" fill="#f6b15c"/><circle cx="102" cy="82" r="1.2" fill="#c2185b"/>' +
+      // ears
+      '<path d="M54 46 C38 36 26 48 30 62 C34 74 46 74 56 66 Z" fill="#f6b15c" stroke="#e0a92e" stroke-width="1.2"/>' +
+      '<path d="M86 46 C102 36 114 48 110 62 C106 74 94 74 84 66 Z" fill="#f6b15c" stroke="#e0a92e" stroke-width="1.2"/>' +
+      '<path d="M50 50 C40 46 34 54 38 62 C42 68 48 66 52 62 Z M90 50 C100 46 106 54 102 62 C98 68 92 66 88 62 Z" fill="#f48fb1" opacity=".8"/>' +
+      // head and trunk
+      '<ellipse cx="70" cy="56" rx="17" ry="16" fill="#f6b15c"/>' +
+      '<path d="M66 62 C62 76 60 86 66 92 C70 96 76 94 76 88 C76 84 72 84 72 88" fill="none" stroke="#c98a2e" stroke-width="10" stroke-linecap="round"/>' +
+      '<path d="M66 62 C62 76 60 86 66 92 C70 96 76 94 76 88 C76 84 72 84 72 88" fill="none" stroke="#f6b15c" stroke-width="8" stroke-linecap="round"/>' +
+      '<path d="M66 64 C63 76 62 84 66 90" fill="none" stroke="#e0a92e" stroke-width=".8" stroke-dasharray="1.5 2"/>' +
+      '<path d="M77 64 l6 6" stroke="#fffaf0" stroke-width="3" stroke-linecap="round"/>' +
+      '<circle cx="63" cy="55" r="1.8" fill="#3b2412"/><circle cx="77" cy="55" r="1.8" fill="#3b2412"/>' +
+      '<path d="M66 44 Q70 52 74 44" fill="none" stroke="#c2185b" stroke-width="2"/><circle cx="70" cy="47" r="1.3" fill="#c2185b"/>' +
+      // crown
+      '<path d="M54 44 L56 30 Q62 26 64 22 L70 6 L76 22 Q78 26 84 30 L86 44 Z" fill="' + G + '" stroke="#b07a12" stroke-width="1"/>' +
+      '<path d="M55 38 H85 M57 31 H83" stroke="#b07a12" stroke-width="1"/>' +
+      '<circle cx="70" cy="34" r="3" fill="#c2185b" stroke="#f7d774"/><circle cx="62" cy="40" r="1.5" fill="#2f7d4f"/><circle cx="78" cy="40" r="1.5" fill="#2f7d4f"/>' +
+      '<circle cx="70" cy="6" r="2.4" fill="#f7d774"/>' +
+      "</svg>";
+  }
+
+  var EMBLEMS = { wedding: emblemGanesha };
+
+  // Wedding: a Bengali bride and groom seated before the sacred fire,
+  // tied together by the gathbandhan.
+  function sceneWedding() {
+    var r = rng(57), i, buti = "", sparks = "";
+    for (i = 0; i < 40; i++) {
+      buti += '<circle cx="' + f1(44 + r() * 100) + '" cy="' + f1(132 + r() * 60) + '" r="' + f1(.7 + r() * .8) + '" fill="#f7d774"/>';
+    }
+    for (i = 0; i < 10; i++) {
+      sparks += '<circle class="flicker" style="animation-delay:-' + f1(r() * 2) + 's" cx="' + f1(140 + r() * 20) + '" cy="' + f1(150 + r() * 26) + '" r="' + f1(.8 + r()) + '" fill="#ffd166"/>';
+    }
+    var SAREE = "M78 128 Q96 132 114 128 Q150 150 156 196 Q96 210 36 196 Q42 150 78 128 Z";
+    return '<svg viewBox="16 0 268 232" aria-hidden="true">' +
+      '<defs><clipPath id="wd-saree"><path d="' + SAREE + '"/></clipPath>' +
+      '<radialGradient id="wd-halo"><stop offset="0" stop-color="#fde4ec" stop-opacity=".95"/><stop offset=".7" stop-color="#fdeef3" stop-opacity=".5"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient>' +
+      '<radialGradient id="wd-fire"><stop offset="0" stop-color="#fff3b0"/><stop offset=".5" stop-color="#ffb020" stop-opacity=".85"/><stop offset="1" stop-color="#ff6a00" stop-opacity="0"/></radialGradient></defs>' +
+      '<ellipse cx="150" cy="120" rx="140" ry="104" fill="url(#wd-halo)"/>' +
+      // alpona on the floor
+      '<g fill="none" stroke="#d98aa6" stroke-width="1" opacity=".8">' +
+      '<ellipse cx="150" cy="210" rx="128" ry="14"/><ellipse cx="150" cy="210" rx="114" ry="10" stroke-dasharray="2 3"/>' +
+      Array.apply(null, Array(18)).map(function (_, k) {
+        var x = 36 + k * 13.4;
+        return '<path d="M' + f1(x) + ' 204 q 5 -7 10 0"/>';
+      }).join("") + "</g>" +
+      // the gathbandhan: her aanchal tied to his uttariyo
+      '<path d="M120 140 Q150 168 182 140" fill="none" stroke="#e8c766" stroke-width="5"/>' +
+      '<path d="M120 140 Q150 168 182 140" fill="none" stroke="#c0182c" stroke-width="2.6"/>' +
+      '<circle cx="151" cy="160" r="4" fill="#c0182c" stroke="#e8c766" stroke-width="1.2"/>' +
+
+      // ---- bride (left) ----
+      '<path d="M78 70 Q66 110 72 150 L118 150 Q124 108 112 70 Z" fill="#a50f22"/>' + // veil behind
+      '<path d="' + SAREE + '" fill="#c0182c"/>' +
+      '<g clip-path="url(#wd-saree)">' + buti +
+      '<path d="M36 192 Q96 206 156 192" stroke="#e8c766" stroke-width="8" fill="none"/>' +
+      '<path d="M36 192 Q96 206 156 192" stroke="#a50f22" stroke-width="1.2" stroke-dasharray="3 2" fill="none"/>' +
+      '<path d="M112 130 Q130 160 126 196" stroke="#e8c766" stroke-width="5" fill="none"/></g>' +
+      '<path d="M80 96 Q96 90 112 96 L114 128 Q96 132 78 128 Z" fill="#c0182c" stroke="#e8c766" stroke-width="1"/>' +
+      '<path d="M80 98 Q74 120 88 136" fill="none" stroke="#e8c766" stroke-width="4"/>' + // aanchal border over shoulder
+      // her hands folded in her lap
+      '<path d="M84 104 Q82 128 96 140" fill="none" stroke="' + SKIN + '" stroke-width="6" stroke-linecap="round"/>' +
+      '<path d="M110 104 Q114 128 100 140" fill="none" stroke="' + SKIN + '" stroke-width="6" stroke-linecap="round"/>' +
+      '<path d="M86 124 l7 -1 M86 128 l7 -1 M103 127 l7 1 M103 131 l7 1" stroke="#e8c766" stroke-width="1.6"/>' +
+      '<path d="M88 126 l6 -1 M104 129 l6 1" stroke="#c0182c" stroke-width="1.4"/>' + // shakha-pola
+      // white rajnigandha garland
+      '<path d="M84 94 Q96 128 110 94" fill="none" stroke="#fffaf0" stroke-width="4.4" stroke-dasharray="2.6 1.2"/>' +
+      '<path d="M84 94 Q96 128 110 94" fill="none" stroke="#e0457b" stroke-width="1.2" stroke-dasharray="1 7"/>' +
+      // head, jewellery, chandan
+      '<rect x="92" y="78" width="9" height="14" fill="' + SKIN + '"/>' +
+      '<circle cx="96" cy="68" r="14" fill="' + SKIN + '"/>' +
+      '<path d="M84 90 Q96 100 108 90" fill="none" stroke="#e0a92e" stroke-width="3"/>' +
+      '<circle cx="104" cy="74" r="4" fill="none" stroke="#e0a92e" stroke-width="1.4"/>' + // nath
+      '<path d="M86 62 Q96 54 106 62" fill="none" stroke="#fffaf0" stroke-width="1.6" stroke-dasharray=".5 2.6" stroke-linecap="round"/>' +
+      '<circle cx="96" cy="60" r="1.6" fill="#c0182c"/>' +
+      '<path d="M82 70 Q81 52 96 51 Q111 52 110 66 Q103 58 92 59 Q85 62 84 76 Z" fill="' + HAIR + '"/>' +
+      // red veil over the head
+      '<path d="M78 82 Q72 48 96 42 Q120 48 114 82 Q112 58 96 56 Q80 58 78 82 Z" fill="#c0182c" stroke="#e8c766" stroke-width="1.6"/>' +
+      // shola mukut (white pith crown)
+      '<path d="M82 50 Q84 30 96 22 Q108 30 110 50 Q96 44 82 50 Z" fill="#fffaf0" stroke="#d9c7a0" stroke-width="1"/>' +
+      '<path d="M86 44 Q96 30 106 44 M90 36 Q96 28 102 36" fill="none" stroke="#e0a92e" stroke-width=".9"/>' +
+      [[84, 46], [88, 34], [96, 24], [104, 34], [108, 46]].map(function (p) {
+        return '<circle cx="' + p[0] + '" cy="' + p[1] + '" r="2.4" fill="#fffaf0" stroke="#d9c7a0" stroke-width=".8"/>';
+      }).join("") +
+      '<circle cx="96" cy="38" r="2" fill="#c0182c"/>' +
+
+      // ---- groom (right) ----
+      // dhoti, cross-legged
+      '<path d="M162 196 Q164 166 188 162 L218 162 Q246 166 250 196 Q206 206 162 196 Z" fill="#fffdf6" stroke="#d9c7a0" stroke-width="1"/>' +
+      '<path d="M170 190 Q206 200 244 190" fill="none" stroke="#e8c766" stroke-width="2"/>' +
+      // panjabi
+      '<path d="M182 92 Q204 84 226 92 L232 166 Q204 174 176 166 Z" fill="#fbf1dc" stroke="#d9c7a0" stroke-width="1"/>' +
+      '<path d="M204 90 V126" stroke="#d9c7a0" stroke-width="1"/>' +
+      [98, 108, 118].map(function (y) { return '<circle cx="204" cy="' + y + '" r="1.5" fill="#e0a92e"/>'; }).join("") +
+      // uttariyo (shawl) over the shoulder, red-gold
+      '<path d="M224 90 Q198 120 182 150 L192 152 Q206 124 230 98 Z" fill="#c0182c" stroke="#e8c766" stroke-width="1.2"/>' +
+      // garland
+      '<path d="M190 94 Q204 132 218 94" fill="none" stroke="#fffaf0" stroke-width="4.4" stroke-dasharray="2.6 1.2"/>' +
+      '<path d="M190 94 Q204 132 218 94" fill="none" stroke="#e0457b" stroke-width="1.2" stroke-dasharray="1 7"/>' +
+      // hands joined in front
+      '<path d="M186 100 Q180 130 198 140" fill="none" stroke="#fbf1dc" stroke-width="9" stroke-linecap="round"/>' +
+      '<path d="M222 100 Q228 130 210 140" fill="none" stroke="#fbf1dc" stroke-width="9" stroke-linecap="round"/>' +
+      '<path d="M200 144 Q204 134 208 144 Z" fill="' + SKIN + '"/>' +
+      // head with chandan
+      '<rect x="200" y="78" width="9" height="14" fill="' + SKIN + '"/>' +
+      '<circle cx="204" cy="68" r="14.5" fill="' + SKIN + '"/>' +
+      '<path d="M194 62 Q204 55 214 62" fill="none" stroke="#fffaf0" stroke-width="1.6" stroke-dasharray=".5 2.6" stroke-linecap="round"/>' +
+      '<path d="M190 70 Q189 54 204 53 Q219 54 218 68 Q212 60 201 61 Q194 63 191 74 Z" fill="' + HAIR + '"/>' +
+      // topor (conical white crown)
+      '<path d="M190 58 L204 4 L218 58 Q204 52 190 58 Z" fill="#fffaf0" stroke="#d9c7a0" stroke-width="1.2"/>' +
+      '<path d="M193 48 L204 10 L215 48 M196 38 H212 M198 28 H210" fill="none" stroke="#e0a92e" stroke-width=".9"/>' +
+      '<path d="M190 58 Q186 48 182 50 Q184 58 190 60 Z M218 58 Q222 48 226 50 Q224 58 218 60 Z" fill="#fffaf0" stroke="#d9c7a0" stroke-width=".8"/>' +
+      '<circle cx="204" cy="44" r="2.2" fill="#c0182c"/><circle cx="204" cy="4" r="2" fill="#e0a92e"/>' +
+
+      // ---- the sacred fire ----
+      '<g transform="translate(0 12)">' +
+      '<ellipse class="flicker" cx="151" cy="166" rx="26" ry="30" fill="url(#wd-fire)"/>' +
+      '<path d="M140 184 C134 170 142 160 146 150 C148 160 152 162 152 154 C158 162 164 172 160 184 Z" fill="#ffb020"/>' +
+      '<path d="M145 184 C142 176 146 168 150 162 C152 170 156 174 156 184 Z" fill="#fff3b0"/>' + sparks +
+      '<path d="M130 184 H172 L166 200 H136 Z" fill="#c9973a" stroke="#8a5a12" stroke-width="1"/>' +
+      '<path d="M128 184 H174" stroke="#8a5a12" stroke-width="2.4" stroke-linecap="round"/>' +
+      '<path d="M138 192 H164" stroke="#8a5a12" stroke-width=".8" stroke-dasharray="2 2"/></g>' +
+      "</svg>";
+  }
+
+  var SCENES = { haldi: sceneHaldi, sangeet: sceneSangeet, varmala: sceneVarmala, mehendi: sceneMehendi, wedding: sceneWedding };
+
+  var DECOR = { haldi: decoHaldi, sangeet: decoSangeet, varmala: decoVarmala, mehendi: decoMehendi, wedding: decoWedding };
 
   function renderCard(e) {
     var c = e.card;
     var theme = c.theme && DECOR[c.theme] ? c.theme : null;
     var rsvp = (c.rsvp || []).map(function (r) {
-      return esc(r.name) + ' · <a href="' + esc(r.href) + '" target="_blank" rel="noopener">' + esc(r.phone) + "</a>" +
+      return (r.name ? esc(r.name) + " · " : "") + '<a href="' + esc(r.href) + '" target="_blank" rel="noopener">' + esc(r.phone) + "</a>" +
         (r.note ? " (" + esc(r.note) + ")" : "");
     }).join("<br>");
     var actions = "";
@@ -844,12 +1050,14 @@
       '<article class="card' + (theme ? " theme-" + theme : "") + '">' +
       (theme ? DECOR[theme]() : "") +
       '<div class="card-body">' +
+      (theme && EMBLEMS[theme] ? '<div class="card-emblem">' + EMBLEMS[theme]() + "</div>" : "") +
       (c.invocation ? '<p class="card-invocation">' + esc(c.invocation) + "</p>" : "") +
       (c.hosts ? '<p class="card-hosts">' + esc(c.hosts) + "</p>" : "") +
-      '<p class="card-request">' + esc(c.request) + "</p>" +
-      '<h2 class="card-title"><span class="flourish">◇</span> ' + esc(c.heading) + ' <span class="flourish">◇</span></h2>' +
+      (c.request ? '<p class="card-request">' + esc(c.request) + "</p>" : "") +
+      (c.heading ? '<h2 class="card-title"><span class="flourish">◇</span> ' + esc(c.heading) + ' <span class="flourish">◇</span></h2>' : "") +
       '<p class="card-name">' + esc(c.names[0]) + "</p>" +
-      (c.names[1] ? '<p class="card-amp">&amp;</p><p class="card-name">' + esc(c.names[1]) + "</p>" : "") +
+      (c.names[1] ? '<p class="card-amp">' + esc(c.joiner || "&") + '</p><p class="card-name">' + esc(c.names[1]) + "</p>" : "") +
+      (c.afterNames ? '<p class="card-after-names">' + esc(c.afterNames) + "</p>" : "") +
       (c.tagline ? '<p class="card-tagline">' + esc(c.tagline) + "</p>" : "") +
       (theme && SCENES[theme] ? '<div class="card-scene">' + SCENES[theme]() + "</div>" : "") +
       '<div class="card-date"><span class="side">' + esc(c.weekday) + '</span>' +
