@@ -84,6 +84,16 @@ python3 -m http.server 8000
 Edit its file in `data/events/` (date, time, venue, description). Set `countdownAt`
 (ISO time with `+05:30`) to include it in the countdown; `null` leaves it out.
 
+## Event cards
+
+Each event tab shows a compact card (same height ballpark as the reception card). **View Full Card**
+opens the complete card image (`card.image`) full-screen with **Save / Share** (the phone's share
+sheet where supported, otherwise a download). The reception viewer also offers the original PDF (`card.pdf`).
+
+The full images are snapshots of the cards rendered with `?fullcard` in the URL, which shows every
+card in full (tagline and any `card.pageHide` parts included). Re-make an image whenever that card's
+details change, e.g. open `http://localhost:8000/?invite=nyjfC74C&fullcard#sangeet` and capture the card.
+
 ## Hosting on Cloudflare Pages (later)
 
 **Why:** GitHub Pages serves from a public repo on the free plan, so every invite code
@@ -112,5 +122,6 @@ Cloudflare Worker in front of the site can check a code before serving each file
 - [ ] Custom domain.
 - [ ] Link preview image (Open Graph) so the link shows a picture on WhatsApp.
 - [ ] Bengali version of the site.
-- [ ] Re-make the Mehendi, Varmala and Sangeet card images (`assets/cards/*.jpg`) once their venues are known — the downloadable Haldi/Sangeet images are snapshots of the on-page cards, so they need re-rendering whenever card details change.
+- [ ] Add the second R.S.V.P. number on the **Sangeet** card (currently "Second number to be added").
+- [ ] Re-make the Mehendi, Varmala and Sangeet card images (`assets/cards/*.jpg`) once their venues are known.
 - [x] Themed cards for every event. Cards use `"layout": "card"` with `"theme"` — see `DECOR` in `assets/js/main.js`.

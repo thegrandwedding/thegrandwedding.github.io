@@ -40,7 +40,11 @@
         "href": "tel:+919830447770"
       }
     ],
-    "pdf": "assets/cards/wedding-Nw4cHs8eQd.jpg",
-    "downloadName": "Seersha-Siddhant-Wedding.jpg"
+    "image": "assets/cards/wedding-Nw4cHs8eQd.jpg",
+    "imageName": "Seersha-Siddhant-Wedding.jpg",
+    "pageHide": [
+      "request",
+      "venueSub"
+    ]
   }
 }

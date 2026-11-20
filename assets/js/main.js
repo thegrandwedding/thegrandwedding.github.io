@@ -1034,43 +1034,109 @@
 
   var DECOR = { haldi: decoHaldi, sangeet: decoSangeet, varmala: decoVarmala, mehendi: decoMehendi, wedding: decoWedding };
 
+  // ?fullcard renders every card in full (used to make the downloadable images).
+  var FULL = /[?&]fullcard\b/.test(location.search);
+  var CARDS = {};
+
   function renderCard(e) {
     var c = e.card;
     var theme = c.theme && DECOR[c.theme] ? c.theme : null;
     var rsvp = (c.rsvp || []).map(function (r) {
-      return (r.name ? esc(r.name) + " · " : "") + '<a href="' + esc(r.href) + '" target="_blank" rel="noopener">' + esc(r.phone) + "</a>" +
+      return (r.name ? esc(r.name) + " · " : "") +
+        (r.href ? '<a href="' + esc(r.href) + '" target="_blank" rel="noopener">' + esc(r.phone) + "</a>" : "<em>" + esc(r.phone) + "</em>") +
         (r.note ? " (" + esc(r.note) + ")" : "");
     }).join("<br>");
     var actions = "";
     if (c.mapUrl) actions += '<a class="btn" href="' + esc(c.mapUrl) + '" target="_blank" rel="noopener">View on Map</a>';
-    if (c.pdf) actions += '<a class="btn ghost" href="' + esc(c.pdf) + '" download="' + esc(c.downloadName || "") +
+    if (c.image) actions += '<button type="button" class="btn ghost" data-view-card="' + esc(e.id) + '">View Full Card</button>';
+    else if (c.pdf) actions += '<a class="btn ghost" href="' + esc(c.pdf) + '" download="' + esc(c.pdfName || "") +
       '" target="_blank" rel="noopener">Download Card</a>';
+    CARDS[e.id] = c;
+    // Parts shown only on the full card (the downloadable image), to keep the page version short.
+    var hide = ["tagline"].concat(c.pageHide || []);
+    function part(name) { return hide.indexOf(name) > -1 ? " full-only" : ""; }
 
     return '<section class="panel" data-panel="' + esc(e.id) + '" role="tabpanel" hidden>' +
-      '<article class="card' + (theme ? " theme-" + theme : "") + '">' +
+      '<article class="card' + (theme ? " theme-" + theme : "") + (FULL ? " full" : "") + '">' +
       (theme ? DECOR[theme]() : "") +
       '<div class="card-body">' +
       (theme && EMBLEMS[theme] ? '<div class="card-emblem">' + EMBLEMS[theme]() + "</div>" : "") +
       (c.invocation ? '<p class="card-invocation">' + esc(c.invocation) + "</p>" : "") +
       (c.hosts ? '<p class="card-hosts">' + esc(c.hosts) + "</p>" : "") +
-      (c.request ? '<p class="card-request">' + esc(c.request) + "</p>" : "") +
+      (c.request ? '<p class="card-request' + part("request") + '">' + esc(c.request) + "</p>" : "") +
       (c.heading ? '<h2 class="card-title"><span class="flourish">◇</span> ' + esc(c.heading) + ' <span class="flourish">◇</span></h2>' : "") +
       '<p class="card-name">' + esc(c.names[0]) + "</p>" +
       (c.names[1] ? '<p class="card-amp">' + esc(c.joiner || "&") + '</p><p class="card-name">' + esc(c.names[1]) + "</p>" : "") +
       (c.afterNames ? '<p class="card-after-names">' + esc(c.afterNames) + "</p>" : "") +
-      (c.tagline ? '<p class="card-tagline">' + esc(c.tagline) + "</p>" : "") +
+      (c.tagline ? '<p class="card-tagline' + part("tagline") + '">' + esc(c.tagline) + "</p>" : "") +
       (theme && SCENES[theme] ? '<div class="card-scene">' + SCENES[theme]() + "</div>" : "") +
       '<div class="card-date"><span class="side">' + esc(c.weekday) + '</span>' +
       '<span class="day">' + esc(c.day) + "<small>" + esc(c.monthYear) + "</small></span>" +
       '<span class="side">' + esc(c.time) + "</span></div>" +
       '<p class="card-label">Venue</p>' +
       '<p class="card-venue">' + esc(c.venue) + "</p>" +
-      (c.venueSub ? '<p class="card-venue-sub">' + esc(c.venueSub) + "</p>" : "") +
+      (c.venueSub ? '<p class="card-venue-sub' + part("venueSub") + '">' + esc(c.venueSub) + "</p>" : "") +
       (c.address && c.address.length ? '<p class="card-address">' + c.address.map(esc).join("<br>") + "</p>" : "") +
       (actions ? '<p class="card-actions">' + actions + "</p>" : "") +
       (rsvp ? '<p class="card-label">R.S.V.P.</p><p class="card-rsvp">' + rsvp + "</p>" : "") +
       "</div></article></section>";
   }
+
+  /* ---------- full card viewer ---------- */
+  var viewer = null;
+  function openCard(id) {
+    var c = CARDS[id];
+    if (!c || !c.image) return;
+    if (!viewer) {
+      viewer = document.createElement("div");
+      viewer.className = "viewer";
+      viewer.setAttribute("role", "dialog");
+      viewer.setAttribute("aria-modal", "true");
+      viewer.setAttribute("aria-label", "Invitation card");
+      viewer.innerHTML = '<div class="viewer-bar"><button type="button" class="vbtn primary" data-save>Save</button>' +
+        '<a class="vbtn" data-pdf target="_blank" rel="noopener">PDF</a>' +
+        '<button type="button" class="vbtn" data-close aria-label="Close">Close</button></div>' +
+        '<div class="viewer-scroll"><img alt=""></div>';
+      document.body.appendChild(viewer);
+      viewer.addEventListener("click", function (ev) {
+        if (ev.target === viewer || ev.target.classList.contains("viewer-scroll") || ev.target.hasAttribute("data-close")) closeCard();
+      });
+      document.addEventListener("keydown", function (ev) { if (ev.key === "Escape" && !viewer.hidden) closeCard(); });
+    }
+    var img = viewer.querySelector("img"), save = viewer.querySelector("[data-save]"), pdf = viewer.querySelector("[data-pdf]");
+    img.src = c.image;
+    img.alt = (c.heading || id) + " invitation card";
+    pdf.hidden = !c.pdf;
+    if (c.pdf) { pdf.href = c.pdf; pdf.setAttribute("download", c.pdfName || ""); }
+    var canShare = !!(navigator.canShare && window.File);
+    save.textContent = canShare ? "Save / Share" : "Download";
+    save.onclick = function () { saveCard(c); };
+    viewer.hidden = false;
+    viewer.querySelector(".viewer-scroll").scrollTop = 0;
+    document.body.classList.add("viewer-open");
+  }
+  function closeCard() {
+    viewer.hidden = true;
+    document.body.classList.remove("viewer-open");
+  }
+  function saveCard(c) {
+    var name = c.imageName || "invitation.jpg";
+    function download() {
+      var a = document.createElement("a");
+      a.href = c.image; a.download = name; a.target = "_blank"; a.rel = "noopener";
+      document.body.appendChild(a); a.click(); a.remove();
+    }
+    if (!(navigator.canShare && window.File)) return download();
+    fetch(c.image).then(function (r) { return r.blob(); }).then(function (b) {
+      var file = new File([b], name, { type: b.type || "image/jpeg" });
+      if (!navigator.canShare({ files: [file] })) return download();
+      return navigator.share({ files: [file], title: name.replace(/\.jpg$/, "").replace(/-/g, " ") });
+    }).catch(function (err) { if (!err || err.name !== "AbortError") download(); });
+  }
+  document.addEventListener("click", function (ev) {
+    var b = ev.target.closest && ev.target.closest("[data-view-card]");
+    if (b) openCard(b.getAttribute("data-view-card"));
+  });
 
   /* ---------- countdown: to the guest's next dated event ---------- */
   function startCountdown(events) {

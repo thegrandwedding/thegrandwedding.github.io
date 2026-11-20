@@ -888,3 +888,52 @@ main { max-width: var(--maxw); margin: 0 auto; padding: 64px 16px 40px; }
   .theme-wedding .glint, .theme-wedding .flicker { animation: none; }
   .theme-wedding .petal { display: none; }
 }
+
+/* ---------- Page cards are compact; the full card is one tap away ---------- */
+.card:not(.full) .full-only { display: none; }
+.card:not(.full) .card-scene { width: 40%; max-width: 210px; margin-top: 6px; }
+@container (max-width: 520px) {
+  .card:not(.full) .card-scene { width: 56%; }
+}
+button.btn { cursor: pointer; font-family: var(--caps); font-size: 11px; line-height: normal; font-weight: 400; }
+
+.viewer {
+  position: fixed; inset: 0; z-index: 1000;
+  background: rgba(20,12,10,.88);
+  -webkit-backdrop-filter: blur(4px); backdrop-filter: blur(4px);
+  display: flex; flex-direction: column;
+  animation: viewer-in .25s ease;
+}
+@keyframes viewer-in { from { opacity: 0; } to { opacity: 1; } }
+.viewer-bar {
+  display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;
+  padding: 12px 16px calc(12px + env(safe-area-inset-top, 0px));
+  padding-top: calc(12px + env(safe-area-inset-top, 0px));
+}
+.vbtn {
+  font-family: var(--caps); font-size: 12px; letter-spacing: .2em; text-transform: uppercase; text-decoration: none;
+  padding: 11px 18px; border: 1px solid #d4b16a; background: transparent; color: #f3e3b5; cursor: pointer;
+}
+.vbtn.primary { background: #d4b16a; color: #2a1408; }
+.vbtn[hidden] { display: none; }
+.viewer-scroll {
+  flex: 1; overflow-y: auto; -webkit-overflow-scrolling: touch;
+  padding: 4px 16px calc(24px + env(safe-area-inset-bottom, 0px));
+}
+.viewer-scroll img {
+  display: block; width: 100%; max-width: 560px; height: auto; margin: 0 auto;
+  box-shadow: 0 20px 60px rgba(0,0,0,.5);
+}
+body.viewer-open { overflow: hidden; }
+.card[class*="theme-"]:not(.full) .card-name { font-size: clamp(44px, 11cqw, 70px); }
+.card[class*="theme-"]:not(.full) .card-amp { margin: -8px 0; }
+@container (min-width: 521px) {
+  .card:not(.full) .card-scene { width: 34%; }
+  .theme-wedding:not(.full) .card-emblem { width: 76px; margin-bottom: 8px; }
+}
+.card[class*="theme-"] .card-actions { gap: 8px; }
+.card[class*="theme-"] .card-actions .btn { padding: 10px 14px; letter-spacing: 0.16em; white-space: nowrap; }
+.card.theme-varmala:not(.full) { padding-top: calc(21% + 14px); padding-bottom: calc(10% + 20px); }
+@container (max-width: 520px) {
+  .card.theme-varmala:not(.full) { padding-top: calc(28% + 10px); padding-bottom: calc(12% + 16px); }
+}

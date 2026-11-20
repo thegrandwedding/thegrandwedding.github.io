@@ -26,18 +26,15 @@
     "address": [],
     "rsvp": [
       {
-        "name": "Siddhant Haldar",
-        "phone": "+1 332 209 7180",
-        "href": "https://wa.me/13322097180",
-        "note": "WhatsApp"
+        "phone": "+91 98318 01908",
+        "href": "tel:+919831801908"
       },
       {
-        "name": "Smita Haldar",
-        "phone": "+91 84200 61166",
-        "href": "tel:+918420061166"
+        "phone": "+91 98304 47770",
+        "href": "tel:+919830447770"
       }
     ],
-    "pdf": "assets/cards/varmala-QF5UnLyXkM.jpg",
-    "downloadName": "Seersha-Siddhant-Varmala.jpg"
+    "image": "assets/cards/varmala-QF5UnLyXkM.jpg",
+    "imageName": "Seersha-Siddhant-Varmala.jpg"
   }
 }
