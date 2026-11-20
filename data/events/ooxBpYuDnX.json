@@ -8,7 +8,6 @@
   "time": "1:00 PM",
   "venue": "To be announced",
   "countdownAt": "2027-01-25T13:00:00+05:30",
-  "countdownLabel": "Until the Varmala",
   "layout": "card",
   "card": {
     "theme": "varmala",

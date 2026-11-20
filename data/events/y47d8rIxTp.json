@@ -8,7 +8,6 @@
   "time": "10:30 AM",
   "venue": "Orchid Banquet, 11A/1J East Topsia Road, Kolkata – 700046",
   "countdownAt": "2027-01-27T10:30:00+05:30",
-  "countdownLabel": "Until the Haldi",
   "layout": "card",
   "card": {
     "theme": "haldi",

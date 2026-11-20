@@ -1079,7 +1079,7 @@
     var d = document.getElementById("cd-days"), h = document.getElementById("cd-hours"),
         m = document.getElementById("cd-mins"), s = document.getElementById("cd-secs");
     var targets = events.filter(function (e) { return e.countdownAt; })
-      .map(function (e) { return { label: e.countdownLabel || ("Until the " + e.title), at: new Date(e.countdownAt).getTime() }; })
+      .map(function (e) { return { at: new Date(e.countdownAt).getTime() }; })
       .sort(function (a, b) { return a.at - b.at; });
     if (!targets.length) return;
 
@@ -1094,7 +1094,7 @@
         return false;
       }
       var diff = Math.floor((t.at - now) / 1000);
-      label.textContent = t.label;
+      label.textContent = "Days to go";
       d.textContent = Math.floor(diff / 86400);
       h.textContent = pad(Math.floor((diff % 86400) / 3600));
       m.textContent = pad(Math.floor((diff % 3600) / 60));
