@@ -1038,7 +1038,13 @@
       '<img class="hn-strands" src="assets/cards/mehendi-strands-Hc5Le2.webp" alt=""></div>';
   }
 
-  var DECOR = { henna: decoHenna, haldi: decoHaldi, sangeet: decoSangeet, varmala: decoVarmala, mehendi: decoMehendi, wedding: decoWedding };
+  // Turmeric (Haldi): the same clean cream card, garlands mirrored to the right.
+  function decoTurmeric() {
+    return '<div class="deco" aria-hidden="true"><img class="tm-toran" src="assets/cards/mehendi-toran-Hc5Le2.webp" alt="">' +
+      '<img class="tm-strands" src="assets/cards/mehendi-strands-Hc5Le2.webp" alt=""><span class="tm-glow"></span></div>';
+  }
+
+  var DECOR = { turmeric: decoTurmeric, henna: decoHenna, haldi: decoHaldi, sangeet: decoSangeet, varmala: decoVarmala, mehendi: decoMehendi, wedding: decoWedding };
 
   // ?fullcard renders every card in full (used to make the downloadable images).
   var FULL = /[?&]fullcard\b/.test(location.search);
@@ -1094,7 +1100,7 @@
       '<p class="card-label">Venue</p>' +
       '<p class="card-venue">' + esc(c.venue) + "</p>" +
       (c.venueSub ? '<p class="card-venue-sub' + part("venueSub") + '">' + esc(c.venueSub) + "</p>" : "") +
-      (c.address && c.address.length ? '<p class="card-address">' + c.address.map(esc).join("<br>") + "</p>" : "") +
+      (c.address && c.address.length ? '<p class="card-address' + part("address") + '">' + c.address.map(esc).join("<br>") + "</p>" : "") +
       (actions ? '<p class="card-actions">' + actions + "</p>" : "") +
       (rsvp ? '<p class="card-label">R.S.V.P.</p><p class="card-rsvp">' + rsvp + "</p>" : "") +
       (c.scenePosition === "bottom" ? scene : "") +

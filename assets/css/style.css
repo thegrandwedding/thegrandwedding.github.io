@@ -1039,3 +1039,64 @@ body.viewer-open { overflow: hidden; }
   .card .card-scene.photo.hn-bride { width: 100%; }
 }
 .card.theme-henna:not(.full) .card-name, .card.theme-henna .card-name { font-size: clamp(60px, 17cqw, 104px); }
+
+/* ---------- Turmeric (Haldi): clean white card in the style of the Mehendi card ---------- */
+.card.theme-turmeric {
+  --tm-orange: #d2690c; --tm-amber: #c98a0e; --tm-brown: #8a5326; --tm-line: #edc27a;
+  background: linear-gradient(180deg, #fffefb 0%, #fffaf0 70%, #fff4dc 100%);
+  color: var(--tm-brown);
+  border: 0; outline: none;
+  padding: calc(17% + 10px) 21% 0 5%;
+  container-type: inline-size;
+  box-shadow: 0 30px 60px -25px rgba(150,95,10,.4);
+}
+.theme-turmeric .tm-toran { position: absolute; top: 0; right: 0; width: 98.8%; height: auto; display: block; transform: scaleX(-1); }
+.theme-turmeric .tm-strands { position: absolute; top: 0; right: 0; width: 16.8%; height: auto; display: block; transform: scaleX(-1); }
+.theme-turmeric .tm-glow {
+  position: absolute; left: 0; right: 0; bottom: 0; height: 38%;
+  background: radial-gradient(ellipse 60% 70% at 42% 100%, rgba(255,205,70,.38), transparent 75%);
+}
+.theme-turmeric .card-request { color: var(--tm-brown); font-size: 19px; margin-bottom: 6px; }
+.theme-turmeric .card-title { color: var(--tm-orange); font-weight: 500; font-size: clamp(34px, 9cqw, 52px); letter-spacing: 0.3em; margin: 0; padding-left: .3em; }
+.theme-turmeric .card-title .flourish { display: none; }
+.theme-turmeric .card-heading-sub span {
+  display: inline-flex; align-items: center; gap: 12px;
+  font-family: var(--caps); font-size: 12px; letter-spacing: .3em; text-transform: uppercase; color: var(--tm-amber);
+}
+.theme-turmeric .card-heading-sub span::before, .theme-turmeric .card-heading-sub span::after { content: ""; width: 60px; height: 1px; background: var(--tm-line); }
+.card.theme-turmeric .card-name {
+  display: block; width: max-content; max-width: 100%; margin: 0 auto;
+  padding: .08em .4em .14em; line-height: 1.2;
+  font-size: clamp(54px, 14cqw, 90px);
+  background: linear-gradient(100deg, #e9a21a 0%, #c97a08 45%, #f0b32a 70%, #c98a0e 100%);
+  -webkit-background-clip: text; background-clip: text; color: transparent; text-shadow: none;
+}
+.card.theme-turmeric .card-amp { color: var(--tm-orange); font-size: 30px; margin: -10px 0; }
+.theme-turmeric .card-tagline { color: var(--tm-brown); }
+.theme-turmeric .card-date { margin: 22px 0 18px; }
+.theme-turmeric .card-date .side { color: var(--tm-orange); border-color: var(--tm-line); }
+.theme-turmeric .card-date .day { color: var(--tm-amber); }
+.theme-turmeric .card-date .day small { color: var(--tm-brown); }
+.theme-turmeric .card-label { color: var(--tm-amber); }
+.theme-turmeric .card-label::before, .theme-turmeric .card-label::after { background: var(--tm-line); }
+.theme-turmeric .card-venue { font-family: inherit; font-style: italic; text-transform: none; letter-spacing: 0; color: var(--tm-orange); font-size: 24px; font-weight: 500; }
+.theme-turmeric .card-address { color: var(--tm-brown); margin-bottom: 10px; }
+.theme-turmeric .card-rsvp { color: #4a3220; }
+.theme-turmeric .card-rsvp a { color: #4a3220; border-bottom-color: var(--tm-line); }
+.theme-turmeric .card-actions { margin: 14px 0 4px; }
+.theme-turmeric .btn { background: var(--tm-orange); border-color: var(--tm-orange); color: #fffaf0; text-shadow: none; }
+.theme-turmeric .btn:hover { background: #b85a08; }
+.theme-turmeric .btn.ghost { background: transparent; color: var(--tm-orange); }
+.card .card-scene.photo.tm-couple { width: 106.8%; max-width: none; margin: 14px 0 0 -6.76%; }
+.card .card-scene.photo.tm-couple img { -webkit-mask-image: none; mask-image: none; filter: drop-shadow(0 8px 12px rgba(160,100,10,.22)); }
+.card.full .card-scene.photo.tm-couple { margin-top: 22px; }
+@container (max-width: 520px) {
+  .theme-turmeric .card-request { font-size: 16px; }
+  .theme-turmeric .card-heading-sub span::before, .theme-turmeric .card-heading-sub span::after { width: 36px; }
+  .theme-turmeric .card-date { gap: 6px; }
+  .theme-turmeric .card-date .side { font-size: 10px; letter-spacing: 0.08em; padding: 8px 0; }
+  .theme-turmeric .card-date .day { font-size: 40px; }
+  .theme-turmeric .card-date .day small { font-size: 10px; letter-spacing: 0.15em; }
+  .theme-turmeric .card-venue { font-size: 21px; }
+  .theme-turmeric .card-rsvp { font-size: 15px; }
+}

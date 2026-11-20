@@ -10,9 +10,9 @@
   "countdownAt": "2027-01-27T10:30:00+05:30",
   "layout": "card",
   "card": {
-    "theme": "haldi",
+    "theme": "turmeric",
     "request": "You are cordially invited to the",
-    "heading": "Haldi Ceremony",
+    "heading": "Haldi",
     "names": [
       "Seersha",
       "Siddhant"
@@ -41,9 +41,16 @@
         "href": "tel:+918420061166"
       }
     ],
-    "image": "assets/cards/haldi-full-Tg8Rw3Pz.jpg",
+    "image": "assets/cards/haldi-full-Mk5Qz8Ve.jpg",
     "imageName": "Seersha-Siddhant-Haldi.jpg",
-    "sceneImage": "assets/cards/haldi-couple-Pq3xVm8Lr2.jpg",
-    "sceneAlt": "Seersha and Siddhant at their Haldi, splashed with turmeric"
+    "sceneImage": "assets/cards/haldi-couple-Wy2Fn6Ub.webp",
+    "sceneAlt": "Seersha and Siddhant seated together in yellow at their Haldi",
+    "headingSub": "of",
+    "sceneClass": "tm-couple",
+    "scenePosition": "bottom",
+    "pageHide": [
+      "tagline",
+      "address"
+    ]
   }
 }
