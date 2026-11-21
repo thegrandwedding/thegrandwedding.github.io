@@ -1087,7 +1087,7 @@
       "</svg>";
   }
 
-  var SCENES = { haldi: sceneHaldi, sangeet: sceneSangeet, varmala: sceneVarmala, mehendi: sceneMehendi, wedding: sceneWedding };
+  var SCENES = { soiree: sceneSoiree, haldi: sceneHaldi, sangeet: sceneSangeet, varmala: sceneVarmala, mehendi: sceneMehendi, wedding: sceneWedding };
 
   // Henna (Mehendi): cream card dressed with the marigold toran and strands from the printed card.
   function decoHenna() {
@@ -1142,7 +1142,109 @@
     return '<div class="deco" aria-hidden="true">' + bits + top + s + s.replace('class="tm-strands"', 'class="tm-strands right"') + "</div>";
   }
 
-  var DECOR = { turmeric: decoTurmeric, henna: decoHenna, haldi: decoHaldi, sangeet: decoSangeet, varmala: decoVarmala, mehendi: decoMehendi, wedding: decoWedding };
+  // Reception (soirée): burgundy velvet, a valance of white and blush roses with crystal drops,
+  // pearl-and-rose strands down both sides, gold sparkle.
+  function decoSoiree() {
+    var r = rng(83), i, j, x, y;
+    var pals = [["#fffaf3", "#f7ecdf", "#ecd9c4", "#b89b78"], ["#fbe1e8", "#f5c9d6", "#ecaec1", "#b8708a"], ["#fff4ec", "#fbe4d8", "#f5cdbb", "#c99a86"]];
+    function pal() { return pals[Math.floor(r() * pals.length)]; }
+    function gleaf(x, y, len, rot) { return leaf(x, y, len, rot, ["#c9a24f", "#e0c27a", "#a8822f"][Math.floor(r() * 3)]); }
+    var top = '<svg class="sr-top" viewBox="0 0 600 150" aria-hidden="true">' +
+      '<defs><radialGradient id="sr-crys"><stop offset="0" stop-color="#fff"/><stop offset=".6" stop-color="#f3e6ff" stop-opacity=".9"/><stop offset="1" stop-color="#d4b16a" stop-opacity=".6"/></radialGradient></defs>';
+    // crystal drops, behind the flowers
+    for (x = 30; x < 600; x += 36) {
+      var len = 40 + ((x / 36) % 3) * 26 + r() * 12;
+      if (x > 170 && x < 430) len = 26 + r() * 14;
+      top += '<line x1="' + x + '" y1="20" x2="' + x + '" y2="' + f1(len) + '" stroke="rgba(243,217,143,.55)" stroke-width=".6"/>';
+      for (y = 30; y < len; y += 9) top += '<circle cx="' + x + '" cy="' + f1(y) + '" r="1.5" fill="#fff6dc" opacity=".9"/>';
+      top += '<path class="twinkle" style="animation-delay:-' + f1(r() * 3) + 's" d="M' + x + " " + f1(len) + " l4 7 l-4 9 l-4 -9z" + '" fill="url(#sr-crys)" stroke="#e8c766" stroke-width=".5"/>';
+    }
+    for (i = 0; i < 50; i++) top += gleaf(r() * 610 - 5, 6 + r() * 22, 14 + r() * 10, r() * 360);
+    for (x = 4; x < 604; x += 24) top += rose(x + r() * 6 - 3, 10 + r() * 8, 11 + r() * 4, pal());
+    for (i = 0; i < 60; i++) top += '<circle cx="' + f1(r() * 600) + '" cy="' + f1(4 + r() * 26) + '" r="' + f1(1.2 + r() * 1.4) + '" fill="#fffaf0"/>';
+    top += "</svg>";
+    // side strands: roses, pearls, gold leaves
+    var s = '<svg class="sr-strands" viewBox="0 0 80 1500" aria-hidden="true">';
+    [[22, 1420], [56, 1020]].forEach(function (st, n) {
+      x = st[0];
+      s += '<line x1="' + x + '" y1="0" x2="' + x + '" y2="' + st[1] + '" stroke="#c9a24f" stroke-width=".7" opacity=".8"/>';
+      for (y = 24, j = n; y < st[1]; y += 24, j++) {
+        if (j % 3 === 0) s += rose(x, y, 11.5, pals[j % 2 ? 1 : 0]);
+        else if (j % 3 === 1) s += '<circle cx="' + x + '" cy="' + (y - 5) + '" r="3.4" fill="#fffaf0" stroke="#e8dcc0" stroke-width=".5"/><circle cx="' + x + '" cy="' + (y + 4) + '" r="3.4" fill="#fffaf0" stroke="#e8dcc0" stroke-width=".5"/>';
+        else s += gleaf(x + 2, y, 15, 30) + gleaf(x - 2, y, 15, 150);
+      }
+      s += '<path d="M' + x + " " + (st[1] + 6) + ' v10" stroke="#c9a24f" stroke-width=".8"/><path class="twinkle" d="M' + x + " " + (st[1] + 16) + " l5 8 l-5 11 l-5 -11z" + '" fill="#fff6dc" stroke="#e8c766" stroke-width=".6"/>';
+    });
+    s += "</svg>";
+    var bits = '<span class="sr-glow"></span>';
+    for (i = 0; i < 40; i++) {
+      bits += '<span class="glint" style="left:' + f1(12 + r() * 76) + "%;top:" + f1(6 + r() * 90) + "%;animation-delay:-" + f1(r() * 4) +
+        "s;--s:" + (0.5 + r() * 1).toFixed(2) + '"></span>';
+    }
+    return '<div class="deco" aria-hidden="true">' + bits + top + s + s.replace('class="sr-strands"', 'class="sr-strands right"') + "</div>";
+  }
+
+  // Reception: the couple arm in arm in evening clothes, inside a gold ring with roses.
+  function sceneSoiree() {
+    var r = rng(87), i, zari = "", lights = "";
+    var GOWN = "M104 136 Q118 140 132 136 C150 176 166 222 180 268 Q118 286 56 268 C72 222 88 176 104 136 Z";
+    for (i = 0; i < 110; i++) zari += '<circle cx="' + f1(56 + r() * 124) + '" cy="' + f1(138 + r() * 134) + '" r="' + f1(.5 + r() * .9) + '" fill="' + (i % 3 ? "#fff6dc" : "#e8c766") + '"/>';
+    var ring = '<circle cx="150" cy="140" r="122" fill="none" stroke="#d4b16a" stroke-width="2"/>' +
+      '<circle cx="150" cy="140" r="115" fill="none" stroke="rgba(232,199,102,.55)" stroke-width=".8" stroke-dasharray="2 4"/>';
+    var pals = [["#fffaf3", "#f7ecdf", "#ecd9c4", "#b89b78"], ["#fbe1e8", "#f5c9d6", "#ecaec1", "#b8708a"]];
+    var flowers = "";
+    for (i = 0; i < 9; i++) {
+      var a = Math.PI * (0.62 + i * 0.03), b = Math.PI * (0.38 - i * 0.03);
+      flowers += rose(150 + Math.cos(a) * 122, 140 + Math.sin(a) * 122, 9 + (i % 3), pals[i % 2]) +
+                 rose(150 + Math.cos(b) * 122, 140 + Math.sin(b) * 122, 9 + ((i + 1) % 3), pals[(i + 1) % 2]);
+      flowers += leaf(150 + Math.cos(a) * 128, 140 + Math.sin(a) * 128, 12, a * 57, "#c9a24f") + leaf(150 + Math.cos(b) * 128, 140 + Math.sin(b) * 128, 12, b * 57 + 180, "#c9a24f");
+    }
+    return '<svg viewBox="16 10 268 290" aria-hidden="true">' +
+      '<defs><radialGradient id="sr-halo"><stop offset="0" stop-color="#ffe6b0" stop-opacity=".45"/><stop offset="1" stop-color="#ffe6b0" stop-opacity="0"/></radialGradient>' +
+      '<linearGradient id="sr-gown" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f6e3c3"/><stop offset="1" stop-color="#d9b680"/></linearGradient>' +
+      '<clipPath id="sr-gownc"><path d="' + GOWN + '"/></clipPath></defs>' +
+      '<circle cx="150" cy="140" r="118" fill="url(#sr-halo)"/>' + ring + flowers +
+      '<ellipse cx="150" cy="276" rx="110" ry="10" fill="rgba(0,0,0,.25)"/>' +
+      // ---- groom (right): black bandhgala ----
+      '<rect x="160" y="200" width="13" height="72" fill="#141218"/><rect x="178" y="200" width="13" height="72" fill="#141218"/>' +
+      '<path d="M156 274 h20 v-4 h-14 q-6 0 -6 4z M176 274 h20 q0 -4 -6 -4 h-14z" fill="#0a090c"/>' +
+      '<path d="M152 92 Q176 84 200 92 L204 210 Q176 218 148 210 Z" fill="#1d1a22" stroke="#3a3442" stroke-width="1"/>' +
+      '<path d="M176 88 V210" stroke="#3a3442" stroke-width="1"/>' +
+      [100, 114, 128, 142, 156, 170].map(function (y) { return '<circle cx="176" cy="' + y + '" r="1.8" fill="#e8c766"/>'; }).join("") +
+      '<path d="M188 104 l8 -3 l1 6 z" fill="#f5c9d6"/>' + // pocket square
+      '<path d="M200 98 Q214 134 206 170" fill="none" stroke="#1d1a22" stroke-width="10" stroke-linecap="round"/>' +
+      '<circle cx="205" cy="172" r="4.5" fill="' + SKIN + '"/>' +
+      '<rect x="171" y="76" width="9" height="16" fill="' + SKIN + '"/>' +
+      '<path d="M166 90 h19 v5 h-19z" fill="#1d1a22"/>' +
+      '<circle cx="176" cy="66" r="14" fill="' + SKIN + '"/>' +
+      '<path d="M162 64 Q161 48 177 47 Q192 48 191 62 Q184 54 173 56 Q166 58 163 70 Z" fill="' + HAIR + '"/>' +
+      '<path d="M164 72 Q176 86 188 72 Q187 82 176 83 Q165 82 164 72 Z" fill="#3b2a22"/>' +
+      // ---- bride (left): champagne lehenga ----
+      '<path d="' + GOWN + '" fill="url(#sr-gown)"/>' +
+      '<g clip-path="url(#sr-gownc)">' + zari + '<path d="M50 262 Q118 280 186 262" stroke="#c9a24f" stroke-width="7" fill="none"/>' +
+      '<path d="M66 220 Q118 234 170 220" stroke="rgba(201,162,79,.6)" stroke-width="1.4" fill="none"/></g>' +
+      '<path d="M100 98 Q118 92 136 98 L132 136 Q118 140 104 136 Z" fill="#ecd3a6" stroke="#c9a24f" stroke-width="1"/>' +
+      // dupatta over her shoulder
+      '<path d="M100 96 Q86 150 92 228 L104 228 Q100 160 112 104 Z" fill="rgba(251,225,232,.75)" stroke="#e8c766" stroke-width="1"/>' +
+      // her arm through his
+      '<path d="M134 102 Q150 122 158 128" fill="none" stroke="' + SKIN + '" stroke-width="6" stroke-linecap="round"/>' +
+      '<path d="M152 100 Q150 118 158 128" fill="none" stroke="#1d1a22" stroke-width="9" stroke-linecap="round"/>' +
+      '<circle cx="160" cy="129" r="3.8" fill="' + SKIN + '"/>' +
+      '<path d="M144 116 l5 -3 M146 120 l5 -3" stroke="#e8c766" stroke-width="1.6"/>' +
+      // neck, head, jewellery, hair bun with flowers
+      '<rect x="114" y="80" width="8" height="16" fill="' + SKIN + '"/>' +
+      '<path d="M108 98 Q118 110 128 98" fill="none" stroke="#e8c766" stroke-width="3"/>' +
+      '<circle cx="118" cy="106" r="2.4" fill="#ecaec1" stroke="#e8c766"/>' +
+      '<circle cx="118" cy="70" r="13" fill="' + SKIN + '"/>' +
+      '<path d="M105 72 Q104 54 118 53 Q133 54 131 70 Q125 60 114 62 Q108 64 107 78 Z" fill="' + HAIR + '"/>' +
+      '<circle cx="105" cy="62" r="8" fill="' + HAIR + '"/>' +
+      rose(100, 58, 4.5, pals[1]) + rose(104, 53, 3.6, pals[0]) +
+      '<circle cx="106" cy="78" r="2.2" fill="#e8c766"/><path d="M106 80 v5" stroke="#e8c766" stroke-width="1.2"/>' +
+      '<circle cx="118" cy="58" r="1.6" fill="#ecaec1"/>' +
+      "</svg>";
+  }
+
+  var DECOR = { soiree: decoSoiree, turmeric: decoTurmeric, henna: decoHenna, haldi: decoHaldi, sangeet: decoSangeet, varmala: decoVarmala, mehendi: decoMehendi, wedding: decoWedding };
 
   // ?fullcard renders every card in full (used to make the downloadable images).
   var FULL = /[?&]fullcard\b/.test(location.search);

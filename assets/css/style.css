@@ -1241,3 +1241,69 @@ body.viewer-open { overflow: hidden; }
 .theme-varmala .card-address { color: #6b2a3c; opacity: 1; margin-bottom: 14px; }
 .theme-henna .card-address { color: var(--hn-brown); opacity: 1; margin-bottom: 12px; }
 .theme-henna .card-venue { margin-bottom: 2px; }
+
+/* ---------- Reception (soirée): burgundy velvet, roses, pearls, crystal drops ---------- */
+.card.theme-soiree {
+  --sr-gold: linear-gradient(100deg, #b8862b 0%, #f7e3a1 22%, #c9973a 40%, #fff3c4 55%, #d4a84a 72%, #f9e7ae 88%, #b8862b 100%);
+  background:
+    radial-gradient(ellipse 60% 40% at 50% 35%, rgba(150,40,62,.55), transparent 75%),
+    radial-gradient(ellipse 70% 30% at 50% 100%, rgba(255,214,140,.18), transparent 75%),
+    linear-gradient(180deg, #3d0d18 0%, #571425 50%, #3a0b16 100%);
+  color: #f7e9dc;
+  border: 2px solid #c9a24f; outline: 1px solid rgba(247,227,161,.5); outline-offset: -8px;
+  padding: calc(19% + 10px) 17% 0;
+  container-type: inline-size;
+  box-shadow: 0 30px 70px -24px rgba(40,6,14,.8);
+}
+.theme-soiree .sr-top { position: absolute; top: 0; left: 0; width: 100%; height: auto; display: block; }
+.theme-soiree .sr-strands { position: absolute; top: 0; left: 0; width: 13%; height: auto; display: block; }
+.theme-soiree .sr-strands.right { left: auto; right: 0; transform: scaleX(-1); }
+.theme-soiree .sr-glow { position: absolute; left: 10%; right: 10%; bottom: 0; height: 34%; background: radial-gradient(ellipse 60% 60% at 50% 70%, rgba(255,214,140,.22), transparent 75%); }
+.theme-soiree .twinkle { animation: twinkle 2.4s ease-in-out infinite; }
+.theme-soiree .glint { position: absolute; width: 3px; height: 3px; border-radius: 50%; background: #fff3c4; box-shadow: 0 0 6px 1px rgba(247,227,161,.8); transform: scale(var(--s, 1)); animation: twinkle 2.8s ease-in-out infinite; }
+.theme-soiree .card-body { text-shadow: 0 1px 8px rgba(30,4,10,.8); }
+.theme-soiree .card-invocation { color: #e8c766; margin-bottom: 14px; }
+.theme-soiree .card-hosts { color: #fbeee0; font-size: 19px; }
+.theme-soiree .card-request { color: #f2d9c4; font-size: 18px; margin-bottom: 8px; }
+.theme-soiree .card-title { color: #f7e3a1; font-size: clamp(22px, 5.6cqw, 32px); letter-spacing: .26em; margin: 0 0 4px; }
+.theme-soiree .card-title .flourish { display: none; }
+.card.theme-soiree .card-name, .theme-soiree .card-date .day, .theme-soiree .card-venue {
+  background: var(--sr-gold); background-size: 220% 100%;
+  -webkit-background-clip: text; background-clip: text; color: transparent; text-shadow: none;
+  filter: drop-shadow(0 2px 1px rgba(0,0,0,.45)); animation: foil 7s ease-in-out infinite;
+}
+.card.theme-soiree .card-name { display: block; width: max-content; max-width: 100%; margin: 0 auto; padding: .08em .4em .14em; line-height: 1.2; font-size: clamp(54px, 14cqw, 88px); }
+.card.theme-soiree .card-amp { color: #f5c9d6; font-size: 30px; margin: -10px 0; }
+.theme-soiree .card-date { margin: 18px 0 16px; }
+.theme-soiree .card-date .side { color: #fbeee0; border-color: rgba(232,199,102,.6); }
+.theme-soiree .card-date .day small { color: #fbeee0; -webkit-text-fill-color: #fbeee0; }
+.theme-soiree .card-label { color: #e8c766; }
+.theme-soiree .card-label::before, .theme-soiree .card-label::after { background: rgba(232,199,102,.6); }
+.theme-soiree .card-info > div + div { border-left-color: rgba(232,199,102,.45); }
+.theme-soiree .card-info .card-venue { font-size: 21px; }
+.theme-soiree .card-venue-sub { color: #fbeee0; font-size: 15px; }
+.theme-soiree .card-info .card-address { color: #f2d9c4; font-size: 14px; margin: 2px 0 0; line-height: 1.4; opacity: 1; }
+.theme-soiree .card-rsvp { color: #fbeee0; font-size: 17px; line-height: 1.7; }
+.theme-soiree .card-rsvp a { color: #f7e3a1; border-bottom-color: rgba(232,199,102,.6); }
+.theme-soiree .card-actions { margin: 14px 0 4px; }
+.theme-soiree .btn { background: linear-gradient(100deg, #c9973a, #f3d98f, #c9973a); border-color: #e8c766; color: #3d0d18; text-shadow: none; }
+.theme-soiree .btn.ghost { background: transparent; color: #f7e3a1; }
+.theme-soiree .card-body > .card-scene:last-child { width: 100%; max-width: none; margin: 10px auto 0; }
+.theme-soiree .card-scene svg { filter: drop-shadow(0 10px 16px rgba(0,0,0,.35)); }
+@container (max-width: 520px) {
+  .card.theme-soiree { padding: calc(21% + 10px) 14% 0; }
+  .theme-soiree .card-hosts { font-size: 16px; }
+  .theme-soiree .card-request { font-size: 15px; }
+  .theme-soiree .card-title { font-size: 6.4cqw; letter-spacing: .16em; }
+  .theme-soiree .card-date { gap: 6px; }
+  .theme-soiree .card-date .side { font-size: 10px; letter-spacing: .08em; padding: 8px 0; }
+  .theme-soiree .card-date .day { font-size: 40px; }
+  .theme-soiree .card-info .card-venue { font-size: 17px; }
+  .theme-soiree .card-venue-sub { font-size: 12.5px; }
+  .theme-soiree .card-info .card-address { font-size: 12.5px; }
+  .theme-soiree .card-rsvp { font-size: 14px; }
+  .theme-soiree .card-body > .card-scene:last-child { width: 112%; margin-left: -6%; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .theme-soiree .twinkle, .theme-soiree .glint, .card.theme-soiree .card-name, .theme-soiree .card-date .day, .theme-soiree .card-venue { animation: none; }
+}
