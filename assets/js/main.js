@@ -1226,11 +1226,13 @@
       '<path d="M100 98 Q118 92 136 98 L132 136 Q118 140 104 136 Z" fill="#ecd3a6" stroke="#c9a24f" stroke-width="1"/>' +
       // dupatta over her shoulder
       '<path d="M100 96 Q86 150 92 228 L104 228 Q100 160 112 104 Z" fill="rgba(251,225,232,.75)" stroke="#e8c766" stroke-width="1"/>' +
-      // her arm through his
-      '<path d="M134 102 Q150 122 158 128" fill="none" stroke="' + SKIN + '" stroke-width="6" stroke-linecap="round"/>' +
-      '<path d="M152 100 Q150 118 158 128" fill="none" stroke="#1d1a22" stroke-width="9" stroke-linecap="round"/>' +
-      '<circle cx="160" cy="129" r="3.8" fill="' + SKIN + '"/>' +
-      '<path d="M144 116 l5 -3 M146 120 l5 -3" stroke="#e8c766" stroke-width="1.6"/>' +
+      // his near arm hangs at his side; her hand rests on his forearm
+      '<path d="M157 98 Q149 134 153 170" fill="none" stroke="#1d1a22" stroke-width="10" stroke-linecap="round"/>' +
+      '<path d="M157 98 Q149 134 153 170" fill="none" stroke="#3a3442" stroke-width=".8" transform="translate(4 0)"/>' +
+      '<circle cx="153" cy="174" r="4.2" fill="' + SKIN + '"/>' +
+      '<path d="M132 104 Q138 124 149 134" fill="none" stroke="' + SKIN + '" stroke-width="5.6" stroke-linecap="round"/>' +
+      '<ellipse cx="152" cy="135" rx="4.6" ry="3.4" fill="' + SKIN + '" transform="rotate(20 152 135)"/>' +
+      '<path d="M138 120 l5 -2.6 M140 124 l5 -2.6" stroke="#e8c766" stroke-width="1.6"/>' +
       // neck, head, jewellery, hair bun with flowers
       '<rect x="114" y="80" width="8" height="16" fill="' + SKIN + '"/>' +
       '<path d="M108 98 Q118 110 128 98" fill="none" stroke="#e8c766" stroke-width="3"/>' +
