@@ -1347,7 +1347,6 @@
       '<p class="rsvp-heading">' + (events.length > 1 ? "Will you attend?" : "Will you attend the " + esc(events[0].title) + "?") + "</p>" +
       rows +
       '<label class="rsvp-check"><input type="checkbox" name="plusOne"> I will be bringing a plus-one</label>' +
-      '<label class="rsvp-field rsvp-plus" hidden><span>Plus-one’s name</span><input name="plusOneName" maxlength="120"></label>' +
       '<label class="rsvp-field"><span>A note for Seersha &amp; Siddhant <em>(optional)</em></span><textarea name="message" rows="3" maxlength="1000"></textarea></label>' +
       '<p class="rsvp-error" role="alert" hidden></p>' +
       '<button type="submit" class="btn rsvp-submit">Send R.S.V.P.</button>' +
@@ -1362,12 +1361,10 @@
     var panel = document.querySelector('[data-panel="rsvp"]');
     if (!panel) return;
     var form = panel.querySelector("form"), err = panel.querySelector(".rsvp-error"),
-        done = panel.querySelector(".rsvp-done"), btn = panel.querySelector(".rsvp-submit"),
-        plus = panel.querySelector(".rsvp-plus");
+        done = panel.querySelector(".rsvp-done"), btn = panel.querySelector(".rsvp-submit");
     function el(n) { return form.elements.namedItem(n); }
-    el("plusOne").addEventListener("change", function () { plus.hidden = !el("plusOne").checked; });
     panel.querySelector(".rsvp-again").addEventListener("click", function () {
-      form.reset(); plus.hidden = true; done.hidden = true; form.hidden = false;
+      form.reset(); done.hidden = true; form.hidden = false;
     });
     function fail(msg) { err.textContent = msg; err.hidden = false; }
     form.addEventListener("submit", function (ev) {
@@ -1388,7 +1385,7 @@
         headers: { "Content-Type": "text/plain;charset=utf-8" },
         body: JSON.stringify({
           invite: resolveCode(), name: name, phone: el("phone").value, email: el("email").value,
-          attending: attending, plusOne: el("plusOne").checked, plusOneName: el("plusOneName").value,
+          attending: attending, plusOne: el("plusOne").checked,
           message: el("message").value
         })
       }).then(function (r) { return r.json(); }).then(function (res) {
