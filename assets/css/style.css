@@ -1315,3 +1315,17 @@ body.viewer-open { overflow: hidden; }
   .scene-mid.theme-soiree .card-scene, .scene-mid.theme-wedding .card-scene,
   .scene-mid.theme-soiree:not(.full) .card-scene, .scene-mid.theme-wedding:not(.full) .card-scene { width: 64%; }
 }
+/* Reception (soirée): no gold haze at the bottom; crisp text */
+.card.theme-soiree {
+  background:
+    radial-gradient(ellipse 60% 40% at 50% 35%, rgba(150,40,62,.55), transparent 75%),
+    linear-gradient(180deg, #3d0d18 0%, #571425 50%, #3a0b16 100%);
+}
+.theme-soiree .sr-glow { display: none; }
+.theme-soiree .card-body { text-shadow: none; }
+.theme-soiree .card-date .day, .theme-soiree .card-venue {
+  background: none; -webkit-background-clip: border-box; background-clip: border-box;
+  color: #f3d98f; -webkit-text-fill-color: #f3d98f; filter: none; animation: none;
+}
+.theme-soiree .card-date .day small { -webkit-text-fill-color: #fbeee0; }
+.theme-soiree .card-info .card-address, .theme-soiree .card-venue-sub, .theme-soiree .card-rsvp { color: #fbeee0; }
