@@ -1385,7 +1385,7 @@
         if (!pick) missing.push(e.title); else attending[e.id] = pick.value === "yes";
       });
       if (missing.length) {
-        fail("Please answer Yes or No for every event: " + missing.join(", ") + ".");
+        fail("Please answer for every event: " + missing.join(", ") + ".");
         var first = form.querySelector(".rsvp-event.missing");
         if (first && first.scrollIntoView) first.scrollIntoView({ behavior: "smooth", block: "center" });
         return;
