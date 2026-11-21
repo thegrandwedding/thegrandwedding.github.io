@@ -35,7 +35,6 @@ uninvited events, family details and phone numbers never reach anyone without a 
 | All events | Mehendi, Varmala, Sangeet, Haldi, Wedding, Reception | https://thegrandwedding.github.io/?invite=nyjfC74C |
 | Varmala onwards | Varmala, Sangeet, Haldi, Wedding, Reception | https://thegrandwedding.github.io/?invite=rAYNyYhF |
 | Sangeet onwards | Sangeet, Wedding, Reception | https://thegrandwedding.github.io/?invite=QjW4MvHW |
-| Sangeet & Wedding | Sangeet, Wedding | https://thegrandwedding.github.io/?invite=180o10gi |
 | Wedding & Reception | Wedding, Reception | https://thegrandwedding.github.io/?invite=TiPpV4tp |
 | Reception only | Reception | https://thegrandwedding.github.io/?invite=IzKg8MW7 |
 
