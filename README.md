@@ -138,6 +138,5 @@ Cloudflare Worker in front of the site can check a code before serving each file
 - [ ] Custom domain.
 - [ ] Link preview image (Open Graph) so the link shows a picture on WhatsApp.
 - [ ] Bengali version of the site.
-- [ ] Add the second R.S.V.P. number on the **Sangeet** card (currently "Second number to be added").
 - [ ] The **Mehendi** download is the supplied PDF, which still says "To be announced" — swap in an updated PDF with the venue.
 - [x] Themed cards for every event. Cards use `"layout": "card"` with `"theme"` — see `DECOR` in `assets/js/main.js`.

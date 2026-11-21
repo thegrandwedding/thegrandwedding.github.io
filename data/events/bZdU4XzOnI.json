@@ -31,19 +31,20 @@
     "pdf": "assets/cards/reception-KAJ1AOIr3Y.pdf",
     "rsvp": [
       {
-        "name": "Siddhant Haldar",
         "phone": "+1 332 209 7180",
-        "href": "https://wa.me/13322097180",
-        "note": "WhatsApp"
+        "href": "https://wa.me/13322097180"
       },
       {
-        "name": "Smita Haldar",
         "phone": "+91 84200 61166",
         "href": "tel:+918420061166"
       }
     ],
-    "image": "assets/cards/reception-KAJ1AOIr3Y.jpg",
+    "image": "assets/cards/reception-alt-full-Qn7Hs4Wr.jpg",
     "imageName": "Seersha-Siddhant-Reception.jpg",
-    "pdfName": "Seersha-Siddhant-Reception.pdf"
+    "pdfName": "Seersha-Siddhant-Reception.pdf",
+    "theme": "soiree",
+    "centered": true,
+    "infoColumns": true,
+    "pageHide": []
   }
 }
