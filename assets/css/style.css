@@ -1131,3 +1131,27 @@ body.viewer-open { overflow: hidden; }
   filter: drop-shadow(0 6px 10px rgba(160,100,10,.18));
   -webkit-mask-image: linear-gradient(to right, transparent 0, #000 9%); mask-image: linear-gradient(to right, transparent 0, #000 9%);
 }
+
+/* ---------- Centred variants (strands on both sides, text and picture centred) ---------- */
+.theme-henna .hn-strands.right, .theme-turmeric .tm-strands.right { display: none; }
+.card.centered .hn-strands.right { display: block; left: auto; right: 0; transform: scaleX(-1); }
+.card.centered .tm-strands.right { display: block; left: auto; right: 0; transform: scaleX(-1); }
+.card.theme-henna.centered { padding-left: 19%; padding-right: 19%; }
+.card.theme-turmeric.centered { padding-left: 19%; padding-right: 19%; }
+.card.centered .card-scene.photo.hn-bride,
+.card.centered .card-scene.photo.tm-cut { width: 160%; margin: 10px 0 0 -30%; }
+.card.centered .card-scene.photo.hn-bride img,
+.card.centered .card-scene.photo.tm-cut img {
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 12%), linear-gradient(to right, transparent 0, #000 12%, #000 88%, transparent 100%);
+  -webkit-mask-composite: source-in;
+          mask-image: linear-gradient(to bottom, transparent 0, #000 12%), linear-gradient(to right, transparent 0, #000 12%, #000 88%, transparent 100%);
+          mask-composite: intersect;
+}
+.card.centered .card-scene.photo.tm-cut img { -webkit-mask-image: linear-gradient(to right, transparent 0, #000 10%, #000 90%, transparent 100%); mask-image: linear-gradient(to right, transparent 0, #000 10%, #000 90%, transparent 100%); }
+.card.centered .card-scene.photo.hn-bride { width: 150%; margin-left: -25%; }
+.card.centered .card-scene.photo.hn-bride { width: 128%; margin-left: -14%; }
+@container (max-width: 520px) {
+  .card.theme-henna.centered, .card.theme-turmeric.centered { padding-left: 15%; padding-right: 15%; }
+  .card.centered .card-scene.photo.tm-cut { width: 143%; margin-left: -21.5%; }
+  .card.centered .card-scene.photo.hn-bride { width: 125%; margin-left: -12.5%; }
+}

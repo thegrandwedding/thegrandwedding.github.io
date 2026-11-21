@@ -1035,7 +1035,8 @@
   // Henna (Mehendi): cream card dressed with the marigold toran and strands from the printed card.
   function decoHenna() {
     return '<div class="deco" aria-hidden="true"><img class="hn-toran" src="assets/cards/mehendi-toran-Hc5Le2.webp" alt="">' +
-      '<img class="hn-strands" src="assets/cards/mehendi-strands-Hc5Le2.webp" alt=""></div>';
+      '<img class="hn-strands" src="assets/cards/mehendi-strands-Hc5Le2.webp" alt="">' +
+      '<img class="hn-strands right" src="assets/cards/mehendi-strands-Hc5Le2.webp" alt=""></div>';
   }
 
   // Turmeric (Haldi): a clean pale-yellow card — a mango-leaf toran across the top and
@@ -1081,7 +1082,7 @@
       bits += '<span class="petal" style="left:' + f1(22 + r() * 76) + "%;animation-delay:-" + f1(r() * 18) +
         "s;animation-duration:" + f1(12 + r() * 9) + "s;--s:" + (0.45 + r() * 0.5).toFixed(2) + ";--c:" + ["#fbbf24", "#facc15", "#f59e0b", "#fde047"][i % 4] + '"></span>';
     }
-    return '<div class="deco" aria-hidden="true">' + bits + top + s + "</div>";
+    return '<div class="deco" aria-hidden="true">' + bits + top + s + s.replace('class="tm-strands"', 'class="tm-strands right"') + "</div>";
   }
 
   var DECOR = { turmeric: decoTurmeric, henna: decoHenna, haldi: decoHaldi, sangeet: decoSangeet, varmala: decoVarmala, mehendi: decoMehendi, wedding: decoWedding };
@@ -1126,7 +1127,7 @@
     }
 
     return '<section class="panel" data-panel="' + esc(e.id) + '" role="tabpanel" hidden>' +
-      '<article class="card' + (theme ? " theme-" + theme : "") + (FULL ? " full" : "") + '">' +
+      '<article class="card' + (theme ? " theme-" + theme : "") + (FULL ? " full" : "") + (c.centered ? " centered" : "") + '">' +
       (theme ? DECOR[theme]() : "") +
       '<div class="card-body">' +
       (theme && EMBLEMS[theme] ? '<div class="card-emblem">' + EMBLEMS[theme]() + "</div>" : "") +

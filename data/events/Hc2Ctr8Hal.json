@@ -1,0 +1,52 @@
+{
+  "id": "haldi",
+  "order": 4,
+  "title": "Haldi",
+  "kicker": "Gaye Holud",
+  "lede": "A morning blessing of turmeric, applied by loved ones to bring radiance and good fortune to the bride and groom.",
+  "date": "Wednesday, 27 January 2027",
+  "time": "10:30 AM",
+  "venue": "Orchid Banquet, 11A/1J East Topsia Road, Kolkata – 700046",
+  "countdownAt": "2027-01-27T10:30:00+05:30",
+  "layout": "card",
+  "card": {
+    "theme": "turmeric",
+    "request": "You are cordially invited to the",
+    "heading": "Haldi",
+    "names": [
+      "Seersha",
+      "Siddhant"
+    ],
+    "tagline": "Come dressed in sunshine — a morning of turmeric, marigolds and laughter",
+    "weekday": "Wednesday",
+    "day": "27",
+    "monthYear": "January 2027",
+    "time": "10:30 AM",
+    "venue": "Orchid Banquet",
+    "address": [
+      "11A/1J, East Topsia Road",
+      "Kolkata – 700046"
+    ],
+    "mapUrl": "https://www.google.com/maps/search/?api=1&query=Orchid+Banquet+11A%2F1J+East+Topsia+Road+Kolkata+700046",
+    "rsvp": [
+      {
+        "phone": "+1 332 209 7180",
+        "href": "https://wa.me/13322097180"
+      },
+      {
+        "phone": "+91 84200 61166",
+        "href": "tel:+918420061166"
+      }
+    ],
+    "image": "assets/cards/haldi-full-centered-Tq7Lc4Ra.jpg",
+    "imageName": "Seersha-Siddhant-Haldi.jpg",
+    "sceneImage": "assets/cards/haldi-couple-hd-Qw5Js8Nx.webp",
+    "sceneAlt": "Seersha and Siddhant at their Haldi, splashed with turmeric",
+    "headingSub": "of",
+    "sceneClass": "tm-couple tm-cut",
+    "scenePosition": "bottom",
+    "pageHide": [],
+    "infoColumns": true,
+    "centered": true
+  }
+}
