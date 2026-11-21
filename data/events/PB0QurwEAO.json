@@ -6,7 +6,7 @@
   "lede": "Both families come together for an evening of song, dance and revelry on the eve of the wedding festivities.",
   "date": "Monday, 25 January 2027",
   "time": "6:30 PM",
-  "venue": "To be announced",
+  "venue": "Nalban Food Park, Gate No. 2, Saltlake, Sector-IV, Opp. Cognizant Bridge, Kolkata – 700098",
   "countdownAt": "2027-01-25T18:30:00+05:30",
   "layout": "card",
   "card": {
@@ -22,8 +22,11 @@
     "day": "25",
     "monthYear": "January 2027",
     "time": "6:30 PM",
-    "venue": "To be announced",
-    "address": [],
+    "venue": "Nalban Food Park",
+    "address": [
+      "Gate No. 2, Saltlake, Sector-IV",
+      "Opp. Cognizant Bridge, Kolkata – 700098"
+    ],
     "rsvp": [
       {
         "name": "Siddhant Haldar",
@@ -35,7 +38,8 @@
         "phone": "Second number to be added"
       }
     ],
-    "image": "assets/cards/sangeet-iiJLchYrt1.jpg",
-    "imageName": "Seersha-Siddhant-Sangeet.jpg"
+    "image": "assets/cards/sangeet-full-Rf8Kd3Mw.jpg",
+    "imageName": "Seersha-Siddhant-Sangeet.jpg",
+    "mapUrl": "https://www.google.com/maps/search/?api=1&query=Nalban+Food+Park+Gate+No+2+Salt+Lake+Sector+V+Kolkata+700098"
   }
 }

@@ -6,7 +6,7 @@
   "lede": "An evening of henna, music and laughter, as intricate patterns are drawn upon the bride’s hands in keeping with time-honoured tradition.",
   "date": "Sunday, 24 January 2027",
   "time": "6:30 PM",
-  "venue": "To be announced",
+  "venue": "Jal Vayu Vihar Community Hall, Block-LB, Sector-3, Saltlake, Kolkata – 700106",
   "countdownAt": "2027-01-24T18:30:00+05:30",
   "layout": "card",
   "card": {
@@ -21,8 +21,11 @@
     "day": "24",
     "monthYear": "January 2027",
     "time": "6:30 PM",
-    "venue": "To be announced",
-    "address": [],
+    "venue": "Jal Vayu Vihar Community Hall",
+    "address": [
+      "Block-LB, Sector-3, Saltlake",
+      "Kolkata – 700106"
+    ],
     "rsvp": [
       {
         "phone": "+91 98318 01908",
@@ -43,6 +46,7 @@
     "sceneClass": "hn-bride",
     "scenePosition": "bottom",
     "sceneAlt": "Seersha showing her mehendi",
-    "centered": true
+    "centered": true,
+    "mapUrl": "https://www.google.com/maps/search/?api=1&query=Jal+Vayu+Vihar+Community+Hall+LB+Block+Sector+3+Salt+Lake+Kolkata+700106"
   }
 }

@@ -1237,3 +1237,7 @@ body.viewer-open { overflow: hidden; }
 .rsvp-heading em { text-transform: none; letter-spacing: 0; font-family: inherit; font-size: 14px; }
 .rsvp-event.missing { background: rgba(163,23,43,.07); box-shadow: inset 3px 0 0 #a3172b; padding-left: 10px; }
 .rsvp-event.missing .rsvp-ev-name::after { content: " — please choose"; text-transform: none; letter-spacing: 0; font-style: italic; color: #a3172b; font-size: 13px; }
+/* addresses on the light cards */
+.theme-varmala .card-address { color: #6b2a3c; opacity: 1; margin-bottom: 14px; }
+.theme-henna .card-address { color: var(--hn-brown); opacity: 1; margin-bottom: 12px; }
+.theme-henna .card-venue { margin-bottom: 2px; }

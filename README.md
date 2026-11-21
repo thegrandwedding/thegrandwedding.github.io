@@ -4,9 +4,9 @@ Wedding website for **Seersha Saha** and **Siddhant Haldar** — Kolkata, Januar
 
 | Celebration | Date |
 |---|---|
-| Mehendi | Sun, 24 Jan 2027 · 6:30 PM |
-| Varmala | Mon, 25 Jan 2027 · 1:00 PM |
-| Sangeet | Mon, 25 Jan 2027 · 6:30 PM |
+| Mehendi | Sun, 24 Jan 2027 · 6:30 PM · Jal Vayu Vihar Community Hall, Saltlake |
+| Varmala | Mon, 25 Jan 2027 · 1:00 PM · Nalban Food Park, Saltlake |
+| Sangeet | Mon, 25 Jan 2027 · 6:30 PM · Nalban Food Park, Saltlake |
 | Haldi | Wed, 27 Jan 2027 · 10:30 AM · Orchid Banquet, East Topsia |
 | Wedding | Wed, 27 Jan 2027 · 6:30 PM · Orchid Banquet, East Topsia |
 | Reception | Fri, 29 Jan 2027 · 6:30 PM · The Meadows, P. C. Chandra Garden |
@@ -133,12 +133,11 @@ Cloudflare Worker in front of the site can check a code before serving each file
 ## To-do
 
 - [ ] Move hosting to Cloudflare Pages with a private repo (see above), and rotate the test invite codes.
-- [ ] Add venues for **Mehendi**, **Varmala** and **Sangeet**.
 - [ ] Per-household invites with a personal greeting ("Dear Sharma family") — the script already supports `--greeting`.
 - [x] RSVP form (per invite, so we know who is coming to which event) — see *R.S.V.P.* above.
 - [ ] Custom domain.
 - [ ] Link preview image (Open Graph) so the link shows a picture on WhatsApp.
 - [ ] Bengali version of the site.
 - [ ] Add the second R.S.V.P. number on the **Sangeet** card (currently "Second number to be added").
-- [ ] Re-make the Varmala and Sangeet card images (`assets/cards/*.jpg`) once their venues are known; for the **Mehendi**, the download is the supplied PDF (and its image), and the page card is styled to match it (`"theme": "henna"`) — update both if details change.
+- [ ] The **Mehendi** download is the supplied PDF, which still says "To be announced" — swap in an updated PDF with the venue.
 - [x] Themed cards for every event. Cards use `"layout": "card"` with `"theme"` — see `DECOR` in `assets/js/main.js`.
