@@ -1234,3 +1234,6 @@ body.viewer-open { overflow: hidden; }
 .rsvp-event label { font-size: 18px; }
 .rsvp-event:last-of-type { border-bottom: 1px solid rgba(166,133,69,.3); }
 .rsvp-check { border-top: 0; }
+.rsvp-heading em { text-transform: none; letter-spacing: 0; font-family: inherit; font-size: 14px; }
+.rsvp-event.missing { background: rgba(163,23,43,.07); box-shadow: inset 3px 0 0 #a3172b; padding-left: 10px; }
+.rsvp-event.missing .rsvp-ev-name::after { content: " — please choose"; text-transform: none; letter-spacing: 0; font-style: italic; color: #a3172b; font-size: 13px; }

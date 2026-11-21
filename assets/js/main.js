@@ -1331,7 +1331,7 @@
 
   function renderRsvp(events) {
     var rows = events.map(function (e) {
-      return '<div class="rsvp-event" role="radiogroup" aria-label="' + esc(e.title) + '">' +
+      return '<div class="rsvp-event" role="radiogroup" aria-required="true" data-ev="' + esc(e.id) + '" aria-label="' + esc(e.title) + '">' +
         '<span class="rsvp-ev-name">' + esc(e.title) + "</span>" +
         '<label><input type="radio" name="ev-' + esc(e.id) + '" value="yes"> Yes</label>' +
         '<label><input type="radio" name="ev-' + esc(e.id) + '" value="no"> No</label></div>';
@@ -1344,7 +1344,7 @@
       '<div class="rsvp-two">' +
       '<label class="rsvp-field"><span>Phone</span><input name="phone" type="tel" autocomplete="tel" maxlength="40"></label>' +
       '<label class="rsvp-field"><span>Email</span><input name="email" type="email" autocomplete="email" maxlength="120"></label></div>' +
-      '<p class="rsvp-heading">' + (events.length > 1 ? "Will you attend?" : "Will you attend the " + esc(events[0].title) + "?") + "</p>" +
+      '<p class="rsvp-heading">' + (events.length > 1 ? "Will you attend? <em>(please answer each)</em>" : "Will you attend the " + esc(events[0].title) + "?") + "</p>" +
       rows +
       '<label class="rsvp-check"><input type="checkbox" name="plusOne"> I will be bringing a plus-one</label>' +
       '<label class="rsvp-field"><span>A note for Seersha &amp; Siddhant <em>(optional)</em></span><textarea name="message" rows="3" maxlength="1000"></textarea></label>' +
@@ -1366,6 +1366,10 @@
     panel.querySelector(".rsvp-again").addEventListener("click", function () {
       form.reset(); done.hidden = true; form.hidden = false;
     });
+    form.addEventListener("change", function (ev) {
+      var row = ev.target.closest && ev.target.closest(".rsvp-event");
+      if (row) row.classList.remove("missing");
+    });
     function fail(msg) { err.textContent = msg; err.hidden = false; }
     form.addEventListener("submit", function (ev) {
       ev.preventDefault();
@@ -1376,9 +1380,16 @@
       var attending = {}, missing = [];
       events.forEach(function (e) {
         var pick = form.querySelector('input[name="ev-' + e.id + '"]:checked');
+        var row = form.querySelector('[data-ev="' + e.id + '"]');
+        if (row) row.classList.toggle("missing", !pick);
         if (!pick) missing.push(e.title); else attending[e.id] = pick.value === "yes";
       });
-      if (missing.length) { fail("Please let us know about: " + missing.join(", ") + "."); return; }
+      if (missing.length) {
+        fail("Please answer Yes or No for every event: " + missing.join(", ") + ".");
+        var first = form.querySelector(".rsvp-event.missing");
+        if (first && first.scrollIntoView) first.scrollIntoView({ behavior: "smooth", block: "center" });
+        return;
+      }
       btn.disabled = true; btn.textContent = "Sending…";
       fetch(RSVP_URL, {
         method: "POST",
