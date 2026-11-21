@@ -38,7 +38,7 @@
         "href": "tel:+918420061166"
       }
     ],
-    "image": "assets/cards/haldi-full-Hd3Pw6Gy.jpg",
+    "image": "assets/cards/haldi-full-centered-Tq7Lc4Ra.jpg",
     "imageName": "Seersha-Siddhant-Haldi.jpg",
     "sceneImage": "assets/cards/haldi-couple-hd-Qw5Js8Nx.webp",
     "sceneAlt": "Seersha and Siddhant at their Haldi, splashed with turmeric",
@@ -46,6 +46,7 @@
     "sceneClass": "tm-couple tm-cut",
     "scenePosition": "bottom",
     "pageHide": [],
-    "infoColumns": true
+    "infoColumns": true,
+    "centered": true
   }
 }

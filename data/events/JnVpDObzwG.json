@@ -42,6 +42,7 @@
     "sceneImage": "assets/cards/mehendi-bride-Hc5Le2.jpg",
     "sceneClass": "hn-bride",
     "scenePosition": "bottom",
-    "sceneAlt": "Seersha showing her mehendi"
+    "sceneAlt": "Seersha showing her mehendi",
+    "centered": true
   }
 }
