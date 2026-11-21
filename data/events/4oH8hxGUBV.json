@@ -40,11 +40,14 @@
         "href": "tel:+919830447770"
       }
     ],
-    "image": "assets/cards/wedding-Nw4cHs8eQd.jpg",
+    "image": "assets/cards/wedding-full-Pk4Ry8Ws.jpg",
     "imageName": "Seersha-Siddhant-Wedding.jpg",
     "pageHide": [
       "request",
       "venueSub"
-    ]
+    ],
+    "invocation": "Shubho Bibaho",
+    "infoColumns": true,
+    "scenePosition": "bottom"
   }
 }

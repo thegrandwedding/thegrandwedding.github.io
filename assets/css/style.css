@@ -1155,3 +1155,41 @@ body.viewer-open { overflow: hidden; }
   .card.centered .card-scene.photo.tm-cut { width: 143%; margin-left: -21.5%; }
   .card.centered .card-scene.photo.hn-bride { width: 125%; margin-left: -12.5%; }
 }
+
+/* ---------- Wedding, livelier: rose & rajnigandha toran and strands, blush glow, couple under a flower arch ---------- */
+.card.theme-wedding {
+  background:
+    radial-gradient(ellipse 70% 38% at 50% 100%, rgba(244,167,196,.35), transparent 75%),
+    radial-gradient(ellipse 60% 40% at 50% 38%, #fff, rgba(255,255,255,0) 80%),
+    linear-gradient(180deg, #fffafb 0%, #fff6f8 55%, #fde9ef 100%);
+  padding: calc(13% + 12px) 17% 0;
+}
+.theme-wedding .wd-toran { position: absolute; top: 0; left: 0; width: 100%; height: auto; display: block; }
+.theme-wedding .wd-strands { position: absolute; top: 0; left: 0; width: 13.5%; height: auto; display: block; }
+.theme-wedding .wd-strands.right { left: auto; right: 0; transform: scaleX(-1); }
+.theme-wedding .wd-glow { position: absolute; left: 15%; right: 15%; top: 4%; height: 30%; background: radial-gradient(ellipse, rgba(255,226,150,.25), transparent 70%); }
+.theme-wedding .wd-frame { inset: 10px; border-color: rgba(201,162,79,.55); outline-color: rgba(201,162,79,.25); }
+.theme-wedding .card-emblem { margin-bottom: 4px; }
+.theme-wedding .card-invocation {
+  font-family: var(--script); text-transform: none; letter-spacing: 0;
+  font-size: 34px; color: #c2457c; margin: 0 0 6px;
+}
+.theme-wedding .card-hosts { color: #9c3d5e; }
+.theme-wedding .card-amp { color: #c2457c; }
+.theme-wedding .card-after-names { color: #8a7656; }
+.card.theme-wedding .card-name { font-size: clamp(56px, 15cqw, 96px); }
+.card.theme-wedding:not(.full) .card-name { font-size: clamp(50px, 13cqw, 84px); }
+.theme-wedding .card-info .card-venue { font-size: 21px; }
+.theme-wedding .card-info .card-address { font-size: 14px; margin: 2px 0 0; line-height: 1.4; }
+.theme-wedding .card-info .card-rsvp { font-size: 17px; line-height: 1.7; }
+.theme-wedding .card-info > div + div { border-left-color: #ebc4d2; }
+.card .card-scene.wd-bottom, .theme-wedding .card-body > .card-scene:last-child { width: 118%; max-width: none; margin: 8px -9% 0; }
+.theme-wedding .glint { background: #fff3c4; }
+@container (max-width: 520px) {
+  .card.theme-wedding { padding: calc(15% + 10px) 14% 0; }
+  .theme-wedding .card-invocation { font-size: 28px; }
+  .theme-wedding .card-info .card-venue { font-size: 17px; }
+  .theme-wedding .card-info .card-address { font-size: 12.5px; }
+  .theme-wedding .card-info .card-rsvp { font-size: 14px; }
+  .theme-wedding .card-body > .card-scene:last-child { width: 128%; margin: 6px -14% 0; }
+}

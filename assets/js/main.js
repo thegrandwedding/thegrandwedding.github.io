@@ -852,23 +852,65 @@
     return g + "</g>";
   }
 
-  // Wedding: white and champagne, like the printed card — filigree corners,
-  // a fine double frame, rose sprigs and a whisper of gold.
+  // A rajnigandha (tuberose) bloom: five waxy white petals.
+  function tuberose(cx, cy, R) {
+    var s = '<g transform="translate(' + f1(cx) + " " + f1(cy) + ')">', k;
+    for (k = 0; k < 5; k++) {
+      s += '<ellipse cx="0" cy="' + f1(-R * .55) + '" rx="' + f1(R * .36) + '" ry="' + f1(R * .58) + '" fill="#fffdf8" stroke="#eadfcb" stroke-width=".6" transform="rotate(' + (k * 72) + ')"/>';
+    }
+    return s + '<circle r="' + f1(R * .22) + '" fill="#e9dc9a"/></g>';
+  }
+
+  // Wedding: white and blush, after the printed card — a toran of roses and rajnigandha
+  // across the top, rose strands with gold beads down both sides, petals and a gold glint.
   function decoWedding() {
-    var r = rng(53), i;
-    var svg = '<svg class="deco-top" viewBox="0 0 600 170" aria-hidden="true">' + filigree(14, 14, 1, 1) + filigree(586, 14, -1, 1) + "</svg>";
-    var bot = '<svg class="deco-bottom" viewBox="0 0 600 170" aria-hidden="true">' + filigree(14, 156, 1, -1) + filigree(586, 156, -1, -1) + "</svg>";
-    var bits = '<span class="wd-frame"></span>';
-    for (i = 0; i < 30; i++) {
-      bits += '<span class="glint" style="left:' + f1(6 + r() * 88) + "%;top:" + f1(3 + r() * 94) + "%;animation-delay:-" + f1(r() * 4) +
+    var r = rng(53), i, j, x, y;
+    var pals = [
+      ["#e0457b", "#c8285f", "#a8174a", "#7d0f36"],
+      ["#f4a7c4", "#ec8db3", "#de6f9e", "#a83c6a"],
+      ["#fbd3de", "#f7bccd", "#efa1b8", "#c86b93"],
+      ["#c81d3c", "#a8132f", "#8a0f27", "#5e0a1a"]
+    ];
+    function pal() { return pals[Math.floor(r() * pals.length)]; }
+    function leaf2(x, y, len, rot) { return leaf(x, y, len, rot, ["#5d8c55", "#3f6b46", "#79a96b"][Math.floor(r() * 3)]); }
+    // toran
+    var top = '<svg class="wd-toran" viewBox="0 0 600 90" aria-hidden="true"><path d="M0 12 Q300 26 600 12" fill="none" stroke="#c9a24f" stroke-width="1.2"/>';
+    for (i = 0; i < 46; i++) top += leaf2(r() * 610 - 5, 8 + r() * 22, 16 + r() * 10, r() * 360);
+    for (x = 6; x < 600; x += 30) {
+      top += rose(x + r() * 6 - 3, 14 + r() * 6, 11 + r() * 4, pal());
+      top += tuberose(x + 15, 22 + r() * 6, 6.5) + tuberose(x + 19, 12 + r() * 4, 5);
+    }
+    [90, 210, 390, 510].forEach(function (dx) {
+      top += '<path d="M' + dx + ' 26 v30" stroke="#c9a24f" stroke-width=".8"/>' + rose(dx, 58, 7, pals[1]) +
+        '<circle cx="' + dx + '" cy="70" r="2.6" fill="#f3d98f" stroke="#c9a24f" stroke-width=".6"/><path d="M' + (dx - 3) + ' 73 l3 9 l3 -9z" fill="#c9a24f"/>';
+    });
+    top += "</svg>";
+    // strands down both sides
+    var s = '<svg class="wd-strands" viewBox="0 0 80 1500" aria-hidden="true">';
+    [[22, 1440], [56, 1040]].forEach(function (st, n) {
+      x = st[0];
+      s += '<line x1="' + x + '" y1="0" x2="' + x + '" y2="' + st[1] + '" stroke="#c9a24f" stroke-width=".6" opacity=".7"/>';
+      for (y = 22, j = n * 2; y < st[1]; y += 25, j++) {
+        if (j % 4 === 1) s += tuberose(x, y, 10.5);
+        else if (j % 4 === 3) s += '<circle cx="' + x + '" cy="' + y + '" r="4" fill="#f3d98f" stroke="#c9a24f" stroke-width=".6"/>' + leaf2(x + 3, y + 2, 15, 30) + leaf2(x - 3, y + 2, 15, 150);
+        else if (j % 9 === 6) s += leaf2(x, y, 20, 140) + leaf2(x, y, 20, 40);
+        else s += rose(x, y, 12, j % 8 === 0 ? pals[0] : j % 8 === 4 ? pals[3] : pals[1 + (j % 2)]);
+      }
+      s += '<path d="M' + x + " " + (st[1] + 6) + ' v10" stroke="#c9a24f" stroke-width=".8"/>' + rose(x, st[1] + 22, 6, pals[0]) +
+        '<path d="M' + (x - 3) + " " + (st[1] + 28) + " l3 10 l3 -10z" + '" fill="#c9a24f"/>';
+    });
+    s += "</svg>";
+    var bits = '<span class="wd-frame"></span><span class="wd-glow"></span>';
+    for (i = 0; i < 26; i++) {
+      bits += '<span class="glint" style="left:' + f1(14 + r() * 72) + "%;top:" + f1(6 + r() * 88) + "%;animation-delay:-" + f1(r() * 4) +
         "s;--s:" + (0.5 + r() * 0.9).toFixed(2) + '"></span>';
     }
-    var pcols = ["#f6c1d4", "#fbdbe6", "#f3a9c4", "#fff0f5"];
-    for (i = 0; i < 16; i++) {
-      bits += '<span class="petal" style="left:' + f1(r() * 100) + "%;animation-delay:-" + f1(r() * 18) +
-        "s;animation-duration:" + f1(13 + r() * 9) + "s;--s:" + (0.5 + r() * 0.6).toFixed(2) + ";--c:" + pcols[i % 4] + '"></span>';
+    var pcols = ["#f6c1d4", "#e0457b", "#fbdbe6", "#c81d3c", "#fff0f5"];
+    for (i = 0; i < 26; i++) {
+      bits += '<span class="petal" style="left:' + f1(10 + r() * 80) + "%;animation-delay:-" + f1(r() * 18) +
+        "s;animation-duration:" + f1(12 + r() * 9) + "s;--s:" + (0.5 + r() * 0.6).toFixed(2) + ";--c:" + pcols[i % 5] + '"></span>';
     }
-    return '<div class="deco" aria-hidden="true">' + bits + svg + bot + "</div>";
+    return '<div class="deco" aria-hidden="true">' + bits + top + s + s.replace('class="wd-strands"', 'class="wd-strands right"') + "</div>";
   }
 
   // Lord Ganesha, seated on a lotus — the blessing at the top of the card.
@@ -944,6 +986,19 @@
       '<radialGradient id="wd-halo"><stop offset="0" stop-color="#fde4ec" stop-opacity=".95"/><stop offset=".7" stop-color="#fdeef3" stop-opacity=".5"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient>' +
       '<radialGradient id="wd-fire"><stop offset="0" stop-color="#fff3b0"/><stop offset=".5" stop-color="#ffb020" stop-opacity=".85"/><stop offset="1" stop-color="#ff6a00" stop-opacity="0"/></radialGradient></defs>' +
       '<ellipse cx="150" cy="120" rx="140" ry="104" fill="url(#wd-halo)"/>' +
+      // an arch of roses and rajnigandha over the couple
+      (function () {
+        var g = "", k, n = 44, ang, ax, ay, rr = rng(59);
+        var ap = [["#f4a7c4", "#ec8db3", "#de6f9e", "#a83c6a"], ["#e0457b", "#c8285f", "#a8174a", "#7d0f36"], ["#fbd3de", "#f7bccd", "#efa1b8", "#c86b93"]];
+        g += '<path d="M28 214 A122 196 0 0 1 272 214" fill="none" stroke="#c9a24f" stroke-width="1.2"/>';
+        for (k = 0; k <= n; k++) {
+          ang = Math.PI * (1 - k / n); ax = 150 + Math.cos(ang) * 122; ay = 214 - Math.sin(ang) * 196;
+          if (k % 3 === 1) g += tuberose(ax, ay, 5.2);
+          else g += rose(ax, ay, 6 + rr() * 1.6, ap[k % 3 === 0 ? 0 : (k % 2 ? 1 : 2)]);
+          if (k % 4 === 2) g += leaf(ax + 4, ay + 2, 10, ang * 57 + 90, "#5d8c55");
+        }
+        return g;
+      })() +
       // alpona on the floor
       '<g fill="none" stroke="#d98aa6" stroke-width="1" opacity=".8">' +
       '<ellipse cx="150" cy="210" rx="128" ry="14"/><ellipse cx="150" cy="210" rx="114" ry="10" stroke-dasharray="2 3"/>' +
