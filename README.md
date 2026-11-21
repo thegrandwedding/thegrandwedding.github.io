@@ -30,13 +30,15 @@ uninvited events, family details and phone numbers never reach anyone without a 
 
 ### Current invite links
 
-| Group | Events | Link |
-|---|---|---|
-| All events | Mehendi, Varmala, Sangeet, Haldi, Wedding, Reception | https://thegrandwedding.github.io/?invite=nyjfC74C |
-| Varmala onwards | Varmala, Sangeet, Haldi, Wedding, Reception | https://thegrandwedding.github.io/?invite=rAYNyYhF |
-| Sangeet onwards | Sangeet, Wedding, Reception | https://thegrandwedding.github.io/?invite=QjW4MvHW |
-| Wedding & Reception | Wedding, Reception | https://thegrandwedding.github.io/?invite=TiPpV4tp |
-| Reception only | Reception | https://thegrandwedding.github.io/?invite=IzKg8MW7 |
+Every invite comes in two versions: **with plus-one** (the R.S.V.P. form has an "I will be bringing a plus-one" box) and **no plus-one** (the box is hidden).
+
+| Group | Events | With plus-one | No plus-one |
+|---|---|---|---|
+| Everything | Mehendi, Varmala, Sangeet, Haldi, Wedding, Reception | https://thegrandwedding.github.io/?invite=nyjfC74C | https://thegrandwedding.github.io/?invite=JWvDopwI |
+| Varmala onwards | Varmala, Sangeet, Haldi, Wedding, Reception | https://thegrandwedding.github.io/?invite=rAYNyYhF | https://thegrandwedding.github.io/?invite=IudwlMbK |
+| Sangeet onwards | Sangeet, Wedding, Reception | https://thegrandwedding.github.io/?invite=QjW4MvHW | https://thegrandwedding.github.io/?invite=014oPucA |
+| Wedding & Reception | Wedding, Reception | https://thegrandwedding.github.io/?invite=TiPpV4tp | https://thegrandwedding.github.io/?invite=Lwi0HwMW |
+| Reception only | Reception | https://thegrandwedding.github.io/?invite=IzKg8MW7 | https://thegrandwedding.github.io/?invite=nJCwafub |
 
 Individual tabs can be linked by adding `#<event>`, e.g. `…?invite=TiPpV4tp#reception`.
 
@@ -49,7 +51,7 @@ python3 tools/new-invite.py "Sharma family" sangeet wedding reception --greeting
 git add data/invites && git commit -m "Add invite" && git push
 ```
 
-Use `all` for every event, and `--no-families` to hide the parents' names.
+Use `all` for every event, `--no-families` to hide the parents' names, and `--no-plus-one` to hide the plus-one option on the R.S.V.P. form.
 To revoke a link, delete its file in `data/invites/` and push.
 
 ## Structure

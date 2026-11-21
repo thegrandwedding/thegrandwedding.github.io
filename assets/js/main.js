@@ -1329,7 +1329,7 @@
   // so the category and invited events can't be changed from here.
   var RSVP_URL = "https://script.google.com/macros/s/AKfycbxJblGMwW4y3myfghfkoJwd7WO9o7J5qXLnJ6ZBPLbemd5QgnWEW89Ok5So3jx2kasBAw/exec";
 
-  function renderRsvp(events) {
+  function renderRsvp(events, allowPlusOne) {
     var rows = events.map(function (e) {
       return '<div class="rsvp-event" role="radiogroup" aria-required="true" data-ev="' + esc(e.id) + '" aria-label="' + esc(e.title) + '">' +
         '<span class="rsvp-ev-name">' + esc(e.title) + "</span>" +
@@ -1346,7 +1346,7 @@
       '<label class="rsvp-field"><span>Email</span><input name="email" type="email" autocomplete="email" maxlength="120"></label></div>' +
       '<p class="rsvp-heading">' + (events.length > 1 ? "Will you attend? <em>(please answer each)</em>" : "Will you attend the " + esc(events[0].title) + "?") + "</p>" +
       rows +
-      '<label class="rsvp-check"><input type="checkbox" name="plusOne"> I will be bringing a plus-one</label>' +
+      (allowPlusOne ? '<label class="rsvp-check"><input type="checkbox" name="plusOne"> I will be bringing a plus-one</label>' : "") +
       '<label class="rsvp-field"><span>A note for Seersha &amp; Siddhant <em>(optional)</em></span><textarea name="message" rows="3" maxlength="1000"></textarea></label>' +
       '<p class="rsvp-error" role="alert" hidden></p>' +
       '<button type="submit" class="btn rsvp-submit">Send R.S.V.P.</button>' +
@@ -1396,7 +1396,7 @@
         headers: { "Content-Type": "text/plain;charset=utf-8" },
         body: JSON.stringify({
           invite: resolveCode(), name: name, phone: el("phone").value, email: el("email").value,
-          attending: attending, plusOne: el("plusOne").checked,
+          attending: attending, plusOne: !!(el("plusOne") && el("plusOne").checked),
           message: el("message").value
         })
       }).then(function (r) { return r.json(); }).then(function (res) {
@@ -1428,7 +1428,7 @@
 
     var panels = renderWelcome(invite, families, events);
     events.forEach(function (e) { panels += e.layout === "card" ? renderCard(e) : renderStandard(e); });
-    panels += renderRsvp(events);
+    panels += renderRsvp(events, invite.plusOne !== false);
     loading.insertAdjacentHTML("beforebegin", panels);
     setupRsvp(events);
 
