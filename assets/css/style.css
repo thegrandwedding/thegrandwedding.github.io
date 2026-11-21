@@ -1307,3 +1307,11 @@ body.viewer-open { overflow: hidden; }
 @media (prefers-reduced-motion: reduce) {
   .theme-soiree .twinkle, .theme-soiree .glint, .card.theme-soiree .card-name, .theme-soiree .card-date .day, .theme-soiree .card-venue { animation: none; }
 }
+/* couple in the middle of the card (Sangeet-style) for the Wedding and Reception alternatives */
+.scene-mid.theme-soiree .card-scene, .scene-mid.theme-wedding .card-scene { width: 54%; max-width: 270px; margin: 12px auto 0; }
+.scene-mid.theme-soiree:not(.full) .card-scene, .scene-mid.theme-wedding:not(.full) .card-scene { width: 46%; max-width: 250px; }
+.card.scene-mid.theme-soiree, .card.scene-mid.theme-wedding { padding-bottom: calc(8% + 24px); }
+@container (max-width: 520px) {
+  .scene-mid.theme-soiree .card-scene, .scene-mid.theme-wedding .card-scene,
+  .scene-mid.theme-soiree:not(.full) .card-scene, .scene-mid.theme-wedding:not(.full) .card-scene { width: 64%; }
+}

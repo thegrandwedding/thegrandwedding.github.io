@@ -1286,7 +1286,7 @@
     }
 
     return '<section class="panel" data-panel="' + esc(e.id) + '" role="tabpanel" hidden>' +
-      '<article class="card' + (theme ? " theme-" + theme : "") + (FULL ? " full" : "") + (c.centered ? " centered" : "") + '">' +
+      '<article class="card' + (theme ? " theme-" + theme : "") + (FULL ? " full" : "") + (c.centered ? " centered" : "") + (scene && c.scenePosition !== "bottom" ? " scene-mid" : "") + '">' +
       (theme ? DECOR[theme]() : "") +
       '<div class="card-body">' +
       (theme && EMBLEMS[theme] ? '<div class="card-emblem">' + EMBLEMS[theme]() + "</div>" : "") +
