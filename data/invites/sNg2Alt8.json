@@ -1,0 +1,13 @@
+{
+  "group": "TEST: alternative Sangeet",
+  "greeting": null,
+  "families": "data/families-CQyqCz97uv.json",
+  "events": [
+    "data/events/JnVpDObzwG.json",
+    "data/events/Sg4Alt7Lux.json",
+    "data/events/y47d8rIxTp.json",
+    "data/events/ooxBpYuDnX.json",
+    "data/events/4oH8hxGUBV.json",
+    "data/events/bZdU4XzOnI.json"
+  ]
+}

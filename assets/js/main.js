@@ -1085,7 +1085,7 @@
       "</svg>";
   }
 
-  var SCENES = { haldi: sceneHaldi, sangeet: sceneSangeet, varmala: sceneVarmala, mehendi: sceneMehendi, wedding: sceneWedding };
+  var SCENES = { sangeetlight: sceneSangeet, haldi: sceneHaldi, sangeet: sceneSangeet, varmala: sceneVarmala, mehendi: sceneMehendi, wedding: sceneWedding };
 
   // Henna (Mehendi): cream card dressed with the marigold toran and strands from the printed card.
   function decoHenna() {
@@ -1140,7 +1140,62 @@
     return '<div class="deco" aria-hidden="true">' + bits + top + s + s.replace('class="tm-strands"', 'class="tm-strands right"') + "</div>";
   }
 
-  var DECOR = { turmeric: decoTurmeric, henna: decoHenna, haldi: decoHaldi, sangeet: decoSangeet, varmala: decoVarmala, mehendi: decoMehendi, wedding: decoWedding };
+  // Sangeet (alternative): ivory to lavender, fairy lights and lanterns, rose-and-jasmine
+  // light strands down both sides, gold music notes drifting up.
+  function decoSangeetLight() {
+    var r = rng(71), i, j, x, y, u, v;
+    var pals = [["#f4a7c4", "#ec8db3", "#de6f9e", "#a83c6a"], ["#d8b4fe", "#c084fc", "#a855f7", "#6b21a8"], ["#fbd3de", "#f7bccd", "#efa1b8", "#c86b93"]];
+    function bulb(cx, cy, rad) {
+      return '<circle class="twinkle" style="animation-delay:-' + f1(r() * 3) + 's" cx="' + f1(cx) + '" cy="' + f1(cy) + '" r="' + f1(rad) + '" fill="#f6c453" stroke="#d9a326" stroke-width=".6" filter="url(#sl-glow)"/>';
+    }
+    var top = '<svg class="sl-top" viewBox="0 0 600 118" aria-hidden="true"><defs><filter id="sl-glow" x="-200%" y="-200%" width="500%" height="500%">' +
+      '<feGaussianBlur stdDeviation="2.4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>';
+    // a garland of roses, rajnigandha and leaves along the top edge
+    for (i = 0; i < 40; i++) top += leaf(r() * 610 - 5, 6 + r() * 16, 14 + r() * 8, r() * 360, ["#5d8c55", "#3f6b46", "#79a96b"][Math.floor(r() * 3)]);
+    for (x = 4; x < 604; x += 26) { top += rose(x + r() * 6 - 3, 9 + r() * 5, 10 + r() * 3, pals[Math.floor(r() * 3)]) + tuberose(x + 13, 16 + r() * 4, 5.5); }
+    // three swags of fairy lights
+    [[0, 18, 600, 18, 30], [0, 26, 300, 26, 34], [300, 26, 600, 26, 34]].forEach(function (sw) {
+      var cx = (sw[0] + sw[2]) / 2, cy = sw[1] + sw[4] * 2;
+      top += '<path d="M' + sw[0] + " " + sw[1] + " Q" + cx + " " + cy + " " + sw[2] + " " + sw[3] + '" fill="none" stroke="#b8925a" stroke-width=".8"/>';
+      for (j = 1; j < 30; j++) {
+        u = j / 30; v = 1 - u;
+        top += bulb(v * v * sw[0] + 2 * v * u * cx + u * u * sw[2], v * v * sw[1] + 2 * v * u * cy + u * u * sw[3] + 3, 2.6);
+      }
+    });
+    // little brass lanterns
+    [150, 450].forEach(function (lx) {
+      top += '<g transform="translate(' + lx + ' 48)"><path d="M0 0 v12" stroke="#b8925a"/><path d="M-5 12 h10 l3 4 h-16z" fill="#c9973a"/>' +
+        '<path d="M-9 16 h18 l4 10 v14 l-5 10 h-16 l-5 -10 v-14z" fill="rgba(255,214,140,.35)" stroke="#c9973a" stroke-width="1.2"/>' +
+        '<path d="M0 16 v34 M-9 26 h18 M-9 40 h18" stroke="#c9973a" stroke-width=".6"/>' +
+        '<ellipse class="twinkle" cx="0" cy="33" rx="4" ry="6" fill="#ffd27a" filter="url(#sl-glow)"/><path d="M-4 50 h8 l-4 6z" fill="#c9973a"/></g>';
+    });
+    top += "</svg>";
+    // side strands: lights, roses and jasmine
+    var s = '<svg class="sl-strands" viewBox="0 0 80 1500" aria-hidden="true">';
+    [[22, 1420], [56, 1020]].forEach(function (st, n) {
+      x = st[0];
+      s += '<line x1="' + x + '" y1="0" x2="' + x + '" y2="' + st[1] + '" stroke="#b8925a" stroke-width=".6" opacity=".7"/>';
+      for (y = 24, j = n; y < st[1]; y += 25, j++) {
+        if (j % 3 === 0) s += rose(x, y, 12.5, pals[j % 2 ? 1 : (j % 4 ? 0 : 2)]);
+        else if (j % 3 === 1) s += bulb(x, y, 4.6) + leaf(x + 3, y + 3, 14, 35, "#5d8c55") + leaf(x - 3, y + 3, 14, 145, "#3f6b46");
+        else s += tuberose(x, y, 10);
+      }
+      s += '<path d="M' + x + " " + (st[1] + 6) + ' v10" stroke="#b8925a" stroke-width=".8"/>' + bulb(x, st[1] + 20, 4.4);
+    });
+    s += "</svg>";
+    var bits = '<span class="sl-floor"></span>';
+    for (i = 0; i < 16; i++) {
+      bits += '<span class="note" style="left:' + f1(14 + r() * 72) + "%;animation-delay:-" + f1(r() * 14) + "s;animation-duration:" + f1(10 + r() * 8) +
+        "s;--s:" + (0.7 + r() * 0.8).toFixed(2) + '">' + (i % 3 ? "&#9834;" : "&#9835;") + "</span>";
+    }
+    for (i = 0; i < 24; i++) {
+      bits += '<span class="glint" style="left:' + f1(12 + r() * 76) + "%;top:" + f1(8 + r() * 86) + "%;animation-delay:-" + f1(r() * 4) +
+        "s;--s:" + (0.5 + r() * 0.9).toFixed(2) + '"></span>';
+    }
+    return '<div class="deco" aria-hidden="true">' + bits + top + s + s.replace('class="sl-strands"', 'class="sl-strands right"') + "</div>";
+  }
+
+  var DECOR = { sangeetlight: decoSangeetLight, turmeric: decoTurmeric, henna: decoHenna, haldi: decoHaldi, sangeet: decoSangeet, varmala: decoVarmala, mehendi: decoMehendi, wedding: decoWedding };
 
   // ?fullcard renders every card in full (used to make the downloadable images).
   var FULL = /[?&]fullcard\b/.test(location.search);

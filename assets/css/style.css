@@ -1193,3 +1193,79 @@ body.viewer-open { overflow: hidden; }
   .theme-wedding .card-info .card-rsvp { font-size: 14px; }
   .theme-wedding .card-body > .card-scene:last-child { width: 128%; margin: 6px -14% 0; }
 }
+
+/* ---------- Sangeet (alternative): ivory to lavender, fairy lights, plum and gold ---------- */
+.card.theme-sangeetlight {
+  --sl-plum: #5b2a6e; --sl-gold: #b8862b; --sl-line: #d9c2e6;
+  background:
+    radial-gradient(ellipse 70% 34% at 50% 100%, rgba(192,132,252,.28), transparent 75%),
+    radial-gradient(ellipse 55% 30% at 50% 10%, rgba(255,231,163,.35), transparent 80%),
+    linear-gradient(180deg, #fffdf8 0%, #fbf5fb 50%, #f1e6f7 100%);
+  color: var(--sl-plum);
+  border: 0; outline: none;
+  padding: calc(17% + 10px) 17% 0;
+  container-type: inline-size;
+  box-shadow: 0 30px 60px -25px rgba(91,42,110,.4);
+}
+.theme-sangeetlight .sl-top { position: absolute; top: 0; left: 0; width: 100%; height: auto; display: block; }
+.theme-sangeetlight .sl-strands { position: absolute; top: 0; left: 0; width: 13%; height: auto; display: block; }
+.theme-sangeetlight .sl-strands.right { left: auto; right: 0; transform: scaleX(-1); }
+.theme-sangeetlight .sl-floor { position: absolute; left: 0; right: 0; bottom: 0; height: 22%;
+  background: radial-gradient(ellipse 50% 60% at 50% 100%, rgba(255,214,140,.45), transparent 75%); }
+.theme-sangeetlight .twinkle { animation: twinkle 2.4s ease-in-out infinite; }
+.theme-sangeetlight .glint {
+  position: absolute; width: 3px; height: 3px; border-radius: 50%;
+  background: #fff3c4; box-shadow: 0 0 6px 1px rgba(224,169,46,.6);
+  transform: scale(var(--s, 1)); animation: twinkle 2.8s ease-in-out infinite;
+}
+.theme-sangeetlight .note {
+  position: absolute; bottom: -30px; font-size: 22px; line-height: 1; color: #c9973a; opacity: 0;
+  transform: scale(var(--s, 1)); animation: note-up 14s linear infinite;
+}
+@keyframes note-up {
+  0% { transform: translateY(0) rotate(-8deg) scale(var(--s, 1)); opacity: 0; }
+  10% { opacity: .75; }
+  80% { opacity: .5; }
+  100% { transform: translateY(-110vh) rotate(10deg) scale(var(--s, 1)); opacity: 0; }
+}
+.theme-sangeetlight .card-request { color: #7a4a86; font-size: 19px; margin-bottom: 6px; }
+.theme-sangeetlight .card-title { color: var(--sl-plum); font-weight: 500; font-size: clamp(32px, 8.5cqw, 50px); letter-spacing: 0.3em; padding-left: .3em; margin: 0 0 4px; }
+.theme-sangeetlight .card-title .flourish { display: none; }
+.card.theme-sangeetlight .card-name {
+  display: block; width: max-content; max-width: 100%; margin: 0 auto;
+  padding: .08em .4em .14em; line-height: 1.2;
+  font-size: clamp(54px, 14cqw, 90px);
+  background: linear-gradient(100deg, #b8862b 0%, #e0b44a 30%, #8a4a9e 60%, #b8862b 100%);
+  -webkit-background-clip: text; background-clip: text; color: transparent; text-shadow: none;
+}
+.card.theme-sangeetlight .card-amp { color: #a855f7; font-size: 30px; margin: -10px 0; }
+.theme-sangeetlight .card-tagline { color: #7a4a86; font-size: 18px; }
+.theme-sangeetlight .card-date { margin: 18px 0 16px; }
+.theme-sangeetlight .card-date .side { color: var(--sl-plum); border-color: var(--sl-line); }
+.theme-sangeetlight .card-date .day { color: var(--sl-gold); }
+.theme-sangeetlight .card-date .day small { color: var(--sl-plum); }
+.theme-sangeetlight .card-label { color: var(--sl-gold); }
+.theme-sangeetlight .card-label::before, .theme-sangeetlight .card-label::after { background: var(--sl-line); }
+.theme-sangeetlight .card-venue { font-family: inherit; font-style: italic; text-transform: none; letter-spacing: 0; color: var(--sl-plum); font-size: 21px; }
+.theme-sangeetlight .card-info > div + div { border-left-color: var(--sl-line); }
+.theme-sangeetlight .card-rsvp { color: #3d2346; font-size: 17px; line-height: 1.7; }
+.theme-sangeetlight .card-rsvp a { color: #3d2346; border-bottom-color: var(--sl-line); }
+.theme-sangeetlight .card-rsvp em { font-size: 14px; color: #7a4a86; }
+.theme-sangeetlight .btn { background: var(--sl-plum); border-color: var(--sl-plum); color: #fffaf0; text-shadow: none; }
+.theme-sangeetlight .btn.ghost { background: transparent; color: var(--sl-plum); }
+.theme-sangeetlight .card-body > .card-scene:last-child { width: 96%; max-width: none; margin: 8px auto 0; }
+.theme-sangeetlight .card-scene svg { filter: drop-shadow(0 8px 12px rgba(91,42,110,.2)); }
+@container (max-width: 520px) {
+  .card.theme-sangeetlight { padding: calc(19% + 10px) 14% 0; }
+  .theme-sangeetlight .card-request, .theme-sangeetlight .card-tagline { font-size: 16px; }
+  .theme-sangeetlight .card-date { gap: 6px; }
+  .theme-sangeetlight .card-date .side { font-size: 10px; letter-spacing: 0.08em; padding: 8px 0; }
+  .theme-sangeetlight .card-date .day { font-size: 40px; }
+  .theme-sangeetlight .card-venue { font-size: 17px; }
+  .theme-sangeetlight .card-rsvp { font-size: 14px; }
+  .theme-sangeetlight .card-body > .card-scene:last-child { width: 110%; margin-left: -5%; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .theme-sangeetlight .note { display: none; }
+  .theme-sangeetlight .twinkle, .theme-sangeetlight .glint { animation: none; }
+}
