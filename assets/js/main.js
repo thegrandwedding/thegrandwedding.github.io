@@ -1257,13 +1257,18 @@
   var FULL = /[?&]fullcard\b/.test(location.search);
   var CARDS = {};
 
+  // WhatsApp glyph (speech bubble with a handset), drawn in the brand green.
+  var WA_ICON = '<svg viewBox="0 0 32 32" aria-hidden="true"><path fill="#25D366" d="M16 3C9 3 3.4 8.6 3.4 15.5c0 2.4.7 4.7 1.9 6.6L3.3 29l7.1-1.9c1.8 1 3.8 1.5 5.9 1.5 7 0 12.6-5.6 12.6-12.6S23 3 16 3z"/>' +
+    '<path fill="#fff" d="M11.6 9.3c-.3-.6-.6-.6-.9-.6h-.8c-.3 0-.7.1-1 .5-.4.4-1.3 1.3-1.3 3.1s1.3 3.6 1.5 3.9c.2.2 2.6 4.1 6.4 5.6 3.2 1.2 3.8 1 4.5.9.7-.1 2.2-.9 2.5-1.8.3-.9.3-1.7.2-1.8-.1-.2-.3-.3-.7-.5l-2.4-1.2c-.3-.1-.6-.2-.8.2-.2.4-.9 1.2-1.1 1.4-.2.2-.4.3-.8.1-.4-.2-1.6-.6-3-1.9-1.1-1-1.9-2.2-2.1-2.6-.2-.4 0-.6.2-.8l.6-.7c.2-.2.3-.4.4-.7.1-.3.1-.5 0-.7l-1.1-2.7z"/></svg>';
+
   function renderCard(e) {
     var c = e.card;
     var theme = c.theme && DECOR[c.theme] ? c.theme : null;
     var rsvp = (c.rsvp || []).map(function (r) {
-      return (r.name ? esc(r.name) + " · " : "") +
+      return '<span class="rsvp-line">' + (r.name ? esc(r.name) + " · " : "") +
         (r.href ? '<a href="' + esc(r.href) + '" target="_blank" rel="noopener">' + esc(r.phone) + "</a>" : "<em>" + esc(r.phone) + "</em>") +
-        (r.note ? " (" + esc(r.note) + ")" : "");
+        (r.icon === "whatsapp" ? ' <a class="wa-icon" href="' + esc(r.href) + '" target="_blank" rel="noopener" aria-label="WhatsApp">' + WA_ICON + "</a>" : "") +
+        (r.note ? " (" + esc(r.note) + ")" : "") + "</span>";
     }).join("<br>");
     var actions = "";
     if (c.mapUrl) actions += '<a class="btn" href="' + esc(c.mapUrl) + '" target="_blank" rel="noopener">View on Map</a>';

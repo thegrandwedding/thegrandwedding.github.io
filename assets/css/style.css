@@ -1329,3 +1329,7 @@ body.viewer-open { overflow: hidden; }
 }
 .theme-soiree .card-date .day small { -webkit-text-fill-color: #fbeee0; }
 .theme-soiree .card-info .card-address, .theme-soiree .card-venue-sub, .theme-soiree .card-rsvp { color: #fbeee0; }
+/* R.S.V.P. lines never wrap; WhatsApp icon sits beside the number */
+.card-rsvp .rsvp-line { white-space: nowrap; }
+.card-rsvp a.wa-icon { border: 0; display: inline-block; vertical-align: -3px; }
+.card-rsvp a.wa-icon svg { width: 16px; height: 16px; display: block; }
