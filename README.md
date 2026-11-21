@@ -84,6 +84,19 @@ python3 -m http.server 8000
 Edit its file in `data/events/` (date, time, venue, description). Set `countdownAt`
 (ISO time with `+05:30`) to include it in the countdown; `null` leaves it out.
 
+## R.S.V.P.
+
+Every invite has an **R.S.V.P.** tab (and a button on the Welcome page). Guests enter their name,
+phone, email, accept or decline **each event on their invite**, add a plus-one and an optional note.
+Each reply becomes a row in the couple's private Google Sheet (tab **RSVPs**), with the invite's
+**Category** (its `group`) filled in automatically.
+
+The form posts to a Google Apps Script web app — the script is in `tools/rsvp-apps-script.gs`, and its
+URL is `RSVP_URL` in `assets/js/main.js`. The script looks the invite code up on the live site, so a
+reply with a made-up code is rejected and the category can't be faked. The sheet itself is never shared.
+After editing the script: Apps Script → Deploy → Manage deployments → edit → Version: **New version**
+(the URL stays the same).
+
 ## Event cards
 
 Each event tab shows a compact card (same height ballpark as the reception card). Every card has
@@ -119,7 +132,7 @@ Cloudflare Worker in front of the site can check a code before serving each file
 - [ ] Move hosting to Cloudflare Pages with a private repo (see above), and rotate the test invite codes.
 - [ ] Add venues for **Mehendi**, **Varmala** and **Sangeet**.
 - [ ] Per-household invites with a personal greeting ("Dear Sharma family") — the script already supports `--greeting`.
-- [ ] RSVP form (per invite, so we know who is coming to which event).
+- [x] RSVP form (per invite, so we know who is coming to which event) — see *R.S.V.P.* above.
 - [ ] Custom domain.
 - [ ] Link preview image (Open Graph) so the link shows a picture on WhatsApp.
 - [ ] Bengali version of the site.

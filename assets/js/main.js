@@ -67,7 +67,9 @@
       html += '<li><a href="#' + esc(e.id) + '"><span class="t-date">' + esc(when) +
         '</span><span class="t-name">' + esc(e.title) + "</span></a></li>";
     });
-    html += "</ol></section>";
+    html += "</ol>";
+    html += '<p class="rsvp-cta"><a class="btn" href="#rsvp">R.S.V.P.</a></p>';
+    html += "</section>";
     return html;
   }
 
@@ -1322,6 +1324,83 @@
   }
 
   /* ---------- states ---------- */
+  /* ---------- RSVP: a form that writes a row to the couple's Google Sheet ---------- */
+  // Google Apps Script web app (tools/rsvp-apps-script.gs). It checks the invite code itself,
+  // so the category and invited events can't be changed from here.
+  var RSVP_URL = "https://script.google.com/macros/s/AKfycbxJblGMwW4y3myfghfkoJwd7WO9o7J5qXLnJ6ZBPLbemd5QgnWEW89Ok5So3jx2kasBAw/exec";
+
+  function renderRsvp(events) {
+    var rows = events.map(function (e) {
+      return '<fieldset class="rsvp-event"><legend>' + esc(e.title) +
+        '<small>' + esc(e.date) + (e.time ? " · " + esc(e.time) : "") + "</small></legend>" +
+        '<label><input type="radio" name="ev-' + esc(e.id) + '" value="yes" required> Joyfully accepts</label>' +
+        '<label><input type="radio" name="ev-' + esc(e.id) + '" value="no"> Regretfully declines</label></fieldset>';
+    }).join("");
+    return '<section class="panel" data-panel="rsvp" role="tabpanel" hidden>' +
+      '<h2 class="section-title">R.S.V.P.</h2>' +
+      '<p class="lede">Kindly let us know if you will be joining us.</p>' +
+      '<form class="rsvp-form" novalidate>' +
+      '<label class="rsvp-field"><span>Your name</span><input name="name" autocomplete="name" required maxlength="120"></label>' +
+      '<div class="rsvp-two">' +
+      '<label class="rsvp-field"><span>Phone</span><input name="phone" type="tel" autocomplete="tel" maxlength="40"></label>' +
+      '<label class="rsvp-field"><span>Email</span><input name="email" type="email" autocomplete="email" maxlength="120"></label></div>' +
+      '<p class="rsvp-heading">' + (events.length > 1 ? "Will you attend?" : "Will you attend the " + esc(events[0].title) + "?") + "</p>" +
+      rows +
+      '<label class="rsvp-check"><input type="checkbox" name="plusOne"> I will be bringing a plus-one</label>' +
+      '<label class="rsvp-field rsvp-plus" hidden><span>Plus-one’s name</span><input name="plusOneName" maxlength="120"></label>' +
+      '<label class="rsvp-field"><span>A note for Seersha &amp; Siddhant <em>(optional)</em></span><textarea name="message" rows="3" maxlength="1000"></textarea></label>' +
+      '<p class="rsvp-error" role="alert" hidden></p>' +
+      '<button type="submit" class="btn rsvp-submit">Send R.S.V.P.</button>' +
+      "</form>" +
+      '<div class="rsvp-done" hidden><p class="rsvp-thanks">Thank you!</p>' +
+      '<p class="lede">Your reply has reached us. We can’t wait to celebrate with you.</p>' +
+      '<button type="button" class="btn ghost rsvp-again">Send another reply</button></div>' +
+      "</section>";
+  }
+
+  function setupRsvp(events) {
+    var panel = document.querySelector('[data-panel="rsvp"]');
+    if (!panel) return;
+    var form = panel.querySelector("form"), err = panel.querySelector(".rsvp-error"),
+        done = panel.querySelector(".rsvp-done"), btn = panel.querySelector(".rsvp-submit"),
+        plus = panel.querySelector(".rsvp-plus");
+    function el(n) { return form.elements.namedItem(n); }
+    el("plusOne").addEventListener("change", function () { plus.hidden = !el("plusOne").checked; });
+    panel.querySelector(".rsvp-again").addEventListener("click", function () {
+      form.reset(); plus.hidden = true; done.hidden = true; form.hidden = false;
+    });
+    function fail(msg) { err.textContent = msg; err.hidden = false; }
+    form.addEventListener("submit", function (ev) {
+      ev.preventDefault();
+      err.hidden = true;
+      var name = el("name").value.trim();
+      if (!name) { fail("Please enter your name."); el("name").focus(); return; }
+      if (el("email").value && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(el("email").value.trim())) { fail("Please check your email address."); return; }
+      var attending = {}, missing = [];
+      events.forEach(function (e) {
+        var pick = form.querySelector('input[name="ev-' + e.id + '"]:checked');
+        if (!pick) missing.push(e.title); else attending[e.id] = pick.value === "yes";
+      });
+      if (missing.length) { fail("Please let us know about: " + missing.join(", ") + "."); return; }
+      btn.disabled = true; btn.textContent = "Sending…";
+      fetch(RSVP_URL, {
+        method: "POST",
+        headers: { "Content-Type": "text/plain;charset=utf-8" },
+        body: JSON.stringify({
+          invite: resolveCode(), name: name, phone: el("phone").value, email: el("email").value,
+          attending: attending, plusOne: el("plusOne").checked, plusOneName: el("plusOneName").value,
+          message: el("message").value
+        })
+      }).then(function (r) { return r.json(); }).then(function (res) {
+        if (!res.ok) throw new Error(res.error || "failed");
+        form.hidden = true; done.hidden = false;
+        panel.scrollIntoView({ behavior: "smooth", block: "start" });
+      }).catch(function () {
+        fail("Sorry, that didn’t go through. Please try again, or message Siddhant on WhatsApp.");
+      }).then(function () { btn.disabled = false; btn.textContent = "Send R.S.V.P."; });
+    });
+  }
+
   function showLanding() {
     loading.hidden = true;
     landing.hidden = false;
@@ -1336,18 +1415,21 @@
     events.forEach(function (e) {
       tabs += '<a href="#' + esc(e.id) + '" role="tab" data-tab="' + esc(e.id) + '">' + esc(e.title) + "</a>";
     });
+    tabs += '<a href="#rsvp" role="tab" data-tab="rsvp">R.S.V.P.</a>';
     tabsEl.innerHTML = tabs;
 
     var panels = renderWelcome(invite, families, events);
     events.forEach(function (e) { panels += e.layout === "card" ? renderCard(e) : renderStandard(e); });
+    panels += renderRsvp(events);
     loading.insertAdjacentHTML("beforebegin", panels);
+    setupRsvp(events);
 
     loading.hidden = true;
     nav.hidden = false;
     document.body.classList.remove("is-loading");
     startCountdown(events);
     syncOffset();
-    setupTabs(["home"].concat(events.map(function (e) { return e.id; })));
+    setupTabs(["home"].concat(events.map(function (e) { return e.id; })).concat(["rsvp"]));
   }
 
   /* ---------- boot ---------- */
