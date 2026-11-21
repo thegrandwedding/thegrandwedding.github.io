@@ -1228,3 +1228,9 @@ body.viewer-open { overflow: hidden; }
   .rsvp-form { padding: 22px 16px; }
   .rsvp-two { grid-template-columns: 1fr; }
 }
+/* one line per event: name … Yes  No */
+.rsvp-event { flex-wrap: nowrap; gap: 18px; padding: 10px 0; }
+.rsvp-ev-name { flex: 1; font-family: var(--caps); letter-spacing: .14em; text-transform: uppercase; color: var(--oxblood); font-size: 15px; }
+.rsvp-event label { font-size: 18px; }
+.rsvp-event:last-of-type { border-bottom: 1px solid rgba(166,133,69,.3); }
+.rsvp-check { border-top: 0; }

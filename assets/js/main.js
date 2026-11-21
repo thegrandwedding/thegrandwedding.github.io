@@ -1331,10 +1331,10 @@
 
   function renderRsvp(events) {
     var rows = events.map(function (e) {
-      return '<fieldset class="rsvp-event"><legend>' + esc(e.title) +
-        '<small>' + esc(e.date) + (e.time ? " · " + esc(e.time) : "") + "</small></legend>" +
-        '<label><input type="radio" name="ev-' + esc(e.id) + '" value="yes" required> Joyfully accepts</label>' +
-        '<label><input type="radio" name="ev-' + esc(e.id) + '" value="no"> Regretfully declines</label></fieldset>';
+      return '<div class="rsvp-event" role="radiogroup" aria-label="' + esc(e.title) + '">' +
+        '<span class="rsvp-ev-name">' + esc(e.title) + "</span>" +
+        '<label><input type="radio" name="ev-' + esc(e.id) + '" value="yes"> Yes</label>' +
+        '<label><input type="radio" name="ev-' + esc(e.id) + '" value="no"> No</label></div>';
     }).join("");
     return '<section class="panel" data-panel="rsvp" role="tabpanel" hidden>' +
       '<h2 class="section-title">R.S.V.P.</h2>' +
