@@ -1974,3 +1974,8 @@ body.viewer-open { overflow: hidden; }
 .card.theme-palace.pp-wedding.pp-titled .card-body .card-title.with-icons .h-icon { width: 1.7em; }
 .pp-wedding.pp-titled .pp-glow { top: 15%; height: 71.5%; left: 13%; right: 13%; }
 .card.theme-palace.pp-wedding.pp-titled { padding: 33.5% 16.5% 25.5% !important; }
+.card.theme-palace.pp-wedding.pp-titled .card-body .card-title.with-icons { font-size: 6.6cqw; letter-spacing: .06em; gap: .25em; }
+.card.theme-palace.pp-wedding.pp-titled .card-body .card-title.with-icons span { padding-left: .06em; }
+.card.theme-palace.pp-wedding.pp-titled .card-body .card-title.with-icons .h-icon { width: 1.5em; }
+.card.theme-palace.pp-wedding.pp-titled { padding-top: 36% !important; }
+.card.theme-palace.pp-wedding.pp-titled .card-body .card-title.with-icons .h-icon { width: 1.35em; }
