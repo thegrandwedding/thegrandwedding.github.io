@@ -2202,3 +2202,21 @@ body.viewer-open { overflow: hidden; }
 .tabs-inner > a:first-child { margin-left: auto; }
 .tabs-inner > a:last-child { margin-right: auto; }
 @media (min-width: 900px) { .tabs a { letter-spacing: .16em; padding-left: 12px; padding-right: 12px; } }
+/* Wedding: assortment of Bengali wedding items above the title */
+.card.theme-palace.pp-wedding.pp-titled .card-body .card-crown { width: 30%; margin-bottom: .6cqw; }
+.card.theme-palace.pp-wedding.pp-titled { padding-top: 30.5% !important; }
+.card.theme-palace.pp-wedding.pp-titled .card-body .card-crown { width: 25%; margin-bottom: 0; }
+.card.theme-palace.pp-wedding.pp-titled .card-body .card-title.with-icons { margin-bottom: 1.4cqw; }
+.card.theme-palace.pp-wedding.pp-titled .card-body .card-heading-script { margin-bottom: .4cqw; }
+.card.theme-palace.pp-wedding.pp-titled .card-body .card-names { margin: .8cqw 0 .6cqw; }
+.card.theme-palace.pp-wedding.pp-titled .card-body .card-date { margin: 2cqw auto 1.6cqw; }
+.card.theme-palace.pp-wedding.pp-titled .card-body .card-venue { margin-bottom: 2.2cqw; }
+.card.theme-palace.pp-wedding.pp-titled.full .card-body .card-venue { margin-bottom: 0; }
+.card.theme-palace.pp-wedding.pp-titled.full .card-body .card-address { margin-bottom: 1.6cqw; }
+.card.theme-palace.pp-wedding.pp-titled .card-body .card-attire, .card.theme-palace.pp-wedding.pp-titled.full .card-body .card-attire { margin-bottom: 1.8cqw; }
+.pp-wedding.pp-titled .pp-glow { height: 73.5%; }
+.card.theme-palace.pp-wedding.pp-titled.full { padding-top: 29.5% !important; }
+.card.theme-palace.pp-wedding.pp-titled.full .card-body .card-crown { width: 22%; }
+.card.theme-palace.pp-wedding.pp-titled.full .card-body .card-address { line-height: 1.25; margin-bottom: 1.2cqw; }
+.card.theme-palace.pp-wedding.pp-titled.full .card-body .card-attire { margin-bottom: 1.2cqw; }
+.card.theme-palace.pp-wedding.pp-titled.full .card-body .card-date { margin: 1.6cqw auto 1.2cqw; }
