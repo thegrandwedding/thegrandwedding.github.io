@@ -1456,12 +1456,12 @@
       return g;
     }
     var dome = '<svg class="hd-dome" viewBox="0 0 300 170" preserveAspectRatio="none" aria-hidden="true"><defs>' +
-      '<linearGradient id="hd-arch" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#df8510"/><stop offset="1" stop-color="#d67a0a"/></linearGradient></defs>' +
+      '<linearGradient id="hd-arch" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#d4740a"/><stop offset="1" stop-color="#c96a06"/></linearGradient></defs>' +
       '<path d="M0 171 V122 Q0 102 16 102 Q28 102 30 92 Q32 80 46 80 Q60 80 66 68 C86 58 104 46 118 28 C127 16 140 8 150 0 C160 8 173 16 182 28 C196 46 214 58 234 68 Q240 80 254 80 Q268 80 270 92 Q272 102 284 102 Q300 102 300 122 V171 Z" fill="url(#hd-arch)"/>' +
-      '<circle cx="150" cy="-2" r="3" fill="#df8510"/></svg>';
+      '<circle cx="150" cy="-2" r="3" fill="#d4740a"/></svg>';
     var lamps = '<svg class="hd-lamps" viewBox="0 0 600 460" aria-hidden="true"><defs>' +
       '<radialGradient id="hd-glow"><stop offset="0" stop-color="#ffe7a3" stop-opacity=".85"/><stop offset=".5" stop-color="#ffcf6e" stop-opacity=".25"/><stop offset="1" stop-color="#ffcf6e" stop-opacity="0"/></radialGradient></defs>' +
-      lantern(52, 330, 1.05) + lantern(132, 196, .9) + lantern(468, 196, .9) + lantern(548, 330, 1.05) + "</svg>";
+      lantern(20, 300, .95) + lantern(96, 150, .8) + lantern(504, 150, .8) + lantern(580, 300, .95) + "</svg>";
     var bits = '<span class="hd-panel"></span>';
     var pcols = ["#f59e0b", "#fbbf24", "#f97316", "#fcd34d"];
     for (i = 0; i < 10; i++) {
@@ -1471,7 +1471,31 @@
     return '<div class="deco" aria-hidden="true">' + dome + bits + lamps + "</div>";
   }
 
-  var DECOR = { holud: decoHolud, moonlit: decoMoonlit, soiree: decoSoiree, turmeric: decoTurmeric, henna: decoHenna, haldi: decoHaldi, sangeet: decoSangeet, varmala: decoVarmala, mehendi: decoMehendi, wedding: decoWedding };
+  // Bagh (Varmala): ivory with a faint Mughal lattice, watercolour bougainvillea from the
+  // sample cascading from the top and left, a faint palace dome, drifting bougainvillea petals.
+  function decoBagh() {
+    var r = rng(191), i;
+    var dome = '<svg class="bg-dome" viewBox="0 0 200 260" aria-hidden="true"><g fill="#ecd9c3" opacity=".55">' +
+      '<path d="M100 8 l4 14 h-8z"/><circle cx="100" cy="26" r="4"/>' +
+      '<path d="M100 30 C70 36 48 62 46 96 H154 C152 62 130 36 100 30z"/>' +
+      '<rect x="40" y="96" width="120" height="10"/>' +
+      '<path d="M44 106 h112 v154 h-22 v-90 a34 40 0 0 0 -68 0 v90 h-22z"/>' +
+      '<rect x="20" y="150" width="20" height="110"/><rect x="160" y="150" width="20" height="110"/>' +
+      '<path d="M18 150 l12 -22 l12 22z M158 150 l12 -22 l12 22z"/></g>' +
+      '<g fill="none" stroke="#e2c9ae" stroke-width="1" opacity=".7"><path d="M60 70 C70 50 85 42 100 40 C115 42 130 50 140 70"/><path d="M76 130 a24 28 0 0 1 48 0"/></g></svg>';
+    var bits = '<span class="bg-lattice"></span>' + dome +
+      '<img class="bg-top" src="assets/cards/varmala-bougain-top-Pk3Xs7.webp" alt="">' +
+      '<img class="bg-bl" src="assets/cards/varmala-bougain-bl-Pk3Xs7.webp" alt="">' +
+      '<img class="bg-br" src="assets/cards/varmala-bougain-bl-Pk3Xs7.webp" alt="">';
+    var pc = ["#d6246e", "#e75a95", "#b0175e", "#f06fa8", "#c2185b"];
+    for (i = 0; i < 16; i++) {
+      bits += '<span class="petal bg-petal" style="left:' + f1(20 + r() * 75) + "%;animation-delay:-" + f1(r() * 18) +
+        "s;animation-duration:" + f1(12 + r() * 9) + "s;--s:" + (0.55 + r() * 0.6).toFixed(2) + ";--c:" + pc[i % 5] + '"></span>';
+    }
+    return '<div class="deco" aria-hidden="true">' + bits + "</div>";
+  }
+
+  var DECOR = { bagh: decoBagh, holud: decoHolud, moonlit: decoMoonlit, soiree: decoSoiree, turmeric: decoTurmeric, henna: decoHenna, haldi: decoHaldi, sangeet: decoSangeet, varmala: decoVarmala, mehendi: decoMehendi, wedding: decoWedding };
 
   // ?fullcard renders every card in full (used to make the downloadable images).
   var FULL = /[?&]fullcard\b/.test(location.search);

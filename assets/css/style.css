@@ -1637,3 +1637,106 @@ body.viewer-open { overflow: hidden; }
   .theme-holud .card-rsvp { font-size: 15px; }
   .theme-holud .attire-text { font-size: 15.5px; }
 }
+
+/* ---------- Bagh (Varmala): ivory, Mughal lattice, watercolour bougainvillea ---------- */
+.card.theme-bagh {
+  background: linear-gradient(180deg, #fffaf6 0%, #fff7f1 60%, #fdf1e8 100%);
+  color: #6b2a3c;
+  border: 0; outline: none;
+  padding: calc(50% + 10px) 11% calc(30% + 20px) 25%;
+  container-type: inline-size;
+  box-shadow: 0 30px 60px -25px rgba(120,40,70,.4);
+}
+.theme-bagh .bg-lattice { position: absolute; inset: 40% 0 0 0; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60' fill='none' stroke='%23ead8c6' stroke-width='1.1'%3E%3Cpath d='M10 0v10h10v10h20v-10h10v-10M10 60v-10h10v-10h20v10h10v10M0 10h10v10h-10M60 10h-10v10h10M0 50h10v-10h-10M60 50h-10v-10h10M30 20v20M20 30h20'/%3E%3C/svg%3E") 0 0 / 10cqw 10cqw;
+  -webkit-mask-image: linear-gradient(to bottom, transparent, #000 25%); mask-image: linear-gradient(to bottom, transparent, #000 25%); }
+.theme-bagh .bg-top { position: absolute; top: 0; left: 0; width: 100%; height: auto; display: block; }
+.theme-bagh .bg-bl { position: absolute; left: 0; bottom: 0; width: 26%; height: auto; display: block;
+  -webkit-mask-image: linear-gradient(to right, #000 75%, transparent); mask-image: linear-gradient(to right, #000 75%, transparent); }
+.theme-bagh .bg-br { position: absolute; right: 0; bottom: 0; width: 20%; height: auto; display: block; transform: scaleX(-1);
+  -webkit-mask-image: linear-gradient(to right, #000 75%, transparent); mask-image: linear-gradient(to right, #000 75%, transparent); }
+.theme-bagh .bg-dome { position: absolute; right: 12%; bottom: 0; width: 32%; height: auto; display: block; }
+.theme-bagh .bg-petal { position: absolute; top: -20px; width: 12px; height: 10px; background: var(--c); border-radius: 50% 50% 50% 10%; opacity: .9; transform: scale(var(--s, 1)); animation: petal-fall 15s linear infinite; }
+.theme-bagh .card-body { text-shadow: 0 0 8px rgba(255,250,246,.95), 0 0 2px rgba(255,250,246,.9); }
+.theme-bagh .card-request { color: #7d3a58; font-size: 19px; }
+.theme-bagh .card-title { color: #a3195b; font-weight: 600; font-size: clamp(26px, 6.4cqw, 38px); letter-spacing: .3em; padding-left: .3em; margin: 6px 0 0; }
+.theme-bagh .card-title .flourish { display: none; }
+.theme-bagh .card-heading-script { color: #c2185b; font-size: 36px; margin: 0 0 4px; }
+.card.theme-bagh .card-name { color: #a8771c; font-size: clamp(50px, 12cqw, 80px); line-height: 1.2; }
+.card.theme-bagh .card-amp { color: #c2185b; }
+.theme-bagh .card-date { margin: 20px 0 16px; }
+.theme-bagh .card-date .side { color: #6b2a3c; border-color: #e3b9c9; font-weight: 600; }
+.theme-bagh .card-date .day { color: #a8771c; }
+.theme-bagh .card-date .day small { color: #6b2a3c; font-weight: 600; white-space: nowrap; }
+.theme-bagh .card-label { color: #a8771c; font-weight: 600; }
+.theme-bagh .card-label::before, .theme-bagh .card-label::after { background: #e3b9c9; }
+.theme-bagh .card-venue { color: #a3195b; font-weight: 600; }
+.theme-bagh .card-address { color: #5e3446; opacity: 1; margin-bottom: 12px; }
+.theme-bagh .attire-title { color: #a3195b; font-size: 21px; font-style: italic; }
+.theme-bagh .attire-text { color: #5e3446; }
+.theme-bagh .card-rsvp, .theme-bagh .card-rsvp a { color: #4a1f2c; }
+.theme-bagh .card-rsvp a { border-bottom-color: #e3b9c9; }
+.theme-bagh .btn { background: #a3195b; border-color: #a3195b; color: #fffaf6; text-shadow: none; }
+.theme-bagh .btn.ghost { background: rgba(255,255,255,.7); color: #a3195b; }
+@container (max-width: 520px) {
+  .card.theme-bagh { padding: calc(56% + 10px) 9% calc(36% + 16px) 24%; }
+  .theme-bagh .card-request { font-size: 15.5px; }
+  .theme-bagh .card-title { font-size: 6.6cqw; letter-spacing: .2em; }
+  .theme-bagh .card-heading-script { font-size: 28px; }
+  .theme-bagh .card-date { gap: 5px; }
+  .theme-bagh .card-date .side { font-size: 10px; letter-spacing: .06em; padding: 8px 0; }
+  .theme-bagh .card-date .day { font-size: 38px; }
+  .theme-bagh .card-venue { font-size: 18px; }
+  .theme-bagh .card-address, .theme-bagh .card-rsvp, .theme-bagh .attire-text { font-size: 14px; }
+}
+@media (prefers-reduced-motion: reduce) { .theme-bagh .bg-petal { display: none; } }
+/* Holud v3: wider arch, much larger and bolder warm-ivory text, deeper turmeric */
+.theme-holud .hd-dome { left: 5%; width: 90%; top: 14cqw; height: 51cqw; }
+.theme-holud .hd-panel { left: 5%; right: 5%; top: calc(65cqw - 1px); background: #c96a06; }
+.card.theme-holud { padding: calc(28% + 8px) 10% calc(8% + 22px); }
+.theme-holud .card-body { color: #fff8e7; text-shadow: 0 1px 3px rgba(90,35,0,.45); }
+.theme-holud .card-om { font-size: 36px; color: #ffe7b0; }
+.theme-holud .card-request { font-size: 24px; font-weight: 600; color: #fff8e7; }
+.theme-holud .card-title { font-size: clamp(64px, 16cqw, 96px); color: #fffdf5; }
+.theme-holud .card-heading-script { font-size: 24px; font-weight: 600; color: #ffe7b0; }
+.card.theme-holud .card-body .card-name { font-size: 38px; font-weight: 600; color: #fffdf5; }
+.card.theme-holud .card-body .card-amp { font-size: 32px; font-weight: 600; color: #ffe7b0; }
+.theme-holud .card-tagline { font-size: 22px; font-weight: 600; color: #fff8e7; max-width: 520px; line-height: 1.5; }
+.theme-holud .card-date .side { font-size: 18px; font-weight: 600; color: #fffdf5; border-color: #ffe7b0; }
+.theme-holud .card-date .day { font-size: 64px; color: #fffdf5; }
+.theme-holud .card-date .day small { font-size: 15px; font-weight: 600; color: #fff8e7; }
+.theme-holud .card-label { font-size: 15px; font-weight: 600; color: #ffe7b0; }
+.theme-holud .card-info .card-venue { font-size: 23px; font-weight: 600; color: #fffdf5; }
+.theme-holud .card-info .card-address { font-size: 18px; font-weight: 600; color: #fff8e7; }
+.theme-holud .card-rsvp { font-size: 21px; font-weight: 600; color: #fffdf5; }
+.theme-holud .card-rsvp a { color: #fffdf5; }
+.theme-holud .attire-text { font-size: 22px; font-weight: 600; color: #fffdf5; }
+.theme-holud .btn { font-size: 13px; padding: 13px 22px; color: #a84f05; }
+@container (max-width: 520px) {
+  .card.theme-holud { padding: calc(30% + 6px) 8% calc(9% + 18px); }
+  .theme-holud .card-om { font-size: 28px; }
+  .theme-holud .card-request { font-size: 19px; }
+  .theme-holud .card-title { font-size: 15cqw; }
+  .theme-holud .card-heading-script { font-size: 19px; }
+  .card.theme-holud .card-body .card-name { font-size: 7.6cqw; }
+  .card.theme-holud .card-body .card-amp { font-size: 6.6cqw; }
+  .theme-holud .card-tagline { font-size: 18px; }
+  .theme-holud .card-date .side { font-size: 13px; letter-spacing: .06em; }
+  .theme-holud .card-date .day { font-size: 50px; }
+  .theme-holud .card-date .day small { font-size: 12.5px; }
+  .theme-holud .card-label { font-size: 12.5px; }
+  .theme-holud .card-info .card-venue { font-size: 18px; }
+  .theme-holud .card-info .card-address { font-size: 14.5px; }
+  .theme-holud .card-rsvp { font-size: 16.5px; }
+  .theme-holud .attire-text { font-size: 18px; }
+}
+.theme-bagh .bg-bl, .theme-bagh .bg-br {
+  -webkit-mask-image: linear-gradient(to right, #000 70%, transparent), linear-gradient(to bottom, #000 80%, transparent);
+  -webkit-mask-composite: source-in;
+          mask-image: linear-gradient(to right, #000 70%, transparent), linear-gradient(to bottom, #000 80%, transparent);
+          mask-composite: intersect;
+}
+.theme-bagh .bg-bl { bottom: 2%; width: 28%; }
+.theme-bagh .bg-br { bottom: 2%; width: 22%; }
+.theme-bagh .card-request { font-size: 20px; }
+.theme-bagh .card-address, .theme-bagh .attire-text { font-size: 17px; }
+.theme-bagh .card-rsvp { font-size: 18px; }
