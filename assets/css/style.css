@@ -1994,3 +1994,8 @@ body.viewer-open { overflow: hidden; }
 .card.theme-palace.pp-wedding.pp-titled.full .card-body .card-address { margin-bottom: 2cqw; }
 .card.theme-palace.pp-wedding.pp-titled.full .card-body .card-attire { margin-bottom: 2cqw; }
 .card.theme-palace.pp-wedding.pp-titled.full .card-body .card-date { margin-bottom: 1.6cqw; }
+/* Sangeet: Jashn-e-Ishq is now the title */
+.card.theme-palace.pp-sangeet .card-body .card-heading-script { font-size: 12cqw; line-height: 1.1; color: #8a2a52; margin: .4cqw 0 1.6cqw; }
+.card.theme-palace.pp-sangeet .card-body .card-request { margin-bottom: .4cqw; }
+.card.theme-palace.pp-sangeet { padding-top: 46% !important; }
+.pp-sangeet .pp-glow { top: 23%; height: 60%; }

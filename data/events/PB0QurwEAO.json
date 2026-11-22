@@ -1,12 +1,12 @@
 {
   "id": "sangeet",
   "order": 3,
-  "title": "Sangeet",
+  "title": "Jashn-e-Ishq",
   "kicker": "An Evening of Music & Dance",
   "lede": "Both families come together for an evening of song, dance and revelry on the eve of the wedding festivities.",
   "date": "Monday, 25 January 2027",
   "time": "6:30 PM",
-  "venue": "Nalban Food Park, Gate No. 2, Saltlake, Sector-IV, Opp. Cognizant Bridge, Kolkata – 700098",
+  "venue": "Nalban Park, Gate No. 2, Saltlake, Sector-IV, Opp. Cognizant Bridge, Kolkata – 700098",
   "countdownAt": "2027-01-25T18:30:00+05:30",
   "layout": "card",
   "card": {
@@ -20,7 +20,7 @@
     "day": "25",
     "monthYear": "January 2027",
     "time": "6:30 PM",
-    "venue": "Nalban Food Park",
+    "venue": "Nalban Park",
     "address": [
       "Gate No. 2, Saltlake, Sector-IV",
       "Opp. Cognizant Bridge, Kolkata – 700098"
@@ -40,7 +40,7 @@
         "href": "tel:+919830447770"
       }
     ],
-    "image": "assets/cards/sangeet-paint-full-Ds8Kv2.jpg",
+    "image": "assets/cards/sangeet-paint-full-Wm9Cx4.jpg",
     "imageName": "Seersha-Siddhant-Sangeet.jpg",
     "mapUrl": "https://www.google.com/maps/search/?api=1&query=Nalban+Food+Park+Gate+No+2+Salt+Lake+Sector+V+Kolkata+700098",
     "attire": [
@@ -54,7 +54,6 @@
     "bg": "assets/cards/sangeet-paint-bg-Pv7Lx4.webp",
     "actionsBelow": true,
     "centered": false,
-    "heading": "Sangeet",
     "headingScript": "Jashn-e-Ishq"
   }
 }
