@@ -2230,3 +2230,9 @@ body.viewer-open { overflow: hidden; }
   background: radial-gradient(ellipse at 50% 50%, rgba(240,200,110,.30) 0%, rgba(210,150,70,.14) 48%, rgba(150,20,30,0) 68%); }
 .pp-meld .card-body .card-crown::after { content: ""; position: absolute; left: -10%; right: -10%; top: -2%; bottom: 0; border-radius: 50%;
   border: 1px solid rgba(232,199,102,.55); box-shadow: 0 0 0 4px rgba(232,199,102,.10); z-index: -1; }
+/* Wedding (blended): spread the text evenly down the panel */
+.card.theme-palace.pp-wedding.pp-titled.pp-meld { display: flex; flex-direction: column; padding: 30% 15.5% 25% !important; }
+.card.theme-palace.pp-wedding.pp-titled.pp-meld .card-body { flex: 1; display: flex; flex-direction: column; justify-content: space-between; align-items: center; }
+.card.theme-palace.pp-wedding.pp-titled.pp-meld .card-body > * { flex: none; }
+.card.theme-palace.pp-wedding.pp-titled.pp-meld .card-body .card-date { width: 100%; }
+.card.theme-palace.pp-wedding.pp-titled.pp-meld { padding: 30% 18.5% 24.5% !important; }
