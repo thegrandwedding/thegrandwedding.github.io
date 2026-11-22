@@ -342,7 +342,7 @@
   var RED = [["#f2a0a8", "#d9374b", "#b3142c", "#7a0a1c"], ["#f5b3b8", "#e04a5c", "#c01f36", "#860d22"], ["#ec8d97", "#c8233a", "#9e0f26", "#650716"]];
   function fallingRose(i) {
     var p = RED[i % 3];
-    if (i % 4 === 0) return '<svg viewBox="-13 -13 26 26">' + prettyRose(0, 0, 12, p, i * 37) + "</svg>";
+    return '<svg viewBox="-13 -13 26 26">' + prettyRose(0, 0, 12, p, i * 37) + "</svg>";
     return '<svg viewBox="0 0 22 20"><defs><linearGradient id="fp' + i + '" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="' + p[1] +
       '"/><stop offset="1" stop-color="' + p[3] + '"/></linearGradient></defs>' +
       '<path d="M11 19 C3 14 0 7 3.5 3 C6.5 0 9.8 1.6 11 4.4 C12.2 1.6 15.5 0 18.5 3 C22 7 19 14 11 19z" fill="url(#fp' + i + ')"/>' +
@@ -366,11 +366,10 @@
       ["#ffffff", "#fdf0f2", "#e7a9ba"]
     ];
     var rosePals = [
-      ["#fbe1e8", "#f6c6d4", "#eeaac0", "#c8708e"],  // blush
-      ["#efe3f8", "#ddc9f0", "#c7aee6", "#8f6fb8"],  // lilac
-      ["#e6f0fa", "#cfe0f2", "#b5cde8", "#7896bd"],  // powder blue
-      ["#feeadb", "#fbd3bb", "#f5ba98", "#cc8a66"],  // peach
-      ["#fffaf3", "#f7efe2", "#ecdfca", "#bba78a"]   // ivory
+      ["#f2a0a8", "#d9374b", "#b3142c", "#7a0a1c"],
+      ["#f5b3b8", "#e04a5c", "#c01f36", "#860d22"],
+      ["#ec8d97", "#c8233a", "#9e0f26", "#650716"],
+      ["#f7c1c5", "#e6606f", "#c42a40", "#8a1426"]
     ];
     var greens = pastel ? ["#a9c4a2", "#bcd3b2", "#8fb08a", "#cfe0c6"] : ["#6f9e6a", "#8fb98a", "#4f7f57", "#a7c79a"];
     function pk(a) { return a[Math.floor(r() * a.length)]; }
