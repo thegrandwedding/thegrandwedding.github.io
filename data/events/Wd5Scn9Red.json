@@ -1,0 +1,46 @@
+{
+  "id": "wedding",
+  "order": 5,
+  "title": "Wedding",
+  "kicker": "The Sacred Union",
+  "lede": "Before the sacred fire, Seersha and Siddhant will be joined in marriage according to Bengali Vedic rites. Your presence and blessings would honour us.",
+  "date": "Wednesday, 27 January 2027",
+  "time": "6:30 PM",
+  "venue": "Orchid Banquet, Calcutta Boating & Hotel Resorts (P) Ltd., 11A/1J East Topsia Road (near Science City), Kolkata – 700046",
+  "countdownAt": "2027-01-27T18:30:00+05:30",
+  "layout": "card",
+  "card": {
+    "theme": "scene",
+    "request": "Together with our families, we invite you to celebrate",
+    "names": [
+      "Seersha",
+      "Siddhant"
+    ],
+    "weekday": "Wednesday",
+    "day": "27",
+    "monthYear": "January 2027",
+    "time": "6:30 PM",
+    "venue": "Orchid Banquet",
+    "address": [
+      "East Topsia Road, Kolkata"
+    ],
+    "mapUrl": "https://www.google.com/maps/search/?api=1&query=Orchid+Banquet+11A%2F1J+East+Topsia+Road+Kolkata+700046",
+    "rsvp": [
+      {
+        "phone": "+91 98318 01908",
+        "href": "tel:+919831801908"
+      },
+      {
+        "phone": "+91 98304 47770",
+        "href": "tel:+919830447770"
+      }
+    ],
+    "image": "assets/cards/wedding-scene-full-Fm6Wq2Jr.jpg",
+    "imageName": "Seersha-Siddhant-Wedding.jpg",
+    "variant": "sc-wedding",
+    "bg": "assets/cards/wedding-scene-bg-Kt8Mz3.webp",
+    "heading": "Shubho Bibaho",
+    "headingSub": "The Wedding of",
+    "actionsBelow": true
+  }
+}

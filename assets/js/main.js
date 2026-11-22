@@ -1501,7 +1501,13 @@
     return '<div class="deco" aria-hidden="true"><img class="pl-bg" src="assets/cards/varmala-palace-bg-Js4Kw8.webp" alt=""></div>';
   }
 
-  var DECOR = { palace: decoPalace, bagh: decoBagh, holud: decoHolud, moonlit: decoMoonlit, soiree: decoSoiree, turmeric: decoTurmeric, henna: decoHenna, haldi: decoHaldi, sangeet: decoSangeet, varmala: decoVarmala, mehendi: decoMehendi, wedding: decoWedding };
+  // Scene cards (Sangeet / Wedding alternatives): a supplied painting is the whole card and the
+  // text sits in its open centre, in one shared stacked layout.
+  function decoScene(c) {
+    return '<div class="deco" aria-hidden="true"><img class="sc-bg" src="' + esc(c.bg) + '" alt=""><span class="sc-glow"></span></div>';
+  }
+
+  var DECOR = { scene: decoScene, palace: decoPalace, bagh: decoBagh, holud: decoHolud, moonlit: decoMoonlit, soiree: decoSoiree, turmeric: decoTurmeric, henna: decoHenna, haldi: decoHaldi, sangeet: decoSangeet, varmala: decoVarmala, mehendi: decoMehendi, wedding: decoWedding };
 
   // ?fullcard renders every card in full (used to make the downloadable images).
   var FULL = /[?&]fullcard\b/.test(location.search);

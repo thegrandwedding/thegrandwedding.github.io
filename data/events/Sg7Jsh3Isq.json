@@ -10,21 +10,19 @@
   "countdownAt": "2027-01-25T18:30:00+05:30",
   "layout": "card",
   "card": {
-    "theme": "sangeet",
+    "theme": "scene",
     "request": "Join us for an evening of",
     "names": [
       "Seersha",
       "Siddhant"
     ],
-    "tagline": "A night dedicated to rhythm, romance, and unforgettable revelry.",
     "weekday": "Monday",
     "day": "25",
     "monthYear": "January 2027",
     "time": "6:30 PM",
     "venue": "Nalban Food Park",
     "address": [
-      "Gate No. 2, Saltlake, Sector-IV",
-      "Opp. Cognizant Bridge, Kolkata – 700098"
+      "Salt Lake Sector IV, Kolkata"
     ],
     "rsvp": [
       {
@@ -41,11 +39,9 @@
         "href": "tel:+919830447770"
       }
     ],
-    "image": "assets/cards/sangeet-jashn-full-Lq8Vt2Mc.jpg",
+    "image": "assets/cards/sangeet-scene-full-Pd3Gx8Lv.jpg",
     "imageName": "Seersha-Siddhant-Sangeet.jpg",
     "mapUrl": "https://www.google.com/maps/search/?api=1&query=Nalban+Food+Park+Gate+No+2+Salt+Lake+Sector+V+Kolkata+700098",
-    "headingScript": "Jashn-e-Ishq",
-    "pageHide": [],
     "attire": [
       {
         "label": "Dress Code",
@@ -53,8 +49,11 @@
         "text": "Bring the sparkle, velvet and glamour."
       }
     ],
-    "nameFirst": false,
-    "footnote": "The Sangeet",
-    "variant": "jashn"
+    "variant": "sc-sangeet",
+    "bg": "assets/cards/sangeet-scene-bg-Hw4Rn7.webp",
+    "heading": "Jashn-e-Ishq",
+    "headingSub": "The Sangeet",
+    "actionsBelow": true,
+    "centered": false
   }
 }
