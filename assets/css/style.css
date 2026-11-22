@@ -1910,3 +1910,15 @@ body.viewer-open { overflow: hidden; }
 .card.theme-palace.pp-shahi .card-body .card-title { letter-spacing: .3em; padding-left: .3em; }
 .card.theme-palace.pp-shahi.full .card-body .card-attire { margin-bottom: .4cqw; }
 .card.theme-palace.pp-shahi.full .card-body .card-address { margin-bottom: .4cqw; }
+
+/* Wedding, titled (Saat Paak-e Bandha): kicker, script title, names, invitation paragraph, details */
+.card.theme-palace.pp-wedding.pp-titled { padding: 31% 12% 25% !important; }
+.pp-wedding.pp-titled .pp-glow { top: 12.5%; height: 75%; left: 7%; right: 7%; }
+.card.theme-palace.pp-wedding.pp-titled .card-body .card-title { font-size: 5.8cqw; letter-spacing: .26em; padding-left: .26em; color: #e8c766; margin: 0 0 2.4cqw; }
+.card.theme-palace.pp-wedding.pp-titled .card-body .card-heading-script { font-size: 9.4cqw; line-height: 1.12; color: #f7e3a1; margin: 0 0 2.4cqw; }
+.card.theme-palace.pp-wedding.pp-titled .card-body .card-name { font-size: 9cqw; color: #f3d98f; }
+.card.theme-palace.pp-wedding.pp-titled .card-body .card-amp { font-size: 6.4cqw; }
+.card.theme-palace.pp-wedding.pp-titled .card-body .card-tagline { font-size: 3.9cqw; line-height: 1.35; font-style: italic; font-weight: 500; color: #fbeee0; max-width: 92%; margin: 1.6cqw auto 0; }
+.card.theme-palace.pp-wedding.pp-titled .card-body .attire-title { color: #f3d98f; font-style: italic; }
+.card.theme-palace.pp-wedding.pp-titled .card-body .attire-text { color: #fbeee0; max-width: none; }
+.card.theme-palace.pp-wedding.pp-titled:not(.full) .card-body .card-address.full-only { display: none; }

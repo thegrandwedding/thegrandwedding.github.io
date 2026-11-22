@@ -11,7 +11,6 @@
   "layout": "card",
   "card": {
     "theme": "palace",
-    "request": "Together with our families, we invite you to celebrate",
     "names": [
       "Seersha",
       "Siddhant"
@@ -36,12 +35,23 @@
         "href": "tel:+919830447770"
       }
     ],
-    "image": "assets/cards/wedding-paint-full-Gq7Ys4.jpg",
+    "image": "assets/cards/wedding-paak-full-Vd3Hs8.jpg",
     "imageName": "Seersha-Siddhant-Wedding.jpg",
-    "variant": "pp pp-wedding",
+    "variant": "pp pp-wedding pp-titled",
     "bg": "assets/cards/wedding-paint-bg-Hn6Xs2.webp",
-    "heading": "The Wedding",
+    "heading": "Saat Paak-e Bandha",
     "actionsBelow": true,
-    "headingScript": "Shubho Bibaho"
+    "headingScript": "A Tapestry in shades of Shindoor and Alta",
+    "tagline": "Bound in seven sacred circles, sindoor, and the sound of uludhwani, we invite you to witness our holy union and bless us as we step into our forever together.",
+    "pageHide": [
+      "address"
+    ],
+    "attire": [
+      {
+        "label": "Dress Code",
+        "title": "Ivory, Gold & Metallics",
+        "text": "All shades of white, ivory, gold, and silver."
+      }
+    ]
   }
 }
