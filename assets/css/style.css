@@ -2046,3 +2046,6 @@ body.viewer-open { overflow: hidden; }
 .card.theme-palace.pp-sapphire .card-body .attire-text, .card.theme-palace.pp-sapphire .card-body .card-date .side,
 .card.theme-palace.pp-sapphire .card-body .card-date .day small { color: #1e2a4a; }
 .card.theme-palace.pp-sapphire .card-body .card-rsvp, .card.theme-palace.pp-sapphire .card-body .card-rsvp a { color: #18223e; }
+/* softer sapphire text to match the gentler wash */
+.card.theme-palace.pp-sapphire .card-body .card-heading-script, .card.theme-palace.pp-sapphire .card-body .card-venue,
+.card.theme-palace.pp-sapphire .card-body .attire-title, .card.theme-palace.pp-sapphire .card-body .card-amp { color: #2f4f86; }
