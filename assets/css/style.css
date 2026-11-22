@@ -2020,7 +2020,7 @@ body.viewer-open { overflow: hidden; }
    Full-width burgundy velvet with the card's gold-leaf florals in the corners, hanging pendants
    and gold ornaments; the names sit in the centre as on the current page. */
 .look-velvet .hero {
-  background: #2a060c url("../cards/hero-velvet-wide-Lm4Ty8.webp") center / cover no-repeat;
+  background: #2a060c url("../cards/hero-velvet-wide-Ns5Kr2.webp") center / cover no-repeat;
   padding: 0; aspect-ratio: 2 / 1; display: flex; align-items: center; justify-content: center;
 }
 .look-velvet .frame {
@@ -2043,6 +2043,20 @@ body.viewer-open { overflow: hidden; }
 .look-velvet .hero-dates { color: #f3e3bc; }
 .look-velvet .hero-place { color: #e3cb94; }
 @media (max-width: 700px) {
-  .look-velvet .hero { background-image: url("../cards/hero-velvet-tall-Lm4Ty8.webp"); aspect-ratio: auto; }
+  .look-velvet .hero { background-image: url("../cards/hero-velvet-tall-Ns5Kr2.webp"); aspect-ratio: auto; }
   .look-velvet .frame { padding: 92px 30px 96px; }
+}
+/* velvet: no border lines; give the script names room so swashes aren't clipped */
+.look-velvet .hero::before { display: none; }
+.look-velvet .countdown-bar { border-bottom: 0; }
+.look-velvet .names { overflow: visible; line-height: 1.25; }
+.look-velvet .names span { width: max-content; max-width: 100%; margin: 0 auto; padding: .12em .45em .22em; overflow: visible; }
+.look-velvet .frame { overflow: visible; }
+.look-velvet .names { line-height: 1.1; }
+.look-velvet .names span { padding: .08em .18em .16em; }
+.look-velvet .names .amp { margin: -.15em 0; padding-top: 0; padding-bottom: 0; }
+@media (max-width: 700px) {
+  .look-velvet .frame { padding: 92px 16px 96px; }
+  .look-velvet .names { font-size: min(17vw, 72px); }
+  .look-velvet .invocation { font-size: 10.5px; letter-spacing: .16em; }
 }
