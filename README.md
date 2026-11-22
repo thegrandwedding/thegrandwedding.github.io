@@ -4,7 +4,7 @@ Wedding website for **Seersha Saha** and **Siddhant Haldar** — Kolkata, Januar
 
 | Celebration | Date |
 |---|---|
-| Mehendi | Sun, 24 Jan 2027 · 6:30 PM · Jal Vayu Vihar Community Hall, Saltlake |
+| Mehendi | Sun, 24 Jan 2027 · 6:30 PM · JVV Lawn – Salt Lake |
 | Varmala | Mon, 25 Jan 2027 · 12:00 PM · Nalban Food Park, Saltlake |
 | Sangeet | Mon, 25 Jan 2027 · 6:30 PM · Nalban Food Park, Saltlake |
 | Haldi | Wed, 27 Jan 2027 · 10:30 AM · Orchid Banquet, East Topsia |

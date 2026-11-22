@@ -1372,3 +1372,27 @@ body.viewer-open { overflow: hidden; }
 .pista .btn.ghost { background: rgba(255,255,240,.45); color: var(--hn-green); }
 .card .card-scene.photo.hn-bride.pista-bride img { -webkit-mask-image: linear-gradient(to right, transparent 0, #000 10%, #000 90%, transparent 100%); mask-image: linear-gradient(to right, transparent 0, #000 10%, #000 90%, transparent 100%); filter: drop-shadow(0 8px 14px rgba(40,60,20,.25)); }
 .card.theme-henna.pista { border: 2px solid #c4a55a; outline: 1px solid rgba(196,165,90,.5); outline-offset: -7px; }
+/* fuchsia garlands only on the pistachio variant; the original strands only on the cream card */
+.theme-henna .hn-fu-top, .theme-henna .hn-fu-side { display: none; }
+.pista .hn-toran, .pista .hn-strands { display: none !important; }
+.pista .hn-fu-top { display: block; position: absolute; top: 0; left: 0; width: 100%; height: auto; }
+.pista .hn-fu-side { display: block; position: absolute; top: 0; left: 0; width: 15%; height: auto; }
+.pista .hn-fu-side.right { left: auto; right: 0; transform: scaleX(-1); }
+.card.theme-henna.pista { padding-top: calc(20% + 10px); }
+.pista .card-title { font-size: clamp(26px, 7cqw, 40px); letter-spacing: .2em; padding-left: .2em; margin-top: 2px; }
+.card.theme-henna.pista .card-name { margin-bottom: -4px; }
+.pista .card-request { margin-bottom: 2px; }
+.card-heading-script { font-family: var(--script); font-size: 34px; line-height: 1.1; margin: 0; color: #8a5a12; }
+.card-heading-script .moon { width: 22px; height: 22px; vertical-align: 2px; }
+.pista .card-heading-script { color: #9a6a18; }
+.card-attire { margin: 2px auto 14px; max-width: 420px; }
+.card-attire .card-label { margin: 0 0 4px; }
+.attire-title { font-style: italic; font-size: 20px; margin: 0; color: var(--hn-green, #1d4a30); }
+.attire-text { font-size: 15px; line-height: 1.45; margin: 4px 0 0; color: #3b3420; }
+@container (max-width: 520px) {
+  .pista .card-title { font-size: 6.4cqw; letter-spacing: .14em; }
+  .card-heading-script { font-size: 28px; }
+  .attire-title { font-size: 17px; }
+  .attire-text { font-size: 13.5px; }
+}
+.card.theme-henna.pista .card-title { font-size: min(9cqw, 40px); letter-spacing: .16em; padding-left: .16em; }

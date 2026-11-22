@@ -1090,8 +1090,58 @@
   var SCENES = { soiree: sceneSoiree, haldi: sceneHaldi, sangeet: sceneSangeet, varmala: sceneVarmala, mehendi: sceneMehendi, wedding: sceneWedding };
 
   // Henna (Mehendi): cream card dressed with the marigold toran and strands from the printed card.
+  // Fuchsia garlands that drape and sway (pistachio Henna Soirée variant).
+  function fuchsiaGarlands() {
+    var r = rng(97), i, k, u, v, x, y;
+    var fu = [["#d6246e", "#f06fa8"], ["#c2185b", "#e75a95"], ["#e0457b", "#f7a1c0"], ["#b0175e", "#d6246e"]];
+    var rp = [["#f06fa8", "#e0457b", "#c2185b", "#8a0f45"], ["#f7a1c0", "#ec7aa8", "#d6246e", "#9c1d4f"]];
+    function bloom(cx, cy, s) {
+      var n = r();
+      if (n < .55) { var c = fu[Math.floor(r() * fu.length)]; return marigold(cx, cy, s, c[0], c[1]); }
+      if (n < .8) return rose(cx, cy, s * .95, rp[Math.floor(r() * 2)]);
+      return '<circle cx="' + f1(cx - 2) + '" cy="' + f1(cy) + '" r="' + f1(s * .38) + '" fill="#fffaf2"/><circle cx="' + f1(cx + 2) + '" cy="' + f1(cy + 2) + '" r="' + f1(s * .36) + '" fill="#fffdf6"/>';
+    }
+    function gl(x, y, len, rot) { return leaf(x, y, len, rot, ["#4f7f3f", "#6a9a4c", "#3d6b33"][Math.floor(r() * 3)]); }
+    function tassel(x, y) {
+      return '<path d="M' + f1(x) + " " + f1(y) + ' v9" stroke="#b8862b" stroke-width=".9"/>' + bloom(x, y + 14, 6.5) +
+        '<circle cx="' + f1(x) + '" cy="' + f1(y + 24) + '" r="2.4" fill="#d4a84a"/><path d="M' + f1(x - 3.5) + " " + f1(y + 26) + " l3.5 12 l3.5 -12z" + '" fill="#c9973a"/>';
+    }
+    // top: three soft swags with tassels at the joins
+    var top = '<svg class="hn-fu-top" viewBox="0 0 600 120" aria-hidden="true">';
+    [[0, 4, 200, 4, 44], [200, 4, 400, 4, 50], [400, 4, 600, 4, 44]].forEach(function (sw) {
+      var cx = (sw[0] + sw[2]) / 2, cy = sw[1] + sw[4] * 2;
+      top += '<path d="M' + sw[0] + " " + sw[1] + " Q" + cx + " " + cy + " " + sw[2] + " " + sw[3] + '" fill="none" stroke="#b8862b" stroke-width=".8"/>';
+      for (k = 0; k <= 26; k++) {
+        u = k / 26; v = 1 - u;
+        x = v * v * sw[0] + 2 * v * u * cx + u * u * sw[2]; y = v * v * sw[1] + 2 * v * u * cy + u * u * sw[3];
+        if (k % 4 === 2) top += gl(x, y + 2, 13, 60 + r() * 60) + gl(x, y + 2, 13, -60 - r() * 60);
+        top += bloom(x + (r() * 4 - 2), y + (r() * 4 - 2), 7.5 + r() * 2.5);
+      }
+    });
+    [0, 200, 400, 600].forEach(function (jx) { top += bloom(jx, 6, 11) + tassel(jx, 14); });
+    top += "</svg>";
+    // sides: three swaying strands of different lengths
+    var side = '<svg class="hn-fu-side" viewBox="0 0 90 1500" aria-hidden="true">';
+    [[18, 1440, 0], [44, 1120, 1.7], [70, 820, 3.1]].forEach(function (st) {
+      var path = "", pts = [];
+      for (y = 0; y <= st[1]; y += 6) {
+        x = st[0] + Math.sin(y / 160 + st[2]) * 6;
+        pts.push([x, y]); path += (y ? " L" : "M") + f1(x) + " " + f1(y);
+      }
+      side += '<path d="' + path + '" fill="none" stroke="#b8862b" stroke-width=".7" opacity=".8"/>';
+      for (i = 3; i < pts.length; i += 3) {
+        var p = pts[i];
+        if (i % 18 === 9) side += gl(p[0], p[1], 15, 30 + r() * 20) + gl(p[0], p[1], 15, 130 + r() * 20);
+        side += bloom(p[0] + (r() * 2 - 1), p[1], 8.6 + r() * 2);
+      }
+      var last = pts[pts.length - 1]; side += tassel(last[0], last[1] + 4);
+    });
+    side += "</svg>";
+    return top + side + side.replace('class="hn-fu-side"', 'class="hn-fu-side right"');
+  }
+
   function decoHenna() {
-    return '<div class="deco" aria-hidden="true"><span class="hn-damask"></span><span class="hn-frame"></span><img class="hn-toran" src="assets/cards/mehendi-toran-Hc5Le2.webp" alt="">' +
+    return '<div class="deco" aria-hidden="true"><span class="hn-damask"></span><span class="hn-frame"></span>' + fuchsiaGarlands() + '<img class="hn-toran" src="assets/cards/mehendi-toran-Hc5Le2.webp" alt="">' +
       '<img class="hn-strands" src="assets/cards/mehendi-strands-Hc5Le2.webp" alt="">' +
       '<img class="hn-strands right" src="assets/cards/mehendi-strands-Hc5Le2.webp" alt=""></div>';
   }
@@ -1279,12 +1329,21 @@
     // Parts shown only on the full card (the downloadable image), to keep the page version short.
     var hide = c.pageHide || ["tagline"];
     function part(name) { return hide.indexOf(name) > -1 ? " full-only" : ""; }
+    var titleHtml = (c.heading ? '<h2 class="card-title"><span class="flourish">◇</span> ' + esc(c.heading) + ' <span class="flourish">◇</span></h2>' : "") +
+      (c.headingSub ? '<p class="card-heading-sub"><span>' + esc(c.headingSub) + "</span></p>" : "") +
+      (c.headingScript ? '<p class="card-heading-script">' + esc(c.headingScript) +
+        ' <svg class="moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M15.5 2.5a9.5 9.5 0 1 0 6 16.8A8 8 0 0 1 15.5 2.5z" fill="#c9973a"/>' +
+        '<circle cx="20" cy="5" r="1" fill="#c9973a"/><circle cx="22.5" cy="9.5" r=".7" fill="#c9973a"/></svg></p>' : "");
+    var namesHtml = '<p class="card-name">' + esc(c.names[0]) + "</p>" +
+      (c.names[1] ? '<p class="card-amp">' + esc(c.joiner || "&") + '</p><p class="card-name">' + esc(c.names[1]) + "</p>" : "");
     var venueBlock = '<p class="card-label">Venue</p>' +
       '<p class="card-venue">' + esc(c.venue) + "</p>" +
       (c.venueSub ? '<p class="card-venue-sub' + part("venueSub") + '">' + esc(c.venueSub) + "</p>" : "") +
       (c.address && c.address.length ? '<p class="card-address' + part("address") + '">' + c.address.map(esc).join("<br>") + "</p>" : "");
     var rsvpBlock = rsvp ? '<p class="card-label">R.S.V.P.</p><p class="card-rsvp">' + rsvp + "</p>" : "";
     var actionsBlock = actions ? '<p class="card-actions">' + actions + "</p>" : "";
+    var attireBlock = c.attire ? '<div class="card-attire"><p class="card-label">Attire</p>' +
+      '<p class="attire-title">' + esc(c.attire.title) + "</p>" + (c.attire.text ? '<p class="attire-text">' + esc(c.attire.text) + "</p>" : "") + "</div>" : "";
     var scene = c.sceneImage ?
       '<div class="card-scene photo' + (c.sceneCutout ? " cutout" : "") + (c.sceneClass ? " " + esc(c.sceneClass) : "") + '"><img src="' +
         esc(c.sceneImage) + '" alt="' + esc(c.sceneAlt || "") + '"></div>' :
@@ -1305,10 +1364,7 @@
       (c.invocation ? '<p class="card-invocation">' + esc(c.invocation) + "</p>" : "") +
       (c.hosts ? '<p class="card-hosts">' + esc(c.hosts) + "</p>" : "") +
       (c.request ? '<p class="card-request' + part("request") + '">' + esc(c.request) + "</p>" : "") +
-      (c.heading ? '<h2 class="card-title"><span class="flourish">◇</span> ' + esc(c.heading) + ' <span class="flourish">◇</span></h2>' : "") +
-      (c.headingSub ? '<p class="card-heading-sub"><span>' + esc(c.headingSub) + "</span></p>" : "") +
-      '<p class="card-name">' + esc(c.names[0]) + "</p>" +
-      (c.names[1] ? '<p class="card-amp">' + esc(c.joiner || "&") + '</p><p class="card-name">' + esc(c.names[1]) + "</p>" : "") +
+      (c.nameFirst ? namesHtml + titleHtml : titleHtml + namesHtml) +
       (c.afterNames ? '<p class="card-after-names">' + esc(c.afterNames) + "</p>" : "") +
       (c.tagline ? '<p class="card-tagline' + part("tagline") + '">' + esc(c.tagline) + "</p>" : "") +
       (c.scenePosition !== "bottom" ? scene : "") +
@@ -1317,7 +1373,7 @@
       '<span class="side">' + esc(c.time) + "</span></div>" +
       (c.infoColumns ?
         '<div class="card-info"><div>' + venueBlock + '</div><div>' + rsvpBlock + "</div></div>" + actionsBlock :
-        venueBlock + actionsBlock + rsvpBlock) +
+        venueBlock + attireBlock + actionsBlock + rsvpBlock) +
       (c.scenePosition === "bottom" ? scene : "") +
       "</div></article></section>";
   }
