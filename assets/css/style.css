@@ -1889,3 +1889,16 @@ body.viewer-open { overflow: hidden; }
 .card.theme-palace.pp-shahi.full .card-body .card-attire { margin-bottom: 1.2cqw; }
 /* Shahi Dawat: a little larger and lifted away from the script title */
 .card.theme-palace.pp-shahi .card-body .card-title { font-size: 5.2cqw; margin-top: -2.6cqw; margin-bottom: 2.4cqw; }
+/* Shahi Dawat: move the whole text block down, clear of the rose arch */
+.card.theme-palace.pp-shahi { padding-top: 39% !important; }
+.card.theme-palace.pp-shahi.full { padding-top: 37% !important; }
+.card.theme-palace.pp-shahi .card-body .card-title { margin-top: 0; }
+.pp-shahi .pp-glow { top: 19%; height: 58%; }
+.card.theme-palace.pp-shahi .card-body .card-heading-script { margin-bottom: .6cqw; }
+.card.theme-palace.pp-shahi .card-body .card-tagline { margin-top: .8cqw; line-height: 1.32; }
+.card.theme-palace.pp-shahi .card-body .card-date, .card.theme-palace.pp-shahi.full .card-body .card-date { margin: 1.4cqw auto .8cqw; }
+.card.theme-palace.pp-shahi .card-body .card-label { margin-bottom: .2cqw; }
+.card.theme-palace.pp-shahi .card-body .card-venue-sub, .card.theme-palace.pp-shahi.full .card-body .card-venue-sub { margin-bottom: .8cqw; }
+.card.theme-palace.pp-shahi .card-body .card-attire, .card.theme-palace.pp-shahi.full .card-body .card-attire { margin-bottom: .8cqw; }
+.card.theme-palace.pp-shahi.full .card-body .card-address { margin-bottom: .8cqw; }
+.card.theme-palace.pp-shahi .card-body .attire-text { margin-top: 0; }
