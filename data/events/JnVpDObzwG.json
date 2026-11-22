@@ -10,13 +10,12 @@
   "countdownAt": "2027-01-24T18:30:00+05:30",
   "layout": "card",
   "card": {
-    "theme": "henna",
-    "request": "Join us for an evening of henna and music at the",
-    "heading": "Mehendi",
+    "theme": "moonlit",
+    "request": "Join us for an evening of henna and music at",
+    "heading": "Henna Soirée",
     "names": [
-      "Seersha"
+      "Seersha’s"
     ],
-    "tagline": "as her hands are adorned for the journey ahead",
     "weekday": "Sunday",
     "day": "24",
     "monthYear": "January 2027",
@@ -36,17 +35,17 @@
         "href": "tel:+919830447770"
       }
     ],
-    "image": "assets/cards/mehendi-full-Jm4Xc7Qs.jpg",
-    "imageName": "Seersha-Mehendi-Invitation.jpg",
-    "pdf": "assets/cards/mehendi-Vb6sNa9Tw4.pdf",
-    "pdfName": "Seersha-Mehendi-Invitation.pdf",
+    "image": "assets/cards/mehendi-moonlit-full-Pw6Yc2Jd.jpg",
+    "imageName": "Seersha-Mehendi.jpg",
     "imageAlt": "Mehendi invitation for Seersha — Sunday 24 January 2027, 6:30 PM",
-    "headingSub": "of",
-    "sceneImage": "assets/cards/mehendi-bride-Hc5Le2.jpg",
-    "sceneClass": "hn-bride",
-    "scenePosition": "bottom",
-    "sceneAlt": "Seersha showing her mehendi",
     "centered": true,
-    "mapUrl": "https://www.google.com/maps/search/?api=1&query=Jal+Vayu+Vihar+Community+Hall+LB+Block+Sector+3+Salt+Lake+Kolkata+700106"
+    "mapUrl": "https://www.google.com/maps/search/?api=1&query=Jal+Vayu+Vihar+Community+Hall+LB+Block+Sector+3+Salt+Lake+Kolkata+700106",
+    "nameFirst": true,
+    "headingScript": "under the Moon",
+    "attire": {
+      "title": "An Evening in Green & Ivory",
+      "text": "It would mean the world to us to see you in green or ivory — we would be truly touched if you dressed the part."
+    },
+    "headingIcon": "moon"
   }
 }
