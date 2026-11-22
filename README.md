@@ -4,7 +4,7 @@ Wedding website for **Seersha Saha** and **Siddhant Haldar** — Kolkata, Januar
 
 | Celebration | Date |
 |---|---|
-| Henna Soirée (Mehendi) | Sun, 24 Jan 2027 · 6:30 PM · JVV Lawn – Salt Lake |
+| Henna Soirée (Mehendi) | Sun, 24 Jan 2027 · 3:30 PM · JVV Lawn – Salt Lake |
 | Varmala | Mon, 25 Jan 2027 · 12:00 PM · Nalban Park, Saltlake |
 | Jashn-e-Ishq (Sangeet) | Mon, 25 Jan 2027 · 6:30 PM · Nalban Park, Saltlake |
 | Gaye Holud (Haldi) | Wed, 27 Jan 2027 · 10:30 AM · Orchid Banquet, East Topsia |

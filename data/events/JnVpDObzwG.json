@@ -5,9 +5,9 @@
   "kicker": "The First Celebration",
   "lede": "An evening of henna, music and laughter, as intricate patterns are drawn upon the bride’s hands in keeping with time-honoured tradition.",
   "date": "Sunday, 24 January 2027",
-  "time": "6:30 PM",
+  "time": "3:30 PM",
   "venue": "JVV Lawn – Salt Lake, Block-LB, Sector-3, Saltlake, Kolkata – 700106",
-  "countdownAt": "2027-01-24T18:30:00+05:30",
+  "countdownAt": "2027-01-24T15:30:00+05:30",
   "layout": "card",
   "card": {
     "theme": "moonlit",
@@ -19,7 +19,7 @@
     "weekday": "Sunday",
     "day": "24",
     "monthYear": "January 2027",
-    "time": "6:30 PM",
+    "time": "3:30 PM",
     "venue": "JVV Lawn – Salt Lake",
     "address": [
       "Block-LB, Sector-3, Saltlake",
@@ -35,9 +35,9 @@
         "href": "tel:+919830447770"
       }
     ],
-    "image": "assets/cards/mehendi-moonlit-full-Nq3Bx7.jpg",
+    "image": "assets/cards/mehendi-moonlit-full-Dt5Wq8.jpg",
     "imageName": "Seersha-Mehendi.jpg",
-    "imageAlt": "Henna Soirée invitation for Seersha — Sunday 24 January 2027, 6:30 PM",
+    "imageAlt": "Henna Soirée invitation for Seersha — Sunday 24 January 2027, 3:30 PM",
     "centered": true,
     "mapUrl": "https://www.google.com/maps/search/?api=1&query=Jal+Vayu+Vihar+Community+Hall+LB+Block+Sector+3+Salt+Lake+Kolkata+700106",
     "nameFirst": true,
