@@ -1517,6 +1517,31 @@
   var WA_ICON = '<svg viewBox="0 0 32 32" aria-hidden="true"><path fill="#25D366" d="M16 3C9 3 3.4 8.6 3.4 15.5c0 2.4.7 4.7 1.9 6.6L3.3 29l7.1-1.9c1.8 1 3.8 1.5 5.9 1.5 7 0 12.6-5.6 12.6-12.6S23 3 16 3z"/>' +
     '<path fill="#fff" d="M11.6 9.3c-.3-.6-.6-.6-.9-.6h-.8c-.3 0-.7.1-1 .5-.4.4-1.3 1.3-1.3 3.1s1.3 3.6 1.5 3.9c.2.2 2.6 4.1 6.4 5.6 3.2 1.2 3.8 1 4.5.9.7-.1 2.2-.9 2.5-1.8.3-.9.3-1.7.2-1.8-.1-.2-.3-.3-.7-.5l-2.4-1.2c-.3-.1-.6-.2-.8.2-.2.4-.9 1.2-1.1 1.4-.2.2-.4.3-.8.1-.4-.2-1.6-.6-3-1.9-1.1-1-1.9-2.2-2.1-2.6-.2-.4 0-.6.2-.8l.6-.7c.2-.2.3-.4.4-.7.1-.3.1-.5 0-.7l-1.1-2.7z"/></svg>';
 
+  // Small ritual objects for a heading: the bride's gach kouto (painted sindoor box) and the groom's darpan (brass mirror).
+  var HEAD_ICONS = {
+    gachkouto: '<svg class="h-icon" viewBox="0 0 40 52" aria-hidden="true">' +
+      '<defs><linearGradient id="gk-g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f7e3a1"/><stop offset="1" stop-color="#c9973a"/></linearGradient></defs>' +
+      '<path d="M20 2 c2 2 2 4 0 6 c-2 -2 -2 -4 0 -6z" fill="url(#gk-g)"/><circle cx="20" cy="10" r="2.2" fill="url(#gk-g)"/>' +
+      '<path d="M9 22 C9 15 14 11 20 11 C26 11 31 15 31 22 Z" fill="#c8102e" stroke="url(#gk-g)" stroke-width="1.4"/>' +
+      '<path d="M12 18 Q20 13 28 18" fill="none" stroke="#f5c518" stroke-width="1.3"/>' +
+      '<rect x="7" y="21.5" width="26" height="3" rx="1.2" fill="url(#gk-g)"/>' +
+      '<path d="M8 24.5 C6 31 8 38 13 41 H27 C32 38 34 31 32 24.5 Z" fill="#c8102e" stroke="url(#gk-g)" stroke-width="1.4"/>' +
+      '<path d="M9 29 H31 M9.5 35 H30.5" stroke="#f5c518" stroke-width="1.6"/>' +
+      '<circle cx="20" cy="32" r="2.6" fill="#f5c518"/><circle cx="20" cy="32" r="1.1" fill="#c8102e"/>' +
+      '<path d="M15 41 L14 45 H26 L25 41 Z" fill="url(#gk-g)"/><rect x="11" y="45" width="18" height="3.4" rx="1.2" fill="url(#gk-g)"/></svg>',
+    darpan: '<svg class="h-icon" viewBox="0 0 40 52" aria-hidden="true">' +
+      '<defs><linearGradient id="dp-g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff0c2"/><stop offset=".5" stop-color="#e2b04a"/><stop offset="1" stop-color="#b8862b"/></linearGradient>' +
+      '<radialGradient id="dp-m" cx=".38" cy=".35"><stop offset="0" stop-color="#ffffff"/><stop offset=".6" stop-color="#e9e4da"/><stop offset="1" stop-color="#bcb3a3"/></radialGradient></defs>' +
+      '<circle cx="20" cy="17" r="15" fill="url(#dp-g)"/>' +
+      Array.apply(null, Array(16)).map(function (_, k) {
+        var a = k * Math.PI / 8; return '<circle cx="' + f1(20 + Math.cos(a) * 15.5) + '" cy="' + f1(17 + Math.sin(a) * 15.5) + '" r="1.5" fill="url(#dp-g)"/>';
+      }).join("") +
+      '<circle cx="20" cy="17" r="11" fill="url(#dp-m)" stroke="#a8771c" stroke-width=".8"/>' +
+      '<path d="M14 12 Q17 9 21 9.5" fill="none" stroke="#fff" stroke-width="1.4" stroke-linecap="round" opacity=".9"/>' +
+      '<path d="M18 32 h4 l-.6 3 h-2.8z" fill="url(#dp-g)"/><circle cx="20" cy="37" r="2.2" fill="url(#dp-g)"/>' +
+      '<rect x="18.6" y="39" width="2.8" height="8" rx="1" fill="url(#dp-g)"/><circle cx="20" cy="49" r="2.4" fill="url(#dp-g)"/></svg>'
+  };
+
   function renderCard(e) {
     var c = e.card;
     var theme = c.theme && DECOR[c.theme] ? c.theme : null;
@@ -1535,7 +1560,9 @@
     // Parts shown only on the full card (the downloadable image), to keep the page version short.
     var hide = c.pageHide || ["tagline"];
     function part(name) { return hide.indexOf(name) > -1 ? " full-only" : ""; }
-    var titleHtml = (c.heading ? '<h2 class="card-title"><span class="flourish">◇</span> ' + esc(c.heading) + ' <span class="flourish">◇</span></h2>' : "") +
+    var titleHtml = (c.heading ? (c.headingIcons ?
+        '<h2 class="card-title with-icons">' + (HEAD_ICONS[c.headingIcons[0]] || "") + "<span>" + esc(c.heading) + "</span>" + (HEAD_ICONS[c.headingIcons[1]] || "") + "</h2>" :
+        '<h2 class="card-title"><span class="flourish">◇</span> ' + esc(c.heading) + ' <span class="flourish">◇</span></h2>') : "") +
       (c.headingSub ? '<p class="card-heading-sub"><span>' + esc(c.headingSub) + "</span></p>" : "") +
       (c.headingScript ? '<p class="card-heading-script">' + esc(c.headingScript) + (c.headingIcon !== "moon" ? "</p>" :
         ' <svg class="moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M15.5 2.5a9.5 9.5 0 1 0 6 16.8A8 8 0 0 1 15.5 2.5z" fill="#c9973a"/>' +

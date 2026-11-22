@@ -1928,3 +1928,20 @@ body.viewer-open { overflow: hidden; }
 .card.theme-palace.pp-wedding.pp-titled .card-body .card-names { margin: 1.6cqw 0 1.4cqw; }
 .card.theme-palace.pp-wedding.pp-titled .card-body .card-heading-script { margin-bottom: 1cqw; }
 .card.theme-palace.pp-wedding.pp-titled .card-body .card-tagline { margin-top: 1.4cqw; }
+/* heading flanked by ritual objects */
+.card-title.with-icons { display: flex; align-items: center; justify-content: center; gap: .55em; }
+.card-title.with-icons .h-icon { width: 1.5em; height: auto; flex: none; filter: drop-shadow(0 1px 2px rgba(0,0,0,.35)); }
+.card.theme-palace.pp-wedding.pp-titled .card-body .card-title.with-icons { letter-spacing: .18em; padding-left: 0; font-size: 5.4cqw; }
+.card.theme-palace.pp-wedding.pp-titled .card-body .card-title.with-icons span { padding-left: .18em; }
+.card.theme-palace.pp-wedding.pp-titled .card-body .card-title.with-icons .h-icon { width: 2em; }
+/* tapestry line in an italic serif, distinct from the script names */
+.card.theme-palace.pp-wedding.pp-titled .card-body .card-heading-script {
+  font-family: "Cormorant Garamond", Georgia, serif; font-style: italic; font-weight: 500;
+  font-size: 7.4cqw; line-height: 1.2; letter-spacing: .01em; color: #f7e3a1;
+}
+.card.theme-palace.pp-wedding.pp-titled .card-body .card-title.with-icons { font-size: 5cqw; letter-spacing: .12em; gap: .45em; }
+.card.theme-palace.pp-wedding.pp-titled .card-body .card-title.with-icons span { white-space: nowrap; padding-left: .12em; }
+.card.theme-palace.pp-wedding.pp-titled .card-body .card-title.with-icons .h-icon { width: 1.9em; }
+.card.theme-palace.pp-wedding.pp-titled { padding-top: 26% !important; }
+.card.theme-palace.pp-wedding.pp-titled { padding-top: 29% !important; }
+.card.theme-palace.pp-wedding.pp-titled .card-body .card-title.with-icons { gap: .35em; }
