@@ -1495,7 +1495,13 @@
     return '<div class="deco" aria-hidden="true">' + bits + "</div>";
   }
 
-  var DECOR = { bagh: decoBagh, holud: decoHolud, moonlit: decoMoonlit, soiree: decoSoiree, turmeric: decoTurmeric, henna: decoHenna, haldi: decoHaldi, sangeet: decoSangeet, varmala: decoVarmala, mehendi: decoMehendi, wedding: decoWedding };
+  // Palace (Varmala): the supplied painted scene — flower-hung arch, lanterns, a palace by the
+  // water — used as the whole card, with the text set inside the arch.
+  function decoPalace() {
+    return '<div class="deco" aria-hidden="true"><img class="pl-bg" src="assets/cards/varmala-palace-bg-Js4Kw8.webp" alt=""></div>';
+  }
+
+  var DECOR = { palace: decoPalace, bagh: decoBagh, holud: decoHolud, moonlit: decoMoonlit, soiree: decoSoiree, turmeric: decoTurmeric, henna: decoHenna, haldi: decoHaldi, sangeet: decoSangeet, varmala: decoVarmala, mehendi: decoMehendi, wedding: decoWedding };
 
   // ?fullcard renders every card in full (used to make the downloadable images).
   var FULL = /[?&]fullcard\b/.test(location.search);
@@ -1535,7 +1541,7 @@
       (c.venueSub ? '<p class="card-venue-sub' + part("venueSub") + '">' + esc(c.venueSub) + "</p>" : "") +
       (c.address && c.address.length ? '<p class="card-address' + part("address") + '">' + c.address.map(esc).join("<br>") + "</p>" : "");
     var rsvpBlock = rsvp ? '<p class="card-label">R.S.V.P.</p><p class="card-rsvp">' + rsvp + "</p>" : "";
-    var actionsBlock = actions ? '<p class="card-actions">' + actions + "</p>" : "";
+    var actionsBlock = actions && !c.actionsBelow ? '<p class="card-actions">' + actions + "</p>" : "";
     var attireBlock = (c.attire ? [].concat(c.attire) : []).map(function (n) {
       return '<div class="card-attire"><p class="card-label">' + esc(n.label || "Attire") + "</p>" +
         (n.title ? '<p class="attire-title">' + esc(n.title) + "</p>" : "") + (n.text ? '<p class="attire-text">' + esc(n.text) + "</p>" : "") + "</div>";
@@ -1573,7 +1579,7 @@
         venueBlock + attireBlock + actionsBlock + rsvpBlock) +
       (c.scenePosition === "bottom" ? scene : "") +
       (c.footnote ? '<p class="card-footnote"><span>' + esc(c.footnote) + "</span></p>" : "") +
-      "</div></article></section>";
+      "</div></article>" + (c.actionsBelow && actions ? '<p class="card-actions below">' + actions + "</p>" : "") + "</section>";
   }
 
   /* ---------- full card viewer ---------- */
