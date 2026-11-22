@@ -2060,3 +2060,50 @@ body.viewer-open { overflow: hidden; }
   .look-velvet .names { font-size: min(17vw, 72px); }
   .look-velvet .invocation { font-size: 10.5px; letter-spacing: .16em; }
 }
+
+/* ---------- Welcome as a painted card (preview with &look=swan) ---------- */
+.welcome-swan { position: relative; max-width: 560px; margin: 0 auto; aspect-ratio: 1200 / 1920; container-type: inline-size;
+  box-shadow: 0 30px 60px -25px rgba(40,70,70,.45); }
+.welcome-swan .ws-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
+.welcome-swan .ws-body { position: absolute; left: 25%; right: 25%; top: 20.5%; bottom: 25%;
+  display: flex; flex-direction: column; align-items: center; justify-content: space-between; text-align: center; color: #3e4f4a; }
+.welcome-swan p { margin: 0; }
+.ws-greet { font-family: var(--caps); font-size: 2.6cqw; letter-spacing: .2em; text-transform: uppercase; color: #a8771c; }
+.ws-kicker { font-family: var(--caps); font-size: 2.5cqw; letter-spacing: .22em; text-transform: uppercase; color: #a8771c; }
+.ws-script { font-family: var(--script); font-size: 6.6cqw; color: #2f6b66; line-height: 1; }
+.ws-name { font-family: var(--caps); font-size: 4.8cqw; letter-spacing: .08em; color: #8a6418; font-weight: 600; line-height: 1.15; }
+.ws-parents { font-style: italic; font-size: 2.9cqw; line-height: 1.25; color: #4e5f5a; }
+.ws-amp { font-family: var(--script); font-size: 6cqw; color: #2f6b66; line-height: .8; }
+.ws-label span { display: inline-flex; align-items: center; gap: 1.6cqw; font-family: var(--caps); font-size: 2.6cqw; letter-spacing: .26em; text-transform: uppercase; color: #a8771c; }
+.ws-label span::before, .ws-label span::after { content: ""; width: 4cqw; height: 1px; background: #c9a46a; }
+.ws-list { list-style: none; padding: 0; margin: 0; width: 100%; }
+.ws-list li { border-top: 1px solid rgba(201,164,106,.45); }
+.ws-list li:last-child { border-bottom: 1px solid rgba(201,164,106,.45); }
+.ws-list a { display: flex; justify-content: space-between; align-items: baseline; gap: 1cqw; padding: 1.05cqw .4cqw; text-decoration: none; }
+.ws-ev { font-family: var(--caps); font-size: 2.75cqw; letter-spacing: .06em; color: #2f6b66; font-weight: 600; white-space: nowrap; }
+.ws-when { font-style: italic; font-size: 2.65cqw; color: #4e5f5a; white-space: nowrap; }
+.ws-list a:hover .ws-ev { color: #8a6418; }
+.welcome-swan .ws-body { top: 22.5%; bottom: 27%; left: 25.5%; right: 25.5%; justify-content: space-evenly; }
+.ws-kicker { font-size: 2.05cqw; letter-spacing: .14em; white-space: nowrap; }
+.ws-script { font-size: 5.6cqw; }
+.ws-name { font-size: 4.1cqw; letter-spacing: .05em; white-space: nowrap; }
+.ws-parents { font-size: 2.35cqw; white-space: nowrap; }
+.ws-amp { font-size: 4.6cqw; }
+.ws-label span { font-size: 2.2cqw; letter-spacing: .2em; white-space: nowrap; }
+.ws-label span::before, .ws-label span::after { width: 3cqw; }
+.ws-list a { padding: .7cqw .3cqw; }
+.ws-ev { font-size: 2.4cqw; }
+.ws-when { font-size: 2.3cqw; }
+.welcome-swan .ws-body { top: 24.5%; bottom: 26.5%; left: 25%; right: 25%; }
+.ws-kicker { font-size: 2.15cqw; }
+.ws-script { font-size: 6cqw; }
+.ws-name { font-size: 4.5cqw; }
+.ws-parents { font-size: 2.55cqw; }
+.ws-amp { font-size: 5cqw; }
+.ws-label span { font-size: 2.5cqw; }
+.ws-list a { padding: .75cqw .2cqw; }
+.ws-ev { font-size: 2.95cqw; letter-spacing: .04em; }
+.ws-when { font-size: 2.85cqw; }
+.ws-kicker { font-size: 1.85cqw; letter-spacing: .1em; }
+.welcome-swan .ws-body { top: 25.5%; }
+.ws-list a { padding-right: .8cqw; }

@@ -49,7 +49,36 @@
   }
 
   /* ---------- rendering ---------- */
+  // Welcome as a painted card (swans, lotus pond, carved arch). Preview with &look=swan.
+  var SWAN = new URLSearchParams(location.search).get("look") === "swan";
+  function shortDate(e) {
+    var p = String(e.date || "").replace(",", "").split(" ");   // Sunday 24 January 2027
+    var d = p.length >= 3 ? p[1] + " " + p[2].slice(0, 3) : e.date;
+    return d + (e.time && e.time.indexOf("announced") === -1 ? " · " + e.time : "");
+  }
+  function renderWelcomeSwan(invite, families, events) {
+    var html = '<section class="panel" data-panel="home" role="tabpanel" hidden>' +
+      '<article class="welcome-swan"><img class="ws-bg" src="assets/cards/welcome-swan-bg-Hk6Ty3.webp" alt=""><div class="ws-body">';
+    if (invite.greeting) html += '<p class="ws-greet">' + esc(invite.greeting) + "</p>";
+    html += '<p class="ws-kicker">Together with their families</p><p class="ws-script">the wedding of</p>';
+    if (families) {
+      html += '<p class="ws-name">' + esc(families.bride.name) + '</p><p class="ws-parents">' + esc(families.bride.relation) + " " + esc(families.bride.parents) + "</p>" +
+        '<p class="ws-amp">&amp;</p>' +
+        '<p class="ws-name">' + esc(families.groom.name) + '</p><p class="ws-parents">' + esc(families.groom.relation) + " " + esc(families.groom.parents) + "</p>";
+    } else {
+      html += '<p class="ws-name">Seersha Saha</p><p class="ws-amp">&amp;</p><p class="ws-name">Siddhant Haldar</p>';
+    }
+    html += '<p class="ws-label"><span>' + (events.length > 1 ? "Your Celebrations" : "Your Invitation") + "</span></p><ol class=\"ws-list\">";
+    events.forEach(function (e) {
+      html += '<li><a href="#' + esc(e.id) + '"><span class="ws-ev">' + esc(e.title) + '</span><span class="ws-when">' + esc(shortDate(e)) + "</span></a></li>";
+    });
+    html += "</ol></div></article>";
+    html += '<p class="rsvp-cta"><a class="btn" href="#rsvp">R.S.V.P.</a></p></section>';
+    return html;
+  }
+
   function renderWelcome(invite, families, events) {
+    if (SWAN) return renderWelcomeSwan(invite, families, events);
     var html = '<section class="panel" data-panel="home" role="tabpanel" hidden>';
     html += '<h2 class="section-title">Welcome</h2>';
     if (invite.greeting) html += '<p class="greeting">' + esc(invite.greeting) + "</p>";
