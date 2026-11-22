@@ -1,5 +1,5 @@
 {
-  "group": "TEST: Wedding alternative",
+  "group": "TEST: Wedding alternative, Shahi Dawat reception",
   "greeting": null,
   "families": "data/families-CQyqCz97uv.json",
   "events": [
@@ -8,6 +8,6 @@
     "data/events/y47d8rIxTp.json",
     "data/events/ooxBpYuDnX.json",
     "data/events/Wd5Scn9Red.json",
-    "data/events/bZdU4XzOnI.json"
+    "data/events/Rc7Shh2Dwt.json"
   ]
 }

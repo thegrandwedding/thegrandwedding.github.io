@@ -1865,3 +1865,25 @@ body.viewer-open { overflow: hidden; }
 .pp-sangeet .pp-glow { top: 24%; height: 60%; background: radial-gradient(ellipse at 50% 48%, rgba(252,247,253,.9) 0%, rgba(250,244,252,.72) 45%, rgba(250,244,252,0) 72%); }
 .card.theme-palace.pp-sangeet { padding-top: 38% !important; }
 .pp-sangeet .pp-glow { top: 18%; height: 60%; }
+/* Shahi Dawat reception: small caps kicker, large script title, italic invitation paragraph */
+.card.theme-palace.pp-shahi { padding-top: 33% !important; }
+.card.theme-palace.pp-shahi .card-body .card-title { font-size: 4.2cqw; letter-spacing: .42em; padding-left: .42em; color: #8a6418; }
+.card.theme-palace.pp-shahi .card-body .card-heading-script { font-size: 11.5cqw; color: #a33a4a; margin: .2cqw 0 1.6cqw; line-height: 1.1; }
+.card.theme-palace.pp-shahi .card-body .card-name { font-size: 8.6cqw; }
+.card.theme-palace.pp-shahi .card-body .card-amp { font-size: 6cqw; }
+.card.theme-palace.pp-shahi .card-body .card-tagline { font-size: 3.5cqw; line-height: 1.4; font-style: italic; font-weight: 600; color: #3d4a33; max-width: 86%; margin: 1.6cqw auto 0; }
+.card.theme-palace.pp-shahi .card-body .card-date { margin: 2.4cqw auto 1.8cqw; }
+.card.theme-palace.pp-shahi .card-body .card-venue-sub { margin-bottom: 1.6cqw; }
+.card.theme-palace.pp-shahi .card-body .card-attire { margin-bottom: 1.6cqw; }
+.card.theme-palace.pp-shahi .card-body .attire-title { color: #a33a4a; }
+.card.theme-palace.pp-shahi .card-body .attire-text { color: #3d4a33; max-width: none; }
+.pp-shahi .pp-glow { top: 16%; height: 58%; }
+.card.theme-palace.pp-shahi .card-body .card-heading-script { font-size: 10.4cqw; }
+.card.theme-palace.pp-shahi:not(.full) .card-body .card-address.full-only { display: none; }
+.card.theme-palace.pp-shahi .card-body .card-tagline { max-width: 82%; }
+.card.theme-palace.pp-shahi.full { padding-top: 30% !important; }
+.card.theme-palace.pp-shahi.full .card-body .card-date { margin: 1.6cqw auto 1.2cqw; }
+.card.theme-palace.pp-shahi.full .card-body .card-tagline { margin-top: 1cqw; }
+.card.theme-palace.pp-shahi.full .card-body .card-venue-sub { margin-bottom: .6cqw; }
+.card.theme-palace.pp-shahi.full .card-body .card-address { margin-bottom: 1.2cqw; line-height: 1.25; }
+.card.theme-palace.pp-shahi.full .card-body .card-attire { margin-bottom: 1.2cqw; }
