@@ -1462,3 +1462,17 @@ body.viewer-open { overflow: hidden; }
 .theme-moonlit .mg-tl { width: 46%; }
 .card.theme-moonlit { padding-left: 17%; padding-right: 13%; padding-top: calc(44% + 10px); }
 @container (max-width: 520px) { .card.theme-moonlit { padding: calc(48% + 10px) 12% 0 15%; } .theme-moonlit .mg-tl { width: 44%; } }
+
+/* ---------- Varmala, pastel variant: The Pastel Bagh ---------- */
+.card.theme-varmala.pastel {
+  background:
+    radial-gradient(ellipse 60% 45% at 50% 48%, rgba(255,255,255,.95), transparent 75%),
+    linear-gradient(180deg, #fdf7f8 0%, #f6f0fa 40%, #eef4f9 75%, #f2f6ee 100%);
+}
+.pastel.theme-varmala .card-heading-script { color: #9b7cc4; font-size: 38px; margin: 0 0 4px; }
+.pastel.theme-varmala .card-request { color: #7d5a78; }
+.pastel.theme-varmala .card-attire { margin: 4px auto 12px; }
+.pastel.theme-varmala .card-attire .card-label { color: #a67c2e; }
+.pastel.theme-varmala .attire-title { color: #8c1d47; font-size: 21px; }
+.pastel.theme-varmala .attire-text { color: #5e4a5c; }
+@container (max-width: 520px) { .pastel.theme-varmala .card-heading-script { font-size: 30px; } }

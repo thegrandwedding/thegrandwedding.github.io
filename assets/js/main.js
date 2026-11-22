@@ -314,16 +314,23 @@
 
   // Varmala: an ivory-and-blush jharokha — a gold cusped Mughal arch, blush peonies
   // spilling from the spandrels, rose-and-jasmine strands, a lotus pond below.
-  function decoVarmala() {
+  function decoVarmala(c) {
     var r = rng(23), i, j, x, y, t;
-    var pals = [
+    var pastel = c && c.variant === "pastel";
+    var pals = pastel ? [
+      ["#f9d3de", "#f2b6c8", "#d07a98"],   // blush
+      ["#e4d4f4", "#cdb4ea", "#9b7cc4"],   // lilac
+      ["#d6e6f5", "#b9d3ec", "#7fa3c8"],   // powder blue
+      ["#fde0cc", "#f8c6a6", "#d99470"],   // peach
+      ["#fffaf3", "#f6efe4", "#cbbfa8"]    // ivory
+    ] : [
       ["#f9d3de", "#f2a9c0", "#c8587f"],
       ["#f3b3c6", "#e98aa8", "#b2416b"],
       ["#fff2f2", "#fbd9df", "#d27a95"],
       ["#fbc4cf", "#f59fb2", "#c4506f"],
       ["#ffffff", "#fdf0f2", "#e7a9ba"]
     ];
-    var greens = ["#6f9e6a", "#8fb98a", "#4f7f57", "#a7c79a"];
+    var greens = pastel ? ["#a9c4a2", "#bcd3b2", "#8fb08a", "#cfe0c6"] : ["#6f9e6a", "#8fb98a", "#4f7f57", "#a7c79a"];
     function pk(a) { return a[Math.floor(r() * a.length)]; }
 
     // the arch opening: legs at x=40/560, springing at y=290, cusped up to a point at (300, 40)
@@ -1417,9 +1424,9 @@
     function part(name) { return hide.indexOf(name) > -1 ? " full-only" : ""; }
     var titleHtml = (c.heading ? '<h2 class="card-title"><span class="flourish">◇</span> ' + esc(c.heading) + ' <span class="flourish">◇</span></h2>' : "") +
       (c.headingSub ? '<p class="card-heading-sub"><span>' + esc(c.headingSub) + "</span></p>" : "") +
-      (c.headingScript ? '<p class="card-heading-script">' + esc(c.headingScript) +
+      (c.headingScript ? '<p class="card-heading-script">' + esc(c.headingScript) + (c.headingIcon !== "moon" ? "</p>" :
         ' <svg class="moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M15.5 2.5a9.5 9.5 0 1 0 6 16.8A8 8 0 0 1 15.5 2.5z" fill="#c9973a"/>' +
-        '<circle cx="20" cy="5" r="1" fill="#c9973a"/><circle cx="22.5" cy="9.5" r=".7" fill="#c9973a"/></svg></p>' : "");
+        '<circle cx="20" cy="5" r="1" fill="#c9973a"/><circle cx="22.5" cy="9.5" r=".7" fill="#c9973a"/></svg></p>') : "");
     var namesHtml = '<p class="card-name">' + esc(c.names[0]) + "</p>" +
       (c.names[1] ? '<p class="card-amp">' + esc(c.joiner || "&") + '</p><p class="card-name">' + esc(c.names[1]) + "</p>" : "");
     var venueBlock = '<p class="card-label">Venue</p>' +
@@ -1428,8 +1435,10 @@
       (c.address && c.address.length ? '<p class="card-address' + part("address") + '">' + c.address.map(esc).join("<br>") + "</p>" : "");
     var rsvpBlock = rsvp ? '<p class="card-label">R.S.V.P.</p><p class="card-rsvp">' + rsvp + "</p>" : "";
     var actionsBlock = actions ? '<p class="card-actions">' + actions + "</p>" : "";
-    var attireBlock = c.attire ? '<div class="card-attire"><p class="card-label">Attire</p>' +
-      '<p class="attire-title">' + esc(c.attire.title) + "</p>" + (c.attire.text ? '<p class="attire-text">' + esc(c.attire.text) + "</p>" : "") + "</div>" : "";
+    var attireBlock = (c.attire ? [].concat(c.attire) : []).map(function (n) {
+      return '<div class="card-attire"><p class="card-label">' + esc(n.label || "Attire") + "</p>" +
+        (n.title ? '<p class="attire-title">' + esc(n.title) + "</p>" : "") + (n.text ? '<p class="attire-text">' + esc(n.text) + "</p>" : "") + "</div>";
+    }).join("");
     var scene = c.sceneImage ?
       '<div class="card-scene photo' + (c.sceneCutout ? " cutout" : "") + (c.sceneClass ? " " + esc(c.sceneClass) : "") + '"><img src="' +
         esc(c.sceneImage) + '" alt="' + esc(c.sceneAlt || "") + '"></div>' :
@@ -1444,7 +1453,7 @@
 
     return '<section class="panel" data-panel="' + esc(e.id) + '" role="tabpanel" hidden>' +
       '<article class="card' + (theme ? " theme-" + theme : "") + (FULL ? " full" : "") + (c.centered ? " centered" : "") + (c.variant ? " " + esc(c.variant) : "") + (scene && c.scenePosition !== "bottom" ? " scene-mid" : "") + '">' +
-      (theme ? DECOR[theme]() : "") +
+      (theme ? DECOR[theme](c) : "") +
       '<div class="card-body">' +
       (theme && EMBLEMS[theme] ? '<div class="card-emblem">' + EMBLEMS[theme]() + "</div>" : "") +
       (c.invocation ? '<p class="card-invocation">' + esc(c.invocation) + "</p>" : "") +
