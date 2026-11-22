@@ -1490,3 +1490,4 @@ body.viewer-open { overflow: hidden; }
 .card.theme-moonlit { padding-bottom: calc(6% + 22px); }
 @container (max-width: 520px) { .card.theme-moonlit { padding-top: calc(36% + 10px); padding-bottom: calc(8% + 18px); } }
 .theme-moonlit .mg-br { width: 22%; }
+.theme-varmala .petal.rosefall { width: 18px; height: 17px; }

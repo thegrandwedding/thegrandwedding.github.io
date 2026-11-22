@@ -314,6 +314,41 @@
 
   // Varmala: an ivory-and-blush jharokha — a gold cusped Mughal arch, blush peonies
   // spilling from the spandrels, rose-and-jasmine strands, a lotus pond below.
+  // A garden rose seen from above: three rings of shaded, cupped petals around a tight spiral bud.
+  // pal = [lightest, light, mid, dark]
+  var ROSE_N = 0;
+  function prettyRose(cx, cy, R, pal, rot) {
+    var id = "pr" + (ROSE_N++), k;
+    function petal(len, wid, ang, fill) {
+      return '<path d="M0 ' + f1(-len * .15) + " C" + f1(-wid) + " " + f1(-len * .3) + " " + f1(-wid * .95) + " " + f1(-len * .95) + " 0 " + f1(-len) +
+        " C" + f1(wid * .95) + " " + f1(-len * .95) + " " + f1(wid) + " " + f1(-len * .3) + " 0 " + f1(-len * .15) + 'z" fill="' + fill +
+        '" stroke="' + pal[3] + '" stroke-width="' + f1(Math.max(.35, R * .025)) + '" stroke-opacity=".55" transform="rotate(' + f1(ang) + ')"/>';
+    }
+    var s = '<g transform="translate(' + f1(cx) + " " + f1(cy) + ") rotate(" + f1(rot || 0) + ')">' +
+      '<defs><radialGradient id="' + id + '"><stop offset="0" stop-color="' + pal[2] + '"/><stop offset=".55" stop-color="' + pal[1] + '"/><stop offset="1" stop-color="' + pal[0] + '"/></radialGradient></defs>';
+    for (k = 0; k < 5; k++) s += petal(R, R * .62, k * 72 + 10, "url(#" + id + ")");          // outer ring
+    for (k = 0; k < 5; k++) s += petal(R * .74, R * .5, k * 72 + 46, pal[1]);                  // middle ring
+    for (k = 0; k < 4; k++) s += petal(R * .5, R * .36, k * 90 + 20, pal[2]);                  // inner ring
+    // the cupped centre: a spiral of folded petal edges
+    s += '<circle r="' + f1(R * .3) + '" fill="' + pal[2] + '"/>' +
+      '<path d="M' + f1(-R * .22) + " " + f1(R * .05) + " C" + f1(-R * .22) + " " + f1(-R * .22) + " " + f1(R * .2) + " " + f1(-R * .24) + " " + f1(R * .2) + " " + f1(R * .02) +
+      " C" + f1(R * .2) + " " + f1(R * .16) + " " + f1(-R * .06) + " " + f1(R * .18) + " " + f1(-R * .08) + " " + f1(R * .02) +
+      " C" + f1(-R * .1) + " " + f1(-R * .1) + " " + f1(R * .08) + " " + f1(-R * .1) + " " + f1(R * .07) + " 0" +
+      '" fill="none" stroke="' + pal[3] + '" stroke-width="' + f1(Math.max(.5, R * .055)) + '" stroke-linecap="round"/>';
+    return s + "</g>";
+  }
+
+  // A falling rose petal (curled heart shape) or a small rosebud, as a tiny SVG.
+  var RED = [["#f2a0a8", "#d9374b", "#b3142c", "#7a0a1c"], ["#f5b3b8", "#e04a5c", "#c01f36", "#860d22"], ["#ec8d97", "#c8233a", "#9e0f26", "#650716"]];
+  function fallingRose(i) {
+    var p = RED[i % 3];
+    if (i % 4 === 0) return '<svg viewBox="-13 -13 26 26">' + prettyRose(0, 0, 12, p, i * 37) + "</svg>";
+    return '<svg viewBox="0 0 22 20"><defs><linearGradient id="fp' + i + '" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="' + p[1] +
+      '"/><stop offset="1" stop-color="' + p[3] + '"/></linearGradient></defs>' +
+      '<path d="M11 19 C3 14 0 7 3.5 3 C6.5 0 9.8 1.6 11 4.4 C12.2 1.6 15.5 0 18.5 3 C22 7 19 14 11 19z" fill="url(#fp' + i + ')"/>' +
+      '<path d="M11 17 C7 13 6 8.5 7.6 6" fill="none" stroke="' + p[0] + '" stroke-width=".9" stroke-opacity=".7" stroke-linecap="round"/></svg>';
+  }
+
   function decoVarmala(c) {
     var r = rng(23), i, j, x, y, t;
     var pastel = c && c.variant === "pastel";
@@ -390,7 +425,7 @@
         if (j % 4 === 3) {
           svg += '<circle cx="' + (x - 2) + '" cy="' + f1(y) + '" r="2.5" fill="#fffaf0"/><circle cx="' + (x + 2) + '" cy="' + f1(y + 2) + '" r="2.3" fill="#fffdf7"/>';
         } else {
-          if (pastel) { svg += rose(x, y, 5.4, pk(rosePals)); } else {
+          if (pastel) { svg += prettyRose(x, y, 6.2, pk(rosePals), r() * 360); } else {
           var pl = pk(pals);
           svg += '<circle cx="' + x + '" cy="' + f1(y) + '" r="4.6" fill="' + pl[1] + '" stroke="' + pl[0] + '" stroke-width="2.2" stroke-dasharray="1.5 1.2"/>'; }
         }
@@ -411,7 +446,7 @@
         t = r();
         x = ox + sx * (8 + r() * (190 - t * 150));
         y = 10 + t * 150;
-        svg += pastel ? rose(x, y, 14 + r() * 11 - t * 5, pk(rosePals)) : peony(x, y, 15 + r() * 13 - t * 6, pk(pals), r() * 360);
+        svg += pastel ? prettyRose(x, y, 16 + r() * 12 - t * 5, pk(rosePals), r() * 360) : peony(x, y, 15 + r() * 13 - t * 6, pk(pals), r() * 360);
       }
       for (i = 0; i < 26; i++) { // buds and baby's breath
         t = r();
@@ -444,11 +479,8 @@
     var pcols = ["#f9c5d4", "#f2a2bb", "#fbe0e7", "#e98aa8", "#fff4f4"];
     for (i = 0; i < 34; i++) {
       if (pastel) {
-        var rp = rosePals[i % 5];
         bits += '<span class="petal rosefall" style="left:' + f1(r() * 100) + "%;animation-delay:-" + f1(r() * 16) +
-          "s;animation-duration:" + f1(10 + r() * 9) + "s;--s:" + (0.6 + r() * 0.7).toFixed(2) + '">' +
-          (i % 3 === 0 ? '<svg viewBox="-12 -12 24 24">' + rose(0, 0, 10, rp) + "</svg>"
-                       : '<svg viewBox="0 0 20 18"><path d="M10 17 C2 12 0 6 3 2.5 C6 -.5 9 1.5 10 4 C11 1.5 14 -.5 17 2.5 C20 6 18 12 10 17z" fill="' + rp[1] + '" stroke="' + rp[3] + '" stroke-width=".7"/><path d="M10 15 C6 11 5 7 6.5 5" fill="none" stroke="' + rp[2] + '" stroke-width=".8"/></svg>') + "</span>";
+          "s;animation-duration:" + f1(10 + r() * 9) + "s;--s:" + (0.6 + r() * 0.7).toFixed(2) + '">' + fallingRose(i) + "</span>";
       } else {
       bits += '<span class="petal" style="left:' + f1(r() * 100) + "%;animation-delay:-" + f1(r() * 16) +
         "s;animation-duration:" + f1(9 + r() * 9) + "s;--s:" + (0.55 + r() * 0.8).toFixed(2) + ";--c:" + pcols[i % 5] + '"></span>';
