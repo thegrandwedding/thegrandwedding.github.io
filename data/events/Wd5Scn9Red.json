@@ -10,7 +10,7 @@
   "countdownAt": "2027-01-27T18:30:00+05:30",
   "layout": "card",
   "card": {
-    "theme": "scene",
+    "theme": "palace",
     "request": "Together with our families, we invite you to celebrate",
     "names": [
       "Seersha",
@@ -22,7 +22,8 @@
     "time": "6:30 PM",
     "venue": "Orchid Banquet",
     "address": [
-      "East Topsia Road, Kolkata"
+      "11A/1J, East Topsia Road",
+      "Kolkata – 700046"
     ],
     "mapUrl": "https://www.google.com/maps/search/?api=1&query=Orchid+Banquet+11A%2F1J+East+Topsia+Road+Kolkata+700046",
     "rsvp": [
@@ -35,12 +36,12 @@
         "href": "tel:+919830447770"
       }
     ],
-    "image": "assets/cards/wedding-scene-full-Pc6Vh2Mz.jpg",
+    "image": "assets/cards/wedding-paint-full-Bv8Nw3.jpg",
     "imageName": "Seersha-Siddhant-Wedding.jpg",
-    "variant": "sc-wedding",
-    "bg": "assets/cards/wedding-scene-bg-Tz5Kq1.webp",
-    "heading": "Shubho Bibaho",
-    "headingSub": "The Wedding of",
-    "actionsBelow": true
+    "variant": "pp pp-wedding",
+    "bg": "assets/cards/wedding-paint-bg-Hn6Xs2.webp",
+    "heading": "The Wedding",
+    "actionsBelow": true,
+    "headingScript": "Shubho Bibaho"
   }
 }

@@ -1791,95 +1791,48 @@ body.viewer-open { overflow: hidden; }
 /* Wedding palette: gold and ivory on red velvet */
 /* Wedding scene: start below the arch's point; keep the first line narrow */
 /* Reception scene: sage, rose and gold on blush */
-/* ---------- Scene cards (Sangeet / Wedding / Reception alternatives) ----------
-   The painting is the backdrop; a large arch-topped panel in its colours carries the text. */
-.card.theme-scene { aspect-ratio: 1240 / 2000; border: 0; outline: none; container-type: inline-size;
-  padding: 30% 14% 10% !important; box-shadow: 0 30px 60px -25px rgba(60,30,20,.5); }
-.theme-scene .sc-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
-.theme-scene .sc-panel { position: absolute; left: 7%; right: 7%; top: 11%; bottom: 3.5%;
-  border-radius: 50% 50% 6px 6px / 12% 12% 6px 6px; border: 1.5px solid var(--sc-line); }
-.theme-scene .sc-panel::after { content: ""; position: absolute; inset: 7px; border-radius: inherit; border: 1px solid var(--sc-line); opacity: .7; }
-.sc-sangeet { --sc-line: #c9a46a; background: #e9ddd0; }
-.sc-sangeet .sc-panel { background: rgba(255,250,243,.9); box-shadow: 0 0 40px rgba(255,248,236,.8); }
-.sc-wedding { --sc-line: #e2c070; background: #7a0f14; }
-.sc-wedding .sc-panel { background: linear-gradient(180deg, rgba(122,10,22,.96), rgba(98,6,16,.96)); box-shadow: 0 0 0 3px rgba(226,192,112,.35), 0 10px 40px rgba(30,0,4,.6); }
-.sc-reception { --sc-line: #c9a46a; background: #efd9c8; }
-.sc-reception .sc-panel { background: rgba(253,244,236,.9); box-shadow: 0 0 40px rgba(253,244,236,.7); }
-
-.card.theme-scene .card-body { container-type: inline-size; text-shadow: none; }
-.theme-scene .card-body > * { margin-left: auto; margin-right: auto; }
-.card.theme-scene .card-body .card-request { font-size: calc(var(--k) * 5.6cqw); line-height: 1.3; font-style: italic; font-weight: 600; margin: 0 auto 1cqw; max-width: 92%; }
-.card.theme-scene .card-body .card-title { font-family: var(--script); text-transform: none; letter-spacing: 0; font-weight: 400; font-size: calc(var(--k) * 15cqw); line-height: 1.12; margin: 0; padding: 0 .1em; }
-.card.theme-scene .card-body .card-title .flourish { display: none; }
-.card.theme-scene .card-body .card-heading-sub { margin: .6cqw 0 2cqw; }
-.card.theme-scene .card-body .card-heading-sub span { display: inline-flex; align-items: center; gap: 2.4cqw; font-family: var(--caps); font-size: calc(var(--k) * 4.6cqw); letter-spacing: .3em; text-transform: uppercase; font-weight: 600; }
-.card.theme-scene .card-body .card-heading-sub span::before, .card.theme-scene .card-body .card-heading-sub span::after { content: ""; width: 6cqw; height: 1px; background: currentColor; opacity: .7; }
-.card.theme-scene .card-body .card-name, .card.theme-scene .card-body .card-amp { display: inline; width: auto; margin: 0; padding: 0; font-family: var(--caps); font-size: calc(var(--k) * 6.4cqw); letter-spacing: .08em; font-weight: 600; line-height: 1.3; }
-.card.theme-scene .card-body .card-amp { padding: 0 .3em; }
-.card.theme-scene .card-body .card-date { display: grid; grid-template-columns: minmax(0,1fr) auto minmax(0,1fr); align-items: center; gap: 3cqw; margin: 3.6cqw auto 3cqw; }
-.card.theme-scene .card-body .card-date .side { order: 0; margin: 0; font-family: var(--caps); font-size: calc(var(--k) * 4.6cqw); letter-spacing: .14em; font-weight: 600; white-space: nowrap; border-top: 1px solid var(--sc-line); border-bottom: 1px solid var(--sc-line); padding: 1.8cqw 0; }
-.card.theme-scene .card-body .card-date .day { order: 0; font-size: calc(var(--k) * 14cqw); line-height: 1; font-weight: 500; margin: 0; }
-.card.theme-scene .card-body .card-date .day small { font-size: calc(var(--k) * 3.6cqw); letter-spacing: .24em; margin-top: 1cqw; font-weight: 600; white-space: nowrap; }
-.card.theme-scene .card-body .card-label { font-size: calc(var(--k) * 3.8cqw); letter-spacing: .3em; font-weight: 600; margin: 0 0 .6cqw; gap: 2.4cqw; }
-.card.theme-scene .card-body .card-label::before, .card.theme-scene .card-body .card-label::after { width: 6cqw; background: var(--sc-line); opacity: 1; }
-.card.theme-scene .card-body .card-venue { font-family: var(--caps); font-size: calc(var(--k) * 6.4cqw); letter-spacing: .06em; font-weight: 600; margin: 0; line-height: 1.25; }
-.card.theme-scene .card-body .card-venue-sub { font-family: inherit; font-size: calc(var(--k) * 5cqw); font-weight: 600; font-style: italic; text-transform: none; letter-spacing: 0; margin: .3cqw 0 0; }
-.card.theme-scene .card-body .card-address { font-size: calc(var(--k) * 5cqw); line-height: 1.3; margin: .3cqw 0 0; font-weight: 600; opacity: 1; }
-.card.theme-scene .card-body .card-attire { margin: 2.6cqw auto 0; max-width: none; }
-.card.theme-scene .card-body .card-attire .card-label { margin-top: 0; }
-.card.theme-scene .card-body .attire-title { font-size: calc(var(--k) * 6cqw); font-style: italic; font-weight: 600; line-height: 1.2; }
-.card.theme-scene .card-body .attire-text { font-size: calc(var(--k) * 4.8cqw); line-height: 1.3; margin: .3cqw 0 0; font-weight: 600; }
-.card.theme-scene .card-body .card-rsvp { font-size: calc(var(--k) * 5.2cqw); line-height: 1.45; font-weight: 600; margin-top: 0; }
-.card.theme-scene .card-body > .card-label:not(:first-child) { margin-top: 2.6cqw; }
-.card.theme-scene .card-body .card-rsvp a.wa-icon svg { width: 1em; height: 1em; }
-.card.theme-scene.full .card-actions { display: none; }
-
-/* Sangeet palette */
-.sc-sangeet .card-body { color: #4a2a30; }
-.sc-sangeet .card-body .card-request { color: #6b3a48; }
-.sc-sangeet .card-body .card-title { color: #8a2a52; }
-.sc-sangeet .card-body .card-heading-sub span, .sc-sangeet .card-body .card-label { color: #9a6a1c; }
-.sc-sangeet .card-body .card-name, .sc-sangeet .card-body .card-date .side, .sc-sangeet .card-body .card-date .day small,
-.sc-sangeet .card-body .card-address, .sc-sangeet .card-body .attire-text { color: #4a2a30; }
-.sc-sangeet .card-body .card-amp, .sc-sangeet .card-body .card-venue, .sc-sangeet .card-body .attire-title { color: #8a2a52; }
-.sc-sangeet .card-body .card-date .day { color: #9a6a1c; }
-.sc-sangeet .card-body .card-rsvp, .sc-sangeet .card-body .card-rsvp a { color: #3a2026; border-bottom-color: #c9a46a; }
-/* Wedding palette */
-.sc-wedding .card-body { color: #fbeee0; }
-.sc-wedding .card-body .card-request { color: #f6e3c6; }
-.sc-wedding .card-body .card-title { background: linear-gradient(100deg, #e9c46a 0%, #fff0c2 35%, #d4a84a 60%, #f7e3a1 100%); -webkit-background-clip: text; background-clip: text; color: transparent; filter: none; }
-.sc-wedding .card-body .card-heading-sub span, .sc-wedding .card-body .card-label, .sc-wedding .card-body .card-amp { color: #e8c766; }
-.sc-wedding .card-body .card-name, .sc-wedding .card-body .card-date .side, .sc-wedding .card-body .card-date .day small,
-.sc-wedding .card-body .card-address { color: #fbeee0; }
-.sc-wedding .card-body .card-date .day, .sc-wedding .card-body .card-venue { color: #f3d98f; }
-.sc-wedding .card-body .card-rsvp, .sc-wedding .card-body .card-rsvp a { color: #fbeee0; border-bottom-color: rgba(232,199,102,.6); }
-/* Reception palette */
-.sc-reception .card-body { color: #3d4a33; }
-.sc-reception .card-body .card-request { color: #4e5c40; }
-.sc-reception .card-body .card-title, .sc-reception .card-body .card-amp, .sc-reception .card-body .card-venue { color: #a33a4a; }
-.sc-reception .card-body .card-heading-sub span, .sc-reception .card-body .card-label { color: #8a6418; }
-.sc-reception .card-body .card-name, .sc-reception .card-body .card-date .side, .sc-reception .card-body .card-date .day small,
-.sc-reception .card-body .card-venue-sub { color: #3d4a33; }
-.sc-reception .card-body .card-date .day { color: #8a6418; }
-.sc-reception .card-body .card-rsvp, .sc-reception .card-body .card-rsvp a { color: #2e3a26; border-bottom-color: #c9a46a; }
-
-/* fill the panel: per-card text scale, sections spread evenly */
-.sc-sangeet { --k: 1.08; } .sc-wedding { --k: 1.2; } .sc-reception { --k: 1.24; }
-.card.theme-scene { display: flex; flex-direction: column; }
-.card.theme-scene .card-body { flex: 1; display: flex; flex-direction: column; justify-content: space-evenly; align-items: center; }
-.card.theme-scene .card-body > * { flex: none; margin-top: 0; margin-bottom: 0; }
-.card.theme-scene .card-body .card-date { width: 100%; }
-.card.theme-scene .card-body > .card-label:not(:first-child) { margin-top: 0; }
-.card.theme-scene .card-body .card-attire { margin: 0 auto; }
-.card.theme-scene .card-body .card-heading-sub { margin: 0; }
-.card.theme-scene .card-names { text-align: center; }
-.theme-scene .sc-panel { left: 8%; right: 8%; top: 12%; bottom: 4.5%; }
-.sc-sangeet .sc-panel { background: rgba(255,250,243,.84); }
-.sc-reception .sc-panel { background: rgba(253,244,236,.84); }
-.card.theme-scene { padding: 31% 14% 10% !important; }
-.sc-wedding .card-body .card-date .side { letter-spacing: .08em; }
-.card.theme-scene .card-body .card-date { gap: 4cqw; }
-.sc-sangeet .card-body .card-attire .card-label { margin-bottom: .6cqw; }
-.sc-sangeet { --k: 1.04; }
-.sc-wedding .card-body .card-date .side:first-child { font-size: calc(var(--k) * 3.8cqw); letter-spacing: .04em; }
-.sc-wedding .card-body .card-date { gap: 3cqw; }
+/* ---------- Painted cards (Sangeet / Wedding / Reception alternatives) ----------
+   Same format, layout and type sizes as the Varmala palace card; only colours change. */
+.theme-palace .pp-glow { display: none; }
+.pp .pp-glow { display: block; position: absolute; left: 6%; right: 6%; top: 11%; height: 58%; border-radius: 50%; }
+.pp-sangeet .pp-glow { background: radial-gradient(ellipse at 50% 48%, rgba(255,251,244,.88) 0%, rgba(255,250,242,.7) 45%, rgba(255,250,242,0) 72%); }
+.pp-reception .pp-glow { background: radial-gradient(ellipse at 50% 48%, rgba(253,245,237,.85) 0%, rgba(253,245,237,.6) 45%, rgba(253,245,237,0) 72%); }
+.pp-wedding .pp-glow { left: 10%; right: 10%; top: 13.5%; height: 57%; border-radius: 48% 48% 10px 10px / 14% 14% 10px 10px;
+  background: linear-gradient(180deg, rgba(120,10,20,.96), rgba(96,6,14,.96)); border: 2px solid #e2c070; box-shadow: 0 0 0 4px rgba(226,192,112,.3), 0 10px 30px rgba(30,0,4,.5); }
+/* Wedding: light text on red */
+.card.theme-palace.pp-wedding .card-body { text-shadow: 0 1px 3px rgba(40,0,4,.6); color: #fbeee0; }
+.card.theme-palace.pp-wedding .card-body .card-request, .card.theme-palace.pp-wedding .card-body .card-address,
+.card.theme-palace.pp-wedding .card-body .card-date .side, .card.theme-palace.pp-wedding .card-body .card-date .day small { color: #fbeee0; }
+.card.theme-palace.pp-wedding .card-body .card-title, .card.theme-palace.pp-wedding .card-body .card-venue { color: #f3d98f; }
+.card.theme-palace.pp-wedding .card-body .card-heading-script, .card.theme-palace.pp-wedding .card-body .card-name,
+.card.theme-palace.pp-wedding .card-body .card-date .day { color: #f7e3a1; }
+.card.theme-palace.pp-wedding .card-body .card-amp, .card.theme-palace.pp-wedding .card-body .card-label { color: #e8c766; }
+.card.theme-palace.pp-wedding .card-body .card-date .side { border-color: rgba(232,199,102,.7); }
+.card.theme-palace.pp-wedding .card-body .card-label::before, .card.theme-palace.pp-wedding .card-body .card-label::after { background: rgba(232,199,102,.7); }
+.card.theme-palace.pp-wedding .card-body .card-rsvp, .card.theme-palace.pp-wedding .card-body .card-rsvp a { color: #fbeee0; border-bottom-color: rgba(232,199,102,.6); }
+/* Sangeet: plum-rose accents */
+.card.theme-palace.pp-sangeet .card-body .card-title, .card.theme-palace.pp-sangeet .card-body .card-venue,
+.card.theme-palace.pp-sangeet .card-body .attire-title, .card.theme-palace.pp-sangeet .card-body .card-amp { color: #8a2a52; }
+/* Reception: deep rose and sage-brown */
+.card.theme-palace.pp-reception .card-body .card-title, .card.theme-palace.pp-reception .card-body .card-venue,
+.card.theme-palace.pp-reception .card-body .card-amp { color: #a33a4a; }
+.card.theme-palace.pp-reception .card-body .card-request, .card.theme-palace.pp-reception .card-body .card-address,
+.card.theme-palace.pp-reception .card-body .card-venue-sub { color: #3d4a33; }
+.card.theme-palace .card-body .card-venue-sub { font-size: 4.3cqw; font-style: italic; text-transform: none; letter-spacing: 0; font-weight: 600; margin: .2cqw 0 0; }
+.card.theme-palace .card-body .card-rsvp a.wa-icon svg { width: 1em; height: 1em; }
+/* per-painting placement (sizes stay identical to the Varmala card) */
+.card.theme-palace.pp-sangeet { padding-top: 55% !important; }
+.pp-sangeet .pp-glow { top: 28%; height: 60%; }
+.card.theme-palace.pp-sangeet .card-body .card-rsvp br { display: inline; }
+.card.theme-palace.pp-sangeet .card-body .card-rsvp .rsvp-line ~ .rsvp-line::before { content: none; }
+.card.theme-palace.pp-wedding { padding: 31% 15% 26% !important; display: flex; flex-direction: column; }
+.card.theme-palace.pp-wedding .card-body { flex: 1; display: flex; flex-direction: column; justify-content: space-evenly; align-items: center; }
+.card.theme-palace.pp-wedding .card-body > * { flex: none; }
+.pp-wedding .pp-glow { top: 12.5%; height: 74%; left: 9%; right: 9%; }
+.card.theme-palace.pp-reception { padding-top: 36% !important; }
+.card.theme-palace.pp-reception .card-body .card-request { max-width: 78%; }
+.pp-reception .pp-glow { top: 17%; height: 56%; left: 12%; right: 12%; }
+.card.theme-palace .card-names { text-align: center; }
+.card.theme-palace.pp-reception { padding-top: 44% !important; }
+.pp-reception .pp-glow { top: 22%; height: 52%; left: 8%; right: 8%;
+  background: radial-gradient(ellipse at 50% 48%, rgba(253,245,237,.92) 0%, rgba(253,245,237,.75) 50%, rgba(253,245,237,0) 75%); }

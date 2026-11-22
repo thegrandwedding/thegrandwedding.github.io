@@ -21,7 +21,10 @@
     "time": "6:30 PM",
     "venue": "The Meadows",
     "venueSub": "P. C. Chandra Garden",
-    "address": [],
+    "address": [
+      "E. M. Bypass, opp. Science City",
+      "Kolkata – 700105"
+    ],
     "mapUrl": "https://www.google.com/maps/search/?api=1&query=The+Meadows+P.C.+Chandra+Garden+Kolkata",
     "pdf": "assets/cards/reception-KAJ1AOIr3Y.pdf",
     "rsvp": [
@@ -35,13 +38,13 @@
         "href": "tel:+918420061166"
       }
     ],
-    "image": "assets/cards/reception-scene-full-Jq9Xs5Bd.jpg",
+    "image": "assets/cards/reception-paint-full-Kx2Rm6.jpg",
     "imageName": "Seersha-Siddhant-Reception.jpg",
     "pdfName": "Seersha-Siddhant-Reception.pdf",
-    "theme": "scene",
-    "variant": "sc-reception",
-    "bg": "assets/cards/reception-scene-bg-Gd8Ln4.webp",
-    "headingSub": "In honour of",
-    "actionsBelow": true
+    "theme": "palace",
+    "variant": "pp pp-reception",
+    "bg": "assets/cards/reception-paint-bg-Qm4Bv7.webp",
+    "actionsBelow": true,
+    "headingScript": "An evening of celebration"
   }
 }

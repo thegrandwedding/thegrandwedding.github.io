@@ -1497,8 +1497,8 @@
 
   // Palace (Varmala): the supplied painted scene — flower-hung arch, lanterns, a palace by the
   // water — used as the whole card, with the text set inside the arch.
-  function decoPalace() {
-    return '<div class="deco" aria-hidden="true"><img class="pl-bg" src="assets/cards/varmala-palace-bg-Js4Kw8.webp" alt=""></div>';
+  function decoPalace(c) {
+    return '<div class="deco" aria-hidden="true"><img class="pl-bg" src="' + esc((c && c.bg) || "assets/cards/varmala-palace-bg-Js4Kw8.webp") + '" alt=""><span class="pp-glow"></span></div>';
   }
 
   // Scene cards (Sangeet / Wedding alternatives): a supplied painting is the whole card and the
@@ -1573,7 +1573,7 @@
       (c.invocation ? '<p class="card-invocation">' + esc(c.invocation) + "</p>" : "") +
       (c.hosts ? '<p class="card-hosts">' + esc(c.hosts) + "</p>" : "") +
       (c.request ? '<p class="card-request' + part("request") + '">' + esc(c.request) + "</p>" : "") +
-      (c.nameFirst ? namesHtml + titleHtml : titleHtml + (c.theme === "scene" ? '<div class="card-names">' + namesHtml + "</div>" : namesHtml)) +
+      (c.nameFirst ? namesHtml + titleHtml : titleHtml + (c.theme === "scene" || c.theme === "palace" ? '<div class="card-names">' + namesHtml + "</div>" : namesHtml)) +
       (c.afterNames ? '<p class="card-after-names">' + esc(c.afterNames) + "</p>" : "") +
       (c.tagline ? '<p class="card-tagline' + part("tagline") + '">' + esc(c.tagline) + "</p>" : "") +
       (c.scenePosition !== "bottom" ? scene : "") +
