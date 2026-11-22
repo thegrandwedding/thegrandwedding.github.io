@@ -2170,3 +2170,22 @@ body.viewer-open { overflow: hidden; }
 .card.theme-palace.pp-saffron .card-body .card-address { margin-bottom: 2.4cqw; }
 .card.theme-palace.pp-saffron .card-body .card-attire { margin-bottom: 2.4cqw; }
 .card.theme-palace.pp-saffron { padding: 29% 30% 0 6% !important; }
+
+/* Haldi saffron: text 15% larger */
+.card.theme-palace.pp-saffron .card-body .card-request { font-size: 6.26cqw; }
+.card.theme-palace.pp-saffron .card-body .card-title { font-size: 17.25cqw; }
+.card.theme-palace.pp-saffron .card-body .card-heading-script { font-size: 6.21cqw; }
+.card.theme-palace.pp-saffron .card-body .card-name { font-size: 16.66cqw; }
+.card.theme-palace.pp-saffron .card-body .card-amp { font-size: 11.86cqw; }
+.card.theme-palace.pp-saffron .card-body .card-date .side { font-size: 4.94cqw; }
+.card.theme-palace.pp-saffron .card-body .card-date .day { font-size: 16.02cqw; }
+.card.theme-palace.pp-saffron .card-body .card-date .day small { font-size: 4.66cqw; }
+.card.theme-palace.pp-saffron .card-body .card-label { font-size: 4.81cqw; }
+.card.theme-palace.pp-saffron .card-body .card-venue { font-size: 8.02cqw; }
+.card.theme-palace.pp-saffron .card-body .card-address { font-size: 5.76cqw; }
+.card.theme-palace.pp-saffron .card-body .attire-title { font-size: 7.70cqw; }
+.card.theme-palace.pp-saffron .card-body .attire-text { font-size: 5.29cqw; }
+.card.theme-palace.pp-saffron .card-body .card-rsvp { font-size: 6.26cqw; }
+.card.theme-palace.pp-saffron .card-body .card-name, .card.theme-palace.pp-saffron .card-body .card-amp { font-size: 7.59cqw; }
+.card.theme-palace.pp-saffron .card-body .card-tagline { font-size: 5.29cqw; }
+.card.theme-palace.pp-saffron { padding: 27% 28% 0 4% !important; }
