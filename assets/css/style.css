@@ -1836,3 +1836,30 @@ body.viewer-open { overflow: hidden; }
 .card.theme-palace.pp-reception { padding-top: 44% !important; }
 .pp-reception .pp-glow { top: 22%; height: 52%; left: 8%; right: 8%;
   background: radial-gradient(ellipse at 50% 48%, rgba(253,245,237,.92) 0%, rgba(253,245,237,.75) 50%, rgba(253,245,237,0) 75%); }
+
+/* Wedding: text 15% larger, tighter panel */
+.card.theme-palace.pp-wedding .card-body .card-request { font-size: 5.24cqw; }
+.card.theme-palace.pp-wedding .card-body .card-title { font-size: 8.33cqw; }
+.card.theme-palace.pp-wedding .card-body .card-heading-script { font-size: 9.41cqw; }
+.card.theme-palace.pp-wedding .card-body .card-name { font-size: 13.96cqw; }
+.card.theme-palace.pp-wedding .card-body .card-amp { font-size: 9.94cqw; }
+.card.theme-palace.pp-wedding .card-body .card-date .side { font-size: 4.69cqw; }
+.card.theme-palace.pp-wedding .card-body .card-date .day { font-size: 13.42cqw; }
+.card.theme-palace.pp-wedding .card-body .card-date .day small { font-size: 3.90cqw; }
+.card.theme-palace.pp-wedding .card-body .card-label { font-size: 4.02cqw; }
+.card.theme-palace.pp-wedding .card-body .card-venue { font-size: 6.72cqw; }
+.card.theme-palace.pp-wedding .card-body .card-address { font-size: 4.83cqw; }
+.card.theme-palace.pp-wedding .card-body .attire-title { font-size: 6.45cqw; }
+.card.theme-palace.pp-wedding .card-body .attire-text { font-size: 4.55cqw; }
+.card.theme-palace.pp-wedding .card-body .card-rsvp { font-size: 5.24cqw; }
+.card.theme-palace.pp-wedding { padding: 33% 13% 37% !important; }
+.pp-wedding .pp-glow { top: 14%; height: 66%; left: 8%; right: 8%; }
+/* Reception: text higher, clear of the peacocks */
+.card.theme-palace.pp-reception { padding-top: 36% !important; }
+.card.theme-palace.pp-reception .card-body .card-request { max-width: 70%; }
+.card.theme-palace.pp-reception .card-body .card-date { margin-top: 2.4cqw; margin-bottom: 2cqw; }
+.card.theme-palace.pp-reception .card-body .card-address { margin-bottom: 1.6cqw; }
+.pp-reception .pp-glow { top: 18%; height: 52%; }
+/* Sangeet: text higher; lavender glow to match the purple painting */
+.card.theme-palace.pp-sangeet { padding-top: 47% !important; }
+.pp-sangeet .pp-glow { top: 24%; height: 60%; background: radial-gradient(ellipse at 50% 48%, rgba(252,247,253,.9) 0%, rgba(250,244,252,.72) 45%, rgba(250,244,252,0) 72%); }
