@@ -11,8 +11,7 @@
   "layout": "card",
   "card": {
     "theme": "sangeet",
-    "request": "Join us for an enchanted evening at the",
-    "heading": "Sangeet",
+    "request": "Join us for an evening of",
     "names": [
       "Seersha",
       "Siddhant"
@@ -42,7 +41,7 @@
         "href": "tel:+919830447770"
       }
     ],
-    "image": "assets/cards/sangeet-full-Jx5Nw8Ld.jpg",
+    "image": "assets/cards/sangeet-jashn-full-Lq8Vt2Mc.jpg",
     "imageName": "Seersha-Siddhant-Sangeet.jpg",
     "mapUrl": "https://www.google.com/maps/search/?api=1&query=Nalban+Food+Park+Gate+No+2+Salt+Lake+Sector+V+Kolkata+700098",
     "headingScript": "Jashn-e-Ishq",
@@ -53,6 +52,9 @@
         "title": "Glitz & Glam",
         "text": "Bring the sparkle, velvet and glamour."
       }
-    ]
+    ],
+    "nameFirst": false,
+    "footnote": "The Sangeet",
+    "variant": "jashn"
   }
 }

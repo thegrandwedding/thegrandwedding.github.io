@@ -339,7 +339,7 @@
   }
 
   // A falling rose petal (curled heart shape) or a small rosebud, as a tiny SVG.
-  var RED = [["#f48fb8", "#d6337a", "#b0175e", "#78093d"], ["#f7a6c6", "#e0508e", "#c2185b", "#860a43"], ["#ee7fae", "#c8236b", "#9c0f4f", "#640733"]];
+  var RED = [["#fde0ea", "#f7b3cc", "#ec86ad", "#c2527f"], ["#fbd3e2", "#f4a3c2", "#e8789f", "#b84a75"], ["#fee8f0", "#f9c3d6", "#f095b8", "#c9628a"]];
   function fallingRose(i) {
     var p = RED[i % 3];
     return '<svg viewBox="-13 -13 26 26">' + prettyRose(0, 0, 12, p, i * 37) + "</svg>";
@@ -366,10 +366,10 @@
       ["#ffffff", "#fdf0f2", "#e7a9ba"]
     ];
     var rosePals = [
-      ["#f48fb8", "#d6337a", "#b0175e", "#78093d"],
-      ["#f7a6c6", "#e0508e", "#c2185b", "#860a43"],
-      ["#ee7fae", "#c8236b", "#9c0f4f", "#640733"],
-      ["#f9bcd5", "#e66a9f", "#c93a7a", "#8e1a4f"]
+      ["#fde0ea", "#f7b3cc", "#ec86ad", "#c2527f"],
+      ["#fbd3e2", "#f4a3c2", "#e8789f", "#b84a75"],
+      ["#fee8f0", "#f9c3d6", "#f095b8", "#c9628a"],
+      ["#fad0df", "#f2a0bf", "#e27ba2", "#a8456d"]
     ];
     var greens = pastel ? ["#a9c4a2", "#bcd3b2", "#8fb08a", "#cfe0c6"] : ["#6f9e6a", "#8fb98a", "#4f7f57", "#a7c79a"];
     function pk(a) { return a[Math.floor(r() * a.length)]; }
@@ -1514,6 +1514,7 @@
         '<div class="card-info"><div>' + venueBlock + '</div><div>' + rsvpBlock + "</div></div>" + actionsBlock :
         venueBlock + attireBlock + actionsBlock + rsvpBlock) +
       (c.scenePosition === "bottom" ? scene : "") +
+      (c.footnote ? '<p class="card-footnote"><span>' + esc(c.footnote) + "</span></p>" : "") +
       "</div></article></section>";
   }
 

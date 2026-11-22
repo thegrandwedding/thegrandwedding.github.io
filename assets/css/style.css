@@ -1498,3 +1498,18 @@ body.viewer-open { overflow: hidden; }
 .theme-sangeet .attire-title { color: #f7e3a1; font-size: 22px; font-style: italic; }
 .theme-sangeet .attire-text { color: #f5e8ff; font-size: 16px; }
 @container (max-width: 520px) { .theme-sangeet .card-heading-script { font-size: 32px; } .theme-sangeet .attire-title { font-size: 19px; } .theme-sangeet .attire-text { font-size: 14px; } }
+/* small closing line, e.g. "The Sangeet" */
+.card-footnote { margin: 22px 0 0; }
+.card-footnote span { display: inline-flex; align-items: center; gap: 12px; font-family: var(--caps); font-size: 12px; letter-spacing: .34em; text-transform: uppercase; }
+.card-footnote span::before, .card-footnote span::after { content: ""; width: 36px; height: 1px; background: currentColor; opacity: .6; }
+.theme-sangeet .card-footnote { color: #f7e3a1; }
+/* Jashn-e-Ishq as the title (no "Sangeet" heading) */
+.theme-sangeet .card-request + .card-heading-script {
+  font-size: clamp(52px, 13cqw, 80px); line-height: 1.15; margin: 0 0 10px; padding: .05em .3em .12em;
+  background: linear-gradient(100deg, #f9a8d4 0%, #ffe1f0 35%, #f472b6 60%, #ffd1e6 100%); -webkit-background-clip: text; background-clip: text; color: transparent;
+  filter: drop-shadow(0 0 10px rgba(244,114,182,.75)); text-shadow: none;
+}
+.theme-sangeet .card-request + .card-heading-script + .card-name { font-size: clamp(40px, 10.5cqw, 66px); }
+.theme-sangeet .card-request + .card-heading-script + .card-name + .card-amp + .card-name { font-size: clamp(40px, 10.5cqw, 66px); }
+.theme-sangeet.jashn .stage-light { opacity: .45; }
+.theme-sangeet.jashn .stage-floor { opacity: .7; }
