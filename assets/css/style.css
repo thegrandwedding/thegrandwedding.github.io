@@ -2220,3 +2220,13 @@ body.viewer-open { overflow: hidden; }
 .card.theme-palace.pp-wedding.pp-titled.full .card-body .card-address { line-height: 1.25; margin-bottom: 1.2cqw; }
 .card.theme-palace.pp-wedding.pp-titled.full .card-body .card-attire { margin-bottom: 1.2cqw; }
 .card.theme-palace.pp-wedding.pp-titled.full .card-body .card-date { margin: 1.6cqw auto 1.2cqw; }
+/* Wedding (blended items): no pale glow; warm shadow and a faint gold medallion behind the items */
+.pp-meld .card-body .card-crown { position: relative; }
+.pp-meld .card-body .card-crown::before { content: ""; position: absolute; left: -22%; right: -22%; top: -14%; bottom: -10%; border-radius: 50%;
+  background: radial-gradient(ellipse at 50% 52%, rgba(232,190,100,.22) 0%, rgba(200,140,60,.10) 45%, rgba(150,20,30,0) 70%); z-index: -1; }
+.card.theme-palace.pp-wedding.pp-titled.pp-meld .card-body .card-crown img { filter: drop-shadow(0 3px 5px rgba(40,0,6,.55)); position: relative; }
+.card.theme-palace.pp-wedding.pp-titled.pp-meld .card-body .card-title.with-icons .h-icon.img { filter: drop-shadow(0 2px 3px rgba(40,0,6,.55)); }
+.pp-meld .card-body .card-crown::before { left: -18%; right: -18%; top: -8%; bottom: -6%;
+  background: radial-gradient(ellipse at 50% 50%, rgba(240,200,110,.30) 0%, rgba(210,150,70,.14) 48%, rgba(150,20,30,0) 68%); }
+.pp-meld .card-body .card-crown::after { content: ""; position: absolute; left: -10%; right: -10%; top: -2%; bottom: 0; border-radius: 50%;
+  border: 1px solid rgba(232,199,102,.55); box-shadow: 0 0 0 4px rgba(232,199,102,.10); z-index: -1; }
