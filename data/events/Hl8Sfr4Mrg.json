@@ -37,7 +37,7 @@
         "href": "tel:+919830447770"
       }
     ],
-    "image": "assets/cards/haldi-saffron-full-Wk3Ny7.jpg",
+    "image": "assets/cards/haldi-saffron-full-Bd2Xw6.jpg",
     "imageName": "Seersha-Siddhant-Haldi.jpg",
     "pageHide": [
       "address"
@@ -51,6 +51,7 @@
     ],
     "tagline": "Join us for showers of marigold and merriment as we drench the bride and groom-to-be in turmeric, blessings, and sunlit laughter.",
     "variant": "pp pp-saffron",
-    "bg": "assets/cards/haldi-saffron-bg-Mr5Gx2.webp"
+    "bg": "assets/cards/haldi-saffron-bg-Tq8Lr3.webp",
+    "actionsBelow": true
   }
 }

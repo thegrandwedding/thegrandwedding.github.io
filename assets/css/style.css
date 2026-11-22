@@ -2143,3 +2143,30 @@ body.viewer-open { overflow: hidden; }
 .card.theme-palace.pp-saffron .card-body .card-date { gap: 2cqw; }
 .card.theme-palace.pp-saffron .card-body .card-date .side { font-size: 3.4cqw; letter-spacing: .08em; }
 .card.theme-palace.pp-saffron { padding: 33% 40% 0 6% !important; }
+
+/* Haldi saffron: wider column, palace type scaled to match the other painted cards */
+.card.theme-palace.pp-saffron { padding: 29% 32% 0 6% !important; }
+.card.theme-palace.pp-saffron .card-body .card-request { font-size: 5.44cqw; }
+.card.theme-palace.pp-saffron .card-body .card-title { font-size: 8.64cqw; }
+.card.theme-palace.pp-saffron .card-body .card-heading-script { font-size: 9.76cqw; }
+.card.theme-palace.pp-saffron .card-body .card-name { font-size: 14.49cqw; }
+.card.theme-palace.pp-saffron .card-body .card-amp { font-size: 10.31cqw; }
+.card.theme-palace.pp-saffron .card-body .card-date .side { font-size: 4.87cqw; }
+.card.theme-palace.pp-saffron .card-body .card-date .day { font-size: 13.93cqw; }
+.card.theme-palace.pp-saffron .card-body .card-date .day small { font-size: 4.05cqw; }
+.card.theme-palace.pp-saffron .card-body .card-label { font-size: 4.18cqw; }
+.card.theme-palace.pp-saffron .card-body .card-venue { font-size: 6.97cqw; }
+.card.theme-palace.pp-saffron .card-body .card-address { font-size: 5.01cqw; }
+.card.theme-palace.pp-saffron .card-body .attire-title { font-size: 6.70cqw; }
+.card.theme-palace.pp-saffron .card-body .attire-text { font-size: 4.73cqw; }
+.card.theme-palace.pp-saffron .card-body .card-rsvp { font-size: 5.44cqw; }
+.card.theme-palace.pp-saffron .card-body .card-title { font-size: 15cqw; }
+.card.theme-palace.pp-saffron .card-body .card-heading-script { font-size: 5.4cqw; }
+.card.theme-palace.pp-saffron .card-body .card-name, .card.theme-palace.pp-saffron .card-body .card-amp { font-size: 6.6cqw; }
+.card.theme-palace.pp-saffron .card-body .card-tagline { font-size: 4.6cqw; line-height: 1.35; }
+.card.theme-palace.pp-saffron .card-body .attire-text { font-size: 4.6cqw; }
+.card.theme-palace.pp-saffron .card-body .card-date { margin: 3cqw auto 2.4cqw; }
+.card.theme-palace.pp-saffron .card-body .card-date .side { font-size: 4.3cqw; letter-spacing: .06em; }
+.card.theme-palace.pp-saffron .card-body .card-address { margin-bottom: 2.4cqw; }
+.card.theme-palace.pp-saffron .card-body .card-attire { margin-bottom: 2.4cqw; }
+.card.theme-palace.pp-saffron { padding: 29% 30% 0 6% !important; }
