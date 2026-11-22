@@ -1979,3 +1979,18 @@ body.viewer-open { overflow: hidden; }
 .card.theme-palace.pp-wedding.pp-titled .card-body .card-title.with-icons .h-icon { width: 1.5em; }
 .card.theme-palace.pp-wedding.pp-titled { padding-top: 36% !important; }
 .card.theme-palace.pp-wedding.pp-titled .card-body .card-title.with-icons .h-icon { width: 1.35em; }
+/* Wedding titled: gathbandhan knot above the title, gach kouto either side */
+.card-crown { margin: 0 auto; line-height: 0; }
+.card.theme-palace.pp-wedding.pp-titled .card-body .card-crown { width: 40%; margin: 0 auto 1.4cqw; }
+.card.theme-palace.pp-wedding.pp-titled .card-body .card-crown img { width: 100%; height: auto; filter: drop-shadow(0 0 4px rgba(247,227,161,.45)) drop-shadow(0 2px 3px rgba(0,0,0,.4)); }
+.card.theme-palace.pp-wedding.pp-titled .card-body .card-title.with-icons .h-icon.img { width: auto; height: 2.3em; filter: drop-shadow(0 0 3px rgba(247,227,161,.55)) drop-shadow(0 2px 2px rgba(0,0,0,.35)); }
+.card.theme-palace.pp-wedding.pp-titled .card-body .card-title.with-icons { align-items: flex-end; font-size: 6.2cqw; }
+.card.theme-palace.pp-wedding.pp-titled .card-body .card-title.with-icons span { padding-bottom: .25em; }
+.card.theme-palace.pp-wedding.pp-titled { padding-top: 32% !important; }
+.card.theme-palace.pp-wedding.pp-titled { padding-top: 29.5% !important; }
+.card.theme-palace.pp-wedding.pp-titled .card-body .card-crown { width: 34%; margin-bottom: 0; }
+.card.theme-palace.pp-wedding.pp-titled .card-body .card-title.with-icons .h-icon.img { height: 2.6em; }
+.card.theme-palace.pp-wedding.pp-titled.full .card-body .card-venue { margin-bottom: 0; }
+.card.theme-palace.pp-wedding.pp-titled.full .card-body .card-address { margin-bottom: 2cqw; }
+.card.theme-palace.pp-wedding.pp-titled.full .card-body .card-attire { margin-bottom: 2cqw; }
+.card.theme-palace.pp-wedding.pp-titled.full .card-body .card-date { margin-bottom: 1.6cqw; }

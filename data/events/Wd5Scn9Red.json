@@ -35,7 +35,7 @@
         "href": "tel:+919830447770"
       }
     ],
-    "image": "assets/cards/wedding-paak-full-Hb5Rq9.jpg",
+    "image": "assets/cards/wedding-paak-full-Zc4Lp8.jpg",
     "imageName": "Seersha-Siddhant-Wedding.jpg",
     "variant": "pp pp-wedding pp-titled",
     "bg": "assets/cards/wedding-paint-bg-Hn6Xs2.webp",
@@ -53,9 +53,7 @@
         "text": "All shades of white, ivory, gold, and silver."
       }
     ],
-    "headingIcons": [
-      "gachkouto",
-      "darpan"
-    ]
+    "headingIconImg": "assets/cards/wedding-gachkouto-Bn3Wq6.webp",
+    "headingCrown": "assets/cards/wedding-gathbandhan-Bn3Wq6.webp"
   }
 }

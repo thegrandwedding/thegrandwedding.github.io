@@ -1560,9 +1560,12 @@
     // Parts shown only on the full card (the downloadable image), to keep the page version short.
     var hide = c.pageHide || ["tagline"];
     function part(name) { return hide.indexOf(name) > -1 ? " full-only" : ""; }
-    var titleHtml = (c.heading ? (c.headingIcons ?
+    var titleHtml = (c.headingCrown ? '<p class="card-crown"><img src="' + esc(c.headingCrown) + '" alt=""></p>' : "") +
+      (c.heading ? (c.headingIconImg ?
+        '<h2 class="card-title with-icons"><img class="h-icon img" src="' + esc(c.headingIconImg) + '" alt=""><span>' + esc(c.heading) +
+        '</span><img class="h-icon img" src="' + esc(c.headingIconImg) + '" alt=""></h2>' : (c.headingIcons ?
         '<h2 class="card-title with-icons">' + (HEAD_ICONS[c.headingIcons[0]] || "") + "<span>" + esc(c.heading) + "</span>" + (HEAD_ICONS[c.headingIcons[1]] || "") + "</h2>" :
-        '<h2 class="card-title"><span class="flourish">◇</span> ' + esc(c.heading) + ' <span class="flourish">◇</span></h2>') : "") +
+        '<h2 class="card-title"><span class="flourish">◇</span> ' + esc(c.heading) + ' <span class="flourish">◇</span></h2>')) : "") +
       (c.headingSub ? '<p class="card-heading-sub"><span>' + esc(c.headingSub) + "</span></p>" : "") +
       (c.headingScript ? '<p class="card-heading-script">' + esc(c.headingScript) + (c.headingIcon !== "moon" ? "</p>" :
         ' <svg class="moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M15.5 2.5a9.5 9.5 0 1 0 6 16.8A8 8 0 0 1 15.5 2.5z" fill="#c9973a"/>' +
