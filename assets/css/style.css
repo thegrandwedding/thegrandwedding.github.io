@@ -2197,3 +2197,8 @@ body.viewer-open { overflow: hidden; }
 .card.theme-palace.pp-saffron .card-body { flex: 1; display: flex; flex-direction: column; justify-content: space-between; align-items: center; }
 .card.theme-palace.pp-saffron .card-body > * { flex: none; }
 .card.theme-palace.pp-saffron .card-body .card-date { width: 100%; }
+/* Tab bar: use the full screen width; centre when it fits, scroll from the first tab when it doesn't */
+.tabs-inner { max-width: none; justify-content: flex-start; padding: 0 12px; }
+.tabs-inner > a:first-child { margin-left: auto; }
+.tabs-inner > a:last-child { margin-right: auto; }
+@media (min-width: 900px) { .tabs a { letter-spacing: .16em; padding-left: 12px; padding-right: 12px; } }
