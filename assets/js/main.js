@@ -1456,9 +1456,9 @@
       return g;
     }
     var dome = '<svg class="hd-dome" viewBox="0 0 300 170" preserveAspectRatio="none" aria-hidden="true"><defs>' +
-      '<linearGradient id="hd-arch" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ea951b"/><stop offset="1" stop-color="#e58a10"/></linearGradient></defs>' +
+      '<linearGradient id="hd-arch" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#df8510"/><stop offset="1" stop-color="#d67a0a"/></linearGradient></defs>' +
       '<path d="M0 171 V122 Q0 102 16 102 Q28 102 30 92 Q32 80 46 80 Q60 80 66 68 C86 58 104 46 118 28 C127 16 140 8 150 0 C160 8 173 16 182 28 C196 46 214 58 234 68 Q240 80 254 80 Q268 80 270 92 Q272 102 284 102 Q300 102 300 122 V171 Z" fill="url(#hd-arch)"/>' +
-      '<circle cx="150" cy="-2" r="3" fill="#ea951b"/></svg>';
+      '<circle cx="150" cy="-2" r="3" fill="#df8510"/></svg>';
     var lamps = '<svg class="hd-lamps" viewBox="0 0 600 460" aria-hidden="true"><defs>' +
       '<radialGradient id="hd-glow"><stop offset="0" stop-color="#ffe7a3" stop-opacity=".85"/><stop offset=".5" stop-color="#ffcf6e" stop-opacity=".25"/><stop offset="1" stop-color="#ffcf6e" stop-opacity="0"/></radialGradient></defs>' +
       lantern(52, 330, 1.05) + lantern(132, 196, .9) + lantern(468, 196, .9) + lantern(548, 330, 1.05) + "</svg>";

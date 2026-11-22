@@ -1606,3 +1606,34 @@ body.viewer-open { overflow: hidden; }
   .card.theme-holud .card-body .card-name { font-size: 21px; }
   .card.theme-holud .card-body .card-amp { font-size: 19px; padding: 0 .3em; }
 }
+/* Holud: bolder, more legible text on a slightly deeper marigold */
+.theme-holud .hd-panel { background: #d67a0a; }
+.theme-holud .card-body { color: #fffaf0; text-shadow: 0 1px 2px rgba(120,50,0,.35); }
+.theme-holud .card-request { font-weight: 600; font-size: 20px; color: #fffaf0; }
+.theme-holud .card-title { color: #fffdf6; font-size: clamp(54px, 13.5cqw, 80px); text-shadow: 0 2px 4px rgba(120,50,0,.35); }
+.theme-holud .card-heading-script { font-weight: 600; font-size: 20px; color: #ffe9bd; }
+.card.theme-holud .card-body .card-name, .card.theme-holud .card-body .card-amp { font-weight: 600; color: #fffdf6; }
+.theme-holud .card-tagline { font-weight: 600; font-style: italic; font-size: 18.5px; color: #fffaf0; line-height: 1.5; }
+.theme-holud .card-date .side { font-weight: 600; font-size: 15px; color: #fffdf6; border-color: rgba(255,248,230,.9); }
+.theme-holud .card-date .day { font-weight: 600; color: #fffdf6; }
+.theme-holud .card-date .day small { font-weight: 600; color: #fffaf0; font-size: 13px; }
+.theme-holud .card-label { font-weight: 600; color: #ffe9bd; font-size: 13px; }
+.theme-holud .card-label::before, .theme-holud .card-label::after { background: rgba(255,248,230,.85); }
+.theme-holud .card-info .card-venue { font-weight: 600; font-size: 18px; color: #fffdf6; }
+.theme-holud .card-info .card-address { font-weight: 600; font-size: 15px; color: #fffaf0; }
+.theme-holud .card-rsvp { font-weight: 600; font-size: 17px; }
+.theme-holud .card-rsvp a { color: #fffdf6; border-bottom-color: rgba(255,248,230,.75); }
+.theme-holud .attire-text { font-weight: 600; font-size: 18px; color: #fffdf6; }
+.theme-holud .btn { font-weight: 600; color: #a8520a; }
+.theme-holud .btn.ghost { color: #fffdf6; border-color: #fffdf6; }
+@container (max-width: 520px) {
+  .theme-holud .card-request { font-size: 16.5px; }
+  .theme-holud .card-heading-script { font-size: 16.5px; }
+  .theme-holud .card-tagline { font-size: 15.5px; }
+  .theme-holud .card-date .side { font-size: 11px; }
+  .theme-holud .card-date .day small { font-size: 11px; }
+  .theme-holud .card-info .card-venue { font-size: 15px; }
+  .theme-holud .card-info .card-address { font-size: 12.5px; }
+  .theme-holud .card-rsvp { font-size: 15px; }
+  .theme-holud .attire-text { font-size: 15.5px; }
+}
