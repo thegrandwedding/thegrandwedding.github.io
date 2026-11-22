@@ -10,7 +10,7 @@
   "countdownAt": "2027-01-24T18:30:00+05:30",
   "layout": "card",
   "card": {
-    "theme": "henna",
+    "theme": "moonlit",
     "request": "Join us for an evening of henna and music at",
     "heading": "Henna Soirée",
     "names": [
@@ -35,18 +35,17 @@
         "href": "tel:+919830447770"
       }
     ],
-    "image": "assets/cards/mehendi-pista-full-Mn4Tq7Wb.jpg",
+    "image": "assets/cards/mehendi-moonlit-full-Hs8Vq3Lk.jpg",
     "imageName": "Seersha-Mehendi.jpg",
     "pdf": "assets/cards/mehendi-Vb6sNa9Tw4.pdf",
     "pdfName": "Seersha-Mehendi-Invitation.pdf",
     "imageAlt": "Mehendi invitation for Seersha — Sunday 24 January 2027, 6:30 PM",
     "sceneImage": "assets/cards/mehendi-bride-cut-Gp5Ws9Lq.webp",
-    "sceneClass": "hn-bride pista-bride",
+    "sceneClass": "hn-bride ml-bride",
     "scenePosition": "bottom",
     "sceneAlt": "Seersha showing her mehendi",
     "centered": true,
     "mapUrl": "https://www.google.com/maps/search/?api=1&query=Jal+Vayu+Vihar+Community+Hall+LB+Block+Sector+3+Salt+Lake+Kolkata+700106",
-    "variant": "pista",
     "nameFirst": true,
     "headingScript": "under the Moon",
     "attire": {

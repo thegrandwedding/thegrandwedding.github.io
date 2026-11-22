@@ -1396,3 +1396,73 @@ body.viewer-open { overflow: hidden; }
   .attire-text { font-size: 13.5px; }
 }
 .card.theme-henna.pista .card-title { font-size: min(9cqw, 40px); letter-spacing: .16em; padding-left: .16em; }
+
+/* ---------- Moonlit (Henna Soirée): deep emerald, gold frame, leaves and a glowing moon ---------- */
+.card.theme-moonlit {
+  --ml-gold: linear-gradient(100deg, #b8862b 0%, #f7e3a1 22%, #c9973a 40%, #fff3c4 55%, #d4a84a 72%, #f9e7ae 88%, #b8862b 100%);
+  background:
+    radial-gradient(ellipse 60% 45% at 50% 40%, rgba(32,112,76,.55), transparent 75%),
+    linear-gradient(180deg, #0b3a28 0%, #0e4630 50%, #0a3423 100%);
+  color: #f4ecd6;
+  border: 2px solid #c9a24f; outline: none;
+  padding: calc(30% + 10px) 17% 0;
+  container-type: inline-size;
+  box-shadow: 0 30px 70px -24px rgba(5,30,18,.85);
+}
+.theme-moonlit .ml-frame { position: absolute; inset: 12px; border: 1px solid rgba(217,184,106,.7); outline: 1px solid rgba(217,184,106,.3); outline-offset: 4px; }
+.theme-moonlit .ml-tr { position: absolute; top: 0; right: 0; width: 62%; height: auto; display: block; }
+.theme-moonlit .ml-tl { position: absolute; top: 0; left: 0; width: 26%; height: auto; display: block; }
+.theme-moonlit .ml-bl { position: absolute; bottom: 0; left: 0; width: 52%; height: auto; display: block; }
+.theme-moonlit .ml-br { position: absolute; bottom: 0; right: 0; width: 28%; height: auto; display: block; }
+.theme-moonlit .glint { position: absolute; width: 3px; height: 3px; border-radius: 50%; background: #fff3c4; box-shadow: 0 0 6px 1px rgba(247,227,161,.8); transform: scale(var(--s, 1)); animation: twinkle 2.8s ease-in-out infinite; }
+.theme-moonlit .card-body { text-shadow: 0 1px 6px rgba(4,26,16,.7); }
+.theme-moonlit .card-request { color: #e9dfc2; font-size: 18px; margin-bottom: 2px; }
+.card.theme-moonlit .card-name, .theme-moonlit .card-date .day {
+  background: var(--ml-gold); background-size: 220% 100%; -webkit-background-clip: text; background-clip: text; color: transparent; text-shadow: none;
+  filter: drop-shadow(0 2px 1px rgba(0,0,0,.4)); animation: foil 7s ease-in-out infinite;
+}
+.card.theme-moonlit .card-name { display: block; width: max-content; max-width: 100%; margin: 0 auto -4px; padding: .08em .4em .14em; line-height: 1.2; font-size: clamp(56px, 16cqw, 96px); }
+.theme-moonlit .card-title { color: #f4ecd6; font-weight: 500; font-size: min(9cqw, 40px); letter-spacing: .16em; padding-left: .16em; margin: 2px 0 0; }
+.theme-moonlit .card-title .flourish { display: none; }
+.theme-moonlit .card-heading-script { color: #e9c978; }
+.theme-moonlit .card-heading-script .moon path, .theme-moonlit .card-heading-script .moon circle { fill: #f3d98f; }
+.theme-moonlit .card-date { margin: 18px 0 16px; }
+.theme-moonlit .card-date .side { color: #f4ecd6; border-color: rgba(217,184,106,.6); }
+.theme-moonlit .card-date .day small { color: #f4ecd6; -webkit-text-fill-color: #f4ecd6; white-space: nowrap; }
+.theme-moonlit .card-label { color: #d9b86a; }
+.theme-moonlit .card-label::before, .theme-moonlit .card-label::after { background: rgba(217,184,106,.6); }
+.theme-moonlit .card-venue { font-family: inherit; font-style: italic; text-transform: none; letter-spacing: 0; color: #f3d98f; font-size: 23px; }
+.theme-moonlit .card-address { color: #e9dfc2; opacity: 1; margin-bottom: 12px; }
+.theme-moonlit .attire-title { color: #f3d98f; }
+.theme-moonlit .attire-text { color: #e9dfc2; }
+.theme-moonlit .card-rsvp, .theme-moonlit .card-rsvp a { color: #f4ecd6; }
+.theme-moonlit .card-rsvp a { border-bottom-color: rgba(217,184,106,.6); }
+.theme-moonlit .card-actions { margin: 14px 0 4px; }
+.theme-moonlit .btn { background: linear-gradient(100deg, #c9973a, #f3d98f, #c9973a); border-color: #e8c766; color: #0b3a28; text-shadow: none; }
+.theme-moonlit .btn.ghost { background: transparent; color: #f3d98f; }
+.card .card-scene.photo.hn-bride.ml-bride { width: 100%; margin: 12px auto 0; }
+.card .card-scene.photo.hn-bride.ml-bride img { -webkit-mask-image: none; mask-image: none; filter: drop-shadow(0 10px 18px rgba(0,0,0,.4)); }
+@container (max-width: 520px) {
+  .card.theme-moonlit { padding: calc(34% + 10px) 13% 0; }
+  .theme-moonlit .card-request { font-size: 15px; }
+  .theme-moonlit .card-date { gap: 6px; }
+  .theme-moonlit .card-date .side { font-size: 10px; letter-spacing: .08em; padding: 8px 0; }
+  .theme-moonlit .card-date .day { font-size: 40px; }
+  .theme-moonlit .card-venue { font-size: 19px; }
+  .theme-moonlit .card-rsvp { font-size: 15px; }
+  .card .card-scene.photo.hn-bride.ml-bride { width: 118%; margin-left: -9%; }
+}
+@media (prefers-reduced-motion: reduce) { .theme-moonlit .glint, .card.theme-moonlit .card-name, .theme-moonlit .card-date .day { animation: none; } }
+.theme-moonlit .ml-tr { width: 66%; }
+.theme-moonlit .ml-bl { width: 50%; }
+.theme-moonlit .ml-br { position: absolute; bottom: 0; right: 0; width: 46%; height: auto; display: block; }
+.theme-moonlit .ml-vine { position: absolute; top: 14%; left: 3.2%; width: 7%; height: auto; display: block; opacity: .9; }
+.theme-moonlit .ml-vine.right { left: auto; right: 3.2%; transform: scaleX(-1); top: 26%; }
+.card.theme-moonlit { padding-top: calc(32% + 10px); }
+.theme-moonlit .ml-bl, .theme-moonlit .ml-br { width: 58%; }
+.card .card-scene.photo.hn-bride.ml-bride { width: 84%; }
+@container (max-width: 520px) { .card .card-scene.photo.hn-bride.ml-bride { width: 104%; margin-left: -2%; } }
+.theme-moonlit .ml-vine { width: 9%; left: 2.4%; }
+.theme-moonlit .ml-vine.right { right: 2.4%; }
+.card.theme-moonlit { padding-top: calc(37% + 10px); }
+@container (max-width: 520px) { .card.theme-moonlit { padding-top: calc(38% + 10px); } }

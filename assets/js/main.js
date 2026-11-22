@@ -1301,7 +1301,112 @@
       "</svg>";
   }
 
-  var DECOR = { soiree: decoSoiree, turmeric: decoTurmeric, henna: decoHenna, haldi: decoHaldi, sangeet: decoSangeet, varmala: decoVarmala, mehendi: decoMehendi, wedding: decoWedding };
+  // Moonlit (Henna Soirée): deep emerald, gold frame, botanical leaves in the corners and a
+  // full moon glowing through the leaves at the top right.
+  function decoMoonlit() {
+    var r = rng(131), i;
+    var greens = ["#1e6b47", "#2b8457", "#145a3a", "#3a9a66", "#0f4a30", "#4aa874"];
+    function g() { return greens[Math.floor(r() * greens.length)]; }
+    // a long tropical leaf with a midrib and side veins
+    function bigLeaf(x, y, len, w, rot, fill, gold) {
+      var s = '<g transform="translate(' + f1(x) + " " + f1(y) + ") rotate(" + f1(rot) + ')">' +
+        '<path d="M0 0 C' + f1(len * .25) + " " + f1(-w) + " " + f1(len * .7) + " " + f1(-w * .85) + " " + f1(len) + " 0 C" +
+        f1(len * .7) + " " + f1(w * .85) + " " + f1(len * .25) + " " + f1(w) + ' 0 0z" fill="' + fill + '"/>' +
+        '<path d="M0 0 L' + f1(len * .96) + ' 0" stroke="' + (gold ? "#d9b86a" : "rgba(255,255,255,.22)") + '" stroke-width="' + (gold ? 1.1 : .8) + '"/>';
+      for (var k = 1; k < 8; k++) {
+        var px = len * k / 8.5, h = w * Math.sin(Math.PI * k / 8.5) * .85;
+        s += '<path d="M' + f1(px) + " 0 Q" + f1(px + len * .05) + " " + f1(-h * .5) + " " + f1(px + len * .09) + " " + f1(-h) +
+          " M" + f1(px) + " 0 Q" + f1(px + len * .05) + " " + f1(h * .5) + " " + f1(px + len * .09) + " " + f1(h) +
+          '" fill="none" stroke="' + (gold ? "rgba(217,184,106,.75)" : "rgba(255,255,255,.14)") + '" stroke-width=".6"/>';
+      }
+      return s + "</g>";
+    }
+    // a palm frond: curved stem with leaflets both sides
+    function frond(x, y, len, rot, fill) {
+      var s = '<g transform="translate(' + f1(x) + " " + f1(y) + ") rotate(" + f1(rot) + ')"><path d="M0 0 Q' + f1(len * .5) + " " + f1(-len * .08) + " " + f1(len) + ' 0" fill="none" stroke="' + fill + '" stroke-width="1.6"/>';
+      for (var k = 2; k < 22; k++) {
+        var t = k / 22, px = len * t, py = -len * .08 * 4 * t * (1 - t), l = len * .34 * Math.sin(Math.PI * t) + 6;
+        s += '<path d="M' + f1(px) + " " + f1(py) + " q" + f1(l * .3) + " " + f1(-l * .45) + " " + f1(l * .55) + " " + f1(-l) + " q" + f1(-l * .12) + " " + f1(l * .5) + " " + f1(-l * .55) + " " + f1(l) + 'z" fill="' + fill + '"/>' +
+          '<path d="M' + f1(px) + " " + f1(py) + " q" + f1(l * .3) + " " + f1(l * .45) + " " + f1(l * .55) + " " + f1(l) + " q" + f1(-l * .12) + " " + f1(-l * .5) + " " + f1(-l * .55) + " " + f1(-l) + 'z" fill="' + fill + '"/>';
+      }
+      return s + "</g>";
+    }
+    // round eucalyptus sprig
+    function sprig(x, y, len, rot) {
+      var s = '<g transform="translate(' + f1(x) + " " + f1(y) + ") rotate(" + f1(rot) + ')"><path d="M0 0 L' + len + ' 0" stroke="#c9a24f" stroke-width=".9"/>';
+      for (var k = 1; k < 7; k++) {
+        var px = len * k / 7, rr = 7 - k * .6;
+        s += '<ellipse cx="' + f1(px) + '" cy="' + f1(-rr) + '" rx="' + f1(rr * .8) + '" ry="' + f1(rr) + '" fill="#6fa98a" stroke="#d9b86a" stroke-width=".5"/>' +
+          '<ellipse cx="' + f1(px + 4) + '" cy="' + f1(rr) + '" rx="' + f1(rr * .8) + '" ry="' + f1(rr) + '" fill="#5b9779" stroke="#d9b86a" stroke-width=".5"/>';
+      }
+      return s + "</g>";
+    }
+    function blossom(x, y, s) { return marigold(x, y, s, "#d6246e", "#f06fa8"); }
+
+    // trailing vine: a wavy stem with paired leaves
+    function vine(x0, y0, len, amp, dir) {
+      var s = "", path = "", k, px, py;
+      for (k = 0; k <= len; k += 6) { px = x0 + Math.sin(k / 70) * amp * dir; py = y0 + k; path += (k ? " L" : "M") + f1(px) + " " + f1(py); }
+      s += '<path d="' + path + '" fill="none" stroke="#c9a24f" stroke-width="1.2" opacity=".8"/>';
+      for (k = 20; k < len; k += 26) {
+        px = x0 + Math.sin(k / 70) * amp * dir; py = y0 + k;
+        s += leaf(px, py, 24 - k / len * 8, 25 + r() * 20, g()) + leaf(px, py, 22 - k / len * 8, 140 + r() * 20, g());
+        if (k % 104 === 72) s += blossom(px, py, 5.5);
+      }
+      return s;
+    }
+
+    // top-right: the full moon, glowing, framed by broad leaves from the corner
+    var tr = '<svg class="ml-tr" viewBox="0 0 320 320" aria-hidden="true"><defs>' +
+      '<radialGradient id="ml-moon" cx=".42" cy=".4"><stop offset="0" stop-color="#fffdf0"/><stop offset=".55" stop-color="#fbefc4"/><stop offset="1" stop-color="#e6cb84"/></radialGradient>' +
+      '<radialGradient id="ml-glow"><stop offset="0" stop-color="#fff4c8" stop-opacity=".6"/><stop offset=".4" stop-color="#f7e3a1" stop-opacity=".2"/><stop offset="1" stop-color="#f7e3a1" stop-opacity="0"/></radialGradient></defs>' +
+      '<circle cx="176" cy="128" r="160" fill="url(#ml-glow)"/>' +
+      '<circle cx="176" cy="128" r="58" fill="url(#ml-moon)"/>' +
+      '<circle cx="158" cy="112" r="9" fill="rgba(200,170,100,.2)"/><circle cx="194" cy="146" r="12" fill="rgba(200,170,100,.15)"/><circle cx="188" cy="102" r="5" fill="rgba(200,170,100,.18)"/>';
+    // back layer: dark leaves behind the moon's upper edge
+    tr += bigLeaf(330, -10, 230, 40, 150, "#0f4a30", false) + bigLeaf(330, 70, 200, 36, 175, "#145a3a", false);
+    // front layer: leaves crossing the moon's edges, leaving most of its face clear
+    tr += bigLeaf(335, 20, 175, 32, 160, "#2b8457", true) +
+      bigLeaf(320, -30, 160, 30, 118, "#1e6b47", true) +
+      bigLeaf(330, 150, 150, 28, 200, "#3a9a66", true) +
+      bigLeaf(250, -20, 120, 22, 95, "#4aa874", false) +
+      bigLeaf(335, 210, 120, 22, 215, "#1e6b47", true) +
+      sprig(320, 92, 110, 172) + sprig(296, -6, 90, 128) +
+      blossom(262, 36, 9) + blossom(278, 54, 7) + blossom(246, 60, 6) + blossom(300, 128, 7);
+    tr += "</svg>";
+
+    // bottom corners: lush clusters rising either side of the bride
+    var bl = '<svg class="ml-bl" viewBox="0 0 320 320" aria-hidden="true">' +
+      bigLeaf(-10, 330, 250, 40, -48, "#0f4a30", false) +
+      bigLeaf(-20, 300, 220, 34, -18, "#145a3a", false) +
+      bigLeaf(-10, 330, 210, 36, -66, "#1e6b47", true) +
+      bigLeaf(-20, 290, 180, 30, -32, "#2b8457", true) +
+      bigLeaf(10, 340, 150, 26, -84, "#3a9a66", true) +
+      sprig(-5, 270, 120, -24) +
+      blossom(70, 248, 9) + blossom(54, 232, 7) + blossom(90, 266, 6) +
+      "</svg>";
+    var br = '<svg class="ml-br" viewBox="0 0 320 320" aria-hidden="true">' +
+      bigLeaf(330, 330, 240, 38, -132, "#0f4a30", false) +
+      bigLeaf(340, 300, 210, 34, -162, "#145a3a", false) +
+      bigLeaf(330, 330, 200, 34, -114, "#1e6b47", true) +
+      bigLeaf(340, 290, 170, 30, -148, "#2b8457", true) +
+      sprig(325, 270, 110, -156) + blossom(254, 252, 8) + blossom(268, 236, 6) +
+      "</svg>";
+    var tl = '<svg class="ml-tl" viewBox="0 0 200 200" aria-hidden="true">' + bigLeaf(-10, -10, 140, 22, 40, "#1e6b47", true) +
+      bigLeaf(-10, 20, 110, 18, 12, "#2b8457", false) + sprig(0, 0, 90, 62) + "</svg>";
+    // vines trailing down both sides
+    var vl = '<svg class="ml-vine" viewBox="0 0 60 1400" aria-hidden="true">' + vine(24, 0, 1150, 12, 1) + "</svg>";
+    var vr = vl.replace('class="ml-vine"', 'class="ml-vine right"');
+
+    var bits = '<span class="ml-frame"></span>';
+    for (i = 0; i < 30; i++) {
+      bits += '<span class="glint" style="left:' + f1(8 + r() * 84) + "%;top:" + f1(6 + r() * 88) + "%;animation-delay:-" + f1(r() * 4) +
+        "s;--s:" + (0.5 + r() * 1).toFixed(2) + '"></span>';
+    }
+    return '<div class="deco" aria-hidden="true">' + bits + vl + vr + tl + br + bl + tr + "</div>";
+  }
+
+  var DECOR = { moonlit: decoMoonlit, soiree: decoSoiree, turmeric: decoTurmeric, henna: decoHenna, haldi: decoHaldi, sangeet: decoSangeet, varmala: decoVarmala, mehendi: decoMehendi, wedding: decoWedding };
 
   // ?fullcard renders every card in full (used to make the downloadable images).
   var FULL = /[?&]fullcard\b/.test(location.search);
