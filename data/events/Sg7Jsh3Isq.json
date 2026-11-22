@@ -1,0 +1,58 @@
+{
+  "id": "sangeet",
+  "order": 3,
+  "title": "Sangeet",
+  "kicker": "An Evening of Music & Dance",
+  "lede": "Both families come together for an evening of song, dance and revelry on the eve of the wedding festivities.",
+  "date": "Monday, 25 January 2027",
+  "time": "6:30 PM",
+  "venue": "Nalban Food Park, Gate No. 2, Saltlake, Sector-IV, Opp. Cognizant Bridge, Kolkata – 700098",
+  "countdownAt": "2027-01-25T18:30:00+05:30",
+  "layout": "card",
+  "card": {
+    "theme": "sangeet",
+    "request": "Join us for an enchanted evening at the",
+    "heading": "Sangeet",
+    "names": [
+      "Seersha",
+      "Siddhant"
+    ],
+    "tagline": "A night dedicated to rhythm, romance, and unforgettable revelry.",
+    "weekday": "Monday",
+    "day": "25",
+    "monthYear": "January 2027",
+    "time": "6:30 PM",
+    "venue": "Nalban Food Park",
+    "address": [
+      "Gate No. 2, Saltlake, Sector-IV",
+      "Opp. Cognizant Bridge, Kolkata – 700098"
+    ],
+    "rsvp": [
+      {
+        "phone": "+1 332 209 7180",
+        "href": "https://wa.me/13322097180",
+        "note": "WhatsApp"
+      },
+      {
+        "phone": "+91 98318 01908",
+        "href": "tel:+919831801908"
+      },
+      {
+        "phone": "+91 98304 47770",
+        "href": "tel:+919830447770"
+      }
+    ],
+    "image": "assets/cards/sangeet-full-Jx5Nw8Ld.jpg",
+    "imageName": "Seersha-Siddhant-Sangeet.jpg",
+    "mapUrl": "https://www.google.com/maps/search/?api=1&query=Nalban+Food+Park+Gate+No+2+Salt+Lake+Sector+V+Kolkata+700098",
+    "headingScript": "Jashn-e-Ishq",
+    "pageHide": [],
+    "attire": [
+      {
+        "label": "Dress Code",
+        "title": "Glitz & Glam",
+        "text": "Bring the sparkle, velvet and glamour."
+      }
+    ]
+  }
+}

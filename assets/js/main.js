@@ -339,7 +339,7 @@
   }
 
   // A falling rose petal (curled heart shape) or a small rosebud, as a tiny SVG.
-  var RED = [["#f2a0a8", "#d9374b", "#b3142c", "#7a0a1c"], ["#f5b3b8", "#e04a5c", "#c01f36", "#860d22"], ["#ec8d97", "#c8233a", "#9e0f26", "#650716"]];
+  var RED = [["#f48fb8", "#d6337a", "#b0175e", "#78093d"], ["#f7a6c6", "#e0508e", "#c2185b", "#860a43"], ["#ee7fae", "#c8236b", "#9c0f4f", "#640733"]];
   function fallingRose(i) {
     var p = RED[i % 3];
     return '<svg viewBox="-13 -13 26 26">' + prettyRose(0, 0, 12, p, i * 37) + "</svg>";
@@ -366,10 +366,10 @@
       ["#ffffff", "#fdf0f2", "#e7a9ba"]
     ];
     var rosePals = [
-      ["#f2a0a8", "#d9374b", "#b3142c", "#7a0a1c"],
-      ["#f5b3b8", "#e04a5c", "#c01f36", "#860d22"],
-      ["#ec8d97", "#c8233a", "#9e0f26", "#650716"],
-      ["#f7c1c5", "#e6606f", "#c42a40", "#8a1426"]
+      ["#f48fb8", "#d6337a", "#b0175e", "#78093d"],
+      ["#f7a6c6", "#e0508e", "#c2185b", "#860a43"],
+      ["#ee7fae", "#c8236b", "#9c0f4f", "#640733"],
+      ["#f9bcd5", "#e66a9f", "#c93a7a", "#8e1a4f"]
     ];
     var greens = pastel ? ["#a9c4a2", "#bcd3b2", "#8fb08a", "#cfe0c6"] : ["#6f9e6a", "#8fb98a", "#4f7f57", "#a7c79a"];
     function pk(a) { return a[Math.floor(r() * a.length)]; }
