@@ -1902,3 +1902,11 @@ body.viewer-open { overflow: hidden; }
 .card.theme-palace.pp-shahi .card-body .card-attire, .card.theme-palace.pp-shahi.full .card-body .card-attire { margin-bottom: .8cqw; }
 .card.theme-palace.pp-shahi.full .card-body .card-address { margin-bottom: .8cqw; }
 .card.theme-palace.pp-shahi .card-body .attire-text { margin-top: 0; }
+/* Shahi Dawat larger; more air between kicker, title and names */
+.card.theme-palace.pp-shahi .card-body .card-title { font-size: 6.2cqw; margin-bottom: 3cqw; }
+.card.theme-palace.pp-shahi .card-body .card-heading-script { margin-bottom: 2.6cqw; }
+.card.theme-palace.pp-shahi .card-body .card-tagline { margin-top: 1.8cqw; font-size: 3.35cqw; line-height: 1.28; }
+.card.theme-palace.pp-shahi .card-body .card-date, .card.theme-palace.pp-shahi.full .card-body .card-date { margin: 1cqw auto .6cqw; }
+.card.theme-palace.pp-shahi .card-body .card-title { letter-spacing: .3em; padding-left: .3em; }
+.card.theme-palace.pp-shahi.full .card-body .card-attire { margin-bottom: .4cqw; }
+.card.theme-palace.pp-shahi.full .card-body .card-address { margin-bottom: .4cqw; }
