@@ -11,13 +11,12 @@
   "layout": "card",
   "card": {
     "theme": "varmala",
-    "request": "We request the honour of your presence at the",
+    "request": "Join us under a canopy of blooms as we exchange garlands!",
     "heading": "Varmala",
     "names": [
       "Seersha",
       "Siddhant"
     ],
-    "tagline": "as two garlands, and two hearts, are exchanged",
     "weekday": "Monday",
     "day": "25",
     "monthYear": "January 2027",
@@ -37,8 +36,17 @@
         "href": "tel:+919830447770"
       }
     ],
-    "image": "assets/cards/varmala-full-Ke7Pz3Ux.jpg",
+    "image": "assets/cards/varmala-pastel-full-Hn6Bp3Rw.jpg",
     "imageName": "Seersha-Siddhant-Varmala.jpg",
-    "mapUrl": "https://www.google.com/maps/search/?api=1&query=Nalban+Food+Park+Gate+No+2+Salt+Lake+Sector+V+Kolkata+700098"
+    "mapUrl": "https://www.google.com/maps/search/?api=1&query=Nalban+Food+Park+Gate+No+2+Salt+Lake+Sector+V+Kolkata+700098",
+    "variant": "pastel",
+    "headingScript": "The Pastel Bagh",
+    "attire": [
+      {
+        "label": "Dress Code",
+        "title": "Pastel",
+        "text": "Blush, Pastels, Lilac, Powder Blue, Peach & Sage green"
+      }
+    ]
   }
 }
