@@ -1491,3 +1491,10 @@ body.viewer-open { overflow: hidden; }
 @container (max-width: 520px) { .card.theme-moonlit { padding-top: calc(36% + 10px); padding-bottom: calc(8% + 18px); } }
 .theme-moonlit .mg-br { width: 22%; }
 .theme-varmala .petal.rosefall { width: 18px; height: 17px; }
+/* Sangeet: Jashn-e-Ishq subtitle and dress code */
+.theme-sangeet .card-heading-script { color: #f9a8d4; font-size: 40px; margin: 2px 0 6px; text-shadow: 0 0 12px rgba(244,114,182,.8); }
+.theme-sangeet .card-attire { margin: 6px auto 12px; }
+.theme-sangeet .card-attire .card-label { color: #f9a8d4; }
+.theme-sangeet .attire-title { color: #f7e3a1; font-size: 22px; font-style: italic; }
+.theme-sangeet .attire-text { color: #f5e8ff; font-size: 16px; }
+@container (max-width: 520px) { .theme-sangeet .card-heading-script { font-size: 32px; } .theme-sangeet .attire-title { font-size: 19px; } .theme-sangeet .attire-text { font-size: 14px; } }

@@ -17,7 +17,7 @@
       "Seersha",
       "Siddhant"
     ],
-    "tagline": "as we dance our way towards new beginnings",
+    "tagline": "A night dedicated to rhythm, romance, and unforgettable revelry.",
     "weekday": "Monday",
     "day": "25",
     "monthYear": "January 2027",
@@ -42,8 +42,17 @@
         "href": "tel:+919830447770"
       }
     ],
-    "image": "assets/cards/sangeet-full-Hp3Xc9Rd.jpg",
+    "image": "assets/cards/sangeet-full-Jx5Nw8Ld.jpg",
     "imageName": "Seersha-Siddhant-Sangeet.jpg",
-    "mapUrl": "https://www.google.com/maps/search/?api=1&query=Nalban+Food+Park+Gate+No+2+Salt+Lake+Sector+V+Kolkata+700098"
+    "mapUrl": "https://www.google.com/maps/search/?api=1&query=Nalban+Food+Park+Gate+No+2+Salt+Lake+Sector+V+Kolkata+700098",
+    "headingScript": "Jashn-e-Ishq",
+    "pageHide": [],
+    "attire": [
+      {
+        "label": "Dress Code",
+        "title": "Glitz & Glam",
+        "text": "Bring the sparkle, velvet and glamour."
+      }
+    ]
   }
 }
