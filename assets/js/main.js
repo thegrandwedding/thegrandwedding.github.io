@@ -49,8 +49,8 @@
   }
 
   /* ---------- rendering ---------- */
-  // Welcome as a painted card (swans, lotus pond, carved arch). Preview with &look=swan.
-  var SWAN = new URLSearchParams(location.search).get("look") === "swan";
+  // Welcome as a painted card (swans, lotus pond, carved arch) — the default Welcome tab.
+  var SWAN = true;
   function shortDate(e) {
     var p = String(e.date || "").replace(",", "").split(" ");   // Sunday 24 January 2027
     var d = p.length >= 3 ? p[1] + " " + p[2].slice(0, 3) : e.date;
