@@ -1887,3 +1887,5 @@ body.viewer-open { overflow: hidden; }
 .card.theme-palace.pp-shahi.full .card-body .card-venue-sub { margin-bottom: .6cqw; }
 .card.theme-palace.pp-shahi.full .card-body .card-address { margin-bottom: 1.2cqw; line-height: 1.25; }
 .card.theme-palace.pp-shahi.full .card-body .card-attire { margin-bottom: 1.2cqw; }
+/* Shahi Dawat: a little larger and lifted away from the script title */
+.card.theme-palace.pp-shahi .card-body .card-title { font-size: 5.2cqw; margin-top: -2.6cqw; margin-bottom: 2.4cqw; }
