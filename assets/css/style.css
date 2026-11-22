@@ -1786,88 +1786,100 @@ body.viewer-open { overflow: hidden; }
 .card.theme-palace .card-body .card-attire { margin-bottom: 1.6cqw; }
 .card.theme-palace .card-body .card-date { margin-top: 2.4cqw; margin-bottom: 2.2cqw; }
 
-/* ---------- Scene cards (Sangeet / Wedding alternatives): one shared stacked layout ---------- */
-.card.theme-scene { border: 0; outline: none; container-type: inline-size; box-shadow: 0 30px 60px -25px rgba(60,30,20,.5); }
-.card.theme-scene.sc-sangeet { aspect-ratio: 1400 / 2959; background: #e9ddd0; padding: 64% 24% 0 !important; }
-.card.theme-scene.sc-wedding { aspect-ratio: 1400 / 3107; background: #7a0f14; padding: 86% 25% 0 !important; }
-.theme-scene .sc-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
-.sc-sangeet .sc-glow { position: absolute; left: 18%; right: 18%; top: 27%; bottom: 7%; border-radius: 50%;
-  background: radial-gradient(ellipse at 50% 45%, rgba(255,250,240,.82) 0%, rgba(255,248,236,.55) 45%, rgba(255,248,236,0) 72%); }
-.sc-wedding .sc-glow { display: none; }
-
-.card.theme-scene .card-body { container-type: inline-size; }
-.theme-scene .card-body > * { margin-left: auto; margin-right: auto; }
-.card.theme-scene .card-body .card-request { font-size: 6.6cqw; line-height: 1.3; font-style: italic; font-weight: 600; margin: 0 0 1.5cqw; }
-.card.theme-scene .card-body .card-title { font-family: var(--script); text-transform: none; letter-spacing: 0; font-weight: 400; font-size: 18cqw; line-height: 1.1; margin: 0; padding: 0 .1em; }
-.card.theme-scene .card-body .card-title .flourish { display: none; }
-.card.theme-scene .card-body .card-heading-sub { margin: .8cqw 0 2.4cqw; }
-.card.theme-scene .card-body .card-heading-sub span { display: inline-flex; align-items: center; gap: 2.5cqw; font-family: var(--caps); font-size: 5.6cqw; letter-spacing: .3em; text-transform: uppercase; font-weight: 600; }
-.card.theme-scene .card-body .card-heading-sub span::before, .card.theme-scene .card-body .card-heading-sub span::after { content: ""; width: 7cqw; height: 1px; background: currentColor; opacity: .7; }
-.card.theme-scene .card-body .card-name, .card.theme-scene .card-body .card-amp { display: inline; width: auto; margin: 0; padding: 0; font-family: var(--caps); font-size: 7.4cqw; letter-spacing: .08em; font-weight: 600; line-height: 1.3; }
-.card.theme-scene .card-body .card-amp { padding: 0 .3em; }
-.card.theme-scene .card-body .card-date { display: flex; flex-direction: column; align-items: center; gap: 0; margin: 4.5cqw auto 3.6cqw; }
-.card.theme-scene .card-body .card-date .side { border: 0; padding: 0; font-family: var(--caps); font-size: 5.6cqw; letter-spacing: .22em; font-weight: 600; white-space: nowrap; }
-.card.theme-scene .card-body .card-date .side:first-child { order: 0; }
-.card.theme-scene .card-body .card-date .day { order: 1; font-size: 20cqw; line-height: 1.05; font-weight: 500; margin: .6cqw 0; }
-.card.theme-scene .card-body .card-date .day small { font-size: 5cqw; letter-spacing: .26em; margin-top: 1.2cqw; font-weight: 600; white-space: nowrap; }
-.card.theme-scene .card-body .card-date .side:last-child { order: 2; margin-top: 1.4cqw; }
-.card.theme-scene .card-body .card-label { font-size: 4.6cqw; letter-spacing: .3em; font-weight: 600; margin: 0 0 1cqw; gap: 2.4cqw; }
-.card.theme-scene .card-body .card-label::before, .card.theme-scene .card-body .card-label::after { width: 6cqw; background: currentColor; opacity: .6; }
-.card.theme-scene .card-body .card-venue { font-family: var(--caps); font-size: 7.4cqw; letter-spacing: .06em; font-weight: 600; margin: 0; line-height: 1.25; }
-.card.theme-scene .card-body .card-address { font-size: 5.8cqw; line-height: 1.35; margin: .6cqw 0 3.6cqw; font-weight: 600; opacity: 1; }
-.card.theme-scene .card-body .card-attire { margin: 0 auto 3.6cqw; max-width: none; }
-.card.theme-scene .card-body .attire-title { font-size: 7.6cqw; font-style: italic; font-weight: 600; line-height: 1.2; }
-.card.theme-scene .card-body .attire-text { font-size: 5.8cqw; line-height: 1.35; margin: .4cqw 0 0; font-weight: 600; }
-.card.theme-scene .card-body .card-rsvp { font-size: 6.2cqw; line-height: 1.5; font-weight: 600; }
-.card.theme-scene.full .card-actions { display: none; }
 
 /* Sangeet palette: rose, gold and deep plum-brown on champagne */
-.sc-sangeet .card-body { color: #4a2a30; text-shadow: 0 0 6px rgba(255,250,242,.95), 0 0 2px rgba(255,250,242,.9); }
+/* Wedding palette: gold and ivory on red velvet */
+/* Wedding scene: start below the arch's point; keep the first line narrow */
+/* Reception scene: sage, rose and gold on blush */
+/* ---------- Scene cards (Sangeet / Wedding / Reception alternatives) ----------
+   The painting is the backdrop; a large arch-topped panel in its colours carries the text. */
+.card.theme-scene { aspect-ratio: 1240 / 2000; border: 0; outline: none; container-type: inline-size;
+  padding: 30% 14% 10% !important; box-shadow: 0 30px 60px -25px rgba(60,30,20,.5); }
+.theme-scene .sc-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
+.theme-scene .sc-panel { position: absolute; left: 7%; right: 7%; top: 11%; bottom: 3.5%;
+  border-radius: 50% 50% 6px 6px / 12% 12% 6px 6px; border: 1.5px solid var(--sc-line); }
+.theme-scene .sc-panel::after { content: ""; position: absolute; inset: 7px; border-radius: inherit; border: 1px solid var(--sc-line); opacity: .7; }
+.sc-sangeet { --sc-line: #c9a46a; background: #e9ddd0; }
+.sc-sangeet .sc-panel { background: rgba(255,250,243,.9); box-shadow: 0 0 40px rgba(255,248,236,.8); }
+.sc-wedding { --sc-line: #e2c070; background: #7a0f14; }
+.sc-wedding .sc-panel { background: linear-gradient(180deg, rgba(122,10,22,.96), rgba(98,6,16,.96)); box-shadow: 0 0 0 3px rgba(226,192,112,.35), 0 10px 40px rgba(30,0,4,.6); }
+.sc-reception { --sc-line: #c9a46a; background: #efd9c8; }
+.sc-reception .sc-panel { background: rgba(253,244,236,.9); box-shadow: 0 0 40px rgba(253,244,236,.7); }
+
+.card.theme-scene .card-body { container-type: inline-size; text-shadow: none; }
+.theme-scene .card-body > * { margin-left: auto; margin-right: auto; }
+.card.theme-scene .card-body .card-request { font-size: calc(var(--k) * 5.6cqw); line-height: 1.3; font-style: italic; font-weight: 600; margin: 0 auto 1cqw; max-width: 92%; }
+.card.theme-scene .card-body .card-title { font-family: var(--script); text-transform: none; letter-spacing: 0; font-weight: 400; font-size: calc(var(--k) * 15cqw); line-height: 1.12; margin: 0; padding: 0 .1em; }
+.card.theme-scene .card-body .card-title .flourish { display: none; }
+.card.theme-scene .card-body .card-heading-sub { margin: .6cqw 0 2cqw; }
+.card.theme-scene .card-body .card-heading-sub span { display: inline-flex; align-items: center; gap: 2.4cqw; font-family: var(--caps); font-size: calc(var(--k) * 4.6cqw); letter-spacing: .3em; text-transform: uppercase; font-weight: 600; }
+.card.theme-scene .card-body .card-heading-sub span::before, .card.theme-scene .card-body .card-heading-sub span::after { content: ""; width: 6cqw; height: 1px; background: currentColor; opacity: .7; }
+.card.theme-scene .card-body .card-name, .card.theme-scene .card-body .card-amp { display: inline; width: auto; margin: 0; padding: 0; font-family: var(--caps); font-size: calc(var(--k) * 6.4cqw); letter-spacing: .08em; font-weight: 600; line-height: 1.3; }
+.card.theme-scene .card-body .card-amp { padding: 0 .3em; }
+.card.theme-scene .card-body .card-date { display: grid; grid-template-columns: minmax(0,1fr) auto minmax(0,1fr); align-items: center; gap: 3cqw; margin: 3.6cqw auto 3cqw; }
+.card.theme-scene .card-body .card-date .side { order: 0; margin: 0; font-family: var(--caps); font-size: calc(var(--k) * 4.6cqw); letter-spacing: .14em; font-weight: 600; white-space: nowrap; border-top: 1px solid var(--sc-line); border-bottom: 1px solid var(--sc-line); padding: 1.8cqw 0; }
+.card.theme-scene .card-body .card-date .day { order: 0; font-size: calc(var(--k) * 14cqw); line-height: 1; font-weight: 500; margin: 0; }
+.card.theme-scene .card-body .card-date .day small { font-size: calc(var(--k) * 3.6cqw); letter-spacing: .24em; margin-top: 1cqw; font-weight: 600; white-space: nowrap; }
+.card.theme-scene .card-body .card-label { font-size: calc(var(--k) * 3.8cqw); letter-spacing: .3em; font-weight: 600; margin: 0 0 .6cqw; gap: 2.4cqw; }
+.card.theme-scene .card-body .card-label::before, .card.theme-scene .card-body .card-label::after { width: 6cqw; background: var(--sc-line); opacity: 1; }
+.card.theme-scene .card-body .card-venue { font-family: var(--caps); font-size: calc(var(--k) * 6.4cqw); letter-spacing: .06em; font-weight: 600; margin: 0; line-height: 1.25; }
+.card.theme-scene .card-body .card-venue-sub { font-family: inherit; font-size: calc(var(--k) * 5cqw); font-weight: 600; font-style: italic; text-transform: none; letter-spacing: 0; margin: .3cqw 0 0; }
+.card.theme-scene .card-body .card-address { font-size: calc(var(--k) * 5cqw); line-height: 1.3; margin: .3cqw 0 0; font-weight: 600; opacity: 1; }
+.card.theme-scene .card-body .card-attire { margin: 2.6cqw auto 0; max-width: none; }
+.card.theme-scene .card-body .card-attire .card-label { margin-top: 0; }
+.card.theme-scene .card-body .attire-title { font-size: calc(var(--k) * 6cqw); font-style: italic; font-weight: 600; line-height: 1.2; }
+.card.theme-scene .card-body .attire-text { font-size: calc(var(--k) * 4.8cqw); line-height: 1.3; margin: .3cqw 0 0; font-weight: 600; }
+.card.theme-scene .card-body .card-rsvp { font-size: calc(var(--k) * 5.2cqw); line-height: 1.45; font-weight: 600; margin-top: 0; }
+.card.theme-scene .card-body > .card-label:not(:first-child) { margin-top: 2.6cqw; }
+.card.theme-scene .card-body .card-rsvp a.wa-icon svg { width: 1em; height: 1em; }
+.card.theme-scene.full .card-actions { display: none; }
+
+/* Sangeet palette */
+.sc-sangeet .card-body { color: #4a2a30; }
 .sc-sangeet .card-body .card-request { color: #6b3a48; }
 .sc-sangeet .card-body .card-title { color: #8a2a52; }
 .sc-sangeet .card-body .card-heading-sub span, .sc-sangeet .card-body .card-label { color: #9a6a1c; }
-.sc-sangeet .card-body .card-name, .sc-sangeet .card-body .card-amp { color: #4a2a30; }
-.sc-sangeet .card-body .card-amp { color: #8a2a52; }
-.sc-sangeet .card-body .card-date .side, .sc-sangeet .card-body .card-date .day small { color: #4a2a30; }
-.sc-sangeet .card-body .card-date .day { color: #9a6a1c; }
-.sc-sangeet .card-body .card-venue, .sc-sangeet .card-body .attire-title { color: #8a2a52; }
+.sc-sangeet .card-body .card-name, .sc-sangeet .card-body .card-date .side, .sc-sangeet .card-body .card-date .day small,
 .sc-sangeet .card-body .card-address, .sc-sangeet .card-body .attire-text { color: #4a2a30; }
+.sc-sangeet .card-body .card-amp, .sc-sangeet .card-body .card-venue, .sc-sangeet .card-body .attire-title { color: #8a2a52; }
+.sc-sangeet .card-body .card-date .day { color: #9a6a1c; }
 .sc-sangeet .card-body .card-rsvp, .sc-sangeet .card-body .card-rsvp a { color: #3a2026; border-bottom-color: #c9a46a; }
-/* Wedding palette: gold and ivory on red velvet */
-.sc-wedding .card-body { color: #fbeee0; text-shadow: 0 1px 3px rgba(40,0,4,.7); }
+/* Wedding palette */
+.sc-wedding .card-body { color: #fbeee0; }
 .sc-wedding .card-body .card-request { color: #f6e3c6; }
-.sc-wedding .card-body .card-title { background: linear-gradient(100deg, #e9c46a 0%, #fff0c2 35%, #d4a84a 60%, #f7e3a1 100%); -webkit-background-clip: text; background-clip: text; color: transparent; text-shadow: none; filter: drop-shadow(0 2px 2px rgba(40,0,4,.6)); }
-.sc-wedding .card-body .card-heading-sub span, .sc-wedding .card-body .card-label { color: #e8c766; }
-.sc-wedding .card-body .card-name { color: #fbeee0; }
-.sc-wedding .card-body .card-amp { color: #e8c766; }
-.sc-wedding .card-body .card-date .side, .sc-wedding .card-body .card-date .day small { color: #fbeee0; }
-.sc-wedding .card-body .card-date .day { color: #f3d98f; }
-.sc-wedding .card-body .card-venue { color: #f3d98f; }
+.sc-wedding .card-body .card-title { background: linear-gradient(100deg, #e9c46a 0%, #fff0c2 35%, #d4a84a 60%, #f7e3a1 100%); -webkit-background-clip: text; background-clip: text; color: transparent; filter: none; }
+.sc-wedding .card-body .card-heading-sub span, .sc-wedding .card-body .card-label, .sc-wedding .card-body .card-amp { color: #e8c766; }
+.sc-wedding .card-body .card-name, .sc-wedding .card-body .card-date .side, .sc-wedding .card-body .card-date .day small,
 .sc-wedding .card-body .card-address { color: #fbeee0; }
+.sc-wedding .card-body .card-date .day, .sc-wedding .card-body .card-venue { color: #f3d98f; }
 .sc-wedding .card-body .card-rsvp, .sc-wedding .card-body .card-rsvp a { color: #fbeee0; border-bottom-color: rgba(232,199,102,.6); }
-.sc-wedding ~ .card-actions.below .btn, .card-actions.below .btn { }
-/* Wedding scene: start below the arch's point; keep the first line narrow */
-.card.theme-scene.sc-wedding { padding-top: 92% !important; }
-.sc-wedding .card-body .card-request { max-width: 78%; }
-/* Reception scene: sage, rose and gold on blush */
-.card.theme-scene.sc-reception { aspect-ratio: 1400 / 2841; background: #efd9c8; padding: 80% 23% 0 !important; }
-.sc-reception .sc-glow { position: absolute; left: 22%; right: 22%; top: 36%; bottom: 12%; border-radius: 50%;
-  background: radial-gradient(ellipse at 50% 45%, rgba(255,246,236,.6) 0%, rgba(255,246,236,.3) 50%, rgba(255,246,236,0) 75%); }
-.sc-reception .card-body { color: #3d4a33; text-shadow: 0 0 6px rgba(255,246,236,.95), 0 0 2px rgba(255,246,236,.9); }
-.sc-reception .card-body .card-request { color: #4e5c40; max-width: 92%; }
-.sc-reception .card-body .card-title { color: #a33a4a; }
+/* Reception palette */
+.sc-reception .card-body { color: #3d4a33; }
+.sc-reception .card-body .card-request { color: #4e5c40; }
+.sc-reception .card-body .card-title, .sc-reception .card-body .card-amp, .sc-reception .card-body .card-venue { color: #a33a4a; }
 .sc-reception .card-body .card-heading-sub span, .sc-reception .card-body .card-label { color: #8a6418; }
-.sc-reception .card-body .card-name { color: #3d4a33; }
-.sc-reception .card-body .card-amp { color: #a33a4a; }
-.sc-reception .card-body .card-date .side, .sc-reception .card-body .card-date .day small { color: #3d4a33; }
+.sc-reception .card-body .card-name, .sc-reception .card-body .card-date .side, .sc-reception .card-body .card-date .day small,
+.sc-reception .card-body .card-venue-sub { color: #3d4a33; }
 .sc-reception .card-body .card-date .day { color: #8a6418; }
-.sc-reception .card-body .card-venue { color: #a33a4a; }
-.sc-reception .card-body .card-venue-sub { font-family: inherit; font-size: 5.8cqw; font-weight: 600; font-style: italic; text-transform: none; letter-spacing: 0; color: #3d4a33; margin: .4cqw 0 3.4cqw; }
 .sc-reception .card-body .card-rsvp, .sc-reception .card-body .card-rsvp a { color: #2e3a26; border-bottom-color: #c9a46a; }
-.card.theme-scene .card-body .card-rsvp a.wa-icon svg { width: 1em; height: 1em; }
-/* Scene cards, zoomed in: the text column fills ~70-78% of the card width */
-.card.theme-scene.sc-sangeet { aspect-ratio: 1300 / 3533; padding: 73.4% 13% 0 !important; }
-.sc-sangeet .sc-glow { left: 6%; right: 6%; top: 23%; bottom: 3%; }
-.card.theme-scene.sc-wedding { aspect-ratio: 1300 / 3561; padding: 95% 11% 0 !important; }
-.card.theme-scene.sc-reception { aspect-ratio: 1300 / 3471; padding: 105% 14.5% 0 !important; }
-.sc-reception .sc-glow { left: 10%; right: 10%; }
+
+/* fill the panel: per-card text scale, sections spread evenly */
+.sc-sangeet { --k: 1.08; } .sc-wedding { --k: 1.2; } .sc-reception { --k: 1.24; }
+.card.theme-scene { display: flex; flex-direction: column; }
+.card.theme-scene .card-body { flex: 1; display: flex; flex-direction: column; justify-content: space-evenly; align-items: center; }
+.card.theme-scene .card-body > * { flex: none; margin-top: 0; margin-bottom: 0; }
+.card.theme-scene .card-body .card-date { width: 100%; }
+.card.theme-scene .card-body > .card-label:not(:first-child) { margin-top: 0; }
+.card.theme-scene .card-body .card-attire { margin: 0 auto; }
+.card.theme-scene .card-body .card-heading-sub { margin: 0; }
+.card.theme-scene .card-names { text-align: center; }
+.theme-scene .sc-panel { left: 8%; right: 8%; top: 12%; bottom: 4.5%; }
+.sc-sangeet .sc-panel { background: rgba(255,250,243,.84); }
+.sc-reception .sc-panel { background: rgba(253,244,236,.84); }
+.card.theme-scene { padding: 31% 14% 10% !important; }
+.sc-wedding .card-body .card-date .side { letter-spacing: .08em; }
+.card.theme-scene .card-body .card-date { gap: 4cqw; }
+.sc-sangeet .card-body .card-attire .card-label { margin-bottom: .6cqw; }
+.sc-sangeet { --k: 1.04; }
+.sc-wedding .card-body .card-date .side:first-child { font-size: calc(var(--k) * 3.8cqw); letter-spacing: .04em; }
+.sc-wedding .card-body .card-date { gap: 3cqw; }

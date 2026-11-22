@@ -1504,7 +1504,7 @@
   // Scene cards (Sangeet / Wedding alternatives): a supplied painting is the whole card and the
   // text sits in its open centre, in one shared stacked layout.
   function decoScene(c) {
-    return '<div class="deco" aria-hidden="true"><img class="sc-bg" src="' + esc(c.bg) + '" alt=""><span class="sc-glow"></span></div>';
+    return '<div class="deco" aria-hidden="true"><img class="sc-bg" src="' + esc(c.bg) + '" alt=""><span class="sc-panel"></span></div>';
   }
 
   var DECOR = { scene: decoScene, palace: decoPalace, bagh: decoBagh, holud: decoHolud, moonlit: decoMoonlit, soiree: decoSoiree, turmeric: decoTurmeric, henna: decoHenna, haldi: decoHaldi, sangeet: decoSangeet, varmala: decoVarmala, mehendi: decoMehendi, wedding: decoWedding };
@@ -1573,7 +1573,7 @@
       (c.invocation ? '<p class="card-invocation">' + esc(c.invocation) + "</p>" : "") +
       (c.hosts ? '<p class="card-hosts">' + esc(c.hosts) + "</p>" : "") +
       (c.request ? '<p class="card-request' + part("request") + '">' + esc(c.request) + "</p>" : "") +
-      (c.nameFirst ? namesHtml + titleHtml : titleHtml + namesHtml) +
+      (c.nameFirst ? namesHtml + titleHtml : titleHtml + (c.theme === "scene" ? '<div class="card-names">' + namesHtml + "</div>" : namesHtml)) +
       (c.afterNames ? '<p class="card-after-names">' + esc(c.afterNames) + "</p>" : "") +
       (c.tagline ? '<p class="card-tagline' + part("tagline") + '">' + esc(c.tagline) + "</p>" : "") +
       (c.scenePosition !== "bottom" ? scene : "") +
