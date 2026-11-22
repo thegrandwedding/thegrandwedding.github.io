@@ -1482,3 +1482,5 @@ body.viewer-open { overflow: hidden; }
 .theme-moonlit .mg-br { width: 34%; }
 .theme-moonlit .mg-tl { width: 41%; }
 @container (max-width: 520px) { .theme-moonlit .mg-tl { width: 42%; } }
+.theme-varmala .petal.rosefall { background: none; box-shadow: none; border-radius: 0; width: 16px; height: 15px; }
+.theme-varmala .petal.rosefall svg { width: 100%; height: 100%; display: block; overflow: visible; }

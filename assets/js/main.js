@@ -330,6 +330,13 @@
       ["#fbc4cf", "#f59fb2", "#c4506f"],
       ["#ffffff", "#fdf0f2", "#e7a9ba"]
     ];
+    var rosePals = [
+      ["#fbe1e8", "#f6c6d4", "#eeaac0", "#c8708e"],  // blush
+      ["#efe3f8", "#ddc9f0", "#c7aee6", "#8f6fb8"],  // lilac
+      ["#e6f0fa", "#cfe0f2", "#b5cde8", "#7896bd"],  // powder blue
+      ["#feeadb", "#fbd3bb", "#f5ba98", "#cc8a66"],  // peach
+      ["#fffaf3", "#f7efe2", "#ecdfca", "#bba78a"]   // ivory
+    ];
     var greens = pastel ? ["#a9c4a2", "#bcd3b2", "#8fb08a", "#cfe0c6"] : ["#6f9e6a", "#8fb98a", "#4f7f57", "#a7c79a"];
     function pk(a) { return a[Math.floor(r() * a.length)]; }
 
@@ -383,8 +390,9 @@
         if (j % 4 === 3) {
           svg += '<circle cx="' + (x - 2) + '" cy="' + f1(y) + '" r="2.5" fill="#fffaf0"/><circle cx="' + (x + 2) + '" cy="' + f1(y + 2) + '" r="2.3" fill="#fffdf7"/>';
         } else {
+          if (pastel) { svg += rose(x, y, 5.4, pk(rosePals)); } else {
           var pl = pk(pals);
-          svg += '<circle cx="' + x + '" cy="' + f1(y) + '" r="4.6" fill="' + pl[1] + '" stroke="' + pl[0] + '" stroke-width="2.2" stroke-dasharray="1.5 1.2"/>';
+          svg += '<circle cx="' + x + '" cy="' + f1(y) + '" r="4.6" fill="' + pl[1] + '" stroke="' + pl[0] + '" stroke-width="2.2" stroke-dasharray="1.5 1.2"/>'; }
         }
       }
       svg += '<path d="M' + x + " " + (s[2] - 2) + ' q -5 9 0 15 q 5 -6 0 -15z" fill="#e8c766"/>';
@@ -403,7 +411,7 @@
         t = r();
         x = ox + sx * (8 + r() * (190 - t * 150));
         y = 10 + t * 150;
-        svg += peony(x, y, 15 + r() * 13 - t * 6, pk(pals), r() * 360);
+        svg += pastel ? rose(x, y, 14 + r() * 11 - t * 5, pk(rosePals)) : peony(x, y, 15 + r() * 13 - t * 6, pk(pals), r() * 360);
       }
       for (i = 0; i < 26; i++) { // buds and baby's breath
         t = r();
@@ -435,8 +443,16 @@
     }
     var pcols = ["#f9c5d4", "#f2a2bb", "#fbe0e7", "#e98aa8", "#fff4f4"];
     for (i = 0; i < 34; i++) {
+      if (pastel) {
+        var rp = rosePals[i % 5];
+        bits += '<span class="petal rosefall" style="left:' + f1(r() * 100) + "%;animation-delay:-" + f1(r() * 16) +
+          "s;animation-duration:" + f1(10 + r() * 9) + "s;--s:" + (0.6 + r() * 0.7).toFixed(2) + '">' +
+          (i % 3 === 0 ? '<svg viewBox="-12 -12 24 24">' + rose(0, 0, 10, rp) + "</svg>"
+                       : '<svg viewBox="0 0 20 18"><path d="M10 17 C2 12 0 6 3 2.5 C6 -.5 9 1.5 10 4 C11 1.5 14 -.5 17 2.5 C20 6 18 12 10 17z" fill="' + rp[1] + '" stroke="' + rp[3] + '" stroke-width=".7"/><path d="M10 15 C6 11 5 7 6.5 5" fill="none" stroke="' + rp[2] + '" stroke-width=".8"/></svg>') + "</span>";
+      } else {
       bits += '<span class="petal" style="left:' + f1(r() * 100) + "%;animation-delay:-" + f1(r() * 16) +
         "s;animation-duration:" + f1(9 + r() * 9) + "s;--s:" + (0.55 + r() * 0.8).toFixed(2) + ";--c:" + pcols[i % 5] + '"></span>';
+      }
     }
     return '<div class="deco" aria-hidden="true">' + bits + svg + bot + "</div>";
   }
