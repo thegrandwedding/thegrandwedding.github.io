@@ -1389,15 +1389,7 @@
     tl += "</svg>";
 
     // top-right: the moon glowing behind fine gold sprigs, with leaves crossing its face
-    var tr = '<svg class="mg-tr" viewBox="0 0 300 300" aria-hidden="true">' + defs.replace(/mg-/g, "mh-") +
-      '<filter id="mh-soft" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="2.2"/></filter>' +
-      '<radialGradient id="mh-halo"><stop offset=".3" stop-color="#eef3ef" stop-opacity=".34"/><stop offset=".55" stop-color="#dfe9e2" stop-opacity=".12"/><stop offset="1" stop-color="#dfe9e2" stop-opacity="0"/></radialGradient>' +
-      '<radialGradient id="mh-disc" cx=".45" cy=".42"><stop offset="0" stop-color="#e9ece0"/><stop offset=".7" stop-color="#cfd6c6"/><stop offset="1" stop-color="#b9c4b2"/></radialGradient>' +
-      // wide soft halo of white moonlight, then a dimmer, slightly blurred disc
-      '<circle cx="182" cy="112" r="170" fill="url(#mh-halo)"/>' +
-      '<circle cx="182" cy="112" r="84" fill="rgba(240,246,240,.10)" filter="url(#mh-soft)"/>' +
-      '<circle cx="182" cy="112" r="50" fill="url(#mh-disc)" opacity=".78" filter="url(#mh-soft)"/>' +
-      '<circle cx="168" cy="99" r="8" fill="rgba(120,140,120,.18)"/><circle cx="196" cy="128" r="10" fill="rgba(120,140,120,.14)"/><circle cx="190" cy="96" r="4" fill="rgba(120,140,120,.16)"/>';
+    var tr = '<svg class="mg-tr" viewBox="0 0 300 300" aria-hidden="true">' + defs.replace(/mg-/g, "mh-");
     tr += berries(310, 20, 150, 160, 9).replace(/#c9a24f/g, "#d8bd7e") + berries(300, -10, 130, 132, 7) + berries(310, 76, 130, 186, 7) +
       branch(312, -6, 236, 70, 120, 92, 7, 40, 3).replace(/mg-/g, "mh-") +
       branch(312, 150, 250, 150, 196, 196, 4, 34, 2).replace(/mg-/g, "mh-") + berries(236, -10, 110, 112, 6);
