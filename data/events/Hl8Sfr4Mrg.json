@@ -1,0 +1,56 @@
+{
+  "id": "haldi",
+  "order": 4,
+  "title": "Haldi",
+  "kicker": "Gaye Holud",
+  "lede": "A morning blessing of turmeric, applied by loved ones to bring radiance and good fortune to the bride and groom.",
+  "date": "Wednesday, 27 January 2027",
+  "time": "10:30 AM",
+  "venue": "Orchid Banquet, 11A/1J East Topsia Road, Kolkata – 700046",
+  "countdownAt": "2027-01-27T10:30:00+05:30",
+  "layout": "card",
+  "card": {
+    "theme": "palace",
+    "request": "Join us to celebrate our",
+    "heading": "Gaye Holud",
+    "names": [
+      "Seersha",
+      "Siddhant"
+    ],
+    "weekday": "Wednesday",
+    "day": "27",
+    "monthYear": "January 2027",
+    "time": "10:30 AM",
+    "venue": "Orchid Banquet",
+    "address": [
+      "11A/1J, East Topsia Road",
+      "Kolkata – 700046"
+    ],
+    "mapUrl": "https://www.google.com/maps/search/?api=1&query=Orchid+Banquet+11A%2F1J+East+Topsia+Road+Kolkata+700046",
+    "rsvp": [
+      {
+        "phone": "+91 98318 01908",
+        "href": "tel:+919831801908"
+      },
+      {
+        "phone": "+91 98304 47770",
+        "href": "tel:+919830447770"
+      }
+    ],
+    "image": "assets/cards/haldi-saffron-full-Wk3Ny7.jpg",
+    "imageName": "Seersha-Siddhant-Haldi.jpg",
+    "pageHide": [
+      "address"
+    ],
+    "headingScript": "— a marigold affair —",
+    "attire": [
+      {
+        "label": "Apparel",
+        "text": "Hues of Marigold, Mustard & Sun-Kissed Yellow"
+      }
+    ],
+    "tagline": "Join us for showers of marigold and merriment as we drench the bride and groom-to-be in turmeric, blessings, and sunlit laughter.",
+    "variant": "pp pp-saffron",
+    "bg": "assets/cards/haldi-saffron-bg-Mr5Gx2.webp"
+  }
+}
