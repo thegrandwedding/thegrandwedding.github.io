@@ -1091,7 +1091,7 @@
 
   // Henna (Mehendi): cream card dressed with the marigold toran and strands from the printed card.
   function decoHenna() {
-    return '<div class="deco" aria-hidden="true"><img class="hn-toran" src="assets/cards/mehendi-toran-Hc5Le2.webp" alt="">' +
+    return '<div class="deco" aria-hidden="true"><span class="hn-damask"></span><span class="hn-frame"></span><img class="hn-toran" src="assets/cards/mehendi-toran-Hc5Le2.webp" alt="">' +
       '<img class="hn-strands" src="assets/cards/mehendi-strands-Hc5Le2.webp" alt="">' +
       '<img class="hn-strands right" src="assets/cards/mehendi-strands-Hc5Le2.webp" alt=""></div>';
   }
@@ -1298,7 +1298,7 @@
     }
 
     return '<section class="panel" data-panel="' + esc(e.id) + '" role="tabpanel" hidden>' +
-      '<article class="card' + (theme ? " theme-" + theme : "") + (FULL ? " full" : "") + (c.centered ? " centered" : "") + (scene && c.scenePosition !== "bottom" ? " scene-mid" : "") + '">' +
+      '<article class="card' + (theme ? " theme-" + theme : "") + (FULL ? " full" : "") + (c.centered ? " centered" : "") + (c.variant ? " " + esc(c.variant) : "") + (scene && c.scenePosition !== "bottom" ? " scene-mid" : "") + '">' +
       (theme ? DECOR[theme]() : "") +
       '<div class="card-body">' +
       (theme && EMBLEMS[theme] ? '<div class="card-emblem">' + EMBLEMS[theme]() + "</div>" : "") +

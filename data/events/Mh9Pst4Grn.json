@@ -1,0 +1,53 @@
+{
+  "id": "mehendi",
+  "order": 1,
+  "title": "Mehendi",
+  "kicker": "The First Celebration",
+  "lede": "An evening of henna, music and laughter, as intricate patterns are drawn upon the bride’s hands in keeping with time-honoured tradition.",
+  "date": "Sunday, 24 January 2027",
+  "time": "6:30 PM",
+  "venue": "Jal Vayu Vihar Community Hall, Block-LB, Sector-3, Saltlake, Kolkata – 700106",
+  "countdownAt": "2027-01-24T18:30:00+05:30",
+  "layout": "card",
+  "card": {
+    "theme": "henna",
+    "request": "Join us for an evening of henna and music at the",
+    "heading": "Mehendi",
+    "names": [
+      "Seersha"
+    ],
+    "tagline": "as her hands are adorned for the journey ahead",
+    "weekday": "Sunday",
+    "day": "24",
+    "monthYear": "January 2027",
+    "time": "6:30 PM",
+    "venue": "Jal Vayu Vihar Community Hall",
+    "address": [
+      "Block-LB, Sector-3, Saltlake",
+      "Kolkata – 700106"
+    ],
+    "rsvp": [
+      {
+        "phone": "+91 98318 01908",
+        "href": "tel:+919831801908"
+      },
+      {
+        "phone": "+91 98304 47770",
+        "href": "tel:+919830447770"
+      }
+    ],
+    "image": "assets/cards/mehendi-pista-full-Nv2Kc8Ts.jpg",
+    "imageName": "Seersha-Mehendi.jpg",
+    "pdf": "assets/cards/mehendi-Vb6sNa9Tw4.pdf",
+    "pdfName": "Seersha-Mehendi-Invitation.pdf",
+    "imageAlt": "Mehendi invitation for Seersha — Sunday 24 January 2027, 6:30 PM",
+    "headingSub": "of",
+    "sceneImage": "assets/cards/mehendi-bride-cut-Gp5Ws9Lq.webp",
+    "sceneClass": "hn-bride pista-bride",
+    "scenePosition": "bottom",
+    "sceneAlt": "Seersha showing her mehendi",
+    "centered": true,
+    "mapUrl": "https://www.google.com/maps/search/?api=1&query=Jal+Vayu+Vihar+Community+Hall+LB+Block+Sector+3+Salt+Lake+Kolkata+700106",
+    "variant": "pista"
+  }
+}
