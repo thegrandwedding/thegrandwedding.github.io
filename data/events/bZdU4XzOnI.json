@@ -9,8 +9,7 @@
   "venue": "The Meadows, P. C. Chandra Garden",
   "countdownAt": "2027-01-29T18:30:00+05:30",
   "card": {
-    "request": "Smita Haldar & Late Santanu Haldar invite you to the",
-    "heading": "Reception",
+    "heading": "Shahi Dawat",
     "names": [
       "Siddhant",
       "Seersha"
@@ -38,13 +37,24 @@
         "href": "tel:+918420061166"
       }
     ],
-    "image": "assets/cards/reception-paint-full-Tc2Nk8.jpg",
+    "image": "assets/cards/reception-shahi-full-Wn4Hc7.jpg",
     "imageName": "Seersha-Siddhant-Reception.jpg",
     "pdfName": "Seersha-Siddhant-Reception.pdf",
     "theme": "palace",
-    "variant": "pp pp-reception",
+    "variant": "pp pp-reception pp-shahi",
     "bg": "assets/cards/reception-paint-bg-Qm4Bv7.webp",
     "actionsBelow": true,
-    "headingScript": "An evening of celebration"
+    "headingScript": "The Royal Reception",
+    "tagline": "Join us for an evening of timeless grandeur, regal opulence and celebration as we begin a new chapter together. Your presence will add the brightest noor to our royal gathering.",
+    "pageHide": [
+      "address"
+    ],
+    "attire": [
+      {
+        "label": "Dress Code",
+        "title": "Mughal Elegance",
+        "text": "Rich velvets and intricate zardozi"
+      }
+    ]
   }
 }
