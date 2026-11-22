@@ -1526,3 +1526,5 @@ body.viewer-open { overflow: hidden; }
   .airy.theme-turmeric .card-heading-script { font-size: 25px; }
   .airy.theme-turmeric .attire-text { font-size: 15px; }
 }
+.airy.theme-turmeric .card-tagline { max-width: 400px; font-size: 18px; line-height: 1.45; margin: 8px auto 0; color: #8a5326; }
+@container (max-width: 520px) { .airy.theme-turmeric .card-tagline { font-size: 15.5px; } }
