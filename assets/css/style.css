@@ -1476,3 +1476,9 @@ body.viewer-open { overflow: hidden; }
 .pastel.theme-varmala .attire-title { color: #8c1d47; font-size: 21px; }
 .pastel.theme-varmala .attire-text { color: #5e4a5c; }
 @container (max-width: 520px) { .pastel.theme-varmala .card-heading-script { font-size: 30px; } }
+/* Henna Soirée: no bride — a shorter card, text higher */
+.card.theme-moonlit { padding: calc(34% + 10px) 13% calc(14% + 24px) 17%; }
+@container (max-width: 520px) { .card.theme-moonlit { padding: calc(40% + 10px) 12% calc(18% + 20px) 15%; } }
+.theme-moonlit .mg-br { width: 34%; }
+.theme-moonlit .mg-tl { width: 41%; }
+@container (max-width: 520px) { .theme-moonlit .mg-tl { width: 42%; } }
