@@ -35,17 +35,20 @@
         "href": "tel:+919830447770"
       }
     ],
-    "image": "assets/cards/mehendi-moonlit-full-Pw6Yc2Jd.jpg",
+    "image": "assets/cards/mehendi-moonlit-full-Ty4Wp9.jpg",
     "imageName": "Seersha-Mehendi.jpg",
     "imageAlt": "Henna Soirée invitation for Seersha — Sunday 24 January 2027, 6:30 PM",
     "centered": true,
     "mapUrl": "https://www.google.com/maps/search/?api=1&query=Jal+Vayu+Vihar+Community+Hall+LB+Block+Sector+3+Salt+Lake+Kolkata+700106",
     "nameFirst": true,
     "headingScript": "under the Moon",
-    "attire": {
-      "title": "An Evening in Green & Ivory",
-      "text": "It would mean the world to us to see you in green or ivory — we would be truly touched if you dressed the part."
-    },
+    "attire": [
+      {
+        "title": "An Evening in Green & Ivory",
+        "text": "It would mean the world to us to see you in green or ivory — we would be truly touched if you dressed the part.",
+        "label": "Attire Theme"
+      }
+    ],
     "headingIcon": "moon"
   }
 }
