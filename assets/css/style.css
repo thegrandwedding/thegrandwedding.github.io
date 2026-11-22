@@ -2189,3 +2189,6 @@ body.viewer-open { overflow: hidden; }
 .card.theme-palace.pp-saffron .card-body .card-name, .card.theme-palace.pp-saffron .card-body .card-amp { font-size: 7.59cqw; }
 .card.theme-palace.pp-saffron .card-body .card-tagline { font-size: 5.29cqw; }
 .card.theme-palace.pp-saffron { padding: 27% 28% 0 4% !important; }
+/* Haldi saffron: shorter card */
+.card.theme-palace.pp-saffron { aspect-ratio: 1152 / 1761; padding: 21% 28% 0 4% !important; }
+.card.theme-palace.pp-saffron { aspect-ratio: 1152 / 1843; padding: 20% 30% 0 4% !important; }
