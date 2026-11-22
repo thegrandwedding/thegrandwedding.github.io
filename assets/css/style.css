@@ -1945,3 +1945,27 @@ body.viewer-open { overflow: hidden; }
 .card.theme-palace.pp-wedding.pp-titled { padding-top: 26% !important; }
 .card.theme-palace.pp-wedding.pp-titled { padding-top: 29% !important; }
 .card.theme-palace.pp-wedding.pp-titled .card-body .card-title.with-icons { gap: .35em; }
+/* Wedding titled: more air between venue, dress code and R.S.V.P. */
+.card.theme-palace.pp-wedding.pp-titled .card-body .card-date { margin-bottom: 2.6cqw; }
+.card.theme-palace.pp-wedding.pp-titled .card-body .card-venue { margin-bottom: 3.6cqw; }
+.card.theme-palace.pp-wedding.pp-titled.full .card-body .card-venue { margin-bottom: 0; }
+.card.theme-palace.pp-wedding.pp-titled.full .card-body .card-address { margin-bottom: 3.6cqw; }
+.card.theme-palace.pp-wedding.pp-titled .card-body .card-attire { margin: 0 auto 3.6cqw; }
+.card.theme-palace.pp-wedding.pp-titled .card-body .card-label { margin-bottom: 1cqw; }
+.card.theme-palace.pp-wedding.pp-titled .card-body .card-tagline { margin-bottom: .6cqw; }
+/* Wedding titled: smaller panel, more filigree showing */
+.pp-wedding.pp-titled .pp-glow { left: 12%; right: 12%; top: 14.5%; height: 71%; }
+.card.theme-palace.pp-wedding.pp-titled { padding: 30.5% 16% 25% !important; }
+.card.theme-palace.pp-wedding.pp-titled .card-body .card-tagline { max-width: 100%; }
+.pp-wedding.pp-titled .pp-glow { top: 14%; height: 73.5%; left: 11%; right: 11%; }
+.card.theme-palace.pp-wedding.pp-titled { padding: 32% 15.5% 24% !important; }
+.card.theme-palace.pp-wedding.pp-titled .card-body .card-title.with-icons { font-size: 4.6cqw; }
+.card.theme-palace.pp-wedding.pp-titled .card-body .card-tagline { font-size: 4.3cqw; max-width: 100%; }
+.card.theme-palace.pp-wedding.pp-titled .card-body .card-rsvp { font-size: 4.3cqw; }
+.card.theme-palace.pp-wedding.pp-titled .card-body .card-venue { margin-bottom: 3cqw; }
+.card.theme-palace.pp-wedding.pp-titled .card-body .card-attire { margin-bottom: 3cqw; }
+.card.theme-palace.pp-wedding.pp-titled.full .card-body .card-address { margin-bottom: 3cqw; }
+.card.theme-palace.pp-wedding.pp-titled .card-body .card-rsvp { font-size: 4.3cqw !important; }
+.card.theme-palace.pp-wedding.pp-titled .card-body .card-rsvp,
+.card.theme-palace.pp-wedding.pp-titled .card-body .card-rsvp .rsvp-line,
+.card.theme-palace.pp-wedding.pp-titled .card-body .card-rsvp a { font-size: 4.7cqw !important; }
