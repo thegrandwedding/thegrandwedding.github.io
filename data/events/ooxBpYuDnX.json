@@ -10,7 +10,7 @@
   "countdownAt": "2027-01-25T12:00:00+05:30",
   "layout": "card",
   "card": {
-    "theme": "varmala",
+    "theme": "palace",
     "request": "Join us under a canopy of blooms as we exchange garlands!",
     "heading": "Varmala",
     "names": [
@@ -36,10 +36,9 @@
         "href": "tel:+919830447770"
       }
     ],
-    "image": "assets/cards/varmala-pastel-full-Hn6Bp3Rw.jpg",
+    "image": "assets/cards/varmala-palace-full-Bc9Tn4Ys.jpg",
     "imageName": "Seersha-Siddhant-Varmala.jpg",
     "mapUrl": "https://www.google.com/maps/search/?api=1&query=Nalban+Food+Park+Gate+No+2+Salt+Lake+Sector+V+Kolkata+700098",
-    "variant": "pastel",
     "headingScript": "The Pastel Bagh",
     "attire": [
       {
@@ -47,6 +46,7 @@
         "title": "Pastel",
         "text": "Blush, Pastels, Lilac, Powder Blue, Peach & Sage green"
       }
-    ]
+    ],
+    "actionsBelow": true
   }
 }
