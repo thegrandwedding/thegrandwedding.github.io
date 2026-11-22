@@ -1513,3 +1513,16 @@ body.viewer-open { overflow: hidden; }
 .theme-sangeet .card-request + .card-heading-script + .card-name + .card-amp + .card-name { font-size: clamp(40px, 10.5cqw, 66px); }
 .theme-sangeet.jashn .stage-light { opacity: .45; }
 .theme-sangeet.jashn .stage-floor { opacity: .7; }
+/* Haldi, airy variant: Gaye Holud */
+.airy.theme-turmeric .tm-strands { width: 12%; }
+.card.airy.theme-turmeric.centered { padding-left: 16%; padding-right: 16%; }
+.airy.theme-turmeric .card-title { font-size: min(10cqw, 46px); letter-spacing: .24em; padding-left: .24em; margin-bottom: 0; }
+.airy.theme-turmeric .card-heading-script { color: #c97a08; font-size: 30px; margin: 0 0 10px; }
+.airy.theme-turmeric .card-attire { margin: 10px auto 10px; }
+.airy.theme-turmeric .card-attire .card-label { color: var(--tm-amber); }
+.airy.theme-turmeric .attire-text { color: var(--tm-orange); font-style: italic; font-size: 18px; }
+@container (max-width: 520px) {
+  .card.airy.theme-turmeric.centered { padding-left: 13%; padding-right: 13%; }
+  .airy.theme-turmeric .card-heading-script { font-size: 25px; }
+  .airy.theme-turmeric .attire-text { font-size: 15px; }
+}

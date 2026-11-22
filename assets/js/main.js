@@ -1202,7 +1202,8 @@
 
   // Turmeric (Haldi): a clean pale-yellow card — a mango-leaf toran across the top and
   // strands of yellow marigolds and jasmine down the left side.
-  function decoTurmeric() {
+  function decoTurmeric(c) {
+    var airy = c && c.variant === "airy";
     var r = rng(61), i, j, x, y, s;
     var yel = [["#facc15", "#fde68a"], ["#fbbf24", "#fef08a"], ["#f59e0b", "#fcd34d"], ["#fde047", "#fef9c3"]];
     function pk() { return yel[Math.floor(r() * yel.length)]; }
@@ -1223,7 +1224,7 @@
     top += "</svg>";
     // strands down the left
     s = '<svg class="tm-strands" viewBox="0 0 100 1500" aria-hidden="true">';
-    [[14, 1460], [38, 1200], [62, 960], [86, 720]].forEach(function (st, n) {
+    (airy ? [[22, 1300], [56, 900]] : [[14, 1460], [38, 1200], [62, 960], [86, 720]]).forEach(function (st, n) {
       x = st[0];
       s += '<line x1="' + x + '" y1="0" x2="' + x + '" y2="' + st[1] + '" stroke="#b7791f" stroke-width=".6" opacity=".6"/>';
       for (y = 16, j = n * 2; y < st[1]; y += 18, j++) {
@@ -1239,7 +1240,7 @@
     });
     s += "</svg>";
     var bits = '<span class="tm-glow"></span>';
-    for (i = 0; i < 14; i++) {
+    for (i = 0; i < (airy ? 6 : 14); i++) {
       bits += '<span class="petal" style="left:' + f1(22 + r() * 76) + "%;animation-delay:-" + f1(r() * 18) +
         "s;animation-duration:" + f1(12 + r() * 9) + "s;--s:" + (0.45 + r() * 0.5).toFixed(2) + ";--c:" + ["#fbbf24", "#facc15", "#f59e0b", "#fde047"][i % 4] + '"></span>';
     }
@@ -1511,7 +1512,7 @@
       '<span class="day">' + esc(c.day) + "<small>" + esc(c.monthYear) + "</small></span>" +
       '<span class="side">' + esc(c.time) + "</span></div>" +
       (c.infoColumns ?
-        '<div class="card-info"><div>' + venueBlock + '</div><div>' + rsvpBlock + "</div></div>" + actionsBlock :
+        '<div class="card-info"><div>' + venueBlock + '</div><div>' + rsvpBlock + "</div></div>" + attireBlock + actionsBlock :
         venueBlock + attireBlock + actionsBlock + rsvpBlock) +
       (c.scenePosition === "bottom" ? scene : "") +
       (c.footnote ? '<p class="card-footnote"><span>' + esc(c.footnote) + "</span></p>" : "") +
