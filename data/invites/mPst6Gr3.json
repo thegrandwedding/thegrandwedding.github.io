@@ -1,13 +1,13 @@
 {
-  "group": "TEST: Sangeet, Wedding and Reception alternatives",
+  "group": "TEST: Wedding alternative",
   "greeting": null,
   "families": "data/families-CQyqCz97uv.json",
   "events": [
     "data/events/JnVpDObzwG.json",
-    "data/events/Sg7Jsh3Isq.json",
+    "data/events/PB0QurwEAO.json",
     "data/events/y47d8rIxTp.json",
     "data/events/ooxBpYuDnX.json",
     "data/events/Wd5Scn9Red.json",
-    "data/events/Rc4Scn8Pea.json"
+    "data/events/bZdU4XzOnI.json"
   ]
 }

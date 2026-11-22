@@ -1863,3 +1863,5 @@ body.viewer-open { overflow: hidden; }
 /* Sangeet: text higher; lavender glow to match the purple painting */
 .card.theme-palace.pp-sangeet { padding-top: 47% !important; }
 .pp-sangeet .pp-glow { top: 24%; height: 60%; background: radial-gradient(ellipse at 50% 48%, rgba(252,247,253,.9) 0%, rgba(250,244,252,.72) 45%, rgba(250,244,252,0) 72%); }
+.card.theme-palace.pp-sangeet { padding-top: 38% !important; }
+.pp-sangeet .pp-glow { top: 18%; height: 60%; }

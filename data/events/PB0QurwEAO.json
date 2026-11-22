@@ -10,14 +10,12 @@
   "countdownAt": "2027-01-25T18:30:00+05:30",
   "layout": "card",
   "card": {
-    "theme": "sangeet",
-    "request": "Join us for an enchanted evening at the",
-    "heading": "Sangeet",
+    "theme": "palace",
+    "request": "Join us for an evening of",
     "names": [
       "Seersha",
       "Siddhant"
     ],
-    "tagline": "as we dance our way towards new beginnings",
     "weekday": "Monday",
     "day": "25",
     "monthYear": "January 2027",
@@ -42,8 +40,21 @@
         "href": "tel:+919830447770"
       }
     ],
-    "image": "assets/cards/sangeet-full-Hp3Xc9Rd.jpg",
+    "image": "assets/cards/sangeet-paint-full-Ds8Kv2.jpg",
     "imageName": "Seersha-Siddhant-Sangeet.jpg",
-    "mapUrl": "https://www.google.com/maps/search/?api=1&query=Nalban+Food+Park+Gate+No+2+Salt+Lake+Sector+V+Kolkata+700098"
+    "mapUrl": "https://www.google.com/maps/search/?api=1&query=Nalban+Food+Park+Gate+No+2+Salt+Lake+Sector+V+Kolkata+700098",
+    "attire": [
+      {
+        "label": "Dress Code",
+        "title": "Glitz & Glam",
+        "text": "Bring the sparkle, velvet and glamour."
+      }
+    ],
+    "variant": "pp pp-sangeet",
+    "bg": "assets/cards/sangeet-paint-bg-Pv7Lx4.webp",
+    "actionsBelow": true,
+    "centered": false,
+    "heading": "Sangeet",
+    "headingScript": "Jashn-e-Ishq"
   }
 }
