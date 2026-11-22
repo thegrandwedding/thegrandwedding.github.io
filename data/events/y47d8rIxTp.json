@@ -10,7 +10,7 @@
   "countdownAt": "2027-01-27T10:30:00+05:30",
   "layout": "card",
   "card": {
-    "theme": "holud",
+    "theme": "palace",
     "request": "Join us to celebrate our",
     "heading": "Gaye Holud",
     "names": [
@@ -37,12 +37,11 @@
         "href": "tel:+919830447770"
       }
     ],
-    "image": "assets/cards/haldi-holud-full-Fp7Wd2.jpg",
+    "image": "assets/cards/haldi-saffron-full-Rp3Wk6.jpg",
     "imageName": "Seersha-Siddhant-Haldi.jpg",
     "pageHide": [
       "address"
     ],
-    "infoColumns": true,
     "headingScript": "— a marigold affair —",
     "attire": [
       {
@@ -51,6 +50,8 @@
       }
     ],
     "tagline": "Join us for showers of marigold and merriment as we drench the bride and groom-to-be in turmeric, blessings, and sunlit laughter.",
-    "om": true
+    "variant": "pp pp-saffron",
+    "bg": "assets/cards/haldi-saffron-bg-Tq8Lr3.webp",
+    "actionsBelow": true
   }
 }
