@@ -1865,3 +1865,9 @@ body.viewer-open { overflow: hidden; }
 .sc-reception .card-body .card-venue-sub { font-family: inherit; font-size: 5.8cqw; font-weight: 600; font-style: italic; text-transform: none; letter-spacing: 0; color: #3d4a33; margin: .4cqw 0 3.4cqw; }
 .sc-reception .card-body .card-rsvp, .sc-reception .card-body .card-rsvp a { color: #2e3a26; border-bottom-color: #c9a46a; }
 .card.theme-scene .card-body .card-rsvp a.wa-icon svg { width: 1em; height: 1em; }
+/* Scene cards, zoomed in: the text column fills ~70-78% of the card width */
+.card.theme-scene.sc-sangeet { aspect-ratio: 1300 / 3533; padding: 73.4% 13% 0 !important; }
+.sc-sangeet .sc-glow { left: 6%; right: 6%; top: 23%; bottom: 3%; }
+.card.theme-scene.sc-wedding { aspect-ratio: 1300 / 3561; padding: 95% 11% 0 !important; }
+.card.theme-scene.sc-reception { aspect-ratio: 1300 / 3471; padding: 105% 14.5% 0 !important; }
+.sc-reception .sc-glow { left: 10%; right: 10%; }
