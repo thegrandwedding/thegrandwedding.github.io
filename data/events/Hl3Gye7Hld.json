@@ -10,8 +10,8 @@
   "countdownAt": "2027-01-27T10:30:00+05:30",
   "layout": "card",
   "card": {
-    "theme": "turmeric",
-    "request": "You are cordially invited to the",
+    "theme": "holud",
+    "request": "Join us to celebrate our",
     "heading": "Gaye Holud",
     "names": [
       "Seersha",
@@ -37,18 +37,12 @@
         "href": "tel:+919830447770"
       }
     ],
-    "image": "assets/cards/haldi-holud-full-Nc7Yr3Dq.jpg",
+    "image": "assets/cards/haldi-holud-full-Vr2Pc6Ex.jpg",
     "imageName": "Seersha-Siddhant-Haldi.jpg",
-    "sceneImage": "assets/cards/haldi-couple-hd-Qw5Js8Nx.webp",
-    "sceneAlt": "Seersha and Siddhant at their Haldi, splashed with turmeric",
-    "sceneClass": "tm-couple tm-cut",
-    "scenePosition": "bottom",
     "pageHide": [
       "address"
     ],
     "infoColumns": true,
-    "centered": true,
-    "variant": "airy",
     "headingScript": "— a marigold affair —",
     "attire": [
       {
@@ -56,6 +50,7 @@
         "text": "Shades of Marigold, Mustard & Sun-Kissed Yellow"
       }
     ],
-    "tagline": "Join us for showers of marigold and merriment as we drench the bride and groom-to-be in turmeric, blessings, and sunlit laughter."
+    "tagline": "Join us for showers of marigold and merriment as we drench the bride and groom-to-be in turmeric, blessings, and sunlit laughter.",
+    "om": true
   }
 }

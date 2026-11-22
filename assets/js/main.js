@@ -1439,7 +1439,39 @@
     return '<div class="deco" aria-hidden="true">' + tex + bits + br + tr + tl + "</div>";
   }
 
-  var DECOR = { moonlit: decoMoonlit, soiree: decoSoiree, turmeric: decoTurmeric, henna: decoHenna, haldi: decoHaldi, sangeet: decoSangeet, varmala: decoVarmala, mehendi: decoMehendi, wedding: decoWedding };
+  // Holud (Haldi): peach leaf-print card, a marigold arch with an onion-dome top,
+  // brass lanterns glowing on chains, a few drifting marigold petals.
+  function decoHolud() {
+    var r = rng(171), i;
+    function lantern(x, len, s) {
+      var g = '<g class="hd-lantern" style="animation-delay:-' + f1(r() * 4) + 's;transform-origin:' + x + 'px 0px">';
+      for (var y = 0; y < len; y += 7) g += '<ellipse cx="' + x + '" cy="' + (y + 3) + '" rx="1.4" ry="3" fill="none" stroke="#b07a2a" stroke-width=".9"/>';
+      g += '<g transform="translate(' + x + " " + len + ") scale(" + s + ')">' +
+        '<circle cy="34" r="26" fill="url(#hd-glow)"/>' +
+        '<path d="M-3 0 h6 l2 5 h-10z" fill="#c9973a"/><path d="M-8 5 h16 l4 7 h-24z" fill="#b8862b"/>' +
+        '<path d="M-12 12 h24 l2 6 v28 l-2 6 h-24 l-2 -6 v-28z" fill="rgba(255,214,140,.45)" stroke="#a8771c" stroke-width="1.6"/>' +
+        '<path d="M-6 12 v40 M6 12 v40 M-14 30 h28" stroke="#a8771c" stroke-width=".9" opacity=".8"/>' +
+        '<ellipse cx="0" cy="32" rx="5" ry="9" fill="#ffd27a" class="twinkle"/><ellipse cx="0" cy="32" rx="2.4" ry="5" fill="#fff6d8"/>' +
+        '<path d="M-14 52 h28 l-4 6 h-20z" fill="#b8862b"/><path d="M-3 58 h6 l-3 8z" fill="#c9973a"/></g></g>';
+      return g;
+    }
+    var dome = '<svg class="hd-dome" viewBox="0 0 300 170" preserveAspectRatio="none" aria-hidden="true"><defs>' +
+      '<linearGradient id="hd-arch" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ea951b"/><stop offset="1" stop-color="#e58a10"/></linearGradient></defs>' +
+      '<path d="M0 171 V122 Q0 102 16 102 Q28 102 30 92 Q32 80 46 80 Q60 80 66 68 C86 58 104 46 118 28 C127 16 140 8 150 0 C160 8 173 16 182 28 C196 46 214 58 234 68 Q240 80 254 80 Q268 80 270 92 Q272 102 284 102 Q300 102 300 122 V171 Z" fill="url(#hd-arch)"/>' +
+      '<circle cx="150" cy="-2" r="3" fill="#ea951b"/></svg>';
+    var lamps = '<svg class="hd-lamps" viewBox="0 0 600 460" aria-hidden="true"><defs>' +
+      '<radialGradient id="hd-glow"><stop offset="0" stop-color="#ffe7a3" stop-opacity=".85"/><stop offset=".5" stop-color="#ffcf6e" stop-opacity=".25"/><stop offset="1" stop-color="#ffcf6e" stop-opacity="0"/></radialGradient></defs>' +
+      lantern(52, 330, 1.05) + lantern(132, 196, .9) + lantern(468, 196, .9) + lantern(548, 330, 1.05) + "</svg>";
+    var bits = '<span class="hd-panel"></span>';
+    var pcols = ["#f59e0b", "#fbbf24", "#f97316", "#fcd34d"];
+    for (i = 0; i < 10; i++) {
+      bits += '<span class="petal" style="left:' + f1(8 + r() * 84) + "%;animation-delay:-" + f1(r() * 18) +
+        "s;animation-duration:" + f1(13 + r() * 9) + "s;--s:" + (0.45 + r() * 0.5).toFixed(2) + ";--c:" + pcols[i % 4] + '"></span>';
+    }
+    return '<div class="deco" aria-hidden="true">' + dome + bits + lamps + "</div>";
+  }
+
+  var DECOR = { holud: decoHolud, moonlit: decoMoonlit, soiree: decoSoiree, turmeric: decoTurmeric, henna: decoHenna, haldi: decoHaldi, sangeet: decoSangeet, varmala: decoVarmala, mehendi: decoMehendi, wedding: decoWedding };
 
   // ?fullcard renders every card in full (used to make the downloadable images).
   var FULL = /[?&]fullcard\b/.test(location.search);
@@ -1501,6 +1533,7 @@
       (theme ? DECOR[theme](c) : "") +
       '<div class="card-body">' +
       (theme && EMBLEMS[theme] ? '<div class="card-emblem">' + EMBLEMS[theme]() + "</div>" : "") +
+      (c.om ? '<p class="card-om" aria-hidden="true">ॐ</p>' : "") +
       (c.invocation ? '<p class="card-invocation">' + esc(c.invocation) + "</p>" : "") +
       (c.hosts ? '<p class="card-hosts">' + esc(c.hosts) + "</p>" : "") +
       (c.request ? '<p class="card-request' + part("request") + '">' + esc(c.request) + "</p>" : "") +
