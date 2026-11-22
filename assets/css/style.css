@@ -2107,3 +2107,15 @@ body.viewer-open { overflow: hidden; }
 .ws-kicker { font-size: 1.85cqw; letter-spacing: .1em; }
 .welcome-swan .ws-body { top: 25.5%; }
 .ws-list a { padding-right: .8cqw; }
+/* swan welcome: text ~7% smaller for breathing room */
+.welcome-swan .ws-body { font-size: 1px; }
+.ws-kicker { font-size: 1.72cqw; }
+.ws-script { font-size: 5.6cqw; }
+.ws-name { font-size: 4.2cqw; }
+.ws-parents { font-size: 2.38cqw; }
+.ws-amp { font-size: 4.65cqw; }
+.ws-label span { font-size: 2.33cqw; }
+.ws-ev { font-size: 2.75cqw; }
+.ws-when { font-size: 2.65cqw; }
+.ws-list a { padding-top: .7cqw; padding-bottom: .7cqw; }
+.welcome-swan .ws-body { left: 26.5%; right: 26.5%; top: 26%; bottom: 27.5%; }
