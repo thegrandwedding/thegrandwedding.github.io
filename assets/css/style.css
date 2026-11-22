@@ -2001,3 +2001,39 @@ body.viewer-open { overflow: hidden; }
 .pp-sangeet .pp-glow { top: 23%; height: 60%; }
 .card.theme-palace.pp-sangeet { padding-top: 41% !important; }
 .pp-sangeet .pp-glow { top: 20%; }
+
+/* ---------- Alternate front page (preview with &look=velvet): burgundy velvet card with gold filigree ---------- */
+.look-velvet .hero { background: radial-gradient(ellipse at center, #4a0f17 0%, #2e070c 70%, #22050a 100%); padding: 32px 16px 40px; }
+.look-velvet .frame {
+  max-width: 560px; aspect-ratio: 1100 / 1955; border: 0; outline: none;
+  background: url("../cards/hero-velvet-bg-Pq8Wn3.webp") center / cover no-repeat;
+  box-shadow: 0 30px 70px -20px rgba(0,0,0,.7), 0 0 0 1px rgba(201,164,92,.25);
+  display: flex; flex-direction: column; justify-content: center; align-items: center;
+  padding: 16% 14% 14%; container-type: inline-size;
+}
+.look-velvet .frame::before, .look-velvet .frame::after { display: none; }
+.look-velvet .frame > * { text-shadow: 0 2px 6px rgba(20,0,4,.6); }
+.look-velvet .invocation { font-size: 3cqw; letter-spacing: .25em; color: #e3cb94; margin-bottom: 5cqw; }
+.look-velvet .monogram { width: 20cqw; height: 20cqw; margin-bottom: 5cqw; color: #d4b16a; filter: drop-shadow(0 0 8px rgba(227,203,148,.25)); }
+.look-velvet .eyebrow { font-size: 3.4cqw; letter-spacing: .3em; color: #e3cb94; }
+.look-velvet .names { font-size: 17cqw; line-height: 1.05; margin: 3cqw 0; }
+.look-velvet .names span { display: block;
+  background: linear-gradient(100deg, #b8862b 0%, #f7e3a1 25%, #c9973a 45%, #fff3c4 60%, #d4a84a 80%, #f9e7ae 100%);
+  -webkit-background-clip: text; background-clip: text; color: transparent; text-shadow: none;
+  filter: drop-shadow(0 2px 3px rgba(20,0,4,.6)); }
+.look-velvet .names .amp { font-size: .5em; margin: -1cqw 0; }
+.look-velvet .ornament { color: #c9a45c; margin: 5cqw auto; }
+.look-velvet .ornament .line { width: 16cqw; }
+.look-velvet .hero-dates { font-size: 5.4cqw; color: #f3e3bc; }
+.look-velvet .hero-place { font-size: 3.6cqw; color: #e3cb94; }
+.look-velvet .frame { padding: 18% 13% 15%; }
+.look-velvet .invocation { font-size: 3.9cqw; letter-spacing: .18em; margin-bottom: 6cqw; }
+.look-velvet .monogram { width: 26cqw; height: 26cqw; margin-bottom: 6cqw; }
+.look-velvet .eyebrow { font-size: 5.2cqw; letter-spacing: .14em; font-style: italic; }
+.look-velvet .names { font-size: 22cqw; margin: 3cqw 0; }
+.look-velvet .ornament { margin: 6cqw auto; }
+.look-velvet .ornament .line { width: 20cqw; }
+.look-velvet .hero-dates { font-size: 7.6cqw; letter-spacing: .2em; }
+.look-velvet .hero-place { font-size: 5.6cqw; letter-spacing: .1em; }
+.look-velvet .frame { padding: 34% 13% 14%; justify-content: flex-start; }
+.look-velvet .invocation { max-width: 62%; margin-left: auto; margin-right: auto; }

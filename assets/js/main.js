@@ -14,6 +14,9 @@
 
   var CODE_RE = /^[A-Za-z0-9]{4,32}$/;
 
+  // Preview of the alternate front-page look: add &look=velvet to any link.
+  if (new URLSearchParams(location.search).get("look") === "velvet") document.body.classList.add("look-velvet");
+
   var bar = document.querySelector(".countdown-bar");
   var nav = document.querySelector(".tabs");
   var tabsEl = document.getElementById("tabs");
