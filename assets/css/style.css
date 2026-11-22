@@ -1397,72 +1397,68 @@ body.viewer-open { overflow: hidden; }
 }
 .card.theme-henna.pista .card-title { font-size: min(9cqw, 40px); letter-spacing: .16em; padding-left: .16em; }
 
-/* ---------- Moonlit (Henna Soirée): deep emerald, gold frame, leaves and a glowing moon ---------- */
+/* ---------- Moonlit (Henna Soirée): brushed emerald, gold-foil leaves, the moon through gold sprigs ---------- */
 .card.theme-moonlit {
-  --ml-gold: linear-gradient(100deg, #b8862b 0%, #f7e3a1 22%, #c9973a 40%, #fff3c4 55%, #d4a84a 72%, #f9e7ae 88%, #b8862b 100%);
+  --mg: #e3cf9c;
   background:
-    radial-gradient(ellipse 60% 45% at 50% 40%, rgba(32,112,76,.55), transparent 75%),
-    linear-gradient(180deg, #0b3a28 0%, #0e4630 50%, #0a3423 100%);
-  color: #f4ecd6;
-  border: 2px solid #c9a24f; outline: none;
-  padding: calc(30% + 10px) 17% 0;
+    radial-gradient(ellipse 55% 40% at 55% 45%, rgba(26,84,64,.55), transparent 75%),
+    linear-gradient(170deg, #0f3b2e 0%, #0d3428 45%, #0b2e23 100%);
+  color: var(--mg);
+  border: 0; outline: none;
+  padding: calc(40% + 10px) 15% 0;
   container-type: inline-size;
-  box-shadow: 0 30px 70px -24px rgba(5,30,18,.85);
+  box-shadow: 0 30px 70px -24px rgba(5,25,18,.85);
 }
-.theme-moonlit .ml-frame { position: absolute; inset: 12px; border: 1px solid rgba(217,184,106,.7); outline: 1px solid rgba(217,184,106,.3); outline-offset: 4px; }
-.theme-moonlit .ml-tr { position: absolute; top: 0; right: 0; width: 62%; height: auto; display: block; }
-.theme-moonlit .ml-tl { position: absolute; top: 0; left: 0; width: 26%; height: auto; display: block; }
-.theme-moonlit .ml-bl { position: absolute; bottom: 0; left: 0; width: 52%; height: auto; display: block; }
-.theme-moonlit .ml-br { position: absolute; bottom: 0; right: 0; width: 28%; height: auto; display: block; }
-.theme-moonlit .glint { position: absolute; width: 3px; height: 3px; border-radius: 50%; background: #fff3c4; box-shadow: 0 0 6px 1px rgba(247,227,161,.8); transform: scale(var(--s, 1)); animation: twinkle 2.8s ease-in-out infinite; }
-.theme-moonlit .card-body { text-shadow: 0 1px 6px rgba(4,26,16,.7); }
-.theme-moonlit .card-request { color: #e9dfc2; font-size: 18px; margin-bottom: 2px; }
-.card.theme-moonlit .card-name, .theme-moonlit .card-date .day {
-  background: var(--ml-gold); background-size: 220% 100%; -webkit-background-clip: text; background-clip: text; color: transparent; text-shadow: none;
-  filter: drop-shadow(0 2px 1px rgba(0,0,0,.4)); animation: foil 7s ease-in-out infinite;
-}
-.card.theme-moonlit .card-name { display: block; width: max-content; max-width: 100%; margin: 0 auto -4px; padding: .08em .4em .14em; line-height: 1.2; font-size: clamp(56px, 16cqw, 96px); }
-.theme-moonlit .card-title { color: #f4ecd6; font-weight: 500; font-size: min(9cqw, 40px); letter-spacing: .16em; padding-left: .16em; margin: 2px 0 0; }
+.theme-moonlit .mg-tex { position: absolute; inset: 0; width: 100%; height: 100%; opacity: .55; mix-blend-mode: multiply; }
+.theme-moonlit .mg-tl { position: absolute; top: 0; left: 0; width: 48%; height: auto; display: block; }
+.theme-moonlit .mg-tr { position: absolute; top: 0; right: 0; width: 52%; height: auto; display: block; }
+.theme-moonlit .mg-br { position: absolute; bottom: 0; right: 0; width: 30%; height: auto; display: block; opacity: .9; }
+.theme-moonlit .glint { position: absolute; width: 2px; height: 2px; border-radius: 50%; background: #f7ebc6; box-shadow: 0 0 5px 1px rgba(247,235,198,.6); transform: scale(var(--s, 1)); animation: twinkle 3s ease-in-out infinite; }
+.theme-moonlit .card-body { text-shadow: 0 1px 6px rgba(4,22,16,.6); }
+.theme-moonlit .card-request { font-family: var(--caps); font-style: normal; font-size: 13px; letter-spacing: .28em; text-transform: uppercase; line-height: 1.7; color: var(--mg); max-width: 340px; margin: 0 auto 6px; }
+.card.theme-moonlit .card-name { color: #ead8a8; font-size: clamp(60px, 17cqw, 104px); line-height: 1.15; margin: 0; }
+.theme-moonlit .card-title { color: var(--mg); font-weight: 400; font-size: min(7cqw, 30px); letter-spacing: .3em; padding-left: .3em; margin: 4px 0 0; }
 .theme-moonlit .card-title .flourish { display: none; }
-.theme-moonlit .card-heading-script { color: #e9c978; }
-.theme-moonlit .card-heading-script .moon path, .theme-moonlit .card-heading-script .moon circle { fill: #f3d98f; }
-.theme-moonlit .card-date { margin: 18px 0 16px; }
-.theme-moonlit .card-date .side { color: #f4ecd6; border-color: rgba(217,184,106,.6); }
-.theme-moonlit .card-date .day small { color: #f4ecd6; -webkit-text-fill-color: #f4ecd6; white-space: nowrap; }
-.theme-moonlit .card-label { color: #d9b86a; }
-.theme-moonlit .card-label::before, .theme-moonlit .card-label::after { background: rgba(217,184,106,.6); }
-.theme-moonlit .card-venue { font-family: inherit; font-style: italic; text-transform: none; letter-spacing: 0; color: #f3d98f; font-size: 23px; }
-.theme-moonlit .card-address { color: #e9dfc2; opacity: 1; margin-bottom: 12px; }
-.theme-moonlit .attire-title { color: #f3d98f; }
-.theme-moonlit .attire-text { color: #e9dfc2; }
-.theme-moonlit .card-rsvp, .theme-moonlit .card-rsvp a { color: #f4ecd6; }
-.theme-moonlit .card-rsvp a { border-bottom-color: rgba(217,184,106,.6); }
+.theme-moonlit .card-heading-script { color: #ead8a8; font-size: 32px; }
+.theme-moonlit .card-heading-script .moon path, .theme-moonlit .card-heading-script .moon circle { fill: #ead8a8; }
+.theme-moonlit .card-date { margin: 22px 0 18px; }
+.theme-moonlit .card-date .side { color: var(--mg); border-color: rgba(227,207,156,.7); letter-spacing: .25em; }
+.theme-moonlit .card-date .day { color: #ead8a8; }
+.theme-moonlit .card-date .day small { color: var(--mg); letter-spacing: .3em; white-space: nowrap; }
+.theme-moonlit .card-label { color: #c9b07a; }
+.theme-moonlit .card-label::before, .theme-moonlit .card-label::after { background: rgba(227,207,156,.5); }
+.theme-moonlit .card-venue { font-family: var(--caps); font-style: normal; text-transform: uppercase; letter-spacing: .2em; color: var(--mg); font-size: 18px; }
+.theme-moonlit .card-address { font-family: var(--caps); text-transform: uppercase; letter-spacing: .18em; font-size: 12.5px; line-height: 1.8; color: var(--mg); opacity: .9; margin: 4px 0 14px; }
+.theme-moonlit .attire-title { color: #ead8a8; font-size: 19px; }
+.theme-moonlit .attire-text { color: #d9c9a0; }
+.theme-moonlit .card-rsvp, .theme-moonlit .card-rsvp a { color: var(--mg); }
+.theme-moonlit .card-rsvp a { border-bottom-color: rgba(227,207,156,.5); }
 .theme-moonlit .card-actions { margin: 14px 0 4px; }
-.theme-moonlit .btn { background: linear-gradient(100deg, #c9973a, #f3d98f, #c9973a); border-color: #e8c766; color: #0b3a28; text-shadow: none; }
-.theme-moonlit .btn.ghost { background: transparent; color: #f3d98f; }
-.card .card-scene.photo.hn-bride.ml-bride { width: 100%; margin: 12px auto 0; }
-.card .card-scene.photo.hn-bride.ml-bride img { -webkit-mask-image: none; mask-image: none; filter: drop-shadow(0 10px 18px rgba(0,0,0,.4)); }
+.theme-moonlit .btn { background: #e3cf9c; border-color: #e3cf9c; color: #0d3428; text-shadow: none; }
+.theme-moonlit .btn.ghost { background: transparent; color: #e3cf9c; }
+.card .card-scene.photo.hn-bride.ml-bride { width: 78%; margin: 14px auto 0; }
+.card .card-scene.photo.hn-bride.ml-bride img { -webkit-mask-image: none; mask-image: none; filter: drop-shadow(0 10px 18px rgba(0,0,0,.45)); }
 @container (max-width: 520px) {
-  .card.theme-moonlit { padding: calc(34% + 10px) 13% 0; }
-  .theme-moonlit .card-request { font-size: 15px; }
+  .card.theme-moonlit { padding: calc(44% + 10px) 12% 0; }
+  .theme-moonlit .card-request { font-size: 11px; letter-spacing: .22em; }
+  .theme-moonlit .card-title { font-size: 6.4cqw; letter-spacing: .22em; }
   .theme-moonlit .card-date { gap: 6px; }
-  .theme-moonlit .card-date .side { font-size: 10px; letter-spacing: .08em; padding: 8px 0; }
+  .theme-moonlit .card-date .side { font-size: 10px; letter-spacing: .12em; padding: 8px 0; }
   .theme-moonlit .card-date .day { font-size: 40px; }
-  .theme-moonlit .card-venue { font-size: 19px; }
+  .theme-moonlit .card-venue { font-size: 15px; }
+  .theme-moonlit .card-address { font-size: 11px; }
   .theme-moonlit .card-rsvp { font-size: 15px; }
-  .card .card-scene.photo.hn-bride.ml-bride { width: 118%; margin-left: -9%; }
+  .card .card-scene.photo.hn-bride.ml-bride { width: 100%; }
 }
-@media (prefers-reduced-motion: reduce) { .theme-moonlit .glint, .card.theme-moonlit .card-name, .theme-moonlit .card-date .day { animation: none; } }
-.theme-moonlit .ml-tr { width: 66%; }
-.theme-moonlit .ml-bl { width: 50%; }
-.theme-moonlit .ml-br { position: absolute; bottom: 0; right: 0; width: 46%; height: auto; display: block; }
-.theme-moonlit .ml-vine { position: absolute; top: 14%; left: 3.2%; width: 7%; height: auto; display: block; opacity: .9; }
-.theme-moonlit .ml-vine.right { left: auto; right: 3.2%; transform: scaleX(-1); top: 26%; }
-.card.theme-moonlit { padding-top: calc(32% + 10px); }
-.theme-moonlit .ml-bl, .theme-moonlit .ml-br { width: 58%; }
-.card .card-scene.photo.hn-bride.ml-bride { width: 84%; }
-@container (max-width: 520px) { .card .card-scene.photo.hn-bride.ml-bride { width: 104%; margin-left: -2%; } }
-.theme-moonlit .ml-vine { width: 9%; left: 2.4%; }
-.theme-moonlit .ml-vine.right { right: 2.4%; }
-.card.theme-moonlit { padding-top: calc(37% + 10px); }
-@container (max-width: 520px) { .card.theme-moonlit { padding-top: calc(38% + 10px); } }
+@media (prefers-reduced-motion: reduce) { .theme-moonlit .glint { animation: none; } }
+.card.theme-moonlit {
+  background:
+    radial-gradient(ellipse 50% 36% at 55% 45%, rgba(22,70,54,.5), transparent 75%),
+    linear-gradient(170deg, #0c2f25 0%, #0a281f 50%, #08221a 100%);
+}
+.theme-moonlit .mg-tex { opacity: .75; }
+.theme-moonlit .mg-tl { width: 58%; }
+.theme-moonlit .mg-tr { width: 56%; }
+.theme-moonlit .mg-tl { width: 46%; }
+.card.theme-moonlit { padding-left: 17%; padding-right: 13%; padding-top: calc(44% + 10px); }
+@container (max-width: 520px) { .card.theme-moonlit { padding: calc(48% + 10px) 12% 0 15%; } .theme-moonlit .mg-tl { width: 44%; } }
