@@ -37,7 +37,7 @@
         "href": "tel:+917980611988"
       }
     ],
-    "image": "assets/cards/varmala-palace-full-AQugYf.jpg",
+    "image": "assets/cards/varmala-wamono-full-Kq4Zs7.jpg",
     "imageName": "Seersha-Siddhant-Varmala.jpg",
     "mapUrl": "https://www.google.com/maps/search/?api=1&query=Nalban+Food+Park+Gate+No+2+Salt+Lake+Sector+V+Kolkata+700098",
     "headingScript": "The Pastel Bagh",
@@ -48,6 +48,7 @@
         "text": "Blush, Pastels, Lilac, Powder Blue, Peach & Sage green"
       }
     ],
-    "actionsBelow": true
+    "actionsBelow": true,
+    "variant": "wa-mono"
   }
 }

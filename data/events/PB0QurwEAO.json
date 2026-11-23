@@ -40,7 +40,7 @@
         "icon": "whatsapp"
       }
     ],
-    "image": "assets/cards/sangeet-paint-full-DWmCnT.jpg",
+    "image": "assets/cards/sangeet-wamono-full-Kq4Zs7.jpg",
     "imageName": "Seersha-Siddhant-Sangeet.jpg",
     "mapUrl": "https://www.google.com/maps/search/?api=1&query=Nalban+Food+Park+Gate+No+2+Salt+Lake+Sector+V+Kolkata+700098",
     "attire": [
@@ -49,7 +49,7 @@
         "text": "Bring the sparkle, velvet and bling."
       }
     ],
-    "variant": "pp pp-sangeet",
+    "variant": "pp pp-sangeet wa-mono",
     "bg": "assets/cards/sangeet-paint-bg-Pv7Lx4.webp",
     "actionsBelow": true,
     "centered": false,

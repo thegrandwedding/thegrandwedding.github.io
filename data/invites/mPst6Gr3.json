@@ -1,13 +1,13 @@
 {
-  "group": "TEST: monochrome WhatsApp mark",
+  "group": "TEST",
   "greeting": null,
   "families": "data/families-CQyqCz97uv.json",
   "events": [
-    "data/events/Wm1HnMonoX.json",
-    "data/events/Wm2SgMonoX.json",
-    "data/events/Wm3HdMonoX.json",
-    "data/events/Wm5VmMonoX.json",
-    "data/events/Wm4WdMonoX.json",
-    "data/events/Wm6RcMonoX.json"
+    "data/events/JnVpDObzwG.json",
+    "data/events/PB0QurwEAO.json",
+    "data/events/y47d8rIxTp.json",
+    "data/events/ooxBpYuDnX.json",
+    "data/events/4oH8hxGUBV.json",
+    "data/events/bZdU4XzOnI.json"
   ]
 }
