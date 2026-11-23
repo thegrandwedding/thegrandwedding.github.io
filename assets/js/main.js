@@ -1390,9 +1390,69 @@
 
   // Moonlit (Henna Soirée): after the emerald-and-gold sample — brushed emerald, gold-foil leaves
   // cascading from the top-left, fine gold berry sprigs at the top-right with the moon glowing behind them.
-  function decoMoonlit() {
+  function decoMoonlit(c) {
     var r = rng(151), i, k;
     var GOLD = "url(#mg-foil)";
+    var CURVY = !!(c && /\bml-curvy\b/.test(c.variant || ""));
+    // smooth path through points (midpoint quadratic smoothing)
+    function smooth(pts, close) {
+      var d = "M" + f1(pts[0][0]) + " " + f1(pts[0][1]);
+      for (var q = 1; q < pts.length - 1; q++) {
+        d += " Q" + f1(pts[q][0]) + " " + f1(pts[q][1]) + " " + f1((pts[q][0] + pts[q + 1][0]) / 2) + " " + f1((pts[q][1] + pts[q + 1][1]) / 2);
+      }
+      d += " L" + f1(pts[pts.length - 1][0]) + " " + f1(pts[pts.length - 1][1]);
+      return d + (close ? "z" : "");
+    }
+    // a naturally drawn leaf: curved midrib, widest below the middle, a long tapering tip that turns,
+    // one side slightly fuller than the other and a faint ripple along the edges
+    function cLeaf(x, y, len, w, rot, bend, cream) {
+      var N = 16, up = [], lo = [], mid = [], ph = r() * 6, asym = .78 + r() * .14, q;
+      var stalk = len * .1;
+      for (q = 0; q <= N; q++) {
+        var t = q / N, sx = stalk + (len - stalk) * t, sy = bend * len * t * t;
+        var dy = 2 * bend * len * t / (len - stalk), nl = Math.sqrt(1 + dy * dy), nx = -dy / nl, ny = 1 / nl;
+        var wt = w * Math.pow(Math.sin(Math.PI * Math.pow(t, .9)), .95) * (1 + .035 * Math.sin(t * 8 + ph));
+        up.push([sx - nx * wt, sy - ny * wt]); lo.push([sx + nx * wt * asym, sy + ny * wt * asym]); mid.push([sx, sy]);
+      }
+      var outline = [[0, 0]].concat(up, lo.slice().reverse(), [[stalk, 0]]);
+      var fill = cream ? "url(#mg-cream)" : GOLD;
+      var g = '<g transform="translate(' + f1(x) + " " + f1(y) + ") rotate(" + f1(rot) + ')">' +
+        '<path d="M0 0 L' + f1(stalk) + ' 0" stroke="#cdb073" stroke-width=".9" stroke-linecap="round"/>' +
+        '<path d="' + smooth(up.concat(lo.slice().reverse()), true) + '" fill="' + fill + '"/>' +
+        // shaded lower half for depth
+        '<path d="' + smooth(mid.concat(lo.slice().reverse()), true) + '" fill="rgba(90,60,15,' + (cream ? ".16" : ".26") + ')"/>' +
+        '<path d="' + smooth(mid.slice(0, N - 1)) + '" fill="none" stroke="rgba(110,80,25,.5)" stroke-width=".7" stroke-linecap="round"/>';
+      for (q = 3; q < N - 3; q += 3) {
+        var a = mid[q], b = up[Math.min(N, q + 2)];
+        g += '<path d="M' + f1(a[0]) + " " + f1(a[1]) + " Q" + f1((a[0] + b[0]) / 2) + " " + f1(a[1] + (b[1] - a[1]) * .35) + " " + f1(a[0] + (b[0] - a[0]) * .85) + " " + f1(a[1] + (b[1] - a[1]) * .85) +
+          '" fill="none" stroke="rgba(110,80,25,.32)" stroke-width=".45"/>';
+      }
+      void outline;
+      return g + "</g>";
+    }
+    // a gently meandering stem: the quadratic path with a soft S-wave, leaves alternating and curling outward
+    function cBranch(x0, y0, cx, cy, x1, y1, n, size, creamEvery) {
+      var pts = [], M = 28, L = Math.hypot(x1 - x0, y1 - y0), amp = L * .035, ph = r() * 6, j;
+      function at(u) {
+        var v = 1 - u, px = v * v * x0 + 2 * v * u * cx + u * u * x1, py = v * v * y0 + 2 * v * u * cy + u * u * y1;
+        var tx = 2 * v * (cx - x0) + 2 * u * (x1 - cx), ty = 2 * v * (cy - y0) + 2 * u * (y1 - cy), tl = Math.hypot(tx, ty) || 1;
+        var o = amp * Math.sin(u * Math.PI * 2.2 + ph) * Math.sin(u * Math.PI);
+        return [px - ty / tl * o, py + tx / tl * o];
+      }
+      for (j = 0; j <= M; j++) pts.push(at(j / M));
+      var s = '<path d="' + smooth(pts) + '" fill="none" stroke="#d8bd7e" stroke-width="1.2" stroke-linecap="round"/>';
+      for (j = 1; j <= n; j++) {
+        var u = j / (n + .5) + (r() - .5) * .04, p = at(u), p2 = at(Math.min(1, u + .01));
+        var ang = Math.atan2(p2[1] - p[1], p2[0] - p[0]) * 180 / Math.PI, side = j % 2 ? 1 : -1;
+        var sz = size * 1.12 * (1 - u * .35) * (.82 + r() * .36), narrow = r() < .35 ? .19 : .24;
+        s += cLeaf(p[0], p[1], sz, sz * narrow, ang + side * (30 + r() * 24), side * (.16 + r() * .18), creamEvery && j % creamEvery === 0);
+      }
+      // a curling tendril at the tip
+      var e = at(1), e0 = at(.97), ea = Math.atan2(e[1] - e0[1], e[0] - e0[0]);
+      s += '<path d="M' + f1(e[0]) + " " + f1(e[1]) + " q" + f1(Math.cos(ea) * 12) + " " + f1(Math.sin(ea) * 12) + " " + f1(Math.cos(ea + 1.6) * 8) + " " + f1(Math.sin(ea + 1.6) * 8) +
+        '" fill="none" stroke="#d8bd7e" stroke-width=".8" stroke-linecap="round"/>';
+      return s;
+    }
     // one gold-foil (or cream) leaf with a centre vein and fine side veins
     function gLeaf(x, y, len, w, rot, cream) {
       var s = '<g transform="translate(' + f1(x) + " " + f1(y) + ") rotate(" + f1(rot) + ')">' +
@@ -1409,6 +1469,7 @@
     }
     // a thin gold stem along a quadratic curve, with leaves on alternating sides
     function branch(x0, y0, cx, cy, x1, y1, n, size, creamEvery) {
+      if (CURVY) return cBranch(x0, y0, cx, cy, x1, y1, n, size, creamEvery);
       var s = '<path d="M' + x0 + " " + y0 + " Q" + cx + " " + cy + " " + x1 + " " + y1 + '" fill="none" stroke="#d8bd7e" stroke-width="1.1"/>';
       for (var j = 1; j <= n; j++) {
         var u = j / (n + .5), v = 1 - u;
