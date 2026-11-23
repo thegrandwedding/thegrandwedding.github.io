@@ -40,7 +40,7 @@
         "icon": "whatsapp"
       }
     ],
-    "image": "assets/cards/mehendi-moonlit-full-GyBVh4.jpg",
+    "image": "assets/cards/mehendi-curvy-full-Tz2Hc6.jpg",
     "imageName": "Seersha-Mehendi.jpg",
     "imageAlt": "Henna Soirée invitation for Seersha — Sunday 24 January 2027, 3:30 PM",
     "centered": true,
@@ -54,6 +54,7 @@
         "label": "Attire"
       }
     ],
-    "headingIcon": "moon"
+    "headingIcon": "moon",
+    "variant": "ml-curvy"
   }
 }
