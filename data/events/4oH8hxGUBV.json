@@ -27,17 +27,22 @@
     "mapUrl": "https://www.google.com/maps/search/?api=1&query=Orchid+Banquet+11A%2F1J+East+Topsia+Road+Kolkata+700046",
     "rsvp": [
       {
+        "phone": "+91 79806 11988",
+        "href": "tel:+917980611988"
+      },
+      {
         "phone": "+91 98318 01908",
         "href": "tel:+919831801908"
       },
       {
-        "phone": "+91 98304 47770",
-        "href": "tel:+919830447770"
+        "phone": "+1 33220 97180",
+        "href": "https://wa.me/13322097180",
+        "icon": "whatsapp"
       }
     ],
-    "image": "assets/cards/wedding-paak-full-Nx6Rb4.jpg",
+    "image": "assets/cards/wedding-meld-full-Hlj6uf.jpg",
     "imageName": "Seersha-Siddhant-Wedding.jpg",
-    "variant": "pp pp-wedding pp-titled",
+    "variant": "pp pp-wedding pp-titled pp-meld",
     "bg": "assets/cards/wedding-paint-bg-Hn6Xs2.webp",
     "heading": "Saat Paak-e Bandha",
     "actionsBelow": true,
@@ -53,7 +58,7 @@
         "text": "All shades of white, ivory, gold, and silver."
       }
     ],
-    "headingIconImg": "assets/cards/wedding-gachkouto-Hq7Ln2.webp",
-    "headingCrown": "assets/cards/wedding-items-Hq7Ln2.webp"
+    "headingIconImg": "assets/cards/wedding-gachkouto-Vs2Rk8.webp",
+    "headingCrown": "assets/cards/wedding-items-Vs2Rk8.webp"
   }
 }

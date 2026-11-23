@@ -27,15 +27,20 @@
     ],
     "rsvp": [
       {
+        "phone": "+91 79806 11988",
+        "href": "tel:+917980611988"
+      },
+      {
         "phone": "+91 98318 01908",
         "href": "tel:+919831801908"
       },
       {
-        "phone": "+91 98304 47770",
-        "href": "tel:+919830447770"
+        "phone": "+1 33220 97180",
+        "href": "https://wa.me/13322097180",
+        "icon": "whatsapp"
       }
     ],
-    "image": "assets/cards/mehendi-moonlit-full-Dt5Wq8.jpg",
+    "image": "assets/cards/mehendi-moonlit-full-GyBVh4.jpg",
     "imageName": "Seersha-Mehendi.jpg",
     "imageAlt": "Henna Soirée invitation for Seersha — Sunday 24 January 2027, 3:30 PM",
     "centered": true,

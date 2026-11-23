@@ -27,20 +27,20 @@
     ],
     "rsvp": [
       {
-        "phone": "+1 332 209 7180",
-        "href": "https://wa.me/13322097180",
-        "note": "WhatsApp"
+        "phone": "+91 79806 11988",
+        "href": "tel:+917980611988"
       },
       {
         "phone": "+91 98318 01908",
         "href": "tel:+919831801908"
       },
       {
-        "phone": "+91 98304 47770",
-        "href": "tel:+919830447770"
+        "phone": "+1 33220 97180",
+        "href": "https://wa.me/13322097180",
+        "icon": "whatsapp"
       }
     ],
-    "image": "assets/cards/sangeet-paint-full-Bp8Lv4.jpg",
+    "image": "assets/cards/sangeet-paint-full-DWmCnT.jpg",
     "imageName": "Seersha-Siddhant-Sangeet.jpg",
     "mapUrl": "https://www.google.com/maps/search/?api=1&query=Nalban+Food+Park+Gate+No+2+Salt+Lake+Sector+V+Kolkata+700098",
     "attire": [

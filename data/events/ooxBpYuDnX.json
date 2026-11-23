@@ -28,15 +28,16 @@
     ],
     "rsvp": [
       {
-        "phone": "+91 98318 01908",
-        "href": "tel:+919831801908"
+        "phone": "+1 33220 97180",
+        "href": "https://wa.me/13322097180",
+        "icon": "whatsapp"
       },
       {
-        "phone": "+91 98304 47770",
-        "href": "tel:+919830447770"
+        "phone": "+91 79806 11988",
+        "href": "tel:+917980611988"
       }
     ],
-    "image": "assets/cards/varmala-palace-full-Lc8Qt3.jpg",
+    "image": "assets/cards/varmala-palace-full-AQugYf.jpg",
     "imageName": "Seersha-Siddhant-Varmala.jpg",
     "mapUrl": "https://www.google.com/maps/search/?api=1&query=Nalban+Food+Park+Gate+No+2+Salt+Lake+Sector+V+Kolkata+700098",
     "headingScript": "The Pastel Bagh",

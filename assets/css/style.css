@@ -2244,3 +2244,11 @@ body.viewer-open { overflow: hidden; }
 .card.theme-palace.pp-wedding.pp-titled.pp-meld .card-body .card-attire { margin-bottom: 0; }
 .card.theme-palace.pp-wedding.pp-titled.pp-meld .card-body > .card-label,
 .card.theme-palace.pp-wedding.pp-titled.pp-meld .card-body > .card-attire { margin-top: 3.4cqw; }
+/* R.S.V.P. with three numbers: two on the first line, the third (WhatsApp) on its own line */
+.card.theme-palace .card-body .card-rsvp br:nth-of-type(2) { display: inline; }
+.card.theme-palace .card-body .card-rsvp .rsvp-line:nth-of-type(3)::before { content: none; }
+/* Wedding: room for a second R.S.V.P. line inside the panel */
+.card.theme-palace.pp-wedding.pp-titled.pp-meld { padding-bottom: 22% !important; }
+.card.theme-palace.pp-wedding.pp-titled.pp-meld .card-body > .card-label,
+.card.theme-palace.pp-wedding.pp-titled.pp-meld .card-body > .card-attire { margin-top: 2.4cqw; }
+.card.theme-palace.pp-wedding.pp-titled.pp-meld .card-body .card-rsvp { line-height: 1.35; }
