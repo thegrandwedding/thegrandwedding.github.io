@@ -2236,3 +2236,11 @@ body.viewer-open { overflow: hidden; }
 .card.theme-palace.pp-wedding.pp-titled.pp-meld .card-body > * { flex: none; }
 .card.theme-palace.pp-wedding.pp-titled.pp-meld .card-body .card-date { width: 100%; }
 .card.theme-palace.pp-wedding.pp-titled.pp-meld { padding: 30% 18.5% 24.5% !important; }
+/* Wedding (blended): original text size, gaps come from the even spread rather than fixed margins */
+.card.theme-palace.pp-wedding.pp-titled.pp-meld { padding: 28.5% 16.8% 23.5% !important; }
+.card.theme-palace.pp-wedding.pp-titled.pp-meld .card-body .card-date,
+.card.theme-palace.pp-wedding.pp-titled.pp-meld .card-body .card-venue,
+.card.theme-palace.pp-wedding.pp-titled.pp-meld.full .card-body .card-address,
+.card.theme-palace.pp-wedding.pp-titled.pp-meld .card-body .card-attire { margin-bottom: 0; }
+.card.theme-palace.pp-wedding.pp-titled.pp-meld .card-body > .card-label,
+.card.theme-palace.pp-wedding.pp-titled.pp-meld .card-body > .card-attire { margin-top: 3.4cqw; }
