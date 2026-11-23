@@ -1,0 +1,58 @@
+{
+  "id": "sangeet",
+  "order": 3,
+  "title": "Jashn-e-Ishq",
+  "kicker": "An Evening of Music & Dance",
+  "lede": "Both families come together for an evening of song, dance and revelry on the eve of the wedding festivities.",
+  "date": "Monday, 25 January 2027",
+  "time": "6:30 PM",
+  "venue": "Nalban Park, Gate No. 2, Saltlake, Sector-IV, Opp. Cognizant Bridge, Kolkata – 700098",
+  "countdownAt": "2027-01-25T18:30:00+05:30",
+  "layout": "card",
+  "card": {
+    "theme": "palace",
+    "request": "Join us for an evening of",
+    "names": [
+      "Seersha",
+      "Siddhant"
+    ],
+    "weekday": "Monday",
+    "day": "25",
+    "monthYear": "January 2027",
+    "time": "6:30 PM",
+    "venue": "Nalban Park",
+    "address": [
+      "Gate No. 2, Saltlake, Sector-IV",
+      "Opp. Cognizant Bridge, Kolkata – 700098"
+    ],
+    "rsvp": [
+      {
+        "phone": "+91 79806 11988",
+        "href": "tel:+917980611988"
+      },
+      {
+        "phone": "+91 98318 01908",
+        "href": "tel:+919831801908"
+      },
+      {
+        "phone": "+1 33220 97180",
+        "href": "https://wa.me/13322097180",
+        "icon": "whatsapp"
+      }
+    ],
+    "image": "assets/cards/sangeet-wamono-full-Kq4Zs7.jpg",
+    "imageName": "Seersha-Siddhant-Sangeet.jpg",
+    "mapUrl": "https://www.google.com/maps/search/?api=1&query=Nalban+Food+Park+Gate+No+2+Salt+Lake+Sector+V+Kolkata+700098",
+    "attire": [
+      {
+        "label": "Zaabta-e-Libaas",
+        "text": "Bring the sparkle, velvet and bling."
+      }
+    ],
+    "variant": "pp pp-sangeet wa-mono",
+    "bg": "assets/cards/sangeet-paint-bg-Pv7Lx4.webp",
+    "actionsBelow": true,
+    "centered": false,
+    "headingScript": "Jashn-e-Ishq"
+  }
+}

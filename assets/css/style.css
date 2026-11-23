@@ -2257,3 +2257,6 @@ body.viewer-open { overflow: hidden; }
 @container (max-width: 520px) { .card.theme-moonlit.ml-curvy { padding-left: 13.5%; padding-right: 13.5%; } }
 @container (max-width: 520px) { .theme-moonlit.ml-curvy .mg-tl { width: 35%; } .theme-moonlit.ml-curvy .mg-tr { width: 48%; } }
 @container (max-width: 520px) { .theme-moonlit.ml-curvy .mg-tl { width: 40%; } }
+/* Monochrome WhatsApp mark: the bubble in the card's ink colour, the handset cut out */
+.card.wa-mono .card-rsvp a.wa-icon { color: inherit; }
+.card.wa-mono .card-rsvp a.wa-icon svg { width: .92em; height: .92em; filter: none; }

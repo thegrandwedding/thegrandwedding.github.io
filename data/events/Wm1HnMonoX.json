@@ -1,0 +1,60 @@
+{
+  "id": "mehendi",
+  "order": 1,
+  "title": "Henna Soirée",
+  "kicker": "The First Celebration",
+  "lede": "An evening of henna, music and laughter, as intricate patterns are drawn upon the bride’s hands in keeping with time-honoured tradition.",
+  "date": "Sunday, 24 January 2027",
+  "time": "3:30 PM",
+  "venue": "JVV Lawn – Salt Lake, Block-LB, Sector-3, Saltlake, Kolkata – 700106",
+  "countdownAt": "2027-01-24T15:30:00+05:30",
+  "layout": "card",
+  "card": {
+    "theme": "moonlit",
+    "request": "Join us for an evening of henna and music at",
+    "heading": "Henna Soirée",
+    "names": [
+      "Seersha’s"
+    ],
+    "weekday": "Sunday",
+    "day": "24",
+    "monthYear": "January 2027",
+    "time": "3:30 PM",
+    "venue": "JVV Lawn – Salt Lake",
+    "address": [
+      "Block-LB, Sector-3, Saltlake",
+      "Kolkata – 700106"
+    ],
+    "rsvp": [
+      {
+        "phone": "+91 79806 11988",
+        "href": "tel:+917980611988"
+      },
+      {
+        "phone": "+91 98318 01908",
+        "href": "tel:+919831801908"
+      },
+      {
+        "phone": "+1 33220 97180",
+        "href": "https://wa.me/13322097180",
+        "icon": "whatsapp"
+      }
+    ],
+    "image": "assets/cards/mehendi-wamono-full-Kq4Zs7.jpg",
+    "imageName": "Seersha-Mehendi.jpg",
+    "imageAlt": "Henna Soirée invitation for Seersha — Sunday 24 January 2027, 3:30 PM",
+    "centered": true,
+    "mapUrl": "https://www.google.com/maps/search/?api=1&query=Jal+Vayu+Vihar+Community+Hall+LB+Block+Sector+3+Salt+Lake+Kolkata+700106",
+    "nameFirst": true,
+    "headingScript": "under the Moon",
+    "attire": [
+      {
+        "title": "An Evening in Green & Ivory",
+        "text": "It would mean the world to us to see you in green or ivory — we would be truly touched if you dressed the part.",
+        "label": "Attire"
+      }
+    ],
+    "headingIcon": "moon",
+    "variant": "ml-curvy wa-mono"
+  }
+}

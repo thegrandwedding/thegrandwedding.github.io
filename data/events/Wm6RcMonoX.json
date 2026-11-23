@@ -1,0 +1,60 @@
+{
+  "id": "reception",
+  "order": 6,
+  "title": "Reception",
+  "kicker": "Wedding Reception",
+  "layout": "card",
+  "date": "Friday, 29 January 2027",
+  "time": "6:30 PM",
+  "venue": "The Meadows, P. C. Chandra Garden",
+  "countdownAt": "2027-01-29T18:30:00+05:30",
+  "card": {
+    "heading": "Shahi Dawat",
+    "names": [
+      "Siddhant",
+      "Seersha"
+    ],
+    "weekday": "Friday",
+    "day": "29",
+    "monthYear": "January 2027",
+    "time": "6:30 PM",
+    "venue": "The Meadows",
+    "venueSub": "P. C. Chandra Garden",
+    "address": [
+      "E. M. Bypass, opp. Science City",
+      "Kolkata – 700105"
+    ],
+    "mapUrl": "https://www.google.com/maps/search/?api=1&query=The+Meadows+P.C.+Chandra+Garden+Kolkata",
+    "pdf": "assets/cards/reception-KAJ1AOIr3Y.pdf",
+    "rsvp": [
+      {
+        "phone": "+1 33220 97180",
+        "href": "https://wa.me/13322097180",
+        "icon": "whatsapp"
+      },
+      {
+        "phone": "+91 79806 11988",
+        "href": "tel:+917980611988"
+      }
+    ],
+    "image": "assets/cards/reception-wamono-full-Kq4Zs7.jpg",
+    "imageName": "Seersha-Siddhant-Reception.jpg",
+    "pdfName": "Seersha-Siddhant-Reception.pdf",
+    "theme": "palace",
+    "variant": "pp pp-reception pp-shahi pp-sapphire wa-mono",
+    "bg": "assets/cards/reception-sapphire-bg-Wq7Mb4.webp",
+    "actionsBelow": true,
+    "headingScript": "The Royal Reception",
+    "tagline": "Join us for an evening of timeless grandeur, regal opulence and celebration as we begin a new chapter together. Your presence will add the brightest noor to our royal gathering.",
+    "pageHide": [
+      "address"
+    ],
+    "attire": [
+      {
+        "label": "Poshāk / Pehnawa",
+        "title": "Mughal Elegance",
+        "text": "Rich velvets and intricate Zardozi"
+      }
+    ]
+  }
+}
