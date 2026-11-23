@@ -2252,3 +2252,8 @@ body.viewer-open { overflow: hidden; }
 .card.theme-palace.pp-wedding.pp-titled.pp-meld .card-body > .card-label,
 .card.theme-palace.pp-wedding.pp-titled.pp-meld .card-body > .card-attire { margin-top: 2.4cqw; }
 .card.theme-palace.pp-wedding.pp-titled.pp-meld .card-body .card-rsvp { line-height: 1.35; }
+/* Henna (curvy leaves): text centred on the card, equal margins */
+.card.theme-moonlit.ml-curvy { padding-left: 15%; padding-right: 15%; }
+@container (max-width: 520px) { .card.theme-moonlit.ml-curvy { padding-left: 13.5%; padding-right: 13.5%; } }
+@container (max-width: 520px) { .theme-moonlit.ml-curvy .mg-tl { width: 35%; } .theme-moonlit.ml-curvy .mg-tr { width: 48%; } }
+@container (max-width: 520px) { .theme-moonlit.ml-curvy .mg-tl { width: 40%; } }

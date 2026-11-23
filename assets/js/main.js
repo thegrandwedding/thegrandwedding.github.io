@@ -1504,12 +1504,18 @@
 
     // top-left: a lush cascade of gold leaves down the left edge
     var tl = '<svg class="mg-tl" viewBox="0 0 300 620" aria-hidden="true">' + defs +
+      (CURVY ?
+        branch(20, -10, 70, 200, 22, 430, 10, 64, 4) +
+        branch(40, -10, 140, 50, 290, 30, 8, 54, 3) +
+        branch(0, 80, 110, 120, 140, 240, 6, 50, 3) +
+        branch(120, -10, 160, 60, 236, 140, 5, 44, 2) +
+        berries(190, 130, 70, 50, 5) + berries(250, 50, 60, 20, 4) :
       branch(20, -10, 80, 230, 26, 610, 13, 64, 4) +
       branch(40, -10, 140, 50, 290, 30, 8, 54, 3) +
       branch(0, 80, 110, 120, 140, 240, 6, 50, 3) +
       branch(120, -10, 160, 60, 236, 140, 5, 44, 2) +
       branch(10, 300, 90, 360, 120, 470, 5, 46, 2) +
-      berries(190, 130, 70, 50, 5) + berries(250, 50, 60, 20, 4) + berries(90, 420, 70, 30, 5);
+      berries(190, 130, 70, 50, 5) + berries(250, 50, 60, 20, 4) + berries(90, 420, 70, 30, 5));
     for (i = 0; i < 9; i++) tl += '<circle cx="' + f1(90 + r() * 170) + '" cy="' + f1(20 + r() * 240) + '" r="' + f1(4 + r() * 5) + '" fill="url(#mg-cream)" opacity=".92"/>';
     tl += "</svg>";
 
