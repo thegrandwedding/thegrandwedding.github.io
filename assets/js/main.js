@@ -1744,7 +1744,7 @@
     img.alt = (c.heading || id) + " invitation card";
     pdf.hidden = !c.pdf;
     if (c.pdf) { pdf.href = c.pdf; pdf.setAttribute("download", c.pdfName || ""); }
-    save.onclick = function () { saveCard(c); };
+    save.onclick = function () { saveCard(c, save); };
     viewer.hidden = false;
     viewer.querySelector(".viewer-scroll").scrollTop = 0;
     document.body.classList.add("viewer-open");
@@ -1753,23 +1753,35 @@
     viewer.hidden = true;
     document.body.classList.remove("viewer-open");
   }
-  function saveCard(c) {
+  // Download Card: one click saves the image. Computers and Android save it to Downloads;
+  // iPhone/iPad open the share sheet so it can go straight to Photos ("Save Image").
+  function saveCard(c, btn) {
     var name = c.imageName || "invitation.jpg";
-    function download() {
+    var ios = /iPhone|iPad|iPod/.test(navigator.userAgent) || (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
+    var label = btn ? btn.textContent : "";
+    if (btn) { btn.disabled = true; btn.textContent = "Downloading…"; }
+    function done() { if (btn) { btn.disabled = false; btn.textContent = label; } }
+    function viaLink(href) {
       var a = document.createElement("a");
-      a.href = c.image; a.download = name; a.target = "_blank"; a.rel = "noopener";
+      a.href = href; a.download = name;
       document.body.appendChild(a); a.click(); a.remove();
     }
-    if (!(navigator.canShare && window.File)) return download();
-    fetch(c.image).then(function (r) { return r.blob(); }).then(function (b) {
-      var file = new File([b], name, { type: b.type || "image/jpeg" });
-      if (!navigator.canShare({ files: [file] })) return download();
-      return navigator.share({ files: [file], title: name.replace(/\.jpg$/, "").replace(/-/g, " ") });
-    }).catch(function (err) { if (!err || err.name !== "AbortError") download(); });
+    fetch(c.image).then(function (r) { if (!r.ok) throw new Error("fetch"); return r.blob(); }).then(function (b) {
+      if (ios && navigator.canShare && window.File) {
+        var file = new File([b], name, { type: b.type || "image/jpeg" });
+        if (navigator.canShare({ files: [file] })) return navigator.share({ files: [file], title: name.replace(/\.jpg$/, "").replace(/-/g, " ") });
+      }
+      var url = URL.createObjectURL(b);
+      viaLink(url);
+      setTimeout(function () { URL.revokeObjectURL(url); }, 10000);
+    }).catch(function (err) {
+      if (err && err.name === "AbortError") return;
+      viaLink(c.image);
+    }).then(done, done);
   }
   document.addEventListener("click", function (ev) {
     var b = ev.target.closest && ev.target.closest("[data-view-card]");
-    if (b) openCard(b.getAttribute("data-view-card"));
+    if (b) { var c = CARDS[b.getAttribute("data-view-card")]; if (c && c.image) saveCard(c, b); }
   });
 
   /* ---------- countdown: to the guest's next dated event ---------- */
