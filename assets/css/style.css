@@ -2260,3 +2260,6 @@ body.viewer-open { overflow: hidden; }
 /* Monochrome WhatsApp mark: the bubble in the card's ink colour, the handset cut out */
 .card.wa-mono .card-rsvp a.wa-icon { color: inherit; }
 .card.wa-mono .card-rsvp a.wa-icon svg { width: .92em; height: .92em; filter: none; }
+/* Reception without the "Shahi Dawat" kicker: text block sits a little lower in the arch */
+.card.theme-palace.pp-shahi.pp-nodawat { padding-top: 45% !important; }
+.card.theme-palace.pp-shahi.pp-nodawat.full { padding-top: 43% !important; }

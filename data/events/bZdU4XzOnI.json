@@ -9,7 +9,6 @@
   "venue": "The Meadows, P. C. Chandra Garden",
   "countdownAt": "2027-01-29T18:30:00+05:30",
   "card": {
-    "heading": "Shahi Dawat",
     "names": [
       "Siddhant",
       "Seersha"
@@ -37,11 +36,11 @@
         "href": "tel:+917980611988"
       }
     ],
-    "image": "assets/cards/reception-wamono-full-Kq4Zs7.jpg",
+    "image": "assets/cards/reception-royal-full-Nd5Hq2.jpg",
     "imageName": "Seersha-Siddhant-Reception.jpg",
     "pdfName": "Seersha-Siddhant-Reception.pdf",
     "theme": "palace",
-    "variant": "pp pp-reception pp-shahi pp-sapphire wa-mono",
+    "variant": "pp pp-reception pp-shahi pp-sapphire wa-mono pp-nodawat",
     "bg": "assets/cards/reception-sapphire-bg-Wq7Mb4.webp",
     "actionsBelow": true,
     "headingScript": "The Royal Reception",
