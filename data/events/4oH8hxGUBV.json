@@ -6,7 +6,7 @@
   "lede": "Before the sacred fire, Seersha and Siddhant will be joined in marriage according to Bengali Vedic rites. Your presence and blessings would honour us.",
   "date": "Wednesday, 27 January 2027",
   "time": "6:30 PM",
-  "venue": "Orchid Banquet, Calcutta Boating & Hotel Resorts (P) Ltd., 11A/1J East Topsia Road (near Science City), Kolkata – 700046",
+  "venue": "Orchid Gardens, Calcutta Boating & Hotel Resorts (P) Ltd., 11A/1J East Topsia Road (near Science City), Kolkata – 700046",
   "countdownAt": "2027-01-27T18:30:00+05:30",
   "layout": "card",
   "card": {
@@ -19,7 +19,7 @@
     "day": "27",
     "monthYear": "January 2027",
     "time": "6:30 PM",
-    "venue": "Orchid Banquet",
+    "venue": "Orchid Gardens",
     "address": [
       "11A/1J, East Topsia Road",
       "Kolkata – 700046"
@@ -40,7 +40,7 @@
         "icon": "whatsapp"
       }
     ],
-    "image": "assets/cards/wedding-wamono-full-Kq4Zs7.jpg",
+    "image": "assets/cards/wedding-gardens-full-Rk8Ve3.jpg",
     "imageName": "Seersha-Siddhant-Wedding.jpg",
     "variant": "pp pp-wedding pp-titled pp-meld wa-mono",
     "bg": "assets/cards/wedding-paint-bg-Hn6Xs2.webp",

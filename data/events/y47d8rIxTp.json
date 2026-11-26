@@ -6,7 +6,7 @@
   "lede": "A morning blessing of turmeric, applied by loved ones to bring radiance and good fortune to the bride and groom.",
   "date": "Wednesday, 27 January 2027",
   "time": "10:30 AM",
-  "venue": "Orchid Banquet, 11A/1J East Topsia Road, Kolkata – 700046",
+  "venue": "Orchid Gardens, 11A/1J East Topsia Road, Kolkata – 700046",
   "countdownAt": "2027-01-27T10:30:00+05:30",
   "layout": "card",
   "card": {
@@ -21,7 +21,7 @@
     "day": "27",
     "monthYear": "January 2027",
     "time": "10:30 AM",
-    "venue": "Orchid Banquet",
+    "venue": "Orchid Gardens",
     "address": [
       "11A/1J, East Topsia Road",
       "Kolkata – 700046"
@@ -42,7 +42,7 @@
         "icon": "whatsapp"
       }
     ],
-    "image": "assets/cards/haldi-wamono-full-Kq4Zs7.jpg",
+    "image": "assets/cards/haldi-gardens-full-Rk8Ve3.jpg",
     "imageName": "Seersha-Siddhant-Haldi.jpg",
     "pageHide": [
       "address"
