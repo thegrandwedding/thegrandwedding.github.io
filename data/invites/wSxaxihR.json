@@ -1,0 +1,11 @@
+{
+  "group": "Gaye Holud, Wedding, Reception (no plus-one)",
+  "greeting": null,
+  "families": "data/families-CQyqCz97uv.json",
+  "events": [
+    "data/events/y47d8rIxTp.json",
+    "data/events/4oH8hxGUBV.json",
+    "data/events/bZdU4XzOnI.json"
+  ],
+  "plusOne": false
+}

@@ -38,6 +38,7 @@ Every invite comes in two versions: **with plus-one** (the R.S.V.P. form has an 
 | Varmala to Wedding | Varmala, Sangeet, Haldi, Wedding | https://thegrandwedding.github.io/?invite=1ZtLN6fx | https://thegrandwedding.github.io/?invite=g2ehra99 |
 | Varmala, Sangeet, Wedding | Varmala, Sangeet, Wedding | https://thegrandwedding.github.io/?invite=ys24rR8U | https://thegrandwedding.github.io/?invite=xujRDH50 |
 | Sangeet & Wedding | Sangeet, Wedding | https://thegrandwedding.github.io/?invite=cJc4bTMC | https://thegrandwedding.github.io/?invite=rqX3LENi |
+| Gaye Holud, Wedding, Reception | Haldi, Wedding, Reception | https://thegrandwedding.github.io/?invite=dFlCGMVW | https://thegrandwedding.github.io/?invite=wSxaxihR |
 | Everything | Mehendi, Varmala, Sangeet, Haldi, Wedding, Reception | https://thegrandwedding.github.io/?invite=nyjfC74C | https://thegrandwedding.github.io/?invite=JWvDopwI |
 | Varmala onwards | Varmala, Sangeet, Haldi, Wedding, Reception | https://thegrandwedding.github.io/?invite=rAYNyYhF | https://thegrandwedding.github.io/?invite=IudwlMbK |
 | Sangeet onwards | Sangeet, Wedding, Reception | https://thegrandwedding.github.io/?invite=QjW4MvHW | https://thegrandwedding.github.io/?invite=014oPucA |
