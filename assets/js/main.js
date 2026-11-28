@@ -73,7 +73,8 @@
       html += '<li><a href="#' + esc(e.id) + '"><span class="ws-ev">' + esc(e.title) + '</span><span class="ws-when">' + esc(shortDate(e)) + "</span></a></li>";
     });
     html += "</ol></div></article>";
-    html += '<p class="rsvp-cta"><a class="btn" href="#rsvp">R.S.V.P.</a></p></section>';
+    if (invite.rsvp !== false) html += '<p class="rsvp-cta"><a class="btn" href="#rsvp">R.S.V.P.</a></p>';
+    html += "</section>";
     return html;
   }
 
@@ -100,7 +101,7 @@
         '</span><span class="t-name">' + esc(e.title) + "</span></a></li>";
     });
     html += "</ol>";
-    html += '<p class="rsvp-cta"><a class="btn" href="#rsvp">R.S.V.P.</a></p>';
+    if (invite.rsvp !== false) html += '<p class="rsvp-cta"><a class="btn" href="#rsvp">R.S.V.P.</a></p>';
     html += "</section>";
     return html;
   }
@@ -1945,21 +1946,23 @@
     events.forEach(function (e) {
       tabs += '<a href="#' + esc(e.id) + '" role="tab" data-tab="' + esc(e.id) + '">' + esc(e.title) + "</a>";
     });
-    tabs += '<a href="#rsvp" role="tab" data-tab="rsvp">R.S.V.P.</a>';
+    // An invite with "rsvp": false has no R.S.V.P. tab, form or buttons.
+    var withRsvp = invite.rsvp !== false;
+    if (withRsvp) tabs += '<a href="#rsvp" role="tab" data-tab="rsvp">R.S.V.P.</a>';
     tabsEl.innerHTML = tabs;
 
     var panels = renderWelcome(invite, families, events);
     events.forEach(function (e) { panels += e.layout === "card" ? renderCard(e) : renderStandard(e); });
-    panels += renderRsvp(events, invite.plusOne !== false);
+    if (withRsvp) panels += renderRsvp(events, invite.plusOne !== false);
     loading.insertAdjacentHTML("beforebegin", panels);
-    setupRsvp(events);
+    if (withRsvp) setupRsvp(events);
 
     loading.hidden = true;
     nav.hidden = false;
     document.body.classList.remove("is-loading");
     startCountdown(events);
     syncOffset();
-    setupTabs(["home"].concat(events.map(function (e) { return e.id; })).concat(["rsvp"]));
+    setupTabs(["home"].concat(events.map(function (e) { return e.id; })).concat(withRsvp ? ["rsvp"] : []));
   }
 
   /* ---------- boot ---------- */

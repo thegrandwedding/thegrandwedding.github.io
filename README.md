@@ -30,20 +30,20 @@ uninvited events, family details and phone numbers never reach anyone without a 
 
 ### Current invite links
 
-Every invite comes in two versions: **with plus-one** (the R.S.V.P. form has an "I will be bringing a plus-one" box) and **no plus-one** (the box is hidden).
+Every invite comes in three versions: **with plus-one** (the R.S.V.P. form has an "I will be bringing a plus-one" box), **no plus-one** (the box is hidden) and **no R.S.V.P.** (no R.S.V.P. tab, form or button; the cards still show the R.S.V.P. phone numbers).
 
-| Group | Events | With plus-one | No plus-one |
-|---|---|---|---|
-| Mehendi to Wedding | Mehendi, Varmala, Sangeet, Haldi, Wedding | https://thegrandwedding.github.io/?invite=wrLqlpHU | https://thegrandwedding.github.io/?invite=6MCzXY20 |
-| Varmala to Wedding | Varmala, Sangeet, Haldi, Wedding | https://thegrandwedding.github.io/?invite=1ZtLN6fx | https://thegrandwedding.github.io/?invite=g2ehra99 |
-| Varmala, Sangeet, Wedding | Varmala, Sangeet, Wedding | https://thegrandwedding.github.io/?invite=ys24rR8U | https://thegrandwedding.github.io/?invite=xujRDH50 |
-| Sangeet & Wedding | Sangeet, Wedding | https://thegrandwedding.github.io/?invite=cJc4bTMC | https://thegrandwedding.github.io/?invite=rqX3LENi |
-| Gaye Holud, Wedding, Reception | Haldi, Wedding, Reception | https://thegrandwedding.github.io/?invite=dFlCGMVW | https://thegrandwedding.github.io/?invite=wSxaxihR |
-| Everything | Mehendi, Varmala, Sangeet, Haldi, Wedding, Reception | https://thegrandwedding.github.io/?invite=nyjfC74C | https://thegrandwedding.github.io/?invite=JWvDopwI |
-| Varmala onwards | Varmala, Sangeet, Haldi, Wedding, Reception | https://thegrandwedding.github.io/?invite=rAYNyYhF | https://thegrandwedding.github.io/?invite=IudwlMbK |
-| Sangeet onwards | Sangeet, Wedding, Reception | https://thegrandwedding.github.io/?invite=QjW4MvHW | https://thegrandwedding.github.io/?invite=014oPucA |
-| Wedding & Reception | Wedding, Reception | https://thegrandwedding.github.io/?invite=TiPpV4tp | https://thegrandwedding.github.io/?invite=Lwi0HwMW |
-| Reception only | Reception | https://thegrandwedding.github.io/?invite=IzKg8MW7 | https://thegrandwedding.github.io/?invite=nJCwafub |
+| Group | Events | With plus-one | No plus-one | No R.S.V.P. |
+|---|---|---|---|---|
+| Mehendi to Wedding | Mehendi, Varmala, Sangeet, Haldi, Wedding | https://thegrandwedding.github.io/?invite=wrLqlpHU | https://thegrandwedding.github.io/?invite=6MCzXY20 | https://thegrandwedding.github.io/?invite=xGF752Mr |
+| Varmala to Wedding | Varmala, Sangeet, Haldi, Wedding | https://thegrandwedding.github.io/?invite=1ZtLN6fx | https://thegrandwedding.github.io/?invite=g2ehra99 | https://thegrandwedding.github.io/?invite=3uoBzqgh |
+| Varmala, Sangeet, Wedding | Varmala, Sangeet, Wedding | https://thegrandwedding.github.io/?invite=ys24rR8U | https://thegrandwedding.github.io/?invite=xujRDH50 | https://thegrandwedding.github.io/?invite=jOWXroLA |
+| Sangeet & Wedding | Sangeet, Wedding | https://thegrandwedding.github.io/?invite=cJc4bTMC | https://thegrandwedding.github.io/?invite=rqX3LENi | https://thegrandwedding.github.io/?invite=UmDSSD2K |
+| Gaye Holud, Wedding, Reception | Haldi, Wedding, Reception | https://thegrandwedding.github.io/?invite=dFlCGMVW | https://thegrandwedding.github.io/?invite=wSxaxihR | https://thegrandwedding.github.io/?invite=6swwctLX |
+| Everything | Mehendi, Varmala, Sangeet, Haldi, Wedding, Reception | https://thegrandwedding.github.io/?invite=nyjfC74C | https://thegrandwedding.github.io/?invite=JWvDopwI | https://thegrandwedding.github.io/?invite=4j1fFzC2 |
+| Varmala onwards | Varmala, Sangeet, Haldi, Wedding, Reception | https://thegrandwedding.github.io/?invite=rAYNyYhF | https://thegrandwedding.github.io/?invite=IudwlMbK | https://thegrandwedding.github.io/?invite=CUwQJsKx |
+| Sangeet onwards | Sangeet, Wedding, Reception | https://thegrandwedding.github.io/?invite=QjW4MvHW | https://thegrandwedding.github.io/?invite=014oPucA | https://thegrandwedding.github.io/?invite=lq8X4fRP |
+| Wedding & Reception | Wedding, Reception | https://thegrandwedding.github.io/?invite=TiPpV4tp | https://thegrandwedding.github.io/?invite=Lwi0HwMW | https://thegrandwedding.github.io/?invite=Teev1Tt2 |
+| Reception only | Reception | https://thegrandwedding.github.io/?invite=IzKg8MW7 | https://thegrandwedding.github.io/?invite=nJCwafub | https://thegrandwedding.github.io/?invite=GYBw1JqO |
 
 Individual tabs can be linked by adding `#<event>`, e.g. `…?invite=TiPpV4tp#reception`.
 

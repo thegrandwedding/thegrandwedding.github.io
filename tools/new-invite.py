@@ -2,7 +2,7 @@
 """Create a new invitation link for a group of guests.
 
 Usage:
-    python3 tools/new-invite.py "Group name" EVENT [EVENT ...] [--greeting "Dear ..."] [--no-plus-one]
+    python3 tools/new-invite.py "Group name" EVENT [EVENT ...] [--greeting "Dear ..."] [--no-plus-one] [--no-rsvp]
 
 EVENT is one of the event ids found in data/events/*.json:
     mehendi, sangeet, haldi, varmala, wedding, reception  (or "all")
@@ -41,6 +41,7 @@ def main():
     p.add_argument("--greeting", help="Optional line shown on the Welcome tab, e.g. 'Dear Sharma family'")
     p.add_argument("--no-families", action="store_true", help="Do not show parents' names")
     p.add_argument("--no-plus-one", action="store_true", help="Hide the plus-one option on the R.S.V.P. form")
+    p.add_argument("--no-rsvp", action="store_true", help="No R.S.V.P. tab, form or buttons (cards keep their phone numbers)")
     args = p.parse_args()
 
     known = load_events()
@@ -65,8 +66,10 @@ def main():
         "families": None if args.no_families or not FAMILIES else FAMILIES.relative_to(ROOT).as_posix(),
         "events": [known[e][1] for e in wanted],
     }
-    if args.no_plus_one:
+    if args.no_plus_one or args.no_rsvp:
         invite["plusOne"] = False
+    if args.no_rsvp:
+        invite["rsvp"] = False
     out.write_text(json.dumps(invite, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
     print(f"Created {out.relative_to(ROOT)}  ({args.group}: {', '.join(wanted)})")
